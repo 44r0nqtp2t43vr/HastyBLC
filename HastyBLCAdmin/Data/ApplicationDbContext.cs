@@ -1,4 +1,4 @@
-﻿using HastyBLCAdmin.Models;
+﻿using HastyBLC.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace HastyBLCAdmin.Data
@@ -9,7 +9,7 @@ namespace HastyBLCAdmin.Data
         {
 
         }
-        public DbSet<Models.Attribute> Attributes { get; set; }
+        public DbSet<HastyBLC.Models.Attribute> Attributes { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<BookGenre> BookGenres { get; set; }
