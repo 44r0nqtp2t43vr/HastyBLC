@@ -28,3 +28,5 @@ D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\HastyBLCAdmin\ob
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\HastyBLCAdmin\obj\Debug\net7.0\HastyBLCAdmin.pdb
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\HastyBLCAdmin\obj\Debug\net7.0\HastyBLCAdmin.genruntimeconfig.cache
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\HastyBLCAdmin\obj\Debug\net7.0\ref\HastyBLCAdmin.dll
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\HastyBLCAdmin\obj\Debug\net7.0\HastyBLCAdmin.csproj.AssemblyReference.cache
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\HastyBLCAdmin\obj\Debug\net7.0\HastyBLCAdmin.MvcApplicationPartsAssemblyInfo.cs
