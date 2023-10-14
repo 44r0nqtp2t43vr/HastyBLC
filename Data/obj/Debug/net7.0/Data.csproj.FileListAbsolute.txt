@@ -1,0 +1,5 @@
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Data\obj\Debug\net7.0\Data.csproj.AssemblyReference.cache
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Data\obj\Debug\net7.0\Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Data\obj\Debug\net7.0\Data.AssemblyInfoInputs.cache
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Data\obj\Debug\net7.0\Data.AssemblyInfo.cs
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Data\obj\Debug\net7.0\Data.csproj.CoreCompileInputs.cache

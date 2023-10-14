@@ -1,34 +1,40 @@
-using Data.Data;
-using Microsoft.EntityFrameworkCore;
+using System.IO;
+using Data;
+using HastyBLCAdmin;
+using HastyBLCAdmin.Extensions.Configuration;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
-var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+var appBuilder = WebApplication.CreateBuilder(new WebApplicationOptions
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    ContentRootPath = Directory.GetCurrentDirectory(),
 });
 
-var app = builder.Build();
+appBuilder.Configuration.AddJsonFile("appsettings.json",
+    optional: true,
+    reloadOnChange: true);
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
+appBuilder.WebHost.UseIISIntegration();
 
-app.UseHttpsRedirection();
-app.UseStaticFiles();
+appBuilder.Logging
+    .AddConfiguration(appBuilder.Configuration.GetLoggingSection())
+    .AddConsole()
+    .AddDebug();
 
-app.UseRouting();
+var configurer = new StartupConfigurer(appBuilder.Configuration);
+configurer.ConfigureServices(appBuilder.Services);
 
-app.UseAuthorization();
+var app = appBuilder.Build();
+
+configurer.ConfigureApp(app, app.Environment);
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Account}/{action=Login}");
+app.MapControllers();
+app.MapRazorPages();
 
+// Run application
 app.Run();

@@ -59,5 +59,82 @@ namespace Resources.Views {
                 resourceCulture = value;
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to ©2023 Alliance Software Inc. All rights reserved..
+        /// </summary>
+        public static string Copyright
+        {
+            get
+            {
+                return ResourceManager.GetString("Copyright", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Create new.
+        /// </summary>
+        public static string CreateNew
+        {
+            get
+            {
+                return ResourceManager.GetString("CreateNew", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Don&apos;t have an account?.
+        /// </summary>
+        public static string DontHaveAcc
+        {
+            get
+            {
+                return ResourceManager.GetString("DontHaveAcc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Forgot password?.
+        /// </summary>
+        public static string ForgotPass
+        {
+            get
+            {
+                return ResourceManager.GetString("ForgotPass", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string Login
+        {
+            get
+            {
+                return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string Password
+        {
+            get
+            {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to UserId.
+        /// </summary>
+        public static string UserId
+        {
+            get
+            {
+                return ResourceManager.GetString("UserId", resourceCulture);
+            }
+        }
     }
 }
