@@ -21,9 +21,9 @@ namespace Data.Repositories
             return this.GetDbSet<User>();
         }
 
-        public bool UserExists(int userId)
+        public bool UserExists(string userId)
         {
-            return this.GetDbSet<User>().Any(x => x.UserId == userId);
+            return this.GetDbSet<User>().Any(x => x.Email == userId);
         }
 
         public void AddUser(User user)

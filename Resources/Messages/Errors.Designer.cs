@@ -59,5 +59,27 @@ namespace Resources.Messages {
                 resourceCulture = value;
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Server error occured!.
+        /// </summary>
+        public static string ServerError
+        {
+            get
+            {
+                return ResourceManager.GetString("ServerError", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to UserId already exists!.
+        /// </summary>
+        public static string UserExists
+        {
+            get
+            {
+                return ResourceManager.GetString("UserExists", resourceCulture);
+            }
+        }
     }
 }

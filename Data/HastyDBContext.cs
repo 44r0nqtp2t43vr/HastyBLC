@@ -73,6 +73,9 @@ namespace Data
             // User
             modelBuilder.Entity<User>(entity =>
             {
+                entity.HasIndex(e => e.Email, "UQ__Users__1788CC4D5F4A160F")
+                    .IsUnique();
+
                 // Define a foreign key to the Role entity
                 entity.HasOne(d => d.Role) // User has one Role
                     .WithMany(p => p.Users)     // Role has many Users
