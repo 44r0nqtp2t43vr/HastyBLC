@@ -1,8 +1,8 @@
-﻿using HastyBLC.Models;
+﻿using Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace HastyBLC.Controllers
+namespace Data.Controllers
 {
     public class HomeController : Controller
     {

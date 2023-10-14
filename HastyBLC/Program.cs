@@ -1,4 +1,4 @@
-using HastyBLC.Data;
+using Data.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,7 +1,7 @@
-﻿using HastyBLC.Models;
+﻿using Data.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace HastyBLC.Data
+namespace Data.Data
 {
     public class ApplicationDbContext : DbContext
     {

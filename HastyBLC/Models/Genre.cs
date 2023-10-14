@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace HastyBLC.Models
+namespace Data.Models
 {
     public class Genre
     {

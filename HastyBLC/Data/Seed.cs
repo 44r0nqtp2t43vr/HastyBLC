@@ -1,6 +1,6 @@
-﻿using HastyBLC.Models;
+﻿using Data.Models;
 
-namespace HastyBLC.Data
+namespace Data.Data
 {
     public class Seed
     {
