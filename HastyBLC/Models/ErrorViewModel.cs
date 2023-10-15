@@ -1,4 +1,4 @@
-namespace Data.Models
+namespace HastyBLC.Models
 {
     public class ErrorViewModel
     {

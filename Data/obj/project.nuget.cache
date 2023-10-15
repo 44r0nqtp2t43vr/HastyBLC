@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SeNDYmPGvjeRDiUf0Rv0J+Rfa0zMOD6R+SmxGX1VFMOAxNy1TlZqtsNq+BzeoMalPmuTwyb64YvcnlH0Epb51w==",
+  "dgSpecHash": "tjaJs5/vASDp0vnDbHBvny2CJ4RSy5OU/km7wU+gLRbRkqZgJwDQFT+8TPC3VqMU0dmBcyTHFKhMaXECDR3kEw==",
   "success": true,
   "projectFilePath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Data\\Data.csproj",
   "expectedPackageFiles": [
@@ -13,6 +13,8 @@
     "C:\\Users\\Aaron\\.nuget\\packages\\entityframeworkcore.sqlserver.hierarchyid.abstractions\\4.0.0\\entityframeworkcore.sqlserver.hierarchyid.abstractions.4.0.0.nupkg.sha512",
     "C:\\Users\\Aaron\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Aaron\\.nuget\\packages\\medalliontopologicalsort\\1.0.0\\medalliontopologicalsort.1.0.0.nupkg.sha512",
+    "C:\\Users\\Aaron\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\Aaron\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\Aaron\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Aaron\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Aaron\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.1\\microsoft.data.sqlclient.5.1.1.nupkg.sha512",

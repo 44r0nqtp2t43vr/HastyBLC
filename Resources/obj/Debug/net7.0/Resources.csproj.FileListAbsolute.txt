@@ -1,3 +1,6 @@
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Resources\bin\Debug\net7.0\Resources.deps.json
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Resources\bin\Debug\net7.0\Resources.dll
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Resources\bin\Debug\net7.0\Resources.pdb
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Resources\obj\Debug\net7.0\Resources.Messages.Common.resources
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Resources\obj\Debug\net7.0\Resources.Messages.Errors.resources
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Resources\obj\Debug\net7.0\Resources.Views.Account.resources
@@ -10,3 +13,7 @@ D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Resources\obj\De
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Resources\obj\Debug\net7.0\Resources.AssemblyInfoInputs.cache
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Resources\obj\Debug\net7.0\Resources.AssemblyInfo.cs
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Resources\obj\Debug\net7.0\Resources.csproj.CoreCompileInputs.cache
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Resources\obj\Debug\net7.0\Resources.dll
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Resources\obj\Debug\net7.0\refint\Resources.dll
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Resources\obj\Debug\net7.0\Resources.pdb
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Resources\obj\Debug\net7.0\ref\Resources.dll

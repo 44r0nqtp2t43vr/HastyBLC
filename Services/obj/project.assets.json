@@ -1742,6 +1742,7 @@
         "dependencies": {
           "CsvHelper": "30.0.1",
           "EFCore.BulkExtensions": "7.1.6",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "Microsoft.EntityFrameworkCore": "7.0.12",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.12",
           "Microsoft.Extensions.Configuration.Binder": "7.0.4",

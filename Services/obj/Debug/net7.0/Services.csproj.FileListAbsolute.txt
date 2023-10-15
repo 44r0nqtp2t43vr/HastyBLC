@@ -1,5 +1,17 @@
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\bin\Debug\net7.0\Services.deps.json
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\bin\Debug\net7.0\Services.dll
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\bin\Debug\net7.0\Services.pdb
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\bin\Debug\net7.0\Data.dll
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\bin\Debug\net7.0\Resources.dll
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\bin\Debug\net7.0\Data.pdb
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\bin\Debug\net7.0\Resources.pdb
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\obj\Debug\net7.0\Services.csproj.AssemblyReference.cache
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\obj\Debug\net7.0\Services.GeneratedMSBuildEditorConfig.editorconfig
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\obj\Debug\net7.0\Services.AssemblyInfoInputs.cache
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\obj\Debug\net7.0\Services.AssemblyInfo.cs
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\obj\Debug\net7.0\Services.csproj.CoreCompileInputs.cache
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\obj\Debug\net7.0\Services.csproj.CopyComplete
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\obj\Debug\net7.0\Services.dll
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\obj\Debug\net7.0\refint\Services.dll
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\obj\Debug\net7.0\Services.pdb
+D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\obj\Debug\net7.0\ref\Services.dll
