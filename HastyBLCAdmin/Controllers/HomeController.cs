@@ -8,6 +8,9 @@ using Data;
 using Data.Models;
 using HastyBLCAdmin.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using Services.ServiceModels;
+using Services.Interfaces;
 
 namespace HastyBLCAdmin.Controllers
 {
@@ -17,6 +20,7 @@ namespace HastyBLCAdmin.Controllers
     public class HomeController : ControllerBase<HomeController>
     {
         private readonly HastyDBContext _context;
+        private readonly IBookService _bookService;
         /// <summary>
         /// Constructor
         /// </summary>
@@ -29,9 +33,11 @@ namespace HastyBLCAdmin.Controllers
                               IHttpContextAccessor httpContextAccessor,
                               ILoggerFactory loggerFactory,
                               IConfiguration configuration,
+                              IBookService bookService,
                               IMapper? mapper = null) : base(httpContextAccessor, loggerFactory, configuration, mapper)
         {
             _context = context;
+            this._bookService = bookService;
         }
 
         /// <summary>
@@ -45,7 +51,7 @@ namespace HastyBLCAdmin.Controllers
                 .Include(book => book.Author)
                 .Include(book => book.BookGenres)!
                     .ThenInclude(bookGenre => bookGenre.Genre)
-                .Select(book => new BookViewModel
+                .Select(book => new Models.BookViewModel
                 {
                     BookId = book.BookId,
                     Title = book.Title,
@@ -68,6 +74,33 @@ namespace HastyBLCAdmin.Controllers
             var viewModel = new BookListViewModel { Books = books };
 
             return View(viewModel);
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult AddBook()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult AddBook(Services.ServiceModels.BookViewModel model)
+        {
+            try
+            {
+                _bookService.AddBook(model);
+                return RedirectToAction("Index", "Home");
+            }
+            catch (InvalidDataException ex)
+            {
+                TempData["ErrorMessage"] = ex.Message;
+            }
+            catch (Exception)
+            {
+                TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
+            }
+            return View();
         }
     }
 }

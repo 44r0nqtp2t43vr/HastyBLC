@@ -81,5 +81,16 @@ namespace Resources.Messages {
                 return ResourceManager.GetString("UserExists", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Book ISBN already exists!.
+        /// </summary>
+        public static string BookExists
+        {
+            get
+            {
+                return ResourceManager.GetString("BookExists", resourceCulture);
+            }
+        }
     }
 }
