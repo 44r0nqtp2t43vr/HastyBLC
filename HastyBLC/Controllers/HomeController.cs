@@ -1,32 +1,40 @@
-﻿using HastyBLC.Models;
+﻿using HastyBLC.Mvc;
+using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace HastyBLC.Controllers
 {
-    public class HomeController : Controller
+    /// <summary>
+    /// Home Controller
+    /// </summary>
+    public class HomeController : ControllerBase<HomeController>
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="httpContextAccessor"></param>
+        /// <param name="loggerFactory"></param>
+        /// <param name="configuration"></param>
+        /// <param name="localizer"></param>
+        /// <param name="mapper"></param>
+        public HomeController(IHttpContextAccessor httpContextAccessor,
+                              ILoggerFactory loggerFactory,
+                              IConfiguration configuration,
+                              IMapper? mapper = null) : base(httpContextAccessor, loggerFactory, configuration, mapper)
         {
-            _logger = logger;
+
         }
 
+        /// <summary>
+        /// Returns Home View.
+        /// </summary>
+        /// <returns> Home View </returns>
         public IActionResult Index()
         {
             return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
