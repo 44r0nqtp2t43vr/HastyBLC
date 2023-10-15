@@ -1,8 +1,12 @@
-﻿using Data.Models;
+﻿using Data;
+using Data.Models;
+using Services.Manager;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using System.Security.Cryptography;
+using System.Text;
 
-namespace Data
+namespace HastyBLCAdmin
 {
     public class Seed
     {
@@ -23,85 +27,71 @@ namespace Data
                 {
                     Name = "admin"
                 };
+                var role3 = new Role()
+                {
+                    Name = "superadmin"
+                };
                 if (!context!.Roles.Any())
                 {
                     context.Roles.AddRange(new List<Role>()
                     {
                         role1,
-                        role2
+                        role2,
+                        role3
                     });
                     context.SaveChanges();
                 }
 
                 // Attributes
-                var attribute1 = new Models.Attribute()
-                {
-                    Name = "HasPrivilege",
-                    Type = "bool"
-                };
-                if (!context!.Attributes.Any())
-                {
-                    context.Attributes.AddRange(new List<Models.Attribute>()
-                    {
-                        attribute1
-                    });
-                    context.SaveChanges();
-                }
 
                 // RoleAttributes
-                var roleattribute1 = new Models.RoleAttribute()
-                {
-                    Role = role2,
-                    Attribute = attribute1
-                };
-                if (!context!.RoleAttributes.Any())
-                {
-                    context.RoleAttributes.AddRange(new List<RoleAttribute>()
-                    {
-                        roleattribute1
-                    });
-                    context.SaveChanges();
-                }
 
                 // Users
                 var user1 = new User()
                 {
                     Role = role1,
                     Username = "hastyuser",
-                    Password = "hastyuser123",
-                    Email = "hastyuser@gmail.com"
+                    Password = PasswordManager.EncryptPassword("hastyuser123"),
+                    Email = "hastyuser@gmail.com",
+                    CreatedTime = DateTime.Now,
+                    UpdatedTime = DateTime.Now,
+                    CreatedBy = System.Environment.UserName,
+                    UpdatedBy = System.Environment.UserName
                 };
                 var user2 = new User()
                 {
                     Role = role2,
                     Username = "hastyadmin",
-                    Password = "hastyadmin123",
-                    Email = "hastyadmin@gmail.com"
+                    Password = PasswordManager.EncryptPassword("hastyadmin123"),
+                    Email = "hastyadmin@gmail.com",
+                    CreatedTime = DateTime.Now,
+                    UpdatedTime = DateTime.Now,
+                    CreatedBy = System.Environment.UserName,
+                    UpdatedBy = System.Environment.UserName
+                };
+                var user3 = new User()
+                {
+                    Role = role3,
+                    Username = "hastysuperadmin",
+                    Password = PasswordManager.EncryptPassword("hastysuperadmin123"),
+                    Email = "hastysuperadmin@gmail.com",
+                    CreatedTime = DateTime.Now,
+                    UpdatedTime = DateTime.Now,
+                    CreatedBy = System.Environment.UserName,
+                    UpdatedBy = System.Environment.UserName
                 };
                 if (!context!.Users.Any())
                 {
                     context.Users.AddRange(new List<User>()
                     {
                         user1,
-                        user2
+                        user2,
+                        user3
                     });
                     context.SaveChanges();
                 }
 
                 // UserRoleAttributes
-                if (!context!.UserRoleAttributes.Any())
-                {
-                    context.UserRoleAttributes.AddRange(new List<UserRoleAttribute>()
-                    {
-                        new UserRoleAttribute()
-                        {
-                            User = user2,
-                            RoleAttribute = roleattribute1,
-                            Value = "True"
-                        }
-                    });
-                    context.SaveChanges();
-                }
 
                 // Authors
                 var author1 = new Author()
@@ -120,23 +110,43 @@ namespace Data
                 // Genres
                 var genre1 = new Genre()
                 {
-                    Name = "Romance"
+                    Name = "Romance",
+                    CreatedTime = DateTime.Now,
+                    UpdatedTime = DateTime.Now,
+                    CreatedBy = System.Environment.UserName,
+                    UpdatedBy = System.Environment.UserName
                 };
                 var genre2 = new Genre()
                 {
-                    Name = "Contemporary"
+                    Name = "Contemporary",
+                    CreatedTime = DateTime.Now,
+                    UpdatedTime = DateTime.Now,
+                    CreatedBy = System.Environment.UserName,
+                    UpdatedBy = System.Environment.UserName
                 };
                 var genre3 = new Genre()
                 {
-                    Name = "Sports Romance"
+                    Name = "Sports Romance",
+                    CreatedTime = DateTime.Now,
+                    UpdatedTime = DateTime.Now,
+                    CreatedBy = System.Environment.UserName,
+                    UpdatedBy = System.Environment.UserName
                 };
                 var genre4 = new Genre()
                 {
-                    Name = "Sports"
+                    Name = "Sports",
+                    CreatedTime = DateTime.Now,
+                    UpdatedTime = DateTime.Now,
+                    CreatedBy = System.Environment.UserName,
+                    UpdatedBy = System.Environment.UserName
                 };
                 var genre5 = new Genre()
                 {
-                    Name = "Contemporary Romance"
+                    Name = "Contemporary Romance",
+                    CreatedTime = DateTime.Now,
+                    UpdatedTime = DateTime.Now,
+                    CreatedBy = System.Environment.UserName,
+                    UpdatedBy = System.Environment.UserName
                 };
                 if (!context!.Genres.Any())
                 {
@@ -163,7 +173,11 @@ namespace Data
                     Isbn = "9781668011300",
                     Language = "English",
                     Format = "Paperback",
-                    Pages = 384
+                    Pages = 384,
+                    CreatedTime = DateTime.Now,
+                    UpdatedTime = DateTime.Now,
+                    CreatedBy = System.Environment.UserName,
+                    UpdatedBy = System.Environment.UserName
                 };
                 if (!context!.Books.Any())
                 {
@@ -218,7 +232,11 @@ namespace Data
                 {
                     User = user1,
                     Book = book1,
-                    Value = 5
+                    Value = 5,
+                    CreatedTime = DateTime.Now,
+                    UpdatedTime = DateTime.Now,
+                    CreatedBy = System.Environment.UserName,
+                    UpdatedBy = System.Environment.UserName
                 };
                 if (!context!.Ratings.Any())
                 {
@@ -233,7 +251,11 @@ namespace Data
                 var review1 = new Review()
                 {
                     Rating = rating1,
-                    Description = "Very nice book"
+                    Description = "Very nice book",
+                    CreatedTime = DateTime.Now,
+                    UpdatedTime = DateTime.Now,
+                    CreatedBy = System.Environment.UserName,
+                    UpdatedBy = System.Environment.UserName
                 };
                 if (!context!.Reviews.Any())
                 {
@@ -249,7 +271,11 @@ namespace Data
                 {
                     User = user1,
                     Review = review1,
-                    Description = "Very nice review"
+                    Description = "Very nice review",
+                    CreatedTime = DateTime.Now,
+                    UpdatedTime = DateTime.Now,
+                    CreatedBy = System.Environment.UserName,
+                    UpdatedBy = System.Environment.UserName
                 };
                 if (!context!.Comments.Any())
                 {
@@ -261,5 +287,8 @@ namespace Data
                 }
             }
         }
+
     }
 }
+
+
