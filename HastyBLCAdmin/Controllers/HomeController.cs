@@ -1,32 +1,106 @@
-﻿using HastyBLCAdmin.Models;
+﻿using HastyBLCAdmin.Mvc;
+using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Data;
+using Data.Models;
+using HastyBLCAdmin.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using Services.ServiceModels;
+using Services.Interfaces;
 
 namespace HastyBLCAdmin.Controllers
 {
-    public class HomeController : Controller
+    /// <summary>
+    /// Home Controller
+    /// </summary>
+    public class HomeController : ControllerBase<HomeController>
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly HastyDBContext _context;
+        private readonly IBookService _bookService;
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="httpContextAccessor"></param>
+        /// <param name="loggerFactory"></param>
+        /// <param name="configuration"></param>
+        /// <param name="localizer"></param>
+        /// <param name="mapper"></param>
+        public HomeController(HastyDBContext context,
+                              IHttpContextAccessor httpContextAccessor,
+                              ILoggerFactory loggerFactory,
+                              IConfiguration configuration,
+                              IBookService bookService,
+                              IMapper? mapper = null) : base(httpContextAccessor, loggerFactory, configuration, mapper)
         {
-            _logger = logger;
+            _context = context;
+            this._bookService = bookService;
         }
 
+        /// <summary>
+        /// Returns Home View.
+        /// </summary>
+        /// <returns> Home View </returns>
         public IActionResult Index()
         {
-            return View();
+            // Query all books from the database
+            var books = _context.Books
+                .Include(book => book.Author)
+                .Include(book => book.BookGenres)!
+                    .ThenInclude(bookGenre => bookGenre.Genre)
+                .Select(book => new Models.BookViewModel
+                {
+                    BookId = book.BookId,
+                    Title = book.Title,
+                    Description = book.Description,
+                    Image = book.Image,
+                    PublishDate = book.PublishDate,
+                    Publisher = book.Publisher,
+                    Isbn = book.Isbn,
+                    Language = book.Language,
+                    Format = book.Format,
+                    Pages = book.Pages,
+                    CreatedBy = book.CreatedBy,
+                    CreatedTime = book.CreatedTime,
+                    UpdatedBy = book.UpdatedBy,
+                    UpdatedTime = book.UpdatedTime,
+                    AuthorName = book.Author!.Name,
+                    Genres = book.BookGenres!.Select(bookGenre => bookGenre.Genre!.Name).ToList()!,
+                })
+                .ToList();
+            var viewModel = new BookListViewModel { Books = books };
+
+            return View(viewModel);
         }
 
-        public IActionResult Privacy()
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult AddBook()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult AddBook(Services.ServiceModels.BookViewModel model)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            try
+            {
+                _bookService.AddBook(model);
+                return RedirectToAction("Index", "Home");
+            }
+            catch (InvalidDataException ex)
+            {
+                TempData["ErrorMessage"] = ex.Message;
+            }
+            catch (Exception)
+            {
+                TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
+            }
+            return View();
         }
     }
 }
