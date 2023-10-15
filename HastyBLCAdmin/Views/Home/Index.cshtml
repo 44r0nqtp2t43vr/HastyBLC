@@ -1,8 +1,20 @@
-﻿@{
+﻿@model BookListViewModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h2>Books List</h2>
+    @foreach (var book in Model.Books!)
+    {
+        <h2>@book.Title</h2>
+        <ul>
+            <li>@book.AuthorName</li>
+            <li>@book.PublishDate</li>
+            <li>@string.Join(", ", book.Genres!)</li>
+        </ul>
+    }
 </div>

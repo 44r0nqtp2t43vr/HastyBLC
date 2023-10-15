@@ -1,4 +1,5 @@
-﻿using Data.Interfaces;
+﻿using Data;
+using Data.Interfaces;
 using Data.Models;
 using Services.Interfaces;
 using Services.Manager;
@@ -14,13 +15,15 @@ namespace Services.Services
 {
     public class UserService : IUserService
     {
+        private readonly HastyDBContext _dbContext;
         private readonly IUserRepository _repository;
         private readonly IMapper _mapper;
 
-        public UserService(IUserRepository repository, IMapper mapper)
+        public UserService(IUserRepository repository, IMapper mapper, HastyDBContext dbContext)
         {
             _mapper = mapper;
             _repository = repository;
+            _dbContext = dbContext;
         }
 
         public LoginResult AuthenticateUser(string userId, string password, ref User user)
@@ -38,7 +41,14 @@ namespace Services.Services
             var user = new User();
             if (!_repository.UserExists(model.Email!))
             {
+                var adminRole = _dbContext.Roles.FirstOrDefault(x => x.Name == "admin");
+                if (adminRole == null)
+                {
+                    throw new InvalidDataException(Resources.Messages.Errors.ServerError);
+                }
+
                 _mapper.Map(model, user);
+                user.Role = adminRole!;
                 user.Password = PasswordManager.EncryptPassword(model.Password!);
                 user.CreatedTime = DateTime.Now;
                 user.UpdatedTime = DateTime.Now;
