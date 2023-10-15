@@ -31,12 +31,12 @@ namespace HastyBLC.Models
         /// <summary>
         /// Select dropdown item label
         /// </summary>
-        public string Label { get; set; }
+        public string? Label { get; set; }
         /// <summary>
         /// Select dropdown item value
         /// </summary>
-        public string Value { get; set; }
+        public string? Value { get; set; }
 
-        public string BgColor { get; set; }
+        public string? BgColor { get; set; }
     }
 }

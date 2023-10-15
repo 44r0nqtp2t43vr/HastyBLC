@@ -17,7 +17,7 @@ namespace HastyBLC.Extensions.Configuration
         public static string GetSetupRootDirectoryPath(this IConfiguration configuration)
         {
             return configuration.GetSection("Common")
-                                .GetValue<string>("SetupRoot");
+                                .GetValue<string>("SetupRoot")!;
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace HastyBLC.Extensions.Configuration
         public static string GetCsvOutputFolderPath(this IConfiguration configuration)
         {
             return configuration.GetSection("Common")
-                                .GetValue<string>("CsvOutputFolderPath");
+                                .GetValue<string>("CsvOutputFolderPath")!;
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace HastyBLC.Extensions.Configuration
         public static string GetCsvImportBackupPath(this IConfiguration configuration)
         {
             return configuration.GetSection("Common")
-                               .GetValue<string>("CsvImportBackupPath");
+                               .GetValue<string>("CsvImportBackupPath")!;
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace HastyBLC.Extensions.Configuration
         public static string GetLogFileSize(this IConfiguration configuration)
         {
             return configuration.GetSection("Common")
-                                .GetValue<string>("LogFileSize");
+                                .GetValue<string>("LogFileSize")!;
         }
 
         /// <summary>
@@ -84,11 +84,11 @@ namespace HastyBLC.Extensions.Configuration
         {
             return new TokenAuthentication()
             {
-                SecretKey = configuration.GetSection("TokenAuthentication:SecretKey").Value,
-                Audience = configuration.GetSection("TokenAuthentication:Audience").Value,
-                TokenPath = configuration.GetSection("TokenAuthentication:TokenPath").Value,
-                CookieName = configuration.GetSection("TokenAuthentication:CookieName").Value,
-                ExpirationMinutes = int.Parse(configuration.GetSection("TokenAuthentication:ExpirationMinutes").Value)
+                SecretKey = configuration.GetSection("TokenAuthentication:SecretKey").Value!,
+                Audience = configuration.GetSection("TokenAuthentication:Audience").Value!,
+                TokenPath = configuration.GetSection("TokenAuthentication:TokenPath").Value!,
+                CookieName = configuration.GetSection("TokenAuthentication:CookieName").Value!,
+                ExpirationMinutes = int.Parse(configuration.GetSection("TokenAuthentication:ExpirationMinutes").Value!)
             };
         }
     }

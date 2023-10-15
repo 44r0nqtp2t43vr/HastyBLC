@@ -27,7 +27,7 @@ namespace HastyBLCAdmin.Mvc
         protected ILogger _logger;
 
         /// <summary>Session</summary>
-        protected ISession _session => _httpContextAccessor.HttpContext.Session;
+        protected ISession _session => _httpContextAccessor.HttpContext!.Session;
 
         /// <summary>
         /// Initializes a new instance of the ControllerBase{TController} class.
@@ -41,13 +41,13 @@ namespace HastyBLCAdmin.Mvc
                                 IHttpContextAccessor httpContextAccessor,
                                 ILoggerFactory loggerFactory,
                                 IConfiguration configuration,
-                                IMapper mapper = null)
+                                IMapper? mapper = null)
         {
             this._httpContextAccessor = httpContextAccessor;
             this._configuration = configuration;
             this._logger = loggerFactory.CreateLogger<TController>();
             this._configuration = configuration;
-            this._mapper = mapper;
+            this._mapper = mapper!;
         }
 
         /// <summary>Mapper</summary>
@@ -58,7 +58,7 @@ namespace HastyBLCAdmin.Mvc
         /// </summary>
         public string UserId
         {
-            get { return User.FindFirst(ClaimTypes.NameIdentifier).Value; }
+            get { return User.FindFirst(ClaimTypes.NameIdentifier)!.Value; }
         }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace HastyBLCAdmin.Mvc
         /// </summary>
         public string UserName
         {
-            get { return User.Identity.Name; }
+            get { return User.Identity!.Name!; }
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace HastyBLCAdmin.Mvc
         /// </summary>
         public string Supervisor
         {
-            get { return User.FindFirst(ClaimTypes.Role).Value; }
+            get { return User.FindFirst(ClaimTypes.Role)!.Value; }
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace HastyBLCAdmin.Mvc
         /// </summary>
         public string ClientId
         {
-            get { return User.FindFirst("ClientId").Value; }
+            get { return User.FindFirst("ClientId")!.Value; }
         }
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace HastyBLCAdmin.Mvc
         /// </summary>
         public string ClientSystemId
         {
-            get { return User.FindFirst("ClientSystemId").Value; }
+            get { return User.FindFirst("ClientSystemId")!.Value; }
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace HastyBLCAdmin.Mvc
         /// </summary>
         public string ClientSystemName
         {
-            get { return User.FindFirst("ClientSystemName").Value; }
+            get { return User.FindFirst("ClientSystemName")!.Value; }
         }
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace HastyBLCAdmin.Mvc
         /// </summary>
         public string ClientUserRole
         {
-            get { return User.FindFirst("ClientUserRole").Value; }
+            get { return User.FindFirst("ClientUserRole")!.Value; }
         }
 
         /// <summary>
@@ -130,8 +130,8 @@ namespace HastyBLCAdmin.Mvc
         /// </summary>
         protected void HandleExceptionLog(Exception ex, string request)
         {
-            string controllerName = this.ControllerContext.RouteData.Values["controller"].ToString();
-            string actionMethod = this.ControllerContext.RouteData.Values["action"].ToString();
+            string controllerName = this.ControllerContext.RouteData.Values["controller"]!.ToString()!;
+            string actionMethod = this.ControllerContext.RouteData.Values["action"]!.ToString()!;
 
             StringBuilder logContent = new StringBuilder();
             logContent.AppendLine($"\n======================================== start ========================================");

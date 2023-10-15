@@ -18,7 +18,7 @@ namespace HastyBLC
                 config.AddProfile(new AutoMapperProfileConfiguration());
             });
 
-            this._services.AddSingleton<IMapper>(sp => mapperConfiguration.CreateMapper());
+            this._services!.AddSingleton<IMapper>(sp => mapperConfiguration.CreateMapper());
         }
 
         private class AutoMapperProfileConfiguration : Profile

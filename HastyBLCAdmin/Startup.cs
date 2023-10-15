@@ -37,11 +37,11 @@ namespace HastyBLCAdmin
         /// </summary>
         private IConfiguration Configuration { get; }
 
-        private IApplicationBuilder _app;
+        private IApplicationBuilder? _app;
 
-        private IWebHostEnvironment _environment;
+        private IWebHostEnvironment? _environment;
 
-        private IServiceCollection _services;
+        private IServiceCollection? _services;
 
         /// <summary>
         /// Initialize new <see cref="StartupConfigurer"/> instance using <paramref name="configuration"/>
@@ -54,7 +54,7 @@ namespace HastyBLCAdmin
             PathManager.Setup(this.Configuration.GetSetupRootDirectoryPath());
 
             var token = this.Configuration.GetTokenAuthentication();
-            this._signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(token.SecretKey));
+            this._signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(token.SecretKey!));
             this._tokenProviderOptions = TokenProviderOptionsFactory.Create(token, this._signingKey);
             this._tokenValidationParameters = new TokenValidationParameters
             {
@@ -145,7 +145,7 @@ namespace HastyBLCAdmin
 
             // Localization
             var options = this._app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
-            this._app.UseRequestLocalization(options.Value);
+            this._app.UseRequestLocalization(options!.Value);
 
             this._app.UseSession();
             this._app.UseRouting();

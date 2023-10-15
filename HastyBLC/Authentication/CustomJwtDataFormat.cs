@@ -44,8 +44,8 @@ namespace HastyBLC.Authentication
         /// <returns>
         /// An instance of AuthenticationTicket.
         /// </returns>
-        public AuthenticationTicket Unprotect(string protectedText)
-            => Unprotect(protectedText, null);
+        public AuthenticationTicket? Unprotect(string? protectedText)
+            => Unprotect(protectedText!, null);
 
         /// <summary>
         /// Unprotects the specified <paramref name="protectedText" /> using the specified <paramref name="purpose" />.
@@ -55,11 +55,11 @@ namespace HastyBLC.Authentication
         /// <returns>
         /// An instance of AuthenticationTicket.
         /// </returns>
-        public AuthenticationTicket Unprotect(string protectedText, string purpose)
+        public AuthenticationTicket? Unprotect(string? protectedText, string? purpose)
         {
             var handler = new JwtSecurityTokenHandler();
-            ClaimsPrincipal principal = null;
-            SecurityToken validToken = null;
+            ClaimsPrincipal? principal = null;
+            SecurityToken? validToken = null;
 
             try
             {
@@ -104,13 +104,13 @@ namespace HastyBLC.Authentication
         /// <param name="ticket">Ticket</param>
         /// <param name="purpose">Purpose</param>
         /// <returns>Encoded jwt token</returns>
-        public string Protect(AuthenticationTicket ticket, string purpose)
+        public string Protect(AuthenticationTicket ticket, string? purpose)
         {
             var token = _configuration.GetTokenAuthentication();
-            var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(token.SecretKey));
+            var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(token.SecretKey!));
 
             var claimsPrincipal = ticket.Principal;
-            var identity = (ClaimsIdentity)claimsPrincipal.Identity;
+            var identity = (ClaimsIdentity)claimsPrincipal.Identity!;
             var tokenProviderOptions = TokenProviderOptionsFactory.Create(token, signingKey);
             var tokenProvider = new TokenProvider(Options.Create(tokenProviderOptions));
             var encodedJwt = tokenProvider.GetJwtSecurityToken(identity, tokenProviderOptions);

@@ -176,24 +176,24 @@ namespace Data
 
                 entity.Property(e => e.Title)
                    .IsRequired()
-                   .HasMaxLength(50)
-                   .IsUnicode(false);
-
-                entity.Property(e => e.Description)
-                   .IsRequired()
                    .HasMaxLength(500)
                    .IsUnicode(false);
 
+                entity.Property(e => e.Description)
+                    .IsRequired()
+                    .HasColumnType("nvarchar(max)")
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Image)
                    .IsRequired()
-                   .HasMaxLength(50)
+                   .HasMaxLength(500)
                    .IsUnicode(false);
 
                 entity.Property(e => e.PublishDate).HasColumnType("datetime");
 
                 entity.Property(e => e.Publisher)
                    .IsRequired()
-                   .HasMaxLength(50)
+                   .HasMaxLength(500)
                    .IsUnicode(false);
 
                 entity.Property(e => e.Isbn)
@@ -283,13 +283,13 @@ namespace Data
             {
                 // Define a foreign key to the Rating entity
                 entity.HasOne(d => d.Rating)
-                    .WithOne()
-                    .HasForeignKey<Rating>(d => d.RatingId)
+                    .WithMany(p => p.Reviews)
+                    .HasForeignKey(d => d.RatingId)
                     .OnDelete(DeleteBehavior.Cascade);
 
                 entity.Property(e => e.Description)
                     .IsRequired()
-                    .HasMaxLength(500)
+                    .HasColumnType("nvarchar(max)")
                     .IsUnicode(false);
 
                 entity.Property(e => e.CreatedBy)
@@ -314,17 +314,17 @@ namespace Data
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Comments)
                     .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.ClientSetNull);
 
                 // Define a foreign key to the Review entity
                 entity.HasOne(d => d.Review)
                     .WithMany(p => p.Comments)
                     .HasForeignKey(d => d.ReviewId)
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.ClientSetNull);
 
                 entity.Property(e => e.Description)
                     .IsRequired()
-                    .HasMaxLength(500)
+                    .HasColumnType("nvarchar(max)")
                     .IsUnicode(false);
 
                 entity.Property(e => e.CreatedBy)

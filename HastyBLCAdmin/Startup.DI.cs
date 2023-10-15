@@ -23,27 +23,27 @@ namespace HastyBLCAdmin
         private void ConfigureOtherServices()
         {
             // Framework
-            this._services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            this._services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
+            this._services!.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            this._services!.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
             // Common
-            this._services.AddScoped<TokenProvider>();
-            this._services.TryAddSingleton<TokenProviderOptionsFactory>();
-            this._services.TryAddSingleton<TokenValidationParametersFactory>();
-            this._services.AddScoped<IUnitOfWork, UnitOfWork>();
+            this._services!.AddScoped<TokenProvider>();
+            this._services!.TryAddSingleton<TokenProviderOptionsFactory>();
+            this._services!.TryAddSingleton<TokenValidationParametersFactory>();
+            this._services!.AddScoped<IUnitOfWork, UnitOfWork>();
 
             // Services
-            this._services.TryAddSingleton<TokenValidationParametersFactory>();
-            this._services.AddScoped<IUserService, UserService>();
+            this._services!.TryAddSingleton<TokenValidationParametersFactory>();
+            this._services!.AddScoped<IUserService, UserService>();
           
 
             // Repositories
-            this._services.AddScoped<IUserRepository, UserRepository>();
+            this._services!.AddScoped<IUserRepository, UserRepository>();
 
             // Manager Class
-            this._services.AddScoped<SignInManager>();
+            this._services!.AddScoped<SignInManager>();
 
-            this._services.AddHttpClient();
+            this._services!.AddHttpClient();
         }
     }
 }

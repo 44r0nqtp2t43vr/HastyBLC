@@ -28,6 +28,11 @@ configurer.ConfigureServices(appBuilder.Services);
 
 var app = appBuilder.Build();
 
+if (args.Length == 1 && args[0].ToLower() == "seeddata")
+{
+    Seed.SeedData(app);
+}
+
 configurer.ConfigureApp(app, app.Environment);
 
 app.MapControllerRoute(

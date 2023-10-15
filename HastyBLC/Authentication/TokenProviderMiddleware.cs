@@ -69,7 +69,7 @@ namespace HastyBLC.Authentication
             var now = DateTime.UtcNow;
             var username = context.Request.Form["username"];
             var password = context.Request.Form["password"];
-            var identity = await _options.IdentityResolver(username, password);
+            var identity = await _options.IdentityResolver!(username!, password!);
 
             if (identity == null)
             {
@@ -80,7 +80,7 @@ namespace HastyBLC.Authentication
 
             var claims = new Claim[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, username),
+                new Claim(JwtRegisteredClaimNames.Sub, username!),
                 new Claim(JwtRegisteredClaimNames.Jti, await _options.NonceGenerator()),
                 new Claim(JwtRegisteredClaimNames.Iat, ToUnixEpochDate(now).ToString(), ClaimValueTypes.Integer64)
             };

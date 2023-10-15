@@ -30,7 +30,7 @@ namespace HastyBLCAdmin.Authentication
         public TokenValidationParameters Create()
         {
             var tokenAuthentication = this._configuration.GetTokenAuthentication();
-            var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(tokenAuthentication.SecretKey));
+            var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(tokenAuthentication.SecretKey!));
 
             var tokenValidationParameters = new TokenValidationParameters
             {

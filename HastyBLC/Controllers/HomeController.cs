@@ -23,7 +23,7 @@ namespace HastyBLC.Controllers
         public HomeController(IHttpContextAccessor httpContextAccessor,
                               ILoggerFactory loggerFactory,
                               IConfiguration configuration,
-                              IMapper mapper = null) : base(httpContextAccessor, loggerFactory, configuration, mapper)
+                              IMapper? mapper = null) : base(httpContextAccessor, loggerFactory, configuration, mapper)
         {
 
         }

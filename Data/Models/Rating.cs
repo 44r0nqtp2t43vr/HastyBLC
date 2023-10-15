@@ -18,7 +18,7 @@ namespace Data.Models
         public DateTime CreatedTime { get; set; }
         public string? UpdatedBy { get; set; }
         public DateTime UpdatedTime { get; set; }
-        public Review? Review { get; set; }
+        public ICollection<Review>? Reviews { get; set; }
 
     }
 }

@@ -23,11 +23,11 @@ namespace HastyBLCAdmin
         private void ConfigureAuthorization()
         {
             var token = Configuration.GetTokenAuthentication();
-            var tokenProviderOptionsFactory = this._services.BuildServiceProvider().GetService<TokenProviderOptionsFactory>();
-            var tokenValidationParametersFactory = this._services.BuildServiceProvider().GetService<TokenValidationParametersFactory>();
-            var tokenValidationParameters = tokenValidationParametersFactory.Create();
+            var tokenProviderOptionsFactory = this._services!.BuildServiceProvider().GetService<TokenProviderOptionsFactory>();
+            var tokenValidationParametersFactory = this._services!.BuildServiceProvider().GetService<TokenValidationParametersFactory>();
+            var tokenValidationParameters = tokenValidationParametersFactory!.Create();
 
-            this._services.AddAuthentication(Const.AuthenticationScheme)
+            this._services!.AddAuthentication(Const.AuthenticationScheme)
             .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
             {
                 options.TokenValidationParameters = tokenValidationParameters;
@@ -39,15 +39,15 @@ namespace HastyBLCAdmin
                     IsEssential = true,
                     SameSite = SameSiteMode.Lax,
                     SecurePolicy = CookieSecurePolicy.SameAsRequest,
-                    Name = $"{this._environment.ApplicationName}_{token.CookieName}"
+                    Name = $"{this._environment!.ApplicationName}_{token.CookieName}"
                 };
                 options.LoginPath = new PathString("/Account/Login");
                 options.AccessDeniedPath = new PathString("/html/Forbidden.html");
                 options.ReturnUrlParameter = "ReturnUrl";
-                options.TicketDataFormat = new CustomJwtDataFormat(SecurityAlgorithms.HmacSha256, _tokenValidationParameters, Configuration, tokenProviderOptionsFactory);
+                options.TicketDataFormat = new CustomJwtDataFormat(SecurityAlgorithms.HmacSha256, _tokenValidationParameters, Configuration, tokenProviderOptionsFactory!);
             });
 
-            this._services.AddAuthorization(options =>
+            this._services!.AddAuthorization(options =>
             {
                 options.AddPolicy("RequireAuthenticatedUser", policy =>
                 {
@@ -55,7 +55,7 @@ namespace HastyBLCAdmin
                 });
             });
 
-            this._services.AddMvc(options =>
+            this._services!.AddMvc(options =>
             {
                 options.Filters.Add(new AuthorizeFilter("RequireAuthenticatedUser"));
             });

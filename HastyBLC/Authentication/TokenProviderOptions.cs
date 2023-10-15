@@ -17,11 +17,11 @@ namespace HastyBLC.Authentication
         /// <summary>
         /// Gets or sets the issuer.
         /// </summary>
-        public string Issuer { get; set; }
+        public string? Issuer { get; set; }
         /// <summary>
         /// Gets or sets the audience.
         /// </summary>
-        public string Audience { get; set; }
+        public string? Audience { get; set; }
         /// <summary>
         /// Gets or sets the expiration.
         /// </summary>
@@ -29,11 +29,11 @@ namespace HastyBLC.Authentication
         /// <summary>
         /// Gets or sets the signing credentials.
         /// </summary>
-        public SigningCredentials SigningCredentials { get; set; }
+        public SigningCredentials? SigningCredentials { get; set; }
         /// <summary>
         /// Gets or sets the identity resolver.
         /// </summary>
-        public Func<string, string, Task<ClaimsIdentity>> IdentityResolver { get; set; }
+        public Func<string, string, Task<ClaimsIdentity>>? IdentityResolver { get; set; }
         /// <summary>
         /// Gets or sets the nonce generator.
         /// </summary>

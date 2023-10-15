@@ -28,7 +28,7 @@ namespace Services.Services
             user = new User();
             var passwordKey = PasswordManager.EncryptPassword(password);
             user = _repository.GetUsers().Where(x => x.Email == userId &&
-                                                     x.Password == passwordKey).FirstOrDefault();
+                                                     x.Password == passwordKey).FirstOrDefault()!;
 
             return user != null ? LoginResult.Success : LoginResult.Failed;
         }
@@ -36,10 +36,10 @@ namespace Services.Services
         public void AddUser(UserViewModel model)
         {
             var user = new User();
-            if (!_repository.UserExists(model.Email))
+            if (!_repository.UserExists(model.Email!))
             {
                 _mapper.Map(model, user);
-                user.Password = PasswordManager.EncryptPassword(model.Password);
+                user.Password = PasswordManager.EncryptPassword(model.Password!);
                 user.CreatedTime = DateTime.Now;
                 user.UpdatedTime = DateTime.Now;
                 user.CreatedBy = System.Environment.UserName;

@@ -84,13 +84,13 @@ namespace HastyBLCAdmin.Controllers
         {
             this._session.SetString("HasSession", "Exist");
 
-            User user = null;
-            var loginResult = _userService.AuthenticateUser(model.UserId, model.Password, ref user);
+            User? user = null;
+            var loginResult = _userService.AuthenticateUser(model.UserId!, model.Password!, ref user!);
             if (loginResult == LoginResult.Success)
             {
                 // 認証OK
                 await this._signInManager.SignInAsync(user);
-                this._session.SetString("UserName", user.Username);
+                this._session.SetString("UserName", user.Username!);
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -99,7 +99,6 @@ namespace HastyBLCAdmin.Controllers
                 TempData["ErrorMessage"] = "Incorrect UserId or Password";
                 return View();
             }
-            return View();
         }
 
         [HttpGet]
@@ -122,7 +121,7 @@ namespace HastyBLCAdmin.Controllers
             {
                 TempData["ErrorMessage"] = ex.Message;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
             }

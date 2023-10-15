@@ -13,7 +13,7 @@ namespace HastyBLC.Models
         /// <summary>
         /// Gets or sets the response.
         /// </summary>
-        public object Response { get; set; }
+        public object? Response { get; set; }
         /// <summary>
         /// Gets or sets the status.
         /// </summary>
@@ -26,11 +26,11 @@ namespace HastyBLC.Models
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
-        public string Name { get; set; }
+        public string? Name { get; set; }
         /// <summary>
         /// Gets or sets the data.
         /// </summary>
-        public byte[] data { get; set; }
+        public byte[]? data { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the ApiResult{T} class.

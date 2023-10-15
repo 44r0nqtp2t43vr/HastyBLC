@@ -14,7 +14,7 @@ namespace Services.Manager
         /// <summary>
         /// Gets or sets the secret key.
         /// </summary>
-        public static string secretKey { get; set; }
+        public static string? secretKey { get; set; }
 
         /// <summary>
         /// Sets up.
@@ -38,7 +38,7 @@ namespace Services.Manager
 
             using (Aes aes = Aes.Create())
             {
-                var keyBytes = Encoding.UTF8.GetBytes(secretKey);
+                var keyBytes = Encoding.UTF8.GetBytes(secretKey!);
                 Array.Copy(keyBytes, aesKey, Math.Min(keyBytes.Length, aesKey.Length));
                 aes.Key = aesKey;
                 aes.IV = iv;
@@ -75,7 +75,7 @@ namespace Services.Manager
 
             using (Aes aes = Aes.Create())
             {
-                var keyBytes = Encoding.UTF8.GetBytes(secretKey);
+                var keyBytes = Encoding.UTF8.GetBytes(secretKey!);
                 Array.Copy(keyBytes, aesKey, Math.Min(keyBytes.Length, aesKey.Length));
                 aes.Key = aesKey;
                 aes.IV = iv;

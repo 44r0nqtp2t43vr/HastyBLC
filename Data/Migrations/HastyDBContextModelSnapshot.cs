@@ -88,9 +88,8 @@ namespace Data.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(500)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Format")
                         .IsRequired()
@@ -100,9 +99,9 @@ namespace Data.Migrations
 
                     b.Property<string>("Image")
                         .IsRequired()
-                        .HasMaxLength(50)
+                        .HasMaxLength(500)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("varchar(500)");
 
                     b.Property<string>("Isbn")
                         .IsRequired()
@@ -124,15 +123,15 @@ namespace Data.Migrations
 
                     b.Property<string>("Publisher")
                         .IsRequired()
-                        .HasMaxLength(50)
+                        .HasMaxLength(500)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("varchar(500)");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(50)
+                        .HasMaxLength(500)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("varchar(500)");
 
                     b.Property<string>("UpdatedBy")
                         .IsRequired()
@@ -192,9 +191,8 @@ namespace Data.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(500)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ReviewId")
                         .HasColumnType("int");
@@ -260,7 +258,10 @@ namespace Data.Migrations
             modelBuilder.Entity("Data.Models.Rating", b =>
                 {
                     b.Property<int>("RatingId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RatingId"));
 
                     b.Property<int>("BookId")
                         .HasColumnType("int");
@@ -317,14 +318,10 @@ namespace Data.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(500)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("RatingId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("RatingId1")
                         .HasColumnType("int");
 
                     b.Property<string>("UpdatedBy")
@@ -338,9 +335,7 @@ namespace Data.Migrations
 
                     b.HasKey("ReviewId");
 
-                    b.HasIndex("RatingId1")
-                        .IsUnique()
-                        .HasFilter("[RatingId1] IS NOT NULL");
+                    b.HasIndex("RatingId");
 
                     b.ToTable("Reviews");
                 });
@@ -507,13 +502,11 @@ namespace Data.Migrations
                     b.HasOne("Data.Models.Review", "Review")
                         .WithMany("Comments")
                         .HasForeignKey("ReviewId")
-                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Data.Models.User", "User")
                         .WithMany("Comments")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Review");
@@ -526,12 +519,6 @@ namespace Data.Migrations
                     b.HasOne("Data.Models.Book", "Book")
                         .WithMany("Ratings")
                         .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Data.Models.Review", null)
-                        .WithOne("Rating")
-                        .HasForeignKey("Data.Models.Rating", "RatingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -548,9 +535,13 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Models.Review", b =>
                 {
-                    b.HasOne("Data.Models.Rating", null)
-                        .WithOne("Review")
-                        .HasForeignKey("Data.Models.Review", "RatingId1");
+                    b.HasOne("Data.Models.Rating", "Rating")
+                        .WithMany("Reviews")
+                        .HasForeignKey("RatingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Rating");
                 });
 
             modelBuilder.Entity("Data.Models.RoleAttribute", b =>
@@ -625,14 +616,12 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Models.Rating", b =>
                 {
-                    b.Navigation("Review");
+                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("Data.Models.Review", b =>
                 {
                     b.Navigation("Comments");
-
-                    b.Navigation("Rating");
                 });
 
             modelBuilder.Entity("Data.Models.Role", b =>

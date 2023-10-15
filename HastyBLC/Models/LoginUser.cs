@@ -15,11 +15,11 @@ namespace HastyBLC.Models
         /// <summary>
         /// Message
         /// </summary>
-        public string message { get; set; }
+        public string? message { get; set; }
         /// <summary>
         /// Access Token
         /// </summary>
-        public string access_token { get; set; }
+        public string? access_token { get; set; }
         /// <summary>
         /// Expires In
         /// </summary>
@@ -27,6 +27,6 @@ namespace HastyBLC.Models
         /// <summary>
         /// User Data
         /// </summary>
-        public User userData { get; set; }
+        public User? userData { get; set; }
     }
 }

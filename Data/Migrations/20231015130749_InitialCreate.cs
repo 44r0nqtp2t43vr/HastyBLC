@@ -75,11 +75,11 @@ namespace Data.Migrations
                     BookId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AuthorId = table.Column<int>(type: "int", nullable: false),
-                    Title = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
-                    Description = table.Column<string>(type: "varchar(500)", unicode: false, maxLength: 500, nullable: false),
-                    Image = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
+                    Title = table.Column<string>(type: "varchar(500)", unicode: false, maxLength: 500, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", unicode: false, nullable: false),
+                    Image = table.Column<string>(type: "varchar(500)", unicode: false, maxLength: 500, nullable: false),
                     PublishDate = table.Column<DateTime>(type: "datetime", nullable: false),
-                    Publisher = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
+                    Publisher = table.Column<string>(type: "varchar(500)", unicode: false, maxLength: 500, nullable: false),
                     Isbn = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
                     Language = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
                     Format = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
@@ -177,6 +177,37 @@ namespace Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Ratings",
+                columns: table => new
+                {
+                    RatingId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    BookId = table.Column<int>(type: "int", nullable: false),
+                    Value = table.Column<int>(type: "int", nullable: false),
+                    CreatedBy = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
+                    CreatedTime = table.Column<DateTime>(type: "datetime", nullable: false),
+                    UpdatedBy = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
+                    UpdatedTime = table.Column<DateTime>(type: "datetime", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Ratings", x => x.RatingId);
+                    table.ForeignKey(
+                        name: "FK_Ratings_Books_BookId",
+                        column: x => x.BookId,
+                        principalTable: "Books",
+                        principalColumn: "BookId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Ratings_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserRoleAttributes",
                 columns: table => new
                 {
@@ -204,6 +235,30 @@ namespace Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Reviews",
+                columns: table => new
+                {
+                    ReviewId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RatingId = table.Column<int>(type: "int", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", unicode: false, nullable: false),
+                    CreatedBy = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
+                    CreatedTime = table.Column<DateTime>(type: "datetime", nullable: false),
+                    UpdatedBy = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
+                    UpdatedTime = table.Column<DateTime>(type: "datetime", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reviews", x => x.ReviewId);
+                    table.ForeignKey(
+                        name: "FK_Reviews_Ratings_RatingId",
+                        column: x => x.RatingId,
+                        principalTable: "Ratings",
+                        principalColumn: "RatingId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Comments",
                 columns: table => new
                 {
@@ -211,7 +266,7 @@ namespace Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     ReviewId = table.Column<int>(type: "int", nullable: false),
-                    Description = table.Column<string>(type: "varchar(500)", unicode: false, maxLength: 500, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", unicode: false, nullable: false),
                     CreatedBy = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
                     CreatedTime = table.Column<DateTime>(type: "datetime", nullable: false),
                     UpdatedBy = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
@@ -221,65 +276,15 @@ namespace Data.Migrations
                 {
                     table.PrimaryKey("PK_Comments", x => x.CommentId);
                     table.ForeignKey(
+                        name: "FK_Comments_Reviews_ReviewId",
+                        column: x => x.ReviewId,
+                        principalTable: "Reviews",
+                        principalColumn: "ReviewId");
+                    table.ForeignKey(
                         name: "FK_Comments_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "UserId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Ratings",
-                columns: table => new
-                {
-                    RatingId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    BookId = table.Column<int>(type: "int", nullable: false),
-                    Value = table.Column<int>(type: "int", nullable: false),
-                    CreatedBy = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
-                    CreatedTime = table.Column<DateTime>(type: "datetime", nullable: false),
-                    UpdatedBy = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
-                    UpdatedTime = table.Column<DateTime>(type: "datetime", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Ratings", x => x.RatingId);
-                    table.ForeignKey(
-                        name: "FK_Ratings_Books_BookId",
-                        column: x => x.BookId,
-                        principalTable: "Books",
-                        principalColumn: "BookId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Ratings_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "UserId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Reviews",
-                columns: table => new
-                {
-                    ReviewId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    RatingId = table.Column<int>(type: "int", nullable: false),
-                    Description = table.Column<string>(type: "varchar(500)", unicode: false, maxLength: 500, nullable: false),
-                    CreatedBy = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
-                    CreatedTime = table.Column<DateTime>(type: "datetime", nullable: false),
-                    UpdatedBy = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
-                    UpdatedTime = table.Column<DateTime>(type: "datetime", nullable: false),
-                    RatingId1 = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Reviews", x => x.ReviewId);
-                    table.ForeignKey(
-                        name: "FK_Reviews_Ratings_RatingId1",
-                        column: x => x.RatingId1,
-                        principalTable: "Ratings",
-                        principalColumn: "RatingId");
+                        principalColumn: "UserId");
                 });
 
             migrationBuilder.CreateIndex(
@@ -318,11 +323,9 @@ namespace Data.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reviews_RatingId1",
+                name: "IX_Reviews_RatingId",
                 table: "Reviews",
-                column: "RatingId1",
-                unique: true,
-                filter: "[RatingId1] IS NOT NULL");
+                column: "RatingId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RoleAttributes_AttributeId",
@@ -354,35 +357,11 @@ namespace Data.Migrations
                 table: "Users",
                 column: "Email",
                 unique: true);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Comments_Reviews_ReviewId",
-                table: "Comments",
-                column: "ReviewId",
-                principalTable: "Reviews",
-                principalColumn: "ReviewId",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Ratings_Reviews_RatingId",
-                table: "Ratings",
-                column: "RatingId",
-                principalTable: "Reviews",
-                principalColumn: "ReviewId",
-                onDelete: ReferentialAction.Cascade);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Ratings_Books_BookId",
-                table: "Ratings");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_Ratings_Reviews_RatingId",
-                table: "Ratings");
-
             migrationBuilder.DropTable(
                 name: "BookGenres");
 
@@ -396,7 +375,13 @@ namespace Data.Migrations
                 name: "Genres");
 
             migrationBuilder.DropTable(
+                name: "Reviews");
+
+            migrationBuilder.DropTable(
                 name: "RoleAttributes");
+
+            migrationBuilder.DropTable(
+                name: "Ratings");
 
             migrationBuilder.DropTable(
                 name: "Attributes");
@@ -405,16 +390,10 @@ namespace Data.Migrations
                 name: "Books");
 
             migrationBuilder.DropTable(
-                name: "Authors");
-
-            migrationBuilder.DropTable(
-                name: "Reviews");
-
-            migrationBuilder.DropTable(
-                name: "Ratings");
-
-            migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "Authors");
 
             migrationBuilder.DropTable(
                 name: "Roles");

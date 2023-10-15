@@ -20,13 +20,13 @@ namespace HastyBLC.Authentication
     /// </summary>
     public class SignInManager
     {
-        private readonly IConfiguration _configuration;
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IConfiguration? _configuration;
+        private readonly IHttpContextAccessor? _httpContextAccessor;
 
         /// <summary>
         /// Gets or sets the user.
         /// </summary>
-        public LoginUser user { get; set; }
+        public LoginUser? user { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the SignInManager class.
@@ -55,21 +55,21 @@ namespace HastyBLC.Authentication
         /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
         /// <returns>The successfully completed task</returns>
-        public Task<ClaimsIdentity> GetClaimsIdentity(string username, string password)
+        public Task<ClaimsIdentity?> GetClaimsIdentity(string username, string password)
         {
-            ClaimsIdentity claimsIdentity = null;
-            User userData = new User();
+            ClaimsIdentity? claimsIdentity = null;
+            User? userData = new User();
 
-            user.loginResult = LoginResult.Success;//TODO this._accountService.AuthenticateUser(username, password, ref userData);
+            user!.loginResult = LoginResult.Success;//TODO this._accountService.AuthenticateUser(username, password, ref userData);
 
             if (user.loginResult == LoginResult.Failed)
             {
-                return Task.FromResult<ClaimsIdentity>(null);
+                return Task.FromResult<ClaimsIdentity?>(null);
             }
 
             user.userData = userData;
             claimsIdentity = CreateClaimsIdentity(userData);
-            return Task.FromResult(claimsIdentity);
+            return Task.FromResult(claimsIdentity)!;
         }
 
         /// <summary>
@@ -79,15 +79,15 @@ namespace HastyBLC.Authentication
         /// <returns>Instance of ClaimsIdentity</returns>
         public ClaimsIdentity CreateClaimsIdentity(User user)
         {
-            var token = _configuration.GetTokenAuthentication();
+            var token = _configuration!.GetTokenAuthentication();
             //TODO
             var claims = new List<Claim>()
             {
-                new Claim(ClaimTypes.NameIdentifier, user.Email, ClaimValueTypes.String, Const.Issuer),
-                new Claim(ClaimTypes.Name, user.Username, ClaimValueTypes.String, Const.Issuer),
+                new Claim(ClaimTypes.NameIdentifier, user.Email!, ClaimValueTypes.String, Const.Issuer),
+                new Claim(ClaimTypes.Name, user.Username!, ClaimValueTypes.String, Const.Issuer),
 
-                new Claim("Email", user.Email, ClaimValueTypes.String, Const.Issuer),
-                new Claim("Username", user.Username, ClaimValueTypes.String, Const.Issuer),
+                new Claim("Email", user.Email!, ClaimValueTypes.String, Const.Issuer),
+                new Claim("Username", user.Username!, ClaimValueTypes.String, Const.Issuer),
             };
             return new ClaimsIdentity(claims, Const.AuthenticationScheme);
         }
@@ -134,9 +134,9 @@ namespace HastyBLC.Authentication
         /// <param name="isPersistent">if set to <c>true</c> [is persistent].</param>
         public async Task SignInAsync(IPrincipal principal, bool isPersistent = false)
         {
-            var token = _configuration.GetTokenAuthentication();
-            await _httpContextAccessor
-                .HttpContext
+            var token = _configuration!.GetTokenAuthentication();
+            await _httpContextAccessor!
+                .HttpContext!
                 .SignInAsync(
                             Const.AuthenticationScheme,
                             (ClaimsPrincipal)principal,
@@ -153,8 +153,8 @@ namespace HastyBLC.Authentication
         /// </summary>
         public async Task SignOutAsync()
         {
-            var token = _configuration.GetTokenAuthentication();
-            await _httpContextAccessor.HttpContext.SignOutAsync(Const.AuthenticationScheme);
+            var token = _configuration!.GetTokenAuthentication();
+            await _httpContextAccessor!.HttpContext!.SignOutAsync(Const.AuthenticationScheme);
         }
     }
 }

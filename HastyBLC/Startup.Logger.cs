@@ -17,10 +17,10 @@ namespace HastyBLC
         /// </summary>
         private void ConfigureLogger()
         {
-            var loggerFactory = this._app.ApplicationServices.GetService<ILoggerFactory>();
+            var loggerFactory = this._app!.ApplicationServices.GetService<ILoggerFactory>();
 
             var logDir = Path.Combine(
-                PathManager.DirectoryPath.ApplicationLogsDirectory(this._environment.ApplicationName),
+                PathManager.DirectoryPath.ApplicationLogsDirectory(this._environment!.ApplicationName),
                 System.DateTime.Today.ToString("yyyyMM"));
 
             var defaultLogLevel = Configuration.GetLoggingLogLevel();
@@ -69,11 +69,11 @@ namespace HastyBLC
                                                 retainedFileCountLimit: retained))
                             .CreateLogger();
 
-            loggerFactory.AddSerilog(serilogger);
+            loggerFactory!.AddSerilog(serilogger);
 
             var seqConfig = Configuration.GetSection("Seq");
 
-            loggerFactory.AddSeq(seqConfig);
+            loggerFactory!.AddSeq(seqConfig);
         }
     }
 }
