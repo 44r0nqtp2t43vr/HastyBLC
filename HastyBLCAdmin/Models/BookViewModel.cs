@@ -24,5 +24,6 @@ namespace HastyBLCAdmin.Models
         public DateTime UpdatedTime { get; set; }
         public string? AuthorName { get; set; }
         public List<string>? Genres { get; set; }
+       
     }
 }

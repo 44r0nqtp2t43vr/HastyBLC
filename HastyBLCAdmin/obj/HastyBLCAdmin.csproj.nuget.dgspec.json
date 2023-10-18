@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\HastyBLCAdmin.csproj": {}
+    "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\HastyBLCAdmin.csproj": {}
   },
   "projects": {
-    "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Data\\Data.csproj": {
+    "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Data\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Data\\Data.csproj",
-        "packagesPath": "C:\\Users\\Aaron\\.nuget\\packages\\",
-        "outputPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Data\\obj\\",
+        "projectPath": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Data\\Data.csproj",
+        "packagesPath": "C:\\Users\\Jillian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Aaron\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jillian\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -109,17 +109,17 @@
         }
       }
     },
-    "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\HastyBLCAdmin.csproj": {
+    "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\HastyBLCAdmin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\HastyBLCAdmin.csproj",
+        "projectUniqueName": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\HastyBLCAdmin.csproj",
         "projectName": "HastyBLCAdmin",
-        "projectPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\HastyBLCAdmin.csproj",
-        "packagesPath": "C:\\Users\\Aaron\\.nuget\\packages\\",
-        "outputPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\obj\\",
+        "projectPath": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\HastyBLCAdmin.csproj",
+        "packagesPath": "C:\\Users\\Jillian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Aaron\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jillian\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -133,11 +133,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Resources\\Resources.csproj": {
-                "projectPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Resources\\Resources.csproj"
+              "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Resources\\Resources.csproj": {
+                "projectPath": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Resources\\Resources.csproj"
               },
-              "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Services\\Services.csproj": {
-                "projectPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Services\\Services.csproj"
+              "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Services\\Services.csproj": {
+                "projectPath": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Services\\Services.csproj"
               }
             }
           }
@@ -236,17 +236,17 @@
         }
       }
     },
-    "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Resources\\Resources.csproj": {
+    "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Resources\\Resources.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Resources\\Resources.csproj",
+        "projectUniqueName": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Resources\\Resources.csproj",
         "projectName": "Resources",
-        "projectPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Resources\\Resources.csproj",
-        "packagesPath": "C:\\Users\\Aaron\\.nuget\\packages\\",
-        "outputPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Resources\\obj\\",
+        "projectPath": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Resources\\Resources.csproj",
+        "packagesPath": "C:\\Users\\Jillian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Resources\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Aaron\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jillian\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -291,17 +291,17 @@
         }
       }
     },
-    "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Services\\Services.csproj": {
+    "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Services\\Services.csproj",
+        "projectUniqueName": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Services\\Services.csproj",
-        "packagesPath": "C:\\Users\\Aaron\\.nuget\\packages\\",
-        "outputPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Services\\obj\\",
+        "projectPath": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Services\\Services.csproj",
+        "packagesPath": "C:\\Users\\Jillian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Aaron\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jillian\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -315,11 +315,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Data\\Data.csproj": {
-                "projectPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Data\\Data.csproj"
+              "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Data\\Data.csproj": {
+                "projectPath": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Data\\Data.csproj"
               },
-              "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Resources\\Resources.csproj": {
-                "projectPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Resources\\Resources.csproj"
+              "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Resources\\Resources.csproj": {
+                "projectPath": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Resources\\Resources.csproj"
               }
             }
           }

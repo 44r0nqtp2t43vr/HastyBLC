@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Aaron\\.nuget\\packages\\": {}
+    "C:\\Users\\Jillian\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Resources\\Resources.csproj",
+      "projectUniqueName": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Resources\\Resources.csproj",
       "projectName": "Resources",
-      "projectPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Resources\\Resources.csproj",
-      "packagesPath": "C:\\Users\\Aaron\\.nuget\\packages\\",
-      "outputPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Resources\\obj\\",
+      "projectPath": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Resources\\Resources.csproj",
+      "packagesPath": "C:\\Users\\Jillian\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Resources\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Aaron\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jillian\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

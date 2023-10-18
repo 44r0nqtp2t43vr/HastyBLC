@@ -11,6 +11,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using Services.ServiceModels;
 using Services.Interfaces;
+using System;
+using System.Linq;
 
 namespace HastyBLCAdmin.Controllers
 {
@@ -21,6 +23,7 @@ namespace HastyBLCAdmin.Controllers
     {
         private readonly HastyDBContext _context;
         private readonly IBookService _bookService;
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -46,7 +49,6 @@ namespace HastyBLCAdmin.Controllers
         /// <returns> Home View </returns>
         public IActionResult Index()
         {
-            // Query all books from the database
             var books = _context.Books
                 .Include(book => book.Author)
                 .Include(book => book.BookGenres)!
@@ -101,6 +103,23 @@ namespace HastyBLCAdmin.Controllers
                 TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
             }
             return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult DeleteBook(int bookId) 
+        {
+            try
+            {
+                _bookService.DeleteBook(bookId); 
+                TempData["SuccessMessage"] = "Book deleted successfully.";
+            }
+            catch (Exception ex) 
+            {
+                TempData["ErrorMessage"] = $"Error deleting book: {ex.Message}";
+            }
+
+            return RedirectToAction("Index"); 
         }
     }
 }

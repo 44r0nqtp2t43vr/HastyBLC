@@ -15,3 +15,20 @@ D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\obj\Deb
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\obj\Debug\net7.0\refint\Services.dll
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\obj\Debug\net7.0\Services.pdb
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\obj\Debug\net7.0\ref\Services.dll
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Services\bin\Debug\net7.0\Services.deps.json
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Services\bin\Debug\net7.0\Services.dll
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Services\bin\Debug\net7.0\Services.pdb
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Services\bin\Debug\net7.0\Data.dll
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Services\bin\Debug\net7.0\Resources.dll
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Services\bin\Debug\net7.0\Data.pdb
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Services\bin\Debug\net7.0\Resources.pdb
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Services\obj\Debug\net7.0\Services.csproj.AssemblyReference.cache
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Services\obj\Debug\net7.0\Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Services\obj\Debug\net7.0\Services.AssemblyInfoInputs.cache
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Services\obj\Debug\net7.0\Services.AssemblyInfo.cs
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Services\obj\Debug\net7.0\Services.csproj.CoreCompileInputs.cache
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Services\obj\Debug\net7.0\Services.csproj.CopyComplete
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Services\obj\Debug\net7.0\Services.dll
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Services\obj\Debug\net7.0\refint\Services.dll
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Services\obj\Debug\net7.0\Services.pdb
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Services\obj\Debug\net7.0\ref\Services.dll

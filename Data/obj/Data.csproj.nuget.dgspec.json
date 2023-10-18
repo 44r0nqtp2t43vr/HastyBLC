@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Data\\Data.csproj": {}
+    "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Data\\Data.csproj": {}
   },
   "projects": {
-    "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Data\\Data.csproj": {
+    "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Data\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Data\\Data.csproj",
-        "packagesPath": "C:\\Users\\Aaron\\.nuget\\packages\\",
-        "outputPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Data\\obj\\",
+        "projectPath": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Data\\Data.csproj",
+        "packagesPath": "C:\\Users\\Jillian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Aaron\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Jillian\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

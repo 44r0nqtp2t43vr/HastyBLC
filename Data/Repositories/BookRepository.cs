@@ -36,5 +36,24 @@ namespace Data.Repositories
             this.GetDbSet<BookGenre>().Add(bookGenre);
             UnitOfWork.SaveChanges();
         }
+         public void DeleteBook(int bookId)
+        {
+            try
+            {
+                var book = this.GetDbSet<Book>().Find(bookId);
+                if (book != null)
+                {
+                    this.GetDbSet<Book>().Remove(book);
+                    UnitOfWork.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception here to see if any error is occurring
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+
+        }
+
     }
 }

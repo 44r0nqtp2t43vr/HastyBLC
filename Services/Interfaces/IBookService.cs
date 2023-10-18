@@ -1,4 +1,5 @@
-﻿using Services.ServiceModels;
+﻿using Data.Models;
+using Services.ServiceModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,7 @@ namespace Services.Interfaces
     public interface IBookService
     {
         void AddBook(BookViewModel model);
+        void DeleteBook(int bookId);
+        IEnumerable<Book> GetBooks();
     }
 }
