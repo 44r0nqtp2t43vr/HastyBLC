@@ -17,3 +17,22 @@ D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Resources\obj\De
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Resources\obj\Debug\net7.0\refint\Resources.dll
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Resources\obj\Debug\net7.0\Resources.pdb
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Resources\obj\Debug\net7.0\ref\Resources.dll
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Resources\bin\Debug\net7.0\Resources.deps.json
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Resources\bin\Debug\net7.0\Resources.dll
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Resources\bin\Debug\net7.0\Resources.pdb
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Resources\obj\Debug\net7.0\Resources.Messages.Common.resources
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Resources\obj\Debug\net7.0\Resources.Messages.Errors.resources
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Resources\obj\Debug\net7.0\Resources.Views.Account.resources
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Resources\obj\Debug\net7.0\Resources.Views.Button.resources
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Resources\obj\Debug\net7.0\Resources.Views.Screen.resources
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Resources\obj\Debug\net7.0\Resources.Views.Table.resources
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Resources\obj\Debug\net7.0\Resources.Views.TitleText.resources
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Resources\obj\Debug\net7.0\Resources.csproj.GenerateResource.cache
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Resources\obj\Debug\net7.0\Resources.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Resources\obj\Debug\net7.0\Resources.AssemblyInfoInputs.cache
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Resources\obj\Debug\net7.0\Resources.AssemblyInfo.cs
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Resources\obj\Debug\net7.0\Resources.csproj.CoreCompileInputs.cache
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Resources\obj\Debug\net7.0\Resources.dll
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Resources\obj\Debug\net7.0\refint\Resources.dll
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Resources\obj\Debug\net7.0\Resources.pdb
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Resources\obj\Debug\net7.0\ref\Resources.dll

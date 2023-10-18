@@ -12,3 +12,17 @@ D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Data\obj\Debug\n
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Data\obj\Debug\net7.0\Data.pdb
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Data\obj\Debug\net7.0\Data.genruntimeconfig.cache
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Data\obj\Debug\net7.0\ref\Data.dll
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Data\bin\Debug\net7.0\Data.deps.json
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Data\bin\Debug\net7.0\Data.runtimeconfig.json
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Data\bin\Debug\net7.0\Data.dll
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Data\bin\Debug\net7.0\Data.pdb
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Data\obj\Debug\net7.0\Data.csproj.AssemblyReference.cache
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Data\obj\Debug\net7.0\Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Data\obj\Debug\net7.0\Data.AssemblyInfoInputs.cache
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Data\obj\Debug\net7.0\Data.AssemblyInfo.cs
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Data\obj\Debug\net7.0\Data.csproj.CoreCompileInputs.cache
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Data\obj\Debug\net7.0\Data.dll
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Data\obj\Debug\net7.0\refint\Data.dll
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Data\obj\Debug\net7.0\Data.pdb
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Data\obj\Debug\net7.0\Data.genruntimeconfig.cache
+C:\Users\Jillian\Documents\Hasty BLC\HastyBLC\Data\obj\Debug\net7.0\ref\Data.dll

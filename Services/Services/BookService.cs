@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Data.Repositories;
 
 namespace Services.Services
 {
@@ -18,12 +19,14 @@ namespace Services.Services
         private readonly HastyDBContext _dbContext;
         private readonly IBookRepository _repository;
         private readonly IMapper _mapper;
+        
 
         public BookService(IBookRepository repository, IMapper mapper, HastyDBContext dbContext)
         {
             _mapper = mapper;
             _repository = repository;
             _dbContext = dbContext;
+            
         }
 
         public void AddBook(BookViewModel model)
@@ -104,5 +107,15 @@ namespace Services.Services
                 throw new InvalidDataException(Resources.Messages.Errors.BookExists);
             }
         }
+        public void DeleteBook(int bookId)
+        {
+            System.Diagnostics.Debug.WriteLine($"Deleting book with ID: {bookId}");
+            _repository.DeleteBook(bookId);
+        }
+        public IEnumerable<Book> GetBooks()
+        {
+            return _repository.GetBooks().ToList();
+        }
+
     }
 }
