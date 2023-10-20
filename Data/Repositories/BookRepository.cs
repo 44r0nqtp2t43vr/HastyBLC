@@ -55,5 +55,10 @@ namespace Data.Repositories
 
         }
 
+        public Book? GetBookByISBN(string isbn)
+        {
+            return this.GetDbSet<Book>().FirstOrDefault(x => x.Isbn == isbn);
+        }
+
     }
 }

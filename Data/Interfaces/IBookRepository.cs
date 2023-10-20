@@ -14,5 +14,6 @@ namespace Data.Interfaces
         void AddBook(Book book);
         void AddBookGenre(BookGenre bookGenre);
         void DeleteBook(int bookId);
+        Book? GetBookByISBN(string isbn);
     }
 }

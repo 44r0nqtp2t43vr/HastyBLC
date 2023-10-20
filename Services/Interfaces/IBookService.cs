@@ -13,5 +13,6 @@ namespace Services.Interfaces
         void AddBook(BookViewModel model);
         void DeleteBook(int bookId);
         IEnumerable<Book> GetBooks();
+        void EditBook(string isbn, BookViewModel model);
     }
 }
