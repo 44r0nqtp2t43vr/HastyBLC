@@ -102,57 +102,5 @@ namespace HastyBLCAdmin.Controllers
             }
             return View();
         }
-
-        [HttpGet]
-        [AllowAnonymous]
-        public IActionResult EditBook(string isbn)
-        {
-            var existingBook = _context.Books.Include(book=> book.Author).Include(book => book.BookGenres)!
-                    .ThenInclude(bookGenre => bookGenre.Genre)
-                .FirstOrDefault(book => book.Isbn == isbn);
-
-            if (existingBook == null)
-            {
-                TempData["ErrorMessage"] = "Book not found.";
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                var genreNames = existingBook.BookGenres?.Select(bg => bg.Genre?.Name);
-                var concatGenre = string.Join(", ", genreNames!);
-
-                var model = new Services.ServiceModels.BookViewModel
-                {
-                    Title = existingBook.Title,
-                    Description = existingBook.Description,
-                    Image = existingBook.Image,
-                    Publisher = existingBook.Publisher,
-                    Language = existingBook.Language,
-                    Format = existingBook.Format,
-                    GenreName = concatGenre?.ToString(),
-                    AuthorName = existingBook.Author?.Name,
-                    PublishDateStr = existingBook.PublishDate.ToString("yyyy-MM-dd"),
-                    PagesStr = existingBook.Pages.ToString(),
-                    Isbn = existingBook.Isbn,
-                };
-                return View(model);
-            }
-        }
-
-        [HttpPost]
-        [AllowAnonymous]
-        public IActionResult EditBook(string isbn, Services.ServiceModels.BookViewModel model)
-        {
-            try
-            {
-                _bookService.EditBook(isbn,model);
-                return RedirectToAction("Index", "Home");
-            }
-            catch (Exception)
-            {
-                TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
-                return View(model);
-            }
-        }
     }
 }

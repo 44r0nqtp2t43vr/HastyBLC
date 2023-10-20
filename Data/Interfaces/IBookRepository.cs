@@ -13,6 +13,5 @@ namespace Data.Interfaces
         bool BookExists(string isbn);
         void AddBook(Book book);
         void AddBookGenre(BookGenre bookGenre);
-        Book? GetBookByISBN(string isbn);
     }
 }

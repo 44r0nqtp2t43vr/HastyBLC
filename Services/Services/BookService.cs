@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Hangfire.Annotations;
 
 namespace Services.Services
 {
@@ -103,84 +102,6 @@ namespace Services.Services
             else
             {
                 throw new InvalidDataException(Resources.Messages.Errors.BookExists);
-            }
-        }
-        public void EditBook(string isbn, BookViewModel model)
-        {
-            var existingBook = _repository.GetBookByISBN(isbn);
-
-            if (existingBook == null)
-            {
-                throw new InvalidDataException("Book not found.");
-            }
-            else
-            {
-                existingBook.Isbn = model.Isbn;
-                existingBook.Title = model.Title;
-                existingBook.Description = model.Description;
-                existingBook.Image = model.Image;
-                existingBook.Publisher = model.Publisher;
-                existingBook.Language = model.Language;
-                existingBook.Format = model.Format;
-
-                existingBook.Author = _dbContext.Authors?.FirstOrDefault(x => x.Name == model.AuthorName);
-
-                var author = _dbContext.Authors?.FirstOrDefault(x => x.Name == model.AuthorName);
-                if (author == null)
-                {
-                    author = new Author { Name = model.AuthorName };
-                    _dbContext.Authors?.Add(author);
-                }
-                existingBook.Author = author;
-
-                
-                if (!string.IsNullOrEmpty(model.GenreName))
-                {
-                    var genre = _dbContext.Genres.FirstOrDefault(x => x.Name == model.GenreName);
-                    if (genre == null)
-                    {
-                        genre = new Genre { Name = model.GenreName };
-                        _dbContext.Genres.Add(genre);
-                    }
-                    
-                    if (existingBook.BookGenres == null)
-                    {
-                        existingBook.BookGenres = new List<BookGenre>();
-                    }
-                    else if (existingBook.BookGenres.Any(bg => bg.GenreId == genre.GenreId))
-                    {
-                        
-                        return;
-                    }
-
-                    
-                    existingBook.BookGenres.Add(new BookGenre { Book = existingBook, Genre = genre });
-                }
-
-                DateTime publishDate;
-                if (DateTime.TryParse(model.PublishDateStr, out publishDate))
-                {
-                    existingBook.PublishDate = publishDate;
-                }
-                else
-                {
-                    existingBook.PublishDate = DateTime.MinValue;
-                }
-
-                int pages;
-                if (int.TryParse(model.PagesStr, out pages))
-                {
-                    existingBook.Pages = pages;
-                }
-                else
-                {
-                    existingBook.Pages = 0;
-                }
-
-                existingBook.UpdatedTime = DateTime.Now;
-                existingBook.UpdatedBy = System.Environment.UserName;
-
-                _dbContext.SaveChanges();
             }
         }
     }
