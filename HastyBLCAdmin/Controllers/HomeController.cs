@@ -107,7 +107,9 @@ namespace HastyBLCAdmin.Controllers
         [AllowAnonymous]
         public IActionResult EditBook(string isbn)
         {
-            var existingBook = _context.Books.FirstOrDefault(book => book.Isbn == isbn);
+            var existingBook = _context.Books.Include(book=> book.Author).Include(book => book.BookGenres)!
+                    .ThenInclude(bookGenre => bookGenre.Genre)
+                .FirstOrDefault(book => book.Isbn == isbn);
 
             if (existingBook == null)
             {
@@ -116,6 +118,9 @@ namespace HastyBLCAdmin.Controllers
             }
             else
             {
+                var genreNames = existingBook.BookGenres?.Select(bg => bg.Genre?.Name);
+                var concatGenre = string.Join(", ", genreNames!);
+
                 var model = new Services.ServiceModels.BookViewModel
                 {
                     Title = existingBook.Title,
@@ -124,15 +129,14 @@ namespace HastyBLCAdmin.Controllers
                     Publisher = existingBook.Publisher,
                     Language = existingBook.Language,
                     Format = existingBook.Format,
+                    GenreName = concatGenre?.ToString(),
                     AuthorName = existingBook.Author?.Name,
                     PublishDateStr = existingBook.PublishDate.ToString("yyyy-MM-dd"),
                     PagesStr = existingBook.Pages.ToString(),
-
+                    Isbn = existingBook.Isbn,
                 };
-
                 return View(model);
             }
-
         }
 
         [HttpPost]

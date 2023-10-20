@@ -115,14 +115,47 @@ namespace Services.Services
             }
             else
             {
+                existingBook.Isbn = model.Isbn;
                 existingBook.Title = model.Title;
                 existingBook.Description = model.Description;
                 existingBook.Image = model.Image;
                 existingBook.Publisher = model.Publisher;
                 existingBook.Language = model.Language;
                 existingBook.Format = model.Format;
-                existingBook.Author = _dbContext.Authors.FirstOrDefault(x => x.Name == model.AuthorName);
-                existingBook.Isbn = model.Isbn;
+
+                existingBook.Author = _dbContext.Authors?.FirstOrDefault(x => x.Name == model.AuthorName);
+
+                var author = _dbContext.Authors?.FirstOrDefault(x => x.Name == model.AuthorName);
+                if (author == null)
+                {
+                    author = new Author { Name = model.AuthorName };
+                    _dbContext.Authors?.Add(author);
+                }
+                existingBook.Author = author;
+
+                
+                if (!string.IsNullOrEmpty(model.GenreName))
+                {
+                    var genre = _dbContext.Genres.FirstOrDefault(x => x.Name == model.GenreName);
+                    if (genre == null)
+                    {
+                        genre = new Genre { Name = model.GenreName };
+                        _dbContext.Genres.Add(genre);
+                    }
+                    
+                    if (existingBook.BookGenres == null)
+                    {
+                        existingBook.BookGenres = new List<BookGenre>();
+                    }
+                    else if (existingBook.BookGenres.Any(bg => bg.GenreId == genre.GenreId))
+                    {
+                        
+                        return;
+                    }
+
+                    
+                    existingBook.BookGenres.Add(new BookGenre { Book = existingBook, Genre = genre });
+                }
 
                 DateTime publishDate;
                 if (DateTime.TryParse(model.PublishDateStr, out publishDate))

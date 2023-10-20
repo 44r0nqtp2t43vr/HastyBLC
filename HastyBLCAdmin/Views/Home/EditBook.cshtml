@@ -1,101 +1,69 @@
 ﻿@model Services.ServiceModels.BookViewModel
+
 @{
-    ViewData["Title"] = "Edit Book Page";
+    ViewData["Title"] = "Edit Book";
 }
-@section styles {
-    <link rel="stylesheet" href="~/css/login.css" />
-}
-<div class="container py-5 h-100 register-box">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-xl-10">
-            <div class="card rounded-3 text-black">
-                <div class="row g-0">
-                    <div class="card-body p-md-5 mx-md-4">
-                        <div class="text-center">
-                            <img src="https://www.alliance.com.ph/images/asi-logo-invert.svg"
-                                 style="width: 185px;" alt="logo">
-                        </div>
 
-                        <form method="post" asp-controller="Home" asp-action="EditBook">
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="title">Title</label>
-                                <input type="text" id="title" class="form-control"
-                                       asp-for="Title" placeholder="Enter title" />
-                                <span asp-validation-for="Title" class="text-danger"></span>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="authorName">Author</label>
-                                <input type="text" id="authorName" class="form-control"
-                                       asp-for="AuthorName" placeholder="Enter author" />
-                                <span asp-validation-for="AuthorName" class="text-danger"></span>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="genreName">Genre</label>
-                                <input type="text" id="genreName" class="form-control"
-                                       asp-for="GenreName" placeholder="Enter genre" />
-                                <span asp-validation-for="GenreName" class="text-danger"></span>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="description">Description</label>
-                                <input type="text" id="description" class="form-control"
-                                       asp-for="Description" placeholder="Enter description" />
-                                <span asp-validation-for="Description" class="text-danger"></span>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="image">Image</label>
-                                <input type="text" id="image" class="form-control"
-                                       asp-for="Image" placeholder="Enter image" />
-                                <span asp-validation-for="Image" class="text-danger"></span>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="publishDateStr">Publish Date</label>
-                                <input type="text" id="publishDateStr" class="form-control"
-                                       asp-for="PublishDateStr" placeholder="Enter Publish Date" />
-                                <span asp-validation-for="PublishDateStr" class="text-danger"></span>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="publisher">Publisher</label>
-                                <input type="text" id="publisher" class="form-control"
-                                       asp-for="Publisher" placeholder="Enter Publisher" />
-                                <span asp-validation-for="Publisher" class="text-danger"></span>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="isbn">ISBN</label>
-                                <input type="text" id="isbn" class="form-control"
-                                       asp-for="Isbn" placeholder="Enter ISBN" asp-readonly="true" />
-                                <span asp-validation-for="Isbn" class="text-danger"></span>
-                            </div>
+<div class="container">
+    <h2>Edit Book</h2>
 
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="language">Language</label>
-                                <input type="text" id="language" class="form-control"
-                                       asp-for="Language" placeholder="Enter Language" />
-                                <span asp-validation-for="Language" class="text-danger"></span>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="format">Format</label>
-                                <input type="text" id="format" class="form-control"
-                                       asp-for="Format" placeholder="Enter Format" />
-                                <span asp-validation-for="Format" class="text-danger"></span>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="pagesStr">Pages</label>
-                                <input type="text" id="pagesStr" class="form-control"
-                                       asp-for="PagesStr" placeholder="Enter Pages" />
-                                <span asp-validation-for="PagesStr" class="text-danger"></span>
-                            </div>
-                            <div class="text-center pt-1 mb-5 pb-1 d-flex flex-column align-items-center">
-                                <button class="btn btn-primary btn-block login-btn gradient-custom-2 mb-3" type="submit">
-                                    Edit Book
-                                </button>
-                                <a asp-controller="Home" asp-action="Index">
-                                    &#8592 Back
-                                </a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+    <form asp-controller="Home" asp-action="EditBook" method="post">
+        <input type="hidden" asp-for="Isbn" /> <!-- Hidden field for ISBN -->
+
+        <div class="form-group">
+            <label asp-for="Title">Title:</label>
+            <input asp-for="Title" class="form-control" />
         </div>
-    </div>
+
+        <div class="form-group">
+            <label asp-for="AuthorName">Author:</label>
+            <input type="text" id="authorName" class="form-control"
+                   asp-for="AuthorName" placeholder="Enter author" value="@Model.AuthorName" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="GenreName">Genre:</label>
+            <input asp-for="GenreName" class="form-control" value="@Model.GenreName" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Description">Description:</label>
+            <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Image">Image URL:</label>
+            <input asp-for="Image" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Publisher">Publisher:</label>
+            <input asp-for="Publisher" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PublishDateStr">Publish Date:</label>
+            <input asp-for="PublishDateStr" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Language">Language:</label>
+            <input asp-for="Language" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Format">Format:</label>
+            <input asp-for="Format" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PagesStr">Pages:</label>
+            <input asp-for="PagesStr" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <a asp-controller="Home" asp-action="Index">
+            &#8592 Back
+        </a>
+    </form>
 </div>
