@@ -1,2 +1,5 @@
-/HastyBLC/appsettings.json
-/HastyBLCAdmin/appsettings.json
+HastyBLC/appsettings.json
+HastyBLCAdmin/appsettings.json
+.vs/*
+/bin/Debug/net7.0/
+/obj/

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zMmDLF0/dntfSFMi4qmKDXa3Wx8sg/q+ikIhr3/Zn9A=",
+  "Hash": "mUKlqULBXP0DzSyVqD8AQJpEnV/Xwv+TfCllNWi6gxQ=",
   "Source": "HastyBLCAdmin",
   "BasePath": "_content/HastyBLCAdmin",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "HastyBLCAdmin\\wwwroot",
       "Source": "HastyBLCAdmin",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\obj\\Debug\\net7.0\\scopedcss\\bundle\\HastyBLCAdmin.styles.css",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\obj\\Debug\\net7.0\\scopedcss\\bundle\\HastyBLCAdmin.styles.css",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "HastyBLCAdmin.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\obj\\Debug\\net7.0\\scopedcss\\bundle\\HastyBLCAdmin.styles.css"
+      "OriginalItemSpec": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\obj\\Debug\\net7.0\\scopedcss\\bundle\\HastyBLCAdmin.styles.css"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\HastyBLCAdmin.bundle.scp.css",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\HastyBLCAdmin.bundle.scp.css",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "HastyBLCAdmin.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\HastyBLCAdmin.bundle.scp.css"
+      "OriginalItemSpec": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\HastyBLCAdmin.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\css\\login.css",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\css\\login.css",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "css/login.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\css\\main.css",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\css\\main.css",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "css/main.css",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\main.css"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\css\\site.css",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\css\\site.css",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\css\\style.css",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\css\\style.css",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "css/style.css",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\favicon.ico",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\favicon.ico",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\fonts\\roboto.css",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\fonts\\roboto.css",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "fonts/roboto.css",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\roboto.css"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\html\\assets\\js\\plugins\\jquery-slimscroll\\jquery.slimscroll.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\html\\assets\\js\\plugins\\jquery-slimscroll\\jquery.slimscroll.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "html/assets/js/plugins/jquery-slimscroll/jquery.slimscroll.js",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\html\\assets\\js\\plugins\\jquery-slimscroll\\jquery.slimscroll.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\html\\assets\\js\\plugins\\jquery-slimscroll\\jquery.slimscroll.min.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\html\\assets\\js\\plugins\\jquery-slimscroll\\jquery.slimscroll.min.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "html/assets/js/plugins/jquery-slimscroll/jquery.slimscroll.min.js",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\html\\assets\\js\\plugins\\jquery-slimscroll\\jquery.slimscroll.min.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\img\\asi-logo-invert.svg",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\img\\asi-logo-invert.svg",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "img/asi-logo-invert.svg",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\img\\asi-logo-invert.svg"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\img\\LiveIT.png",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\img\\LiveIT.png",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "img/LiveIT.png",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\img\\LiveIT.png"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\img\\profile-logo.png",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\img\\profile-logo.png",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "img/profile-logo.png",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\img\\profile-logo.png"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\js\\site.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\js\\site.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -306,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -323,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -357,10 +357,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -374,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -391,10 +391,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -408,10 +408,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -425,10 +425,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -442,10 +442,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -459,10 +459,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -476,10 +476,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -493,10 +493,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -510,10 +510,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -527,10 +527,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -544,10 +544,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -561,10 +561,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -578,10 +578,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -595,10 +595,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -612,10 +612,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -629,10 +629,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -646,10 +646,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -663,10 +663,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
@@ -680,10 +680,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -697,10 +697,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -714,10 +714,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -731,10 +731,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -748,10 +748,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -765,10 +765,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -782,10 +782,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -799,10 +799,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
@@ -816,10 +816,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react\\dist\\react.development.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react\\dist\\react.development.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/react/dist/react.development.js",
       "AssetKind": "All",
@@ -833,10 +833,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\react\\dist\\react.development.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react\\dist\\react.production.min.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react\\dist\\react.production.min.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/react/dist/react.production.min.js",
       "AssetKind": "All",
@@ -850,10 +850,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\react\\dist\\react.production.min.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react\\dist\\react.profiling.min.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react\\dist\\react.profiling.min.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/react/dist/react.profiling.min.js",
       "AssetKind": "All",
@@ -867,10 +867,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\react\\dist\\react.profiling.min.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom.development.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom.development.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/react-dom/dist/react-dom.development.js",
       "AssetKind": "All",
@@ -884,10 +884,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\react-dom\\dist\\react-dom.development.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom.production.min.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom.production.min.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/react-dom/dist/react-dom.production.min.js",
       "AssetKind": "All",
@@ -901,10 +901,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\react-dom\\dist\\react-dom.production.min.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom.profiling.min.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom.profiling.min.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/react-dom/dist/react-dom.profiling.min.js",
       "AssetKind": "All",
@@ -918,10 +918,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\react-dom\\dist\\react-dom.profiling.min.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-server.browser.development.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-server.browser.development.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/react-dom/dist/react-dom-server.browser.development.js",
       "AssetKind": "All",
@@ -935,10 +935,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\react-dom\\dist\\react-dom-server.browser.development.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-server.browser.production.min.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-server.browser.production.min.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/react-dom/dist/react-dom-server.browser.production.min.js",
       "AssetKind": "All",
@@ -952,10 +952,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\react-dom\\dist\\react-dom-server.browser.production.min.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-test-utils.development.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-test-utils.development.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/react-dom/dist/react-dom-test-utils.development.js",
       "AssetKind": "All",
@@ -969,10 +969,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\react-dom\\dist\\react-dom-test-utils.development.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-test-utils.production.min.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-test-utils.production.min.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/react-dom/dist/react-dom-test-utils.production.min.js",
       "AssetKind": "All",
@@ -986,10 +986,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\react-dom\\dist\\react-dom-test-utils.production.min.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-unstable-fizz.browser.development.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-unstable-fizz.browser.development.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/react-dom/dist/react-dom-unstable-fizz.browser.development.js",
       "AssetKind": "All",
@@ -1003,10 +1003,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\react-dom\\dist\\react-dom-unstable-fizz.browser.development.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-unstable-fizz.browser.production.min.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-unstable-fizz.browser.production.min.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/react-dom/dist/react-dom-unstable-fizz.browser.production.min.js",
       "AssetKind": "All",
@@ -1020,10 +1020,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\react-dom\\dist\\react-dom-unstable-fizz.browser.production.min.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-unstable-native-dependencies.development.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-unstable-native-dependencies.development.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/react-dom/dist/react-dom-unstable-native-dependencies.development.js",
       "AssetKind": "All",
@@ -1037,10 +1037,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\react-dom\\dist\\react-dom-unstable-native-dependencies.development.js"
     },
     {
-      "Identity": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-unstable-native-dependencies.production.min.js",
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-unstable-native-dependencies.production.min.js",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Jillian\\Documents\\Hasty BLC\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
       "BasePath": "_content/HastyBLCAdmin",
       "RelativePath": "lib/react-dom/dist/react-dom-unstable-native-dependencies.production.min.js",
       "AssetKind": "All",
