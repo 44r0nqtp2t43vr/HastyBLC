@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hangfire.Annotations;
 
 namespace Services.Services
 {
@@ -102,6 +103,51 @@ namespace Services.Services
             else
             {
                 throw new InvalidDataException(Resources.Messages.Errors.BookExists);
+            }
+        }
+        public void EditBook(string isbn, BookViewModel model)
+        {
+            var existingBook = _repository.GetBookByISBN(isbn);
+
+            if (existingBook == null)
+            {
+                throw new InvalidDataException("Book not found.");
+            }
+            else
+            {
+                existingBook.Title = model.Title;
+                existingBook.Description = model.Description;
+                existingBook.Image = model.Image;
+                existingBook.Publisher = model.Publisher;
+                existingBook.Language = model.Language;
+                existingBook.Format = model.Format;
+                existingBook.Author = _dbContext.Authors.FirstOrDefault(x => x.Name == model.AuthorName);
+                existingBook.Isbn = model.Isbn;
+
+                DateTime publishDate;
+                if (DateTime.TryParse(model.PublishDateStr, out publishDate))
+                {
+                    existingBook.PublishDate = publishDate;
+                }
+                else
+                {
+                    existingBook.PublishDate = DateTime.MinValue;
+                }
+
+                int pages;
+                if (int.TryParse(model.PagesStr, out pages))
+                {
+                    existingBook.Pages = pages;
+                }
+                else
+                {
+                    existingBook.Pages = 0;
+                }
+
+                existingBook.UpdatedTime = DateTime.Now;
+                existingBook.UpdatedBy = System.Environment.UserName;
+
+                _dbContext.SaveChanges();
             }
         }
     }

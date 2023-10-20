@@ -36,5 +36,42 @@ namespace Data.Repositories
             this.GetDbSet<BookGenre>().Add(bookGenre);
             UnitOfWork.SaveChanges();
         }
+        public void EditBook(string isbn, Book updatedBook)
+        {
+            var existingBook = this.GetDbSet<Book>().FirstOrDefault(x => x.Isbn == isbn);
+
+            if (existingBook != null)
+            {
+                existingBook.Title = updatedBook.Title;
+                existingBook.Description = updatedBook.Description;
+                existingBook.Image = updatedBook.Image;
+                existingBook.Publisher = updatedBook.Publisher;
+                existingBook.Language = updatedBook.Language;
+                existingBook.Format = updatedBook.Format;
+                existingBook.Author = updatedBook.Author;
+                existingBook.PublishDate = updatedBook.PublishDate;
+                existingBook.Pages = updatedBook.Pages;
+                existingBook.UpdatedTime = DateTime.Now;
+                existingBook.UpdatedBy = System.Environment.UserName;
+
+                UnitOfWork.SaveChanges();
+            }
+            else
+            {
+                throw new InvalidDataException("Book not found.");
+            }
+        }
+
+
+        public Book? GetBookById(int bookId)
+        {
+            return this.GetDbSet<Book>().Find(bookId);
+        }
+
+        public Book? GetBookByISBN(string isbn)
+        {
+            return this.GetDbSet<Book>().FirstOrDefault(x => x.Isbn == isbn) ?? null;
+        }
+
     }
 }

@@ -10,5 +10,6 @@ namespace Services.Interfaces
     public interface IBookService
     {
         void AddBook(BookViewModel model);
+        void EditBook(string isbn, BookViewModel model);
     }
 }

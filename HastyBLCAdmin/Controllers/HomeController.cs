@@ -102,5 +102,53 @@ namespace HastyBLCAdmin.Controllers
             }
             return View();
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult EditBook(string isbn)
+        {
+            var existingBook = _context.Books.FirstOrDefault(book => book.Isbn == isbn);
+
+            if (existingBook == null)
+            {
+                TempData["ErrorMessage"] = "Book not found.";
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                var model = new Services.ServiceModels.BookViewModel
+                {
+                    Title = existingBook.Title,
+                    Description = existingBook.Description,
+                    Image = existingBook.Image,
+                    Publisher = existingBook.Publisher,
+                    Language = existingBook.Language,
+                    Format = existingBook.Format,
+                    AuthorName = existingBook.Author?.Name,
+                    PublishDateStr = existingBook.PublishDate.ToString("yyyy-MM-dd"),
+                    PagesStr = existingBook.Pages.ToString(),
+
+                };
+
+                return View(model);
+            }
+
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult EditBook(string isbn, Services.ServiceModels.BookViewModel model)
+        {
+            try
+            {
+                _bookService.EditBook(isbn,model);
+                return RedirectToAction("Index", "Home");
+            }
+            catch (Exception)
+            {
+                TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
+                return View(model);
+            }
+        }
     }
 }

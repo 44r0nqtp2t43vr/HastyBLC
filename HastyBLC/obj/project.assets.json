@@ -5878,19 +5878,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Aaron\\.nuget\\packages\\": {}
+    "C:\\Users\\zmaca\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLC\\HastyBLC.csproj",
+      "projectUniqueName": "D:\\Repo\\BLC_ALLIANCE\\HastyBLC\\HastyBLC.csproj",
       "projectName": "HastyBLC",
-      "projectPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLC\\HastyBLC.csproj",
-      "packagesPath": "C:\\Users\\Aaron\\.nuget\\packages\\",
-      "outputPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLC\\obj\\",
+      "projectPath": "D:\\Repo\\BLC_ALLIANCE\\HastyBLC\\HastyBLC.csproj",
+      "packagesPath": "C:\\Users\\zmaca\\.nuget\\packages\\",
+      "outputPath": "D:\\Repo\\BLC_ALLIANCE\\HastyBLC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Aaron\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\zmaca\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5904,11 +5904,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Resources\\Resources.csproj": {
-              "projectPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Resources\\Resources.csproj"
+            "D:\\Repo\\BLC_ALLIANCE\\Resources\\Resources.csproj": {
+              "projectPath": "D:\\Repo\\BLC_ALLIANCE\\Resources\\Resources.csproj"
             },
-            "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Services\\Services.csproj": {
-              "projectPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Services\\Services.csproj"
+            "D:\\Repo\\BLC_ALLIANCE\\Services\\Services.csproj": {
+              "projectPath": "D:\\Repo\\BLC_ALLIANCE\\Services\\Services.csproj"
             }
           }
         }
@@ -6003,7 +6003,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

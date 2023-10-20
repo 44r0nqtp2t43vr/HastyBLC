@@ -20,7 +20,7 @@
             <li>@(book.Genres != null ? string.Join(", ", book.Genres) : "No Genres")</li>
         </ul>
         <div class="d-flex align-items-center justify-content-center pb-4">
-            <a asp-controller="Home" asp-action="EditBook" class="btn btn-outline-danger">Edit Book</a>
+            <a asp-controller="Home" asp-action="EditBook" asp-route-isbn="@book.Isbn" class="btn btn-outline-danger">Edit Book</a>
         </div>
         <div class="d-flex align-items-center justify-content-center pb-4">
             <a asp-controller="Home" asp-action="DeleteBook" class="btn btn-outline-danger">Delete Book</a>
