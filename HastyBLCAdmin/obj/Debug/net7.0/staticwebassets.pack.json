@@ -1,243 +1,243 @@
 {
   "Files": [
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\HastyBLCAdmin.bundle.scp.css",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\HastyBLCAdmin.bundle.scp.css",
       "PackagePath": "staticwebassets\\HastyBLCAdmin.bundle.scp.css"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\css\\login.css",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\css\\login.css",
       "PackagePath": "staticwebassets\\css\\login.css"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\css\\main.css",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\css\\main.css",
       "PackagePath": "staticwebassets\\css\\main.css"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\css\\site.css",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\css\\style.css",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\css\\style.css",
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\favicon.ico",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\fonts\\roboto.css",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\fonts\\roboto.css",
       "PackagePath": "staticwebassets\\fonts\\roboto.css"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\html\\assets\\js\\plugins\\jquery-slimscroll\\jquery.slimscroll.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\html\\assets\\js\\plugins\\jquery-slimscroll\\jquery.slimscroll.js",
       "PackagePath": "staticwebassets\\html\\assets\\js\\plugins\\jquery-slimscroll\\jquery.slimscroll.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\html\\assets\\js\\plugins\\jquery-slimscroll\\jquery.slimscroll.min.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\html\\assets\\js\\plugins\\jquery-slimscroll\\jquery.slimscroll.min.js",
       "PackagePath": "staticwebassets\\html\\assets\\js\\plugins\\jquery-slimscroll\\jquery.slimscroll.min.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\img\\LiveIT.png",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\img\\LiveIT.png",
       "PackagePath": "staticwebassets\\img\\LiveIT.png"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\img\\asi-logo-invert.svg",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\img\\asi-logo-invert.svg",
       "PackagePath": "staticwebassets\\img\\asi-logo-invert.svg"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\img\\profile-logo.png",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\img\\profile-logo.png",
       "PackagePath": "staticwebassets\\img\\profile-logo.png"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\js\\site.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-server.browser.development.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-server.browser.development.js",
       "PackagePath": "staticwebassets\\lib\\react-dom\\dist\\react-dom-server.browser.development.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-server.browser.production.min.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-server.browser.production.min.js",
       "PackagePath": "staticwebassets\\lib\\react-dom\\dist\\react-dom-server.browser.production.min.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-test-utils.development.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-test-utils.development.js",
       "PackagePath": "staticwebassets\\lib\\react-dom\\dist\\react-dom-test-utils.development.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-test-utils.production.min.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-test-utils.production.min.js",
       "PackagePath": "staticwebassets\\lib\\react-dom\\dist\\react-dom-test-utils.production.min.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-unstable-fizz.browser.development.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-unstable-fizz.browser.development.js",
       "PackagePath": "staticwebassets\\lib\\react-dom\\dist\\react-dom-unstable-fizz.browser.development.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-unstable-fizz.browser.production.min.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-unstable-fizz.browser.production.min.js",
       "PackagePath": "staticwebassets\\lib\\react-dom\\dist\\react-dom-unstable-fizz.browser.production.min.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-unstable-native-dependencies.development.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-unstable-native-dependencies.development.js",
       "PackagePath": "staticwebassets\\lib\\react-dom\\dist\\react-dom-unstable-native-dependencies.development.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-unstable-native-dependencies.production.min.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom-unstable-native-dependencies.production.min.js",
       "PackagePath": "staticwebassets\\lib\\react-dom\\dist\\react-dom-unstable-native-dependencies.production.min.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom.development.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom.development.js",
       "PackagePath": "staticwebassets\\lib\\react-dom\\dist\\react-dom.development.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom.production.min.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom.production.min.js",
       "PackagePath": "staticwebassets\\lib\\react-dom\\dist\\react-dom.production.min.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom.profiling.min.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react-dom\\dist\\react-dom.profiling.min.js",
       "PackagePath": "staticwebassets\\lib\\react-dom\\dist\\react-dom.profiling.min.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\react\\dist\\react.development.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react\\dist\\react.development.js",
       "PackagePath": "staticwebassets\\lib\\react\\dist\\react.development.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\react\\dist\\react.production.min.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react\\dist\\react.production.min.js",
       "PackagePath": "staticwebassets\\lib\\react\\dist\\react.production.min.js"
     },
     {
-      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\lib\\react\\dist\\react.profiling.min.js",
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\lib\\react\\dist\\react.profiling.min.js",
       "PackagePath": "staticwebassets\\lib\\react\\dist\\react.profiling.min.js"
     },
     {

@@ -36,10 +36,5 @@ namespace Data.Repositories
             this.GetDbSet<BookGenre>().Add(bookGenre);
             UnitOfWork.SaveChanges();
         }
-        public Book? GetBookByISBN(string isbn)
-        {
-            return this.GetDbSet<Book>().FirstOrDefault(x => x.Isbn == isbn);
-        }
-
     }
 }
