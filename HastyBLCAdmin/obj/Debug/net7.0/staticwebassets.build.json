@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rL61V6b9g8TejD92q5KdVLKrNxwlehmbxSds/4+hBFE=",
+  "Hash": "PJrjzbefJQiUJx0K90qal6a7ss49o5EasKAuI6OoEpM=",
   "Source": "HastyBLCAdmin",
   "BasePath": "_content/HastyBLCAdmin",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\HastyBLCAdmin.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\css\\HastyBLCStyle.css",
+      "SourceId": "HastyBLCAdmin",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\",
+      "BasePath": "_content/HastyBLCAdmin",
+      "RelativePath": "css/HastyBLCStyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\HastyBLCStyle.css"
     },
     {
       "Identity": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\css\\login.css",
@@ -219,6 +236,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\LiveIT.png"
+    },
+    {
+      "Identity": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\img\\logo.png",
+      "SourceId": "HastyBLCAdmin",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\",
+      "BasePath": "_content/HastyBLCAdmin",
+      "RelativePath": "img/logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\logo.png"
     },
     {
       "Identity": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\img\\profile-logo.png",

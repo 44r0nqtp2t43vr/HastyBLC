@@ -17,7 +17,7 @@ namespace HastyBLCAdmin.Controllers
     /// <summary>
     /// Home Controller
     /// </summary>
-    public class HomeController : ControllerBase<HomeController>
+    public class BooksController : ControllerBase<BooksController>
     {
         private readonly HastyDBContext _context;
         private readonly IBookService _bookService;
@@ -29,7 +29,7 @@ namespace HastyBLCAdmin.Controllers
         /// <param name="configuration"></param>
         /// <param name="localizer"></param>
         /// <param name="mapper"></param>
-        public HomeController(HastyDBContext context,
+        public BooksController(HastyDBContext context,
                               IHttpContextAccessor httpContextAccessor,
                               ILoggerFactory loggerFactory,
                               IConfiguration configuration,
@@ -44,7 +44,18 @@ namespace HastyBLCAdmin.Controllers
         /// Returns Home View.
         /// </summary>
         /// <returns> Home View </returns>
-        public IActionResult Index()
+
+        public IActionResult Dashboard()
+        {
+            return View();
+        }
+
+        public IActionResult Genres()
+        {
+            return View();
+        }
+
+        public IActionResult Books()
         {
             // Query all books from the database
             var books = _context.Books
@@ -82,6 +93,7 @@ namespace HastyBLCAdmin.Controllers
         {
             return View();
         }
+        
 
         [HttpPost]
         [AllowAnonymous]

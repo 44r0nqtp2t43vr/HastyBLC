@@ -24,16 +24,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Home/AddBook.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRCb29rLmNzaHRtbA==
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Books/AddBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcQWRkQm9vay5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Home/EditBook.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0Qm9vay5jc2h0bWw=
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Books/Books.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcQm9va3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Books/EditBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcRWRpdEJvb2suY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Dashboard/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXERhc2hib2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Genres/Genres.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VucmVzXEdlbnJlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Shared/Error.cshtml]

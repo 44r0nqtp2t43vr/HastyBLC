@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\HastyBLCAdmin.bundle.scp.css"
     },
     {
+      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\css\\HastyBLCStyle.css",
+      "PackagePath": "staticwebassets\\css\\HastyBLCStyle.css"
+    },
+    {
       "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\css\\login.css",
       "PackagePath": "staticwebassets\\css\\login.css"
     },
@@ -43,6 +47,10 @@
     {
       "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\img\\asi-logo-invert.svg",
       "PackagePath": "staticwebassets\\img\\asi-logo-invert.svg"
+    },
+    {
+      "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\img\\logo.png",
+      "PackagePath": "staticwebassets\\img\\logo.png"
     },
     {
       "Id": "D:\\Repo\\BLC_ALLIANCE\\HastyBLCAdmin\\wwwroot\\img\\profile-logo.png",

@@ -14,6 +14,7 @@
     --background-color2: #ffffff;
     --background-color3: #ededed;
     --background-color4: #cad7fda4;
+    --background-color5: #eedeaa;
     --primary-color: #4b49ac;
     --secondary-color: #0c007d;
     --Border-color: #3f0097;
@@ -22,7 +23,7 @@
 }
 
 body {
-    background-color: var(--background-color4);
+    background-color: var(--background-color5);
     max-width: 100%;
     overflow-x: hidden;
 }
@@ -167,7 +168,7 @@ header {
     background-color: #1e272e;
     position: absolute;
     top: 0px;
-    left: 00;
+    left: 0px;
     box-shadow: 1px 1px 10px rgba(198, 189, 248, 0.825);
     display: flex;
     justify-content: space-between;
