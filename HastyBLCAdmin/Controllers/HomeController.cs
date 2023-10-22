@@ -44,17 +44,6 @@ namespace HastyBLCAdmin.Controllers
         /// Returns Home View.
         /// </summary>
         /// <returns> Home View </returns>
-
-        public IActionResult Dashboard()
-        {
-            return View();
-        }
-
-        public IActionResult Genres()
-        {
-            return View();
-        }
-
         public IActionResult Books()
         {
             // Query all books from the database
@@ -102,7 +91,7 @@ namespace HastyBLCAdmin.Controllers
             try
             {
                 _bookService.AddBook(model);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Books", "Books");
             }
             catch (InvalidDataException ex)
             {
@@ -126,7 +115,7 @@ namespace HastyBLCAdmin.Controllers
             if (existingBook == null)
             {
                 TempData["ErrorMessage"] = "Book not found.";
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Books", "Books");
             }
             else
             {
@@ -158,7 +147,7 @@ namespace HastyBLCAdmin.Controllers
             try
             {
                 _bookService.EditBook(isbn,model);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Books", "Books");
             }
             catch (Exception)
             {
