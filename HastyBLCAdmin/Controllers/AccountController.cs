@@ -91,7 +91,7 @@ namespace HastyBLCAdmin.Controllers
                 // 認証OK
                 await this._signInManager.SignInAsync(user);
                 this._session.SetString("UserName", user.Username!);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Dashboard", "Dashboard");
             }
             else
             {
