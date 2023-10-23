@@ -1,0 +1,29 @@
+﻿@section styles {
+    <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
+}
+@{
+    ViewData["Title"] = "Genres";
+}
+<html>
+<body>
+    <div class="sidebar">
+        <div class="image">
+            <img src="~/img/logo.png" class="imagehw">
+        </div>
+        <div class="hasty">
+            <h1>HASTY</h1>
+            <h1>BLC</h1>
+        </div>
+        <div class="screens">
+            <a asp-controller="Dashboard" asp-action="Dashboard">Dashboard</a>
+            <a asp-controller="Genres" asp-action="Genres" class="active">Genres</a>
+            <a asp-controller="Books" asp-action="Books">Books</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="text-center">
+            <h1>THIS IS THE GENRES PAGE</h1>
+        </div>
+    </div>
+</body>
+</html>

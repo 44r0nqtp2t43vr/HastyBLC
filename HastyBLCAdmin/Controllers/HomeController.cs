@@ -19,7 +19,7 @@ namespace HastyBLCAdmin.Controllers
     /// <summary>
     /// Home Controller
     /// </summary>
-    public class HomeController : ControllerBase<HomeController>
+    public class BooksController : ControllerBase<BooksController>
     {
         private readonly HastyDBContext _context;
         private readonly IBookService _bookService;
@@ -32,7 +32,7 @@ namespace HastyBLCAdmin.Controllers
         /// <param name="configuration"></param>
         /// <param name="localizer"></param>
         /// <param name="mapper"></param>
-        public HomeController(HastyDBContext context,
+        public BooksController(HastyDBContext context,
                               IHttpContextAccessor httpContextAccessor,
                               ILoggerFactory loggerFactory,
                               IConfiguration configuration,
@@ -47,7 +47,7 @@ namespace HastyBLCAdmin.Controllers
         /// Returns Home View.
         /// </summary>
         /// <returns> Home View </returns>
-        public IActionResult Index()
+        public IActionResult Books()
         {
             var books = _context.Books
                 .Include(book => book.Author)
@@ -92,7 +92,7 @@ namespace HastyBLCAdmin.Controllers
             try
             {
                 _bookService.AddBook(model);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Books", "Books");
             }
             catch (InvalidDataException ex)
             {
@@ -119,7 +119,7 @@ namespace HastyBLCAdmin.Controllers
                 TempData["ErrorMessage"] = $"Error deleting book: {ex.Message}";
             }
 
-            return RedirectToAction("Index"); 
+            return RedirectToAction("Books"); 
 	}
 
         [HttpGet]
@@ -133,7 +133,7 @@ namespace HastyBLCAdmin.Controllers
             if (existingBook == null)
             {
                 TempData["ErrorMessage"] = "Book not found.";
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Books", "Books");
             }
             else
             {
@@ -165,7 +165,7 @@ namespace HastyBLCAdmin.Controllers
             try
             {
                 _bookService.EditBook(isbn,model);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Books", "Books");
             }
             catch (Exception)
             {
