@@ -33,6 +33,7 @@
             <!-- The Modal -->
             @await Html.PartialAsync("_AddGenre", new Services.ServiceModels.GenreViewModel())
             @await Html.PartialAsync("_EditGenre", new Services.ServiceModels.GenreViewModel())
+            @await Html.PartialAsync("_DeleteGenre")
             
             @if (Model == null)
             {
@@ -49,6 +50,9 @@
                     <div class="d-flex align-items-center justify-content-center pb-4">
                         <button class="btn btn-outline-danger editGenreBtn" data-genre-id="@genre.GenreId" data-genre-name="@genre.Name">
                             Edit Genre
+                        </button>
+                        <button class="btn btn-outline-danger deleteGenreBtn" data-genre-id="@genre.GenreId">
+                            Delete Genre
                         </button>
                     </div>
                 }

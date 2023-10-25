@@ -103,5 +103,24 @@ namespace HastyBLCAdmin.Controllers
             }
             return RedirectToAction("Genres", "Genres");
         }
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult DeleteGenre(int genreId)
+        {
+            try
+            {
+                _genreService.DeleteGenre(genreId);
+                return RedirectToAction("Genres", "Genres");
+            }
+            catch (InvalidDataException ex)
+            {
+                TempData["ErrorMessage"] = ex.Message;
+            }
+            catch (Exception)
+            {
+                TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
+            }
+            return RedirectToAction("Genres", "Genres");
+        }
     }
 }

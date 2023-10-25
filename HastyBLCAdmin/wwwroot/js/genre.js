@@ -12,4 +12,11 @@ jq(document).ready(function () {
 
         jq("#editGenreModal").modal("show");
     });
+    jq(".deleteGenreBtn").click(function () {
+        var genreId = $(this).data("genre-id");
+
+        $("#deleteGenreId").val(genreId);
+
+        jq("#deleteGenreModal").modal("show");
+    });
 });
