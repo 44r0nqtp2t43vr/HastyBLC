@@ -1,6 +1,15 @@
 ﻿var jq = jQuery.noConflict();
 jq(document).ready(function () {
     jq("#addGenreBtn").click(function () {
-        jq("#myModal").modal("show");
+        jq("#addGenreModal").modal("show");
+    });
+    jq(".editGenreBtn").click(function () {
+        var genreId = $(this).data("genre-id");
+        var genreName = $(this).data("genre-name");
+
+        $("#editGenreId").val(genreId);
+        $("#editGenreName").val(genreName);
+
+        jq("#editGenreModal").modal("show");
     });
 });

@@ -9,6 +9,7 @@ namespace Services.ServiceModels
 {
     public class GenreViewModel
     {
+        public int GenreId { get; set; }
         [Required(ErrorMessage = "Name is required.")]
         public string? Name { get; set; }
     }

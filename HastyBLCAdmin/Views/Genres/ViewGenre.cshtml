@@ -11,9 +11,9 @@
         <div class="text-center">
             <a asp-controller="Genres" asp-action="BackToGenres" class="btn btn-outline-danger">Back</a>
             <h1>@Model.Name</h1>
-            @if (Model.BookGenres == null)
+            @if (Model.BookGenres == null || Model.BookGenres.Count == 0)
             {
-                <h2>There are no books in this genre</h2>
+                <p>There are no books in this genre</p>
             }
             else
             {

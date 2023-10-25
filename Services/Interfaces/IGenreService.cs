@@ -14,6 +14,6 @@ namespace Services.Interfaces
         Genre GetGenre(int genreId);
         void AddGenre(GenreViewModel model);
         void DeleteGenre(int genreId);
-        void EditGenre(int genreId, BookViewModel model);
+        void EditGenre(GenreViewModel model);
     }
 }

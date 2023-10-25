@@ -1,26 +1,27 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 @model Services.ServiceModels.GenreViewModel
-<div class="modal" id="addGenreModal">
+<div class="modal" id="editGenreModal">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Add Genre</h4>
+                <h4 class="modal-title">Edit Genre</h4>
             </div>
             <!-- Modal body -->
-            <form method="post" action="/Genres/AddGenre">
+            <form method="post" action="/Genres/EditGenre">
                 <div class="form-outline mb-4">
+                    <input type="hidden" id="editGenreId" asp-for="GenreId"/>
                     <label class="form-label" for="name">Name</label>
-                    <input type="text" id="name" class="form-control"
-                           asp-for="Name" placeholder="Enter genre name" />
+                    <input type="text" id="editGenreName" class="form-control"
+                           asp-for="Name" placeholder="Enter genre name"/>
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
-            
+
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <button class="btn btn-primary btn-block login-btn gradient-custom-2 mb-3" data-dismiss="modal">Close</button>
-                    <button class="btn btn-primary btn-block login-btn gradient-custom-2 mb-3" type="submit">Add Genre</button>
+                    <button class="btn btn-primary btn-block login-btn gradient-custom-2 mb-3" type="submit">Edit Genre</button>
                 </div>
             </form>
         </div>

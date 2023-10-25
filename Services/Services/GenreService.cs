@@ -58,12 +58,21 @@ namespace Services.Services
         {
             _repository.DeleteGenre(genreId);
         }
-        public void EditGenre(int genreId, BookViewModel model)
+        public void EditGenre(GenreViewModel model)
         {
-            var genre = new Genre();
-            genre.GenreId = genreId;
-            genre.Name = model.GenreName;
-            _repository.EditGenre(genre);
+            if (!_repository.GenreExists(model.Name!))
+            {
+                var genre = new Genre();
+                genre.GenreId = model.GenreId;
+                genre.Name = model.Name;
+                genre.UpdatedTime = DateTime.Now;
+                genre.UpdatedBy = System.Environment.UserName;
+                _repository.EditGenre(genre);
+            }
+            else
+            {
+                throw new InvalidDataException(Resources.Messages.Errors.GenreExists);
+            }
         }
     }
 }

@@ -32,6 +32,7 @@
 
             <!-- The Modal -->
             @await Html.PartialAsync("_AddGenre", new Services.ServiceModels.GenreViewModel())
+            @await Html.PartialAsync("_EditGenre", new Services.ServiceModels.GenreViewModel())
             
             @if (Model == null)
             {
@@ -45,6 +46,11 @@
                         <input type="hidden" name="genreId" value="@genre.GenreId" />
                         <button type="submit" class="btn btn-outline-danger">@genre.Name</button>
                     </form>
+                    <div class="d-flex align-items-center justify-content-center pb-4">
+                        <button class="btn btn-outline-danger editGenreBtn" data-genre-id="@genre.GenreId" data-genre-name="@genre.Name">
+                            Edit Genre
+                        </button>
+                    </div>
                 }
             }
             
