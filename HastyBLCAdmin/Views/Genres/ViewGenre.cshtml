@@ -1,0 +1,32 @@
+﻿@model Genre
+@section styles {
+    <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
+}
+@{
+    ViewData["Title"] = "Genres";
+}
+<html>
+<body>
+    <div>
+        <div class="text-center">
+            <a asp-controller="Genres" asp-action="BackToGenres" class="btn btn-outline-danger">Back</a>
+            <h1>@Model.Name</h1>
+            @if (Model.BookGenres == null)
+            {
+                <h2>There are no books in this genre</h2>
+            }
+            else
+            {
+                @foreach (var bookGenre in Model.BookGenres)
+                {
+                    <form method="get" asp-action="ViewBook" class="li3">
+                        <input type="hidden" name="bookId" value="@bookGenre.Book!.BookId" />
+                        <button type="submit" class="btn btn-outline-danger">@bookGenre.Book!.Title</button>
+                    </form>
+                }
+            }
+
+        </div>
+    </div>
+</body>
+</html>

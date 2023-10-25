@@ -1,4 +1,5 @@
-﻿@section styles {
+﻿@model List<Genre>?
+@section styles {
     <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
 }
 @{
@@ -23,7 +24,35 @@
     <div class="content">
         <div class="text-center">
             <h1>THIS IS THE GENRES PAGE</h1>
+            <!-- Button to trigger the modal -->
+            @* <a asp-controller="Genres" asp-action="AddGenre" class="btn btn-outline-danger">Add Genre</a> *@
+            <div class="d-flex align-items-center justify-content-center pb-4">
+                <button id="addGenreBtn" class="btn btn-outline-danger">Add Genre</button>
+            </div>
+
+            <!-- The Modal -->
+            @await Html.PartialAsync("_AddGenre", new Services.ServiceModels.GenreViewModel())
+            
+            @if (Model == null)
+            {
+                <h2>There are no genres</h2>
+            } 
+            else
+            {
+                @foreach (var genre in Model)
+                {
+                    <form method="get" asp-action="ViewGenre" class="li3">
+                        <input type="hidden" name="genreId" value="@genre.GenreId" />
+                        <button type="submit" class="btn btn-outline-danger">@genre.Name</button>
+                    </form>
+                }
+            }
+            
         </div>
     </div>
 </body>
 </html>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="~/js/genre.js"></script>

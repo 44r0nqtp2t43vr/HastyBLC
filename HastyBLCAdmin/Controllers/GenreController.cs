@@ -47,6 +47,45 @@ namespace HastyBLCAdmin.Controllers
 
         public IActionResult Genres()
         {
+            var genres = _context.Genres.ToList();
+            return View(genres);
+        }
+
+        public IActionResult BackToGenres()
+        {
+            return RedirectToAction("Genres", "Genres");
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ViewGenre(int genreId)
+        {
+            var genreWithBooks = _context.Genres
+                .Where(genre => genre.GenreId == genreId)
+                .Include(genre => genre.BookGenres!)
+                    .ThenInclude(bookGenre => bookGenre.Book)
+                .ToList();
+
+            return View(genreWithBooks[0]);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult AddGenre(GenreViewModel model)
+        {
+            try
+            {
+                /*_bookService.AddBook(model);*/
+                return RedirectToAction("Genres", "Genres");
+            }
+            catch (InvalidDataException ex)
+            {
+                TempData["ErrorMessage"] = ex.Message;
+            }
+            catch (Exception)
+            {
+                TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
+            }
             return View();
         }
     }
