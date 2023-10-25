@@ -20,7 +20,7 @@ namespace HastyBLCAdmin.Controllers
     public class GenresController : ControllerBase<GenresController>
     {
         private readonly HastyDBContext _context;
-        private readonly IBookService _bookService;
+        private readonly IGenreService _genreService;
         /// <summary>
         /// Constructor
         /// </summary>
@@ -33,11 +33,11 @@ namespace HastyBLCAdmin.Controllers
                               IHttpContextAccessor httpContextAccessor,
                               ILoggerFactory loggerFactory,
                               IConfiguration configuration,
-                              IBookService bookService,
+                              IGenreService genreService,
                               IMapper? mapper = null) : base(httpContextAccessor, loggerFactory, configuration, mapper)
         {
             _context = context;
-            this._bookService = bookService;
+            this._genreService = genreService;
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace HastyBLCAdmin.Controllers
 
         public IActionResult Genres()
         {
-            var genres = _context.Genres.ToList();
+            var genres = _genreService.GetGenres();
             return View(genres);
         }
 
@@ -60,13 +60,8 @@ namespace HastyBLCAdmin.Controllers
         [AllowAnonymous]
         public IActionResult ViewGenre(int genreId)
         {
-            var genreWithBooks = _context.Genres
-                .Where(genre => genre.GenreId == genreId)
-                .Include(genre => genre.BookGenres!)
-                    .ThenInclude(bookGenre => bookGenre.Book)
-                .ToList();
-
-            return View(genreWithBooks[0]);
+            var genre = _genreService.GetGenre(genreId);
+            return View(genre);
         }
 
         [HttpPost]
@@ -75,7 +70,7 @@ namespace HastyBLCAdmin.Controllers
         {
             try
             {
-                /*_bookService.AddBook(model);*/
+                _genreService.AddGenre(model);
                 return RedirectToAction("Genres", "Genres");
             }
             catch (InvalidDataException ex)
@@ -86,7 +81,7 @@ namespace HastyBLCAdmin.Controllers
             {
                 TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
             }
-            return View();
+            return RedirectToAction("Genres", "Genres");
         }
     }
 }
