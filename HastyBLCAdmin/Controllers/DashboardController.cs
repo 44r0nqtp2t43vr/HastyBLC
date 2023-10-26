@@ -47,7 +47,33 @@ namespace HastyBLCAdmin.Controllers
 
         public IActionResult Dashboard()
         {
-            return View();
+            var books = _context.Books
+                .Include(book => book.Author)
+                .Include(book => book.BookGenres)!
+                    .ThenInclude(bookGenre => bookGenre.Genre)
+                .Select(book => new Models.BookViewModel
+                {
+                    BookId = book.BookId,
+                    Title = book.Title,
+                    Description = book.Description,
+                    Image = book.Image,
+                    PublishDate = book.PublishDate,
+                    Publisher = book.Publisher,
+                    Isbn = book.Isbn,
+                    Language = book.Language,
+                    Format = book.Format,
+                    Pages = book.Pages,
+                    CreatedBy = book.CreatedBy,
+                    CreatedTime = book.CreatedTime,
+                    UpdatedBy = book.UpdatedBy,
+                    UpdatedTime = book.UpdatedTime,
+                    AuthorName = book.Author!.Name,
+                    Genres = book.BookGenres!.Select(bookGenre => bookGenre.Genre!.Name).ToList()!,
+                })
+                .ToList();
+            var viewModel = new BookListViewModel { Books = books };
+
+            return View(viewModel);
         }
     }
 }
