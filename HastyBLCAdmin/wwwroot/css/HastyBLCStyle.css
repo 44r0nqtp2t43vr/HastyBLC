@@ -95,7 +95,7 @@ div.content {
 }
 
 .bookContent {
-    width: 170px;
+    width: 160px;
     height: 260px;
     text-align: center;
     border: 2px solid #000;
@@ -118,6 +118,11 @@ div.content {
 }
 
 .bookImage {
-    width: 170px;
+    width: 160px;
     height: 260px;
+}
+
+.row {
+    display: flex; /* Display the children in a row */
+    flex-wrap: wrap; /* Wrap children to a new row when space is limited */
 }
