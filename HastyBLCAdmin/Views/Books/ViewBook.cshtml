@@ -1,0 +1,64 @@
+﻿@model HastyBLCAdmin.Models.BookViewModel
+@section styles {
+    <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
+}
+
+@{
+    ViewData["Title"] = "View Book Details";
+}
+
+<html>
+<body class="viewbook">
+    <div class="book-top-section">
+        <div class="book-image-container-view">
+            <img src="~/img/@Model.Image" alt="@Model.Title" class="book-detail-image" />
+        </div>
+        <div class="title-author-container">
+            <h2>@Model.Title</h2>
+            <p><strong>Author:</strong> @Model.AuthorName</p>
+        </div>
+    </div>
+    </div>
+    <div class="book-details-container">
+
+        <!-- Description section -->
+        <div class="description-section">
+            <strong>Description:</strong> 
+            <p>@Model.Description</p>
+        </div>
+
+        <!-- Book details section -->
+        <div class="book-details-section">
+            <ul>
+                <li><strong>Published Date:</strong> <p>@Model.PublishDate.ToString("yyyy-MM-dd")</p></li>
+                <li><strong>Publisher:</strong> @Model.Publisher</li>
+                <li><strong>ISBN:</strong> @Model.Isbn</li>
+                <li><strong>Language:</strong> @Model.Language</li>
+                <li><strong>Format:</strong> @Model.Format</li>
+                <li><strong>Pages:</strong> <p>@Model.Pages</p></li>
+            </ul>
+        </div>
+
+        <!-- Genres section -->
+        <div class="genres-section">
+            <strong>Genres:</strong>
+            <div>
+                @foreach (var genre in Model.Genres ?? Enumerable.Empty<string>())
+                {
+                    <span>@genre </span>
+                }
+            </div>
+        </div>
+
+        <div class="book-action-buttons">
+            <a asp-controller="Books" asp-action="EditBook" asp-route-isbn="@Model.Isbn" class="btn btn-outline-danger">Edit</a>
+
+            <form method="post" asp-controller="Books" asp-action="DeleteBook" class="d-inline-block">
+                <input type="hidden" name="isbn" value="@Model.Isbn" />
+                <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete this book?');">Delete</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>
