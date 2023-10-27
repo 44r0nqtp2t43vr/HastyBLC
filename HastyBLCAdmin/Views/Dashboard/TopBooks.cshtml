@@ -1,0 +1,47 @@
+﻿@model BookListViewModel
+@section styles {
+    <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
+}
+@{
+    ViewData["Title"] = "Top Books";
+}
+<html>
+<body>
+    <div class="sidebar">
+        <div class="image">
+            <img src="~/img/logo.png" class="imagehw">
+        </div>
+        <div class="hasty">
+            <h1>HASTY</h1>
+            <h1>BLC</h1>
+        </div>
+        <div class="screens">
+            <a asp-controller="Dashboard" asp-action="Dashboard" class="active">Dashboard</a>
+            <a asp-controller="Genres" asp-action="Genres">Genres</a>
+            <a asp-controller="Books" asp-action="Books">Books</a>
+        </div>
+    </div>
+    <div class="content">
+        <div>
+            <h2 class="title">Top Books</h2>
+            <div>
+                <div class="topBookContainer">
+                    <img src="/img/1 (2).jpg" class="bookImage">
+                </div>
+                <div class="topBookContainer">
+                    <img src="/img/2.jpg" class="bookImage">
+                </div>
+                <div class="topBookContainer">
+                    <img src="/img/3.jpg" class="bookImage">
+                </div>
+                <div class="topBookContainer">
+                    <img src="/img/4.jpg" class="bookImage">
+                </div>
+                <div class="topBookContainer">
+                    <img src="/img/5.jpg" class="bookImage">
+                </div>
+            </div> @* to go back, just press the dashboard in the sidebar *@
+        </div>
+    </div>
+</body>
+</html>

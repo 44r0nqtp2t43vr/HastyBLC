@@ -1,4 +1,4 @@
-﻿using HastyBLCAdmin.Mvc;
+﻿using HastyBLC.Mvc;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -6,13 +6,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Data;
 using Data.Models;
-using HastyBLCAdmin.Models;
+using HastyBLC.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using Services.ServiceModels;
 using Services.Interfaces;
 
-namespace HastyBLCAdmin.Controllers
+namespace HastyBLC.Controllers
 {
     /// <summary>
     /// Home Controller
@@ -51,7 +51,7 @@ namespace HastyBLCAdmin.Controllers
                 .Include(book => book.Author)
                 .Include(book => book.BookGenres)!
                     .ThenInclude(bookGenre => bookGenre.Genre)
-                .Select(book => new Models.BookViewModel
+                .Select(book => new HastyBLC.Models.BookViewModel
                 {
                     BookId = book.BookId,
                     Title = book.Title,
@@ -84,7 +84,7 @@ namespace HastyBLCAdmin.Controllers
                 .Include(book => book.Author)
                 .Include(book => book.BookGenres)!
                     .ThenInclude(bookGenre => bookGenre.Genre)
-                .Select(book => new Models.BookViewModel
+                .Select(book => new HastyBLC.Models.BookViewModel
                 {
                     BookId = book.BookId,
                     Title = book.Title,

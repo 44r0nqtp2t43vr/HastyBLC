@@ -7,11 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HastyBLC", "HastyBLC\HastyB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HastyBLCAdmin", "HastyBLCAdmin\HastyBLCAdmin.csproj", "{F2C853AE-D743-401C-8B65-EE9FBB618076}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{3C0E5CB9-474A-49E7-B785-6757133DF423}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{3C0E5CB9-474A-49E7-B785-6757133DF423}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Resources\Resources.csproj", "{98287F36-2168-4414-8A8C-69EC8897CFBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resources", "Resources\Resources.csproj", "{98287F36-2168-4414-8A8C-69EC8897CFBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{0700ADB5-B776-4FD3-9581-C9F29CBD9351}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{0700ADB5-B776-4FD3-9581-C9F29CBD9351}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

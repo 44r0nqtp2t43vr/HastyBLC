@@ -92,5 +92,16 @@ namespace Resources.Messages {
                 return ResourceManager.GetString("BookExists", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Genre Name already exists!.
+        /// </summary>
+        public static string GenreExists
+        {
+            get
+            {
+                return ResourceManager.GetString("GenreExists", resourceCulture);
+            }
+        }
     }
 }

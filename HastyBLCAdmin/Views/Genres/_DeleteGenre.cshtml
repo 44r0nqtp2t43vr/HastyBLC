@@ -1,0 +1,29 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+<div class="modal" id="deleteGenreModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Delete Genre</h4>
+            </div>
+            <!-- Modal body -->
+            <form method="post" action="/Genres/DeleteGenre">
+                <div class="form-outline mb-4">
+                    <input type="hidden" id="deleteGenreId" name="genreId" />
+                    <p>Are you sure you're letting me go? :'(</p>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button class="btn btn-primary btn-block login-btn gradient-custom-2 mb-3" data-dismiss="modal">Close</button>
+                    <button class="btn btn-primary btn-block login-btn gradient-custom-2 mb-3" type="submit">Delete Genre</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="~/js/genre.js"></script>

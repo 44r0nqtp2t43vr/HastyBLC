@@ -20,7 +20,7 @@ namespace HastyBLCAdmin.Controllers
     public class GenresController : ControllerBase<GenresController>
     {
         private readonly HastyDBContext _context;
-        private readonly IBookService _bookService;
+        private readonly IGenreService _genreService;
         /// <summary>
         /// Constructor
         /// </summary>
@@ -33,11 +33,11 @@ namespace HastyBLCAdmin.Controllers
                               IHttpContextAccessor httpContextAccessor,
                               ILoggerFactory loggerFactory,
                               IConfiguration configuration,
-                              IBookService bookService,
+                              IGenreService genreService,
                               IMapper? mapper = null) : base(httpContextAccessor, loggerFactory, configuration, mapper)
         {
             _context = context;
-            this._bookService = bookService;
+            this._genreService = genreService;
         }
 
         /// <summary>
@@ -47,7 +47,80 @@ namespace HastyBLCAdmin.Controllers
 
         public IActionResult Genres()
         {
-            return View();
+            var genres = _genreService.GetGenres();
+            return View(genres);
+        }
+
+        public IActionResult BackToGenres()
+        {
+            return RedirectToAction("Genres", "Genres");
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ViewGenre(int genreId)
+        {
+            var genre = _genreService.GetGenre(genreId);
+            return View(genre);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult AddGenre(GenreViewModel model)
+        {
+            try
+            {
+                _genreService.AddGenre(model);
+                return RedirectToAction("Genres", "Genres");
+            }
+            catch (InvalidDataException ex)
+            {
+                TempData["ErrorMessage"] = ex.Message;
+            }
+            catch (Exception)
+            {
+                TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
+            }
+            return RedirectToAction("Genres", "Genres");
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult EditGenre(GenreViewModel model)
+        {
+            try
+            {
+                _genreService.EditGenre(model);
+                return RedirectToAction("Genres", "Genres");
+            }
+            catch (InvalidDataException ex)
+            {
+                TempData["ErrorMessage"] = ex.Message;
+            }
+            catch (Exception)
+            {
+                TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
+            }
+            return RedirectToAction("Genres", "Genres");
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult DeleteGenre(int genreId)
+        {
+            try
+            {
+                _genreService.DeleteGenre(genreId);
+                return RedirectToAction("Genres", "Genres");
+            }
+            catch (InvalidDataException ex)
+            {
+                TempData["ErrorMessage"] = ex.Message;
+            }
+            catch (Exception)
+            {
+                TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
+            }
+            return RedirectToAction("Genres", "Genres");
         }
     }
 }

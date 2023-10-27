@@ -2,6 +2,9 @@
     background-color: #eedeaa;
     margin: 0;
     padding: 0;
+    overflow-x: auto;
+    overflow-y: auto;
+    white-space: nowrap; 
 }
 
 footer {
@@ -73,11 +76,17 @@ div.image {
     height: 130px;
 }
 
-.content {
-    margin-left:100px;
-    padding: 16px;
+div.content {
+    margin-left: 200px;
+    padding-top: 50px;
+    padding-right: 16px;
+    padding-bottom: 16px;
     height: 100%;
-    
+}
+
+.title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 40px;
 }
 
 .li3 {
@@ -251,4 +260,35 @@ body.viewbook {
     width: 20%;
 }
 
+.bookContent {
+    width: 160px;
+    height: 260px;
+    text-align: center;
+    border: 2px solid #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
 
+.newBookContainer {
+    display: inline-block;
+    margin: 10px;
+}
+
+.topBookContainer {
+    display: inline-block;
+    margin: 10px;
+    padding-bottom: 50px;
+}
+
+.bookImage {
+    width: 160px;
+    height: 260px;
+}
+
+.row {
+    display: flex; /* Display the children in a row */
+    flex-wrap: wrap; /* Wrap children to a new row when space is limited */
+}
