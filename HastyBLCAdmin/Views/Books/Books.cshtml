@@ -24,42 +24,51 @@
         </div>
     </div>
     <div class="content">
-        <div class="text-center">
-            <h1>THIS IS THE BOOKS PAGE</h1>
-            <h2>Books List</h2>
-            <div class="d-flex align-items-center justify-content-center pb-4">
+        <div class="all-books-label">ALL BOOKS</div>
+            <div class="add-book-btn-container">
                 <a asp-controller="Books" asp-action="AddBook" class="btn btn-outline-danger">Add Book</a>
             </div>
-            @foreach (var book in Model.Books!)
-            {
-                <h2>@book.Title</h2>
-                <ul>
-                    <li>@book.AuthorName</li>
-                    <li>@book.PublishDate</li>
-                    <li>
-                        @{
-                            if (book.Genres != null)
-                            {
-                                var uniqueGenres = book.Genres.Distinct();
-                                <text>@string.Join(", ", uniqueGenres)</text>
-                            }
-                            else
-                            {
-                                <text>No Genres</text>
-                            }
-                        }
-                    </li>
-                </ul>
-                <div class="d-flex align-items-center justify-content-center pb-4">
+           
+            <div class="books-row">
+                @foreach (var book in Model.Books!)
+                {
+                    <div class="book-item">
+                        <div class="book-image-container">
+                       
+                        <img src="~/img/@book.Image" alt="@book.Title" class="book-image" />
+                        </div>
+                        <div class="book-details-text">
+                        <h2>@book.Title</h2>
+                       <!---- <ul>
+                            <li>@book.AuthorName</li>
+                            <li>@book.PublishDate</li>
+                             <li>
+                                @{
+                                    if (book.Genres != null)
+                                    {
+                                        var uniqueGenres = book.Genres.Distinct();
+                                        <text>@string.Join(", ", uniqueGenres)</text>
+                                    }
+                                    else
+                                    {
+                                        <text>No Genres</text>
+                                    }
+                                }
+                            </li>
+                        </ul>-->
+                        </div>
+               <!---- <div class="d-flex align-items-center justify-content-center pb-4">
                     <a asp-controller="Books" asp-action="EditBook" asp-route-isbn="@book.Isbn" class="btn btn-outline-danger">Edit Book</a>
-                </div>
-                <form method="post" asp-action="DeleteBook" class="li3">
+                </div>-->
+               <!---- <form method="post" asp-action="DeleteBook" class="li3">
                     <input type="hidden" name="bookId" value="@book.BookId" />
                     <button type="submit" class="btn btn-outline-danger">Delete</button>
-                </form>
+                </form>-->
+                </div>
             }
 
         </div>
     </div>
+   
 </body>
 </html>
