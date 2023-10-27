@@ -10,7 +10,7 @@ namespace HastyBLCAdmin.Models
     {
         /// <summary>ユーザーID</summary>
         [JsonPropertyName("userId")]
-        [Required(ErrorMessage = "UserId is required.")]
+        [Required(ErrorMessage = "Email Address is required.")]
         public string? UserId { get; set; }
         /// <summary>パスワード</summary>
         [JsonPropertyName("password")]
