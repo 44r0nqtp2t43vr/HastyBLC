@@ -1,0 +1,66 @@
+﻿@model LoginViewModel
+@using static Resources.Views.Screen
+@section styles {
+    <link rel="stylesheet" href="~/css/login.css" />
+}
+@{
+    ViewBag.LoginView = true;
+    ViewData["Title"] = "Login Page";
+}
+<div>
+    @Html.AntiForgeryToken()
+</div>
+<div class="container py-5" style="display:flex; align-content:center;height:calc(100vh - 64px)">
+    <div class="row d-flex justify-content-center align-items-center w-100">
+        <div class="col-xl-10">
+            <div class="card rounded-3 text-black">
+                <div class="row g-0 w-400px">
+                    <img style="width:400px;" src="~/img/HastyBLCLoginBackground.jpg" />
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card-body p-md-5 mx-md-4">
+                            <div class="text-center">
+                                <img src="~/img/logo.png"
+                                     style="width: 120px;" alt="logo">
+                                <h4>Welcome to</h4>
+                                <h2>HASTY</h2>
+                                <h4>Book Lovers' Club</h4>
+                            </div>
+                            <form method="post" action="/Account/Login" id="loginForm">
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form2Example11">Email Address</label>
+                                    <input type="text" id="form2Example11" class="form-control custom-input" asp-for="UserId" placeholder="Enter email" />
+                                    <span asp-validation-for="UserId" class="text-danger"></span>
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form2Example22">Password</label>
+                                    <input type="password" id="form2Example22" class="form-control custom-input" asp-for="Password" placeholder="Enter password" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <div></div> <!-- This creates space on the left -->
+                                        <a class="text-muted text-decoration-none" href="#!">Forgot Password? @ForgotPass</a>
+                                    </div>
+                                </div>
+                                <div class="text-center pt-1 mb-5 pb-1 d-flex flex-column align-items-center">
+                                    <button class="btn btn-primary btn-block login-btn gradient-custom-2 mb-3" type="submit">
+                                        Sign in @Login
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        // Check for error message and display Toastr notification
+        var errorMessage = '@TempData["ErrorMessage"]';
+        if (errorMessage) {
+            toastr.error(errorMessage);
+        }
+    </script>
+}

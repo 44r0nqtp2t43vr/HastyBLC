@@ -1,0 +1,128 @@
+﻿body, html {
+    background-color: #eedeaa;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    overflow-y: auto;
+    white-space: nowrap; 
+}
+
+footer {
+    display: none;
+}
+
+
+.hasty {
+    color: #EEDEAA;
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font-size: 50px;
+    word-break: break-word;
+}
+
+
+
+.sidebar {
+    margin: 0;
+    padding-left: 0px;
+    width: 250px;
+    background-color: #665A38;
+    position: absolute;
+    height: 100%;
+    overflow: auto;
+    left: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.screens {
+    padding-left: 45px;
+}
+
+.sidebar a {
+    display: block;
+    color: #EEDEAA;
+    padding: 16px;
+    text-decoration: none;
+    text-align: left;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+}
+
+    .sidebar a.active {
+        height: 60px;
+        background-color: #AF924A;
+        color: #EEDEAA;
+        border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;
+        padding-left: 20px;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 20px;
+    }
+
+div.image {
+    padding-top: 30px;
+    text-align: center;
+}
+
+.imagehw {
+    width: 130px;
+    height: 130px;
+}
+
+
+div.content {
+    margin-left: 200px;
+    padding-top: 50px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+    height: 100%;
+}
+
+.title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 40px;
+}
+
+.li3 {
+    padding-bottom: 20px;
+}
+
+.bookContent {
+    width: 160px;
+    height: 260px;
+    text-align: center;
+    border: 2px solid #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.newBookContainer {
+    display: inline-block;
+    margin: 10px;
+}
+
+.topBookContainer {
+    display: inline-block;
+    margin: 10px;
+    padding-bottom: 50px;
+}
+
+.bookImage {
+    width: 160px;
+    height: 260px;
+}
+
+.row {
+    display: flex; /* Display the children in a row */
+    flex-wrap: wrap; /* Wrap children to a new row when space is limited */
+}

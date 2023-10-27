@@ -32,7 +32,7 @@ configurer.ConfigureApp(app, app.Environment);
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Account}/{action=Login}");
+    pattern: "{controller=Dashboard}/{action=Dashboard}");
 app.MapControllers();
 app.MapRazorPages();
 
