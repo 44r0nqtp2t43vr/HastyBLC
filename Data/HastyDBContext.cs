@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Data.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Data
 {
-    public partial class HastyDBContext : DbContext
+    public partial class HastyDBContext : IdentityDbContext<IdentityUser>
     {
         public HastyDBContext()
         {
@@ -17,6 +19,19 @@ namespace Data
         {
         }
 
+        public void InsertNew(RefreshToken token)
+        {
+            var tokenModel = RefreshToken.SingleOrDefault(i => i.Username == token.Username);
+            if (tokenModel != null)
+            {
+                RefreshToken.Remove(tokenModel);
+                SaveChanges();
+            }
+            RefreshToken.Add(token);
+            SaveChanges();
+        }
+
+        public virtual DbSet<RefreshToken> RefreshToken { get; set; }
         public virtual DbSet<Models.Attribute> Attributes { get; set; }
         public virtual DbSet<Author> Authors { get; set; }
         public virtual DbSet<Book> Books { get; set; }
@@ -25,10 +40,7 @@ namespace Data
         public virtual DbSet<Genre> Genres { get; set; }
         public virtual DbSet<Rating> Ratings { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
-        public virtual DbSet<RoleAttribute> RoleAttributes { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<UserRoleAttribute> UserRoleAttributes { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Role
@@ -75,12 +87,6 @@ namespace Data
             {
                 entity.HasIndex(e => e.Email, "UQ__Users__1788CC4D5F4A160F")
                     .IsUnique();
-
-                // Define a foreign key to the Role entity
-                entity.HasOne(d => d.Role) // User has one Role
-                    .WithMany(p => p.Users)     // Role has many Users
-                    .HasForeignKey(d => d.RoleId) // Foreign key property in the User entity
-                    .OnDelete(DeleteBehavior.ClientSetNull); // Define the delete behavior
 
                 entity.Property(e => e.Username)
                    .IsRequired()

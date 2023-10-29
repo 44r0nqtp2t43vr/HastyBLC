@@ -5,6 +5,7 @@ using Services.Interfaces;
 using Services.Manager;
 using Services.ServiceModels;
 using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.IO;
 using System.Linq;
@@ -41,14 +42,7 @@ namespace Services.Services
             var user = new User();
             if (!_repository.UserExists(model.Email!))
             {
-                var adminRole = _dbContext.Roles.FirstOrDefault(x => x.Name == "admin");
-                if (adminRole == null)
-                {
-                    throw new InvalidDataException(Resources.Messages.Errors.ServerError);
-                }
-
                 _mapper.Map(model, user);
-                user.Role = adminRole!;
                 user.Password = PasswordManager.EncryptPassword(model.Password!);
                 user.CreatedTime = DateTime.Now;
                 user.UpdatedTime = DateTime.Now;
@@ -61,6 +55,21 @@ namespace Services.Services
             {
                 throw new InvalidDataException(Resources.Messages.Errors.UserExists);
             }
+        }
+
+        public Task<IdentityUser> FindUserAsync(string userName, string password)
+        {
+            return _repository.FindUserAsync(userName, password);
+        }
+
+        public IdentityUser FindUser(string userName)
+        {
+            return _repository.FindUser(userName);
+        }
+
+        public async Task<IdentityResult> CreateRole(string roleName)
+        {
+            return await _repository.CreateRole(roleName);
         }
     }
 }

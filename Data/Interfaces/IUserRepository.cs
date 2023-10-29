@@ -1,4 +1,5 @@
 ﻿using Data.Models;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,8 @@ namespace Data.Interfaces
         IQueryable<User> GetUsers();
         bool UserExists(string userId);
         void AddUser(User user);
+        IdentityUser FindUser(string userName);
+        Task<IdentityUser> FindUserAsync(string userName, string password);
+        Task<IdentityResult> CreateRole(string roleName);
     }
 }
