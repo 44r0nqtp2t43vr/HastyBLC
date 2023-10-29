@@ -24,29 +24,22 @@
         </div>
     </div>
     <div class="content">
-        <div class="all-books-label">ALL BOOKS</div>
-            <div class="add-book-btn-container">
-                <a asp-controller="Books" asp-action="AddBook" class="btn btn-outline-danger">Add Book</a>
-            </div>
-           
+        <h2 class="title">ALL BOOKS</h2>
             <div class="books-row">
                 @foreach (var book in Model.Books!)
                 {
                     <div class="book-item">
                         <div class="book-image-container">
-
                         <a asp-controller="Books" asp-action="ViewBook" asp-route-id="@book.BookId">
                             <img src="~/img/@book.Image" alt="@book.Title" class="book-image" />
                         </a>
 
                         </div>
-                        
-                      
-                     </div>
-               
-                
-            }
-
+                     </div>    
+                }
+            </div>
+        <div class="add-book-btn-container">
+            <a asp-controller="Books" asp-action="AddBook" class="btn btn-outline-danger">Add Book</a>
         </div>
     </div>
    

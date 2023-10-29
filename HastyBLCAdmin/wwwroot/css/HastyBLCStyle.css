@@ -93,19 +93,12 @@ div.content {
     padding-bottom: 20px;
 }
 
-.all-books-label {
-    position: absolute;
-    top:25px;
-    font-size: 46px;
-    font-weight: bold;
-    color: #AF924A
-}
 .add-book-btn-container {
     position: absolute;
     bottom: 10px;
     right: 14px;
 }
-    .add-book-btn-container .btn {
+.add-book-btn-container .btn {
         border-radius: 50px;
         background-color: #647CA4;
         color: #CAC6B1;
@@ -113,10 +106,8 @@ div.content {
         position: relative;
         border-color: #647CA4;
         box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);
-    }
-    
-.books-row {
-    margin-top: 48px;
+}
+.book-row {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -127,25 +118,19 @@ div.content {
     min-width: 200px;
     box-sizing: border-box;
     padding: 16px;
-    display: flex;
+    display: inline-block;
     flex-direction: column;
     justify-content: center;
 }
-.book-details-text {
-    justify-content: center;
-    width: 100%; 
-}
-
-
 .book-image-container {
-    border-radius:10px;
+    border-radius: 10px;
     width: 180px;
     height: 260px;
     border: 1px solid #ccc;
     background-color: #f5f5f5;
     display: flex;
     align-items: center;
-   justify-content:center;
+    justify-content: center;
     overflow: hidden;
 }
 
@@ -154,111 +139,20 @@ div.content {
     max-height: 100%;
     object-fit: cover;
 }
+
 .book-item h2 {
     font-size: 24px;
 }
+
 .book-item ul li {
     font-size: 14px;
 }
-body.viewbook {
-    background-color: #AF924A;
-    position:relative;
 
-}
-.viewbook {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    
-}
-.book-details-container {
-    background-color: #EEDEAA;
-    border-radius: 20px;
-    padding: 150px;
-    margin: 60px;
-    margin-top: -200px;
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction:column;
-    justify-content: flex-end;
-    align-items: flex-end;
+.book-details-text {
+    justify-content: center;
+    width: 100%;
 }
 
-.book-image-container-view {
-    border-radius: 10px;
-    width: 280px;
-    height: 360px;
-    border: 1px solid #ccc;
-    background-color: #f5f5f5;
-    display: flex;
-    overflow: hidden;
-    flex: 0 0 auto;
-}
-
-.book-detail-image {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-}
-.book-details-list{
-    margin-top:120px;
-}
-.book-action-buttons {
-    position: relative;
-    top: 80px;
-    right: 10px;
-}
-    .book-action-buttons .btn {
-        border-radius: 50px;
-        background-color: #647CA4;
-        color: #CAC6B1;
-        padding: 15px;
-        position: relative;
-        border-color: #647CA4;
-        box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);
-    }
-.book-top-section {
-    display: flex;
-    align-items: center; 
-    gap: 20px; 
-    position:relative;
-    z-index:2;
-}
-
-.title-author-container {
-    display: flex;
-    flex-direction: column;
-    text-align:center;
-    top: -50px;
-    position: relative;
-
-}
-.description-section {
-    width: 70%;
-    margin-top: 100px;
-    align-self: flex-start;
-    display: flex;
-    word-wrap: break-word;
-    overflow-y: auto;
-}
-    .description-section strong {
-        color: #AF924A;
-    }
-
-.book-details-section {
-    margin-top: -400px; 
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-self: flex-end;
-    flex-shrink: 0;
-}
-
-.genres-section {
-    width: 20%;
-}
 
 .bookContent {
     width: 160px;
