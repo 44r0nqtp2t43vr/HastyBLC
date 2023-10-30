@@ -43,44 +43,6 @@ namespace Data
         public virtual DbSet<User> Users { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Role
-            modelBuilder.Entity<Role>(entity =>
-            {
-                entity.Property(e => e.Name)
-                   .IsRequired()
-                   .HasMaxLength(50)
-                   .IsUnicode(false);
-            });
-
-            // Attribute
-            modelBuilder.Entity<Models.Attribute>(entity =>
-            {
-                entity.Property(e => e.Name)
-                   .IsRequired()
-                   .HasMaxLength(50)
-                   .IsUnicode(false);
-
-                entity.Property(e => e.Type)
-                   .IsRequired()
-                   .HasMaxLength(50)
-                   .IsUnicode(false);
-            });
-
-            // RoleAttribute
-            modelBuilder.Entity<RoleAttribute>(entity =>
-            {
-                // Define a foreign key to the Role entity
-                entity.HasOne(d => d.Role)
-                    .WithMany(p => p.RoleAttributes)
-                    .HasForeignKey(d => d.RoleId)
-                    .OnDelete(DeleteBehavior.Cascade);
-
-                // Define a foreign key to the Attribute entity
-                entity.HasOne(d => d.Attribute)
-                    .WithMany(p => p.RoleAttributes)
-                    .HasForeignKey(d => d.AttributeId)
-                    .OnDelete(DeleteBehavior.Cascade);
-            });
 
             // User
             modelBuilder.Entity<User>(entity =>
@@ -116,27 +78,6 @@ namespace Data
                     .IsUnicode(false);
 
                 entity.Property(e => e.UpdatedTime).HasColumnType("datetime");
-            });
-
-            // UserRoleAttribute
-            modelBuilder.Entity<UserRoleAttribute>(entity =>
-            {
-                // Define a foreign key to the User entity
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.UserRoleAttributes)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.Cascade);
-
-                // Define a foreign key to the RoleAttribute entity
-                entity.HasOne(d => d.RoleAttribute)
-                    .WithMany(p => p.UserRoleAttributes)
-                    .HasForeignKey(d => d.RoleAttributeId)
-                    .OnDelete(DeleteBehavior.Cascade);
-
-                entity.Property(e => e.Value)
-                   .IsRequired()
-                   .HasMaxLength(50)
-                   .IsUnicode(false);
             });
 
             // Author
@@ -238,6 +179,7 @@ namespace Data
             // BookGenre
             modelBuilder.Entity<BookGenre>(entity =>
             {
+                entity.HasKey(bg => new { bg.BookId, bg.GenreId });
                 // Define a foreign key to the Book entity
                 entity.HasOne(d => d.Book)
                     .WithMany(p => p.BookGenres)
@@ -288,9 +230,9 @@ namespace Data
             modelBuilder.Entity<Review>(entity =>
             {
                 // Define a foreign key to the Rating entity
-                entity.HasOne(d => d.Rating)
-                    .WithMany(p => p.Reviews)
-                    .HasForeignKey(d => d.RatingId)
+                modelBuilder.Entity<Rating>()
+                    .HasMany(r => r.Reviews)
+                    .WithOne(rev => rev.Rating)
                     .OnDelete(DeleteBehavior.Cascade);
 
                 entity.Property(e => e.Description)
@@ -323,10 +265,10 @@ namespace Data
                     .OnDelete(DeleteBehavior.ClientSetNull);
 
                 // Define a foreign key to the Review entity
-                entity.HasOne(d => d.Review)
-                    .WithMany(p => p.Comments)
-                    .HasForeignKey(d => d.ReviewId)
-                    .OnDelete(DeleteBehavior.ClientSetNull);
+                modelBuilder.Entity<Review>()
+                    .HasMany(rev => rev.Comments)
+                    .WithOne(c => c.Review)
+                    .OnDelete(DeleteBehavior.Cascade);
 
                 entity.Property(e => e.Description)
                     .IsRequired()

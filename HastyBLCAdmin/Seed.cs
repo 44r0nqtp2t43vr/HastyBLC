@@ -19,7 +19,7 @@ namespace HastyBLCAdmin
                 context?.Database.EnsureCreated();
 
                 // Roles
-                var role1 = new Role()
+                /*var role1 = new Role()
                 {
                     Name = "user"
                 };
@@ -40,7 +40,7 @@ namespace HastyBLCAdmin
                         role3
                     });
                     context.SaveChanges();
-                }
+                }*/
 
                 // Attributes
 
@@ -49,7 +49,7 @@ namespace HastyBLCAdmin
                 // Users
                 var user1 = new User()
                 {
-                    Role = role1,
+                    /*Role = role1,*/
                     Username = "hastyuser",
                     Password = PasswordManager.EncryptPassword("hastyuser123"),
                     Email = "hastyuser@gmail.com",
@@ -60,7 +60,7 @@ namespace HastyBLCAdmin
                 };
                 var user2 = new User()
                 {
-                    Role = role2,
+                    /*Role = role2,*/
                     Username = "hastyadmin",
                     Password = PasswordManager.EncryptPassword("hastyadmin123"),
                     Email = "hastyadmin@gmail.com",
@@ -71,7 +71,7 @@ namespace HastyBLCAdmin
                 };
                 var user3 = new User()
                 {
-                    Role = role3,
+                    /*Role = role3,*/
                     Username = "hastysuperadmin",
                     Password = PasswordManager.EncryptPassword("hastysuperadmin123"),
                     Email = "hastysuperadmin@gmail.com",
