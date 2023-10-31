@@ -18,38 +18,10 @@ namespace HastyBLCAdmin
 
                 context?.Database.EnsureCreated();
 
-                // Roles
-                var role1 = new Role()
-                {
-                    Name = "user"
-                };
-                var role2 = new Role()
-                {
-                    Name = "admin"
-                };
-                var role3 = new Role()
-                {
-                    Name = "superadmin"
-                };
-                if (!context!.Roles.Any())
-                {
-                    context.Roles.AddRange(new List<Role>()
-                    {
-                        role1,
-                        role2,
-                        role3
-                    });
-                    context.SaveChanges();
-                }
-
-                // Attributes
-
-                // RoleAttributes
-
                 // Users
                 var user1 = new User()
                 {
-                    Role = role1,
+                    /*Role = role1,*/
                     Username = "hastyuser",
                     Password = PasswordManager.EncryptPassword("hastyuser123"),
                     Email = "hastyuser@gmail.com",
@@ -60,7 +32,7 @@ namespace HastyBLCAdmin
                 };
                 var user2 = new User()
                 {
-                    Role = role2,
+                    /*Role = role2,*/
                     Username = "hastyadmin",
                     Password = PasswordManager.EncryptPassword("hastyadmin123"),
                     Email = "hastyadmin@gmail.com",
@@ -71,7 +43,7 @@ namespace HastyBLCAdmin
                 };
                 var user3 = new User()
                 {
-                    Role = role3,
+                    /*Role = role3,*/
                     Username = "hastysuperadmin",
                     Password = PasswordManager.EncryptPassword("hastysuperadmin123"),
                     Email = "hastysuperadmin@gmail.com",
@@ -90,8 +62,6 @@ namespace HastyBLCAdmin
                     });
                     context.SaveChanges();
                 }
-
-                // UserRoleAttributes
 
                 // Authors
                 var author1 = new Author()
@@ -227,30 +197,12 @@ namespace HastyBLCAdmin
                     context.SaveChanges();
                 }
 
-                // Ratings
-                var rating1 = new Rating()
-                {
-                    User = user1,
-                    Book = book1,
-                    Value = 5,
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                if (!context!.Ratings.Any())
-                {
-                    context.Ratings.AddRange(new List<Rating>()
-                    {
-                        rating1,
-                    });
-                    context.SaveChanges();
-                }
-
                 // Reviews
                 var review1 = new Review()
                 {
-                    Rating = rating1,
+                    Book = book1,
+                    UserName = "reviewer1",
+                    UserEmail = "reviewer1@gmail.com",
                     Description = "Very nice book",
                     CreatedTime = DateTime.Now,
                     UpdatedTime = DateTime.Now,
@@ -269,8 +221,9 @@ namespace HastyBLCAdmin
                 // Comments
                 var comment1 = new Comment()
                 {
-                    User = user1,
                     Review = review1,
+                    UserName = "reviewer1",
+                    UserEmail = "reviewer1@gmail.com",
                     Description = "Very nice review",
                     CreatedTime = DateTime.Now,
                     UpdatedTime = DateTime.Now,

@@ -29,7 +29,7 @@ footer {
     padding-left: 0px;
     width: 250px;
     background-color: #665A38;
-    position: absolute;
+    position: fixed;
     height: 100%;
     overflow: auto;
     left: 0;

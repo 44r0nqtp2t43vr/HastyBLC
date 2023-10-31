@@ -1,4 +1,5 @@
 ﻿using Data.Models;
+using Data.ViewModels;
 using Services.Interfaces;
 using Services.Manager;
 using Services.ServiceModels;
@@ -6,27 +7,90 @@ using HastyBLCAdmin.Authentication;
 using HastyBLCAdmin.Models;
 using HastyBLCAdmin.Mvc;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using static Resources.Constants.Enums;
 
 
 namespace HastyBLCAdmin.Controllers
 {
-    public class AccountController : ControllerBase<AccountController>
+    public class AccountController : Controller
     {
+        /// <summary>
+        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+        ///     directly from your code. This API may change or be removed in future releases.
+        /// </summary>
+        [BindProperty]
+        public InputModel Input { get; set; }
+
+        /// <summary>
+        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+        ///     directly from your code. This API may change or be removed in future releases.
+        /// </summary>
+        public IList<AuthenticationScheme> ExternalLogins { get; set; }
+
+        /// <summary>
+        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+        ///     directly from your code. This API may change or be removed in future releases.
+        /// </summary>
+        public string ReturnUrl { get; set; }
+
+        /// <summary>
+        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+        ///     directly from your code. This API may change or be removed in future releases.
+        /// </summary>
+        [TempData]
+        public string ErrorMessage { get; set; }
+
+        /// <summary>
+        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+        ///     directly from your code. This API may change or be removed in future releases.
+        /// </summary>
+        public class InputModel
+        {
+            /// <summary>
+            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+            ///     directly from your code. This API may change or be removed in future releases.
+            /// </summary>
+            [Required]
+            public string Email { get; set; }
+
+            /// <summary>
+            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+            ///     directly from your code. This API may change or be removed in future releases.
+            /// </summary>
+            [Required]
+            [DataType(DataType.Password)]
+            public string Password { get; set; }
+
+            /// <summary>
+            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+            ///     directly from your code. This API may change or be removed in future releases.
+            /// </summary>
+            [Display(Name = "Remember me?")]
+            public bool RememberMe { get; set; }
+        }
         private readonly SessionManager _sessionManager;
-        private readonly SignInManager _signInManager;
+        //private readonly SignInManager _signInManager;
         private readonly TokenValidationParametersFactory _tokenValidationParametersFactory;
         private readonly TokenProviderOptionsFactory _tokenProviderOptionsFactory;
         private readonly IConfiguration _appConfiguration;
         private readonly IUserService _userService;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountController"/> class.
@@ -41,21 +105,26 @@ namespace HastyBLCAdmin.Controllers
         /// <param name="tokenValidationParametersFactory">The token validation parameters factory.</param>
         /// <param name="tokenProviderOptionsFactory">The token provider options factory.</param>
         public AccountController(
-                            SignInManager signInManager,
+                            //SignInManager signInManager,
+                            SignInManager<IdentityUser> signInManager,
                             IHttpContextAccessor httpContextAccessor,
                             ILoggerFactory loggerFactory,
                             IConfiguration configuration,
                             IMapper mapper,
                             IUserService userService,
                             TokenValidationParametersFactory tokenValidationParametersFactory,
-                            TokenProviderOptionsFactory tokenProviderOptionsFactory) : base(httpContextAccessor, loggerFactory, configuration, mapper)
+                            TokenProviderOptionsFactory tokenProviderOptionsFactory,
+                            RoleManager<IdentityRole> roleManager,
+                            UserManager<IdentityUser> userManager)
         {
-            this._sessionManager = new SessionManager(this._session);
+            //this._sessionManager = new SessionManager(this._session);
             this._signInManager = signInManager;
             this._tokenProviderOptionsFactory = tokenProviderOptionsFactory;
             this._tokenValidationParametersFactory = tokenValidationParametersFactory;
             this._appConfiguration = configuration;
             this._userService = userService;
+            this._roleManager = roleManager;
+            this._userManager = userManager;
         }
 
         /// <summary>
@@ -64,12 +133,26 @@ namespace HastyBLCAdmin.Controllers
         /// <returns>Created response view</returns>
         [HttpGet]
         [AllowAnonymous]
-        public ActionResult Login()
+        public async Task<ActionResult> Login(string returnUrl = null)
         {
-            TempData["returnUrl"] = System.Net.WebUtility.UrlDecode(HttpContext.Request.Query["ReturnUrl"]);
+            if (!string.IsNullOrEmpty(ErrorMessage))
+            {
+                ModelState.AddModelError(string.Empty, ErrorMessage);
+            }
+
+            returnUrl ??= Url.Content("~/");
+
+            // Clear the existing external cookie to ensure a clean login process
+            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
+
+            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
+            ReturnUrl = returnUrl;
+
+            /*TempData["returnUrl"] = System.Net.WebUtility.UrlDecode(HttpContext.Request.Query["ReturnUrl"]);
             this._sessionManager.Clear();
-            this._session.SetString("SessionId", System.Guid.NewGuid().ToString());
-            return this.View();
+            this._session.SetString("SessionId", System.Guid.NewGuid().ToString());*/
+            return View();
         }
 
         /// <summary>
@@ -80,18 +163,62 @@ namespace HastyBLCAdmin.Controllers
         /// <returns> Created response view </returns>
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<IActionResult> Login(LoginViewModel model, string? returnUrl)
         {
-            this._session.SetString("HasSession", "Exist");
+            returnUrl ??= Url.Content("~/");
 
-            User? user = null;
-            var loginResult = _userService.AuthenticateUser(model.UserId!, model.Password!, ref user!);
+            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
+            if (ModelState.IsValid)
+            {
+                // This doesn't count login failures towards account lockout
+                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
+                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                if (result.Succeeded)
+                {
+                    Console.Write("success");
+                    //_logger.LogInformation("User logged in.");
+                    /*return RedirectToPage(returnUrl);*/
+                    return RedirectToAction("Dashboard", "Dashboard");
+                }
+                if (result.RequiresTwoFactor)
+                {
+                    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
+                }
+                if (result.IsLockedOut)
+                {
+                    //_logger.LogWarning("User account locked out.");
+                    return RedirectToPage("./Lockout");
+                }
+                else
+                {
+                    Console.Write("this");
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    return RedirectToPage(returnUrl);
+                }
+            }
+            // Iterating through ModelState.Values and printing them to the console
+            foreach (var modelStateValue in ModelState.Values)
+            {
+                foreach (var error in modelStateValue.Errors)
+                {
+                    Console.WriteLine(error.ErrorMessage);
+                }
+            }
+            Console.Write("fail");
+            // If we got this far, something failed, redisplay form
+            return RedirectToPage(returnUrl);
+
+            /*this._session.SetString("HasSession", "Exist");
+
+            User user = null;
+            var loginResult = _userService.AuthenticateUser(model.UserId, model.Password, ref user);
             if (loginResult == LoginResult.Success)
             {
                 // 認証OK
-                await this._signInManager.SignInAsync(user);
-                this._session.SetString("UserName", user.Username!);
-                return RedirectToAction("Dashboard", "Dashboard");
+               // await this._signInManager.SignInAsync(user);
+                this._session.SetString("UserName", user.Name);
+                return RedirectToAction("Index", "Home");
             }
             else
             {
@@ -99,6 +226,7 @@ namespace HastyBLCAdmin.Controllers
                 TempData["ErrorMessage"] = "Incorrect UserId or Password";
                 return View();
             }
+            return View();*/
         }
 
         [HttpGet]
@@ -110,21 +238,66 @@ namespace HastyBLCAdmin.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public IActionResult Register(UserViewModel model)
+        public async Task<IActionResult> Register(UserViewModel model)
         {
             try
             {
-                _userService.AddUser(model);
+                var identityUser = new IdentityUser();
+                identityUser.Email = model.Email;
+                identityUser.UserName = model.Username;
+                identityUser.UserName = model.Username;
+                var result = await _userManager.CreateAsync(identityUser, model.Password);
+                Console.Write(model.Email);
+                Console.Write(model.Username);
+                Console.Write(model.Password);
+
+                if (result.Succeeded)
+                {
+                    Console.Write("successed");
+                    _userService.AddUser(model);
+
+                    var userRole = _roleManager.FindByNameAsync("Admin").Result;
+
+                    if (userRole != null)
+                    {
+                        await _userManager.AddToRoleAsync(identityUser, userRole.Name);
+                    }
+                }
+                foreach (var error in result.Errors)
+                {
+                    Console.WriteLine($"Error: {error.Description}");
+                }
+
+
                 return RedirectToAction("Login", "Account");
             }
             catch (InvalidDataException ex)
             {
                 TempData["ErrorMessage"] = ex.Message;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
             }
+            return View();
+        }
+
+        public IActionResult CreateRole()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateRole(CreateRoleViewModel createRoleViewModel)
+        {
+
+            IdentityResult result = await _userService.CreateRole(createRoleViewModel.RoleName);
+
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             return View();
         }
 
