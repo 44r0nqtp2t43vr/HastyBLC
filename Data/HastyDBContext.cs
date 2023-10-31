@@ -206,6 +206,19 @@ namespace Data
                     .HasForeignKey(d => d.BookId)
                     .OnDelete(DeleteBehavior.Cascade);
 
+                entity.Property(e => e.Name)
+                   .IsRequired()
+                   .HasMaxLength(50)
+                   .IsUnicode(false);
+
+                entity.Property(e => e.UserEmail)
+                   .IsRequired()
+                   .HasMaxLength(50)
+                   .IsUnicode(false);
+
+                entity.Property(e => e.Rating)
+                   .IsRequired();
+
                 entity.Property(e => e.Description)
                     .IsRequired()
                     .HasColumnType("nvarchar(max)")
@@ -234,6 +247,16 @@ namespace Data
                     .WithMany(p => p.Comments)
                     .HasForeignKey(d => d.ReviewId)
                     .OnDelete(DeleteBehavior.Cascade);
+
+                entity.Property(e => e.Name)
+                   .IsRequired()
+                   .HasMaxLength(50)
+                   .IsUnicode(false);
+
+                entity.Property(e => e.UserEmail)
+                   .IsRequired()
+                   .HasMaxLength(50)
+                   .IsUnicode(false);
 
                 entity.Property(e => e.Description)
                     .IsRequired()

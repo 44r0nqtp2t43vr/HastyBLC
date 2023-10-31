@@ -5,8 +5,6 @@ namespace Data.Models
 {
     public partial class BookGenre
     {
-        [Key]
-        public int BookGenreId { get; set; }
         [ForeignKey("Book")]
         public int BookId { get; set; }
         public Book? Book { get; set; }

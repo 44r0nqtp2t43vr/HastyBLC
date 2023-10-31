@@ -132,9 +132,6 @@ namespace Data.Migrations
                     b.Property<int>("GenreId")
                         .HasColumnType("int");
 
-                    b.Property<int>("BookGenreId")
-                        .HasColumnType("int");
-
                     b.HasKey("BookId", "GenreId");
 
                     b.HasIndex("GenreId");
@@ -164,6 +161,12 @@ namespace Data.Migrations
                         .IsUnicode(false)
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)");
+
                     b.Property<int>("ReviewId")
                         .HasColumnType("int");
 
@@ -177,13 +180,13 @@ namespace Data.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<string>("UserEmail")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<int?>("UserId")
                         .HasColumnType("int");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CommentId");
 
@@ -281,6 +284,12 @@ namespace Data.Migrations
                         .IsUnicode(false)
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)");
+
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
@@ -294,10 +303,10 @@ namespace Data.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<string>("UserEmail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)");
 
                     b.HasKey("ReviewId");
 

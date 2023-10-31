@@ -201,7 +201,7 @@ namespace HastyBLCAdmin
                 var review1 = new Review()
                 {
                     Book = book1,
-                    UserName = "reviewer1",
+                    Name = "reviewer1",
                     UserEmail = "reviewer1@gmail.com",
                     Description = "Very nice book",
                     CreatedTime = DateTime.Now,
@@ -222,7 +222,7 @@ namespace HastyBLCAdmin
                 var comment1 = new Comment()
                 {
                     Review = review1,
-                    UserName = "reviewer1",
+                    Name = "reviewer1",
                     UserEmail = "reviewer1@gmail.com",
                     Description = "Very nice review",
                     CreatedTime = DateTime.Now,
