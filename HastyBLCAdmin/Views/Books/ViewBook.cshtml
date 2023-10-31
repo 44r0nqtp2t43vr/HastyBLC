@@ -58,10 +58,10 @@
         <div class="book-action-buttons">
             <a asp-controller="Books" asp-action="EditBook" asp-route-isbn="@Model.Isbn" class="btn btn-outline-danger">Edit</a>
 
-          <!--- <form method="post" asp-controller="Books" asp-action="DeleteBook" class="d-inline-block">
+           <form method="post" asp-controller="Books" asp-action="DeleteBook" class="d-inline-block">
                 <input type="hidden" name="isbn" value="@Model.Isbn" />
                 <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete this book?');">Delete</button>
-            </form>-->
+            </form>
         </div>
 
     </div>

@@ -80,7 +80,8 @@
     .description-section p {
         color: #665A36;
         margin-top: 30px;
-        text-align:justify;
+        text-align: justify;
+        white-space: pre-wrap;
     }
     .description-section strong {
       font-size:24px;
