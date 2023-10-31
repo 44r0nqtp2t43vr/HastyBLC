@@ -15,8 +15,6 @@ namespace Data.Models
         public DateTime CreatedTime {  get; set; }
         public string? UpdatedBy { get; set; }
         public DateTime UpdatedTime { get; set; }
-        public ICollection<UserRoleAttribute>? UserRoleAttributes { get; set; }
-        public ICollection<Rating>? Ratings { get; set; }
         public ICollection<Comment>? Comments { get; set; }
 
     }

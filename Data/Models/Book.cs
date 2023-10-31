@@ -24,7 +24,7 @@ namespace Data.Models
         public string? UpdatedBy { get; set; }
         public DateTime UpdatedTime { get; set; }
         public ICollection<BookGenre>? BookGenres { get; set; }
-        public ICollection<Rating>? Ratings { get; set; }
+        public ICollection<Review>? Reviews { get; set; }
 
     }
 }

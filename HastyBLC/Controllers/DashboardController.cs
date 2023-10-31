@@ -45,6 +45,8 @@ namespace HastyBLC.Controllers
         /// </summary>
         /// <returns> Home View </returns>
 
+        [HttpGet]
+        [AllowAnonymous]
         public IActionResult Dashboard()
         {
             var books = _context.Books

@@ -32,17 +32,21 @@ namespace Data
         }
 
         public virtual DbSet<RefreshToken> RefreshToken { get; set; }
-        public virtual DbSet<Models.Attribute> Attributes { get; set; }
         public virtual DbSet<Author> Authors { get; set; }
         public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<BookGenre> BookGenres { get; set; }
         public virtual DbSet<Comment> Comments { get; set; }
         public virtual DbSet<Genre> Genres { get; set; }
-        public virtual DbSet<Rating> Ratings { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
         public virtual DbSet<User> Users { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
+            // Other configurations...
+
+            // IdentityUserLogin entity configuration
+            modelBuilder.Entity<IdentityUserLogin<string>>().HasKey(i => i.UserId);
 
             // User
             modelBuilder.Entity<User>(entity =>
@@ -193,46 +197,13 @@ namespace Data
                     .OnDelete(DeleteBehavior.Cascade);
             });
 
-            // Rating
-            modelBuilder.Entity<Rating>(entity =>
-            {
-                // Define a foreign key to the User entity
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.Ratings)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.Cascade);
-
-                // Define a foreign key to the Book entity
-                entity.HasOne(d => d.Book)
-                    .WithMany(p => p.Ratings)
-                    .HasForeignKey(d => d.BookId)
-                    .OnDelete(DeleteBehavior.Cascade);
-
-                entity.Property(e => e.Value)
-                   .IsRequired();
-
-                entity.Property(e => e.CreatedBy)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.CreatedTime).HasColumnType("datetime");
-
-                entity.Property(e => e.UpdatedBy)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.UpdatedTime).HasColumnType("datetime");
-            });
-
             // Review
             modelBuilder.Entity<Review>(entity =>
             {
-                // Define a foreign key to the Rating entity
-                modelBuilder.Entity<Rating>()
-                    .HasMany(r => r.Reviews)
-                    .WithOne(rev => rev.Rating)
+                // Define a foreign key to the Book entity
+                entity.HasOne(d => d.Book)
+                    .WithMany(p => p.Reviews)
+                    .HasForeignKey(d => d.BookId)
                     .OnDelete(DeleteBehavior.Cascade);
 
                 entity.Property(e => e.Description)
@@ -258,16 +229,10 @@ namespace Data
             // Comment
             modelBuilder.Entity<Comment>(entity =>
             {
-                // Define a foreign key to the User entity
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.Comments)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull);
-
                 // Define a foreign key to the Review entity
-                modelBuilder.Entity<Review>()
-                    .HasMany(rev => rev.Comments)
-                    .WithOne(c => c.Review)
+                entity.HasOne(d => d.Review)
+                    .WithMany(p => p.Comments)
+                    .HasForeignKey(d => d.ReviewId)
                     .OnDelete(DeleteBehavior.Cascade);
 
                 entity.Property(e => e.Description)

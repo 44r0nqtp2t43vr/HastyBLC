@@ -9,9 +9,9 @@ namespace HastyBLCAdmin.Models
     public class LoginViewModel
     {
         /// <summary>ユーザーID</summary>
-        [JsonPropertyName("userId")]
+        [JsonPropertyName("email")]
         [Required(ErrorMessage = "Email Address is required.")]
-        public string? UserId { get; set; }
+        public string? Email { get; set; }
         /// <summary>パスワード</summary>
         [JsonPropertyName("password")]
         [Required(ErrorMessage = "Password is required.")]

@@ -10,7 +10,7 @@ namespace HastyBLC
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Dashboard}/{action=Dashboard}/{id?}");
 
                 endpoints.MapControllerRoute(
                     name: "token",

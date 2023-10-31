@@ -163,7 +163,7 @@ namespace HastyBLCAdmin.Controllers
         /// <returns> Created response view </returns>
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<IActionResult> Login(LoginViewModel model, string? returnUrl)
         {
             returnUrl ??= Url.Content("~/");
 
@@ -176,8 +176,10 @@ namespace HastyBLCAdmin.Controllers
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    Console.Write("success");
                     //_logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    /*return RedirectToPage(returnUrl);*/
+                    return RedirectToAction("Dashboard", "Dashboard");
                 }
                 if (result.RequiresTwoFactor)
                 {
@@ -190,11 +192,20 @@ namespace HastyBLCAdmin.Controllers
                 }
                 else
                 {
+                    Console.Write("this");
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                     return RedirectToPage(returnUrl);
                 }
             }
-
+            // Iterating through ModelState.Values and printing them to the console
+            foreach (var modelStateValue in ModelState.Values)
+            {
+                foreach (var error in modelStateValue.Errors)
+                {
+                    Console.WriteLine(error.ErrorMessage);
+                }
+            }
+            Console.Write("fail");
             // If we got this far, something failed, redisplay form
             return RedirectToPage(returnUrl);
 
@@ -236,17 +247,25 @@ namespace HastyBLCAdmin.Controllers
                 identityUser.UserName = model.Username;
                 identityUser.UserName = model.Username;
                 var result = await _userManager.CreateAsync(identityUser, model.Password);
+                Console.Write(model.Email);
+                Console.Write(model.Username);
+                Console.Write(model.Password);
 
                 if (result.Succeeded)
                 {
+                    Console.Write("successed");
                     _userService.AddUser(model);
 
-                    var userRole = _roleManager.FindByNameAsync("User").Result;
+                    var userRole = _roleManager.FindByNameAsync("Admin").Result;
 
                     if (userRole != null)
                     {
                         await _userManager.AddToRoleAsync(identityUser, userRole.Name);
                     }
+                }
+                foreach (var error in result.Errors)
+                {
+                    Console.WriteLine($"Error: {error.Description}");
                 }
 
 
