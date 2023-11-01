@@ -31,7 +31,7 @@ namespace Services.ServiceModels
         public string? Format { get; set; }
         [Required(ErrorMessage = "Pages is required.")]
         public string? PagesStr { get; set; }
-        [Required(ErrorMessage = "Genre is required.")]
-        public string? GenreName { get; set; }
+        [Required(ErrorMessage = "Genre/s are required.")]
+        public string? GenreNames { get; set; }
     }
 }

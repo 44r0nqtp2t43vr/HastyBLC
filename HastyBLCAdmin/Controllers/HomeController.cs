@@ -176,7 +176,7 @@ namespace HastyBLCAdmin.Controllers
                     Publisher = existingBook.Publisher,
                     Language = existingBook.Language,
                     Format = existingBook.Format,
-                    GenreName = concatGenre?.ToString(),
+                    GenreNames = concatGenre?.ToString(),
                     AuthorName = existingBook.Author?.Name,
                     PublishDateStr = existingBook.PublishDate.ToString("yyyy-MM-dd"),
                     PagesStr = existingBook.Pages.ToString(),
