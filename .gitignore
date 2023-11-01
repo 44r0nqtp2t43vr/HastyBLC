@@ -1,14 +1,14 @@
-.vs/*
-Data/bin/*
-Data/obj/*
-HastyBLC/appsettings.json
-HastyBLC/bin/*
-HastyBLC/obj/*
-HastyBLCAdmin/appsettings.json
-HastyBLCAdmin/bin/*
-HastyBLCAdmin/obj/*
-Resources/bin/*
-Resources/obj/*
-Services/bin/*
-Services/obj/*
+# .vs/*
+# Data/bin/*
+# Data/obj/*
+# HastyBLC/appsettings.json
+# HastyBLC/bin/*
+# HastyBLC/obj/*
+# HastyBLCAdmin/appsettings.json
+# HastyBLCAdmin/bin/*
+# HastyBLCAdmin/obj/*
+# Resources/bin/*
+# Resources/obj/*
+# Services/bin/*
+# Services/obj/*
 
