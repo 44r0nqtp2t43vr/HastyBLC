@@ -244,16 +244,11 @@ namespace HastyBLCAdmin.Controllers
             {
                 var identityUser = new IdentityUser();
                 identityUser.Email = model.Email;
-                identityUser.UserName = model.Username;
-                identityUser.UserName = model.Username;
-                var result = await _userManager.CreateAsync(identityUser, model.Password);
-                Console.Write(model.Email);
-                Console.Write(model.Username);
-                Console.Write(model.Password);
+                identityUser.UserName = model.Email;
+                var result = await _userManager.CreateAsync(identityUser, model.Password!);
 
                 if (result.Succeeded)
                 {
-                    Console.Write("successed");
                     _userService.AddUser(model);
 
                     var userRole = _roleManager.FindByNameAsync("Admin").Result;
