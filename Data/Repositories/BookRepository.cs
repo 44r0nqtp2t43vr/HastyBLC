@@ -50,7 +50,7 @@ namespace Data.Repositories
             catch (Exception ex)
             {
                 // Log or handle the exception here to see if any error is occurring
-                System.Diagnostics.Debug.WriteLine(ex.Message);
+                Console.WriteLine(ex.Message);
             }
 
         }

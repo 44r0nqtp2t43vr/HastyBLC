@@ -48,35 +48,12 @@ namespace HastyBLCAdmin.Controllers
         /// Returns Home View.
         /// </summary>
         /// <returns> Home View </returns>
+        [HttpGet]
+        [AllowAnonymous]
         public IActionResult Books()
         {
-            var books = _context.Books
-                .Include(book => book.Author)
-                .Include(book => book.BookGenres)!
-                    .ThenInclude(bookGenre => bookGenre.Genre)
-                .Select(book => new Models.BookViewModel
-                {
-                    BookId = book.BookId,
-                    Title = book.Title,
-                    Description = book.Description,
-                    Image = book.Image,
-                    PublishDate = book.PublishDate,
-                    Publisher = book.Publisher,
-                    Isbn = book.Isbn,
-                    Language = book.Language,
-                    Format = book.Format,
-                    Pages = book.Pages,
-                    CreatedBy = book.CreatedBy,
-                    CreatedTime = book.CreatedTime,
-                    UpdatedBy = book.UpdatedBy,
-                    UpdatedTime = book.UpdatedTime,
-                    AuthorName = book.Author!.Name,
-                    Genres = book.BookGenres!.Select(bookGenre => bookGenre.Genre!.Name).ToList()!,
-                })
-                .ToList();
-            var viewModel = new BookListViewModel { Books = books };
-
-            return View(viewModel);
+            var books = _bookService.GetBooks();
+            return View(books);
         }
 
         [HttpGet]
@@ -141,14 +118,16 @@ namespace HastyBLCAdmin.Controllers
             {
                 _bookService.DeleteBook(bookId); 
                 TempData["SuccessMessage"] = "Book deleted successfully.";
+                return RedirectToAction("Books", "Books");
+
             }
             catch (Exception ex) 
             {
                 TempData["ErrorMessage"] = $"Error deleting book: {ex.Message}";
             }
 
-            return RedirectToAction("Books"); 
-	}
+            return RedirectToAction("ViewBook", "Books");
+        }
 
         [HttpGet]
         [AllowAnonymous]
@@ -205,7 +184,7 @@ namespace HastyBLCAdmin.Controllers
         {
             var book = _context.Books
                 .Include(b => b.Author)
-                .Include(b => b.BookGenres)
+                .Include(b => b.BookGenres)!
                 .ThenInclude(bg => bg.Genre)
                 .FirstOrDefault(b => b.BookId == id);
 
@@ -220,6 +199,7 @@ namespace HastyBLCAdmin.Controllers
 
             var bookViewModel = new Models.BookViewModel
             {
+                BookId = book.BookId,
                 Title = book.Title,
                 Description = book.Description,
                 Image = book.Image,
@@ -230,7 +210,7 @@ namespace HastyBLCAdmin.Controllers
                 Format = book.Format,
                 Pages = book.Pages,
                 AuthorName = book.Author!.Name,
-                Genres = book.BookGenres!.Select(bookGenre => bookGenre.Genre!.Name).ToList(),
+                Genres = book.BookGenres!.Select(bookGenre => bookGenre.Genre!.Name).ToList()!,
             };
 
             return View(bookViewModel);

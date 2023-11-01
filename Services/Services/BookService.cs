@@ -125,7 +125,6 @@ namespace Services.Services
 
         public void DeleteBook(int bookId)
         {
-            System.Diagnostics.Debug.WriteLine($"Deleting book with ID: {bookId}");
             _repository.DeleteBook(bookId);
         }
         public IEnumerable<Book> GetBooks()
