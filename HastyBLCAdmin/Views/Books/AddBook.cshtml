@@ -17,7 +17,7 @@
                                  style="width: 185px;" alt="logo">
                         </div>
 
-                        <form method="post" action="/Books/AddBook">
+                        <form method="post" action="/Books/AddBook" enctype="multipart/form-data">
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="title">Title</label>
                                 <input type="text" id="title" class="form-control"
@@ -43,9 +43,8 @@
                                 <span asp-validation-for="Description" class="text-danger"></span>
                             </div>
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="image">Image</label>
-                                <input type="text" id="image" class="form-control"
-                                       asp-for="Image" placeholder="Enter image" />
+                                <label class="form-label" for="image">Upload Image:</label>
+                                <input type="file" id="image" name="image" asp-for="Image" />
                                 <span asp-validation-for="Image" class="text-danger"></span>
                             </div>
                             <div class="form-outline mb-4">

@@ -23,6 +23,7 @@ namespace HastyBLCAdmin.Controllers
     {
         private readonly HastyDBContext _context;
         private readonly IBookService _bookService;
+        private readonly string ImageUploadsDirectory = "uploads/";
 
         /// <summary>
         /// Constructor
@@ -91,8 +92,35 @@ namespace HastyBLCAdmin.Controllers
         {
             try
             {
-                _bookService.AddBook(model);
-                return RedirectToAction("Books", "Books");
+                if (model.Image != null && model.Image.Length > 0)
+                {
+                    string uploadsDirectory = "uploads/images"; // Specify the directory to save the images
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + model.Image.FileName;
+                    string filePath = Path.Combine(uploadsDirectory, uniqueFileName).Replace('\\', '/'); // Replacing backslashes with forward slashes
+
+                    string fullPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", filePath);
+
+                    // Check if the directory exists, if not, create it
+                    if (!Directory.Exists(Path.GetDirectoryName(fullPath)))
+                    {
+                        Directory.CreateDirectory(Path.GetDirectoryName(fullPath)!);
+                    }
+
+                    // Save the file to the specified path
+                    using (var fileStream = new FileStream(fullPath, FileMode.Create))
+                    {
+                        model.Image.CopyTo(fileStream);
+                    }
+
+                    // Set the imagePath variable to be used in your service or repository method
+                    _bookService.AddBook(model, filePath);
+                    return RedirectToAction("Books", "Books");
+                } else
+                {
+                    throw new Exception();
+                }
+                
+
             }
             catch (InvalidDataException ex)
             {
@@ -144,7 +172,7 @@ namespace HastyBLCAdmin.Controllers
                 {
                     Title = existingBook.Title,
                     Description = existingBook.Description,
-                    Image = existingBook.Image,
+                    /*Image = existingBook.Image,*/
                     Publisher = existingBook.Publisher,
                     Language = existingBook.Language,
                     Format = existingBook.Format,

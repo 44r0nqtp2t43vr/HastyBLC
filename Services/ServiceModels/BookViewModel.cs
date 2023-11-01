@@ -1,4 +1,5 @@
 ﻿using Data.Models;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -17,7 +18,7 @@ namespace Services.ServiceModels
         [Required(ErrorMessage = "Description is required.")]
         public string? Description { get; set; }
         [Required(ErrorMessage = "Image is required.")]
-        public string? Image { get; set; }
+        public IFormFile? Image { get; set; }
         [Required(ErrorMessage = "Publish Date is required.")]
         public string? PublishDateStr { get; set; }
         [Required(ErrorMessage = "Publisher is required.")]

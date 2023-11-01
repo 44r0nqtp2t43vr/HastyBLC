@@ -38,7 +38,7 @@
                     <div class="book-item">
                         <div class="book-image-container">
                         <a asp-controller="Books" asp-action="ViewBook" asp-route-id="@book.BookId">
-                            <img src="~/img/@book.Image" alt="@book.Title" class="book-image" />
+                            <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
                         </a>
 
                         </div>

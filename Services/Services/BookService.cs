@@ -30,14 +30,14 @@ namespace Services.Services
             
         }
 
-        public void AddBook(BookViewModel model)
+        public void AddBook(BookViewModel model, string imagePath)
         {
             var book = new Book();
             if (!_repository.BookExists(model.Isbn!))
             {
                 book.Title = model.Title;
                 book.Description = model.Description;
-                book.Image = model.Image;
+                book.Image = imagePath;
                 book.Isbn = model.Isbn;
                 book.Publisher = model.Publisher;
                 book.Language = model.Language;
@@ -132,7 +132,7 @@ namespace Services.Services
                 existingBook.Isbn = model.Isbn;
                 existingBook.Title = model.Title;
                 existingBook.Description = model.Description;
-                existingBook.Image = model.Image;
+                /*existingBook.Image = model.Image;*/
                 existingBook.Publisher = model.Publisher;
                 existingBook.Language = model.Language;
                 existingBook.Format = model.Format;
