@@ -19,7 +19,14 @@
             <a asp-controller="Dashboard" asp-action="Dashboard" class="active">Dashboard</a>
             <a asp-controller="Genres" asp-action="Genres">Genres</a>
             <a asp-controller="Books" asp-action="Books">Books</a>
+            <form method="post" asp-controller="Account" asp-action="SignOutUser" id="logoutForm">
+                <button type="submit" class="logout-button">Logout</button>
+            </form>
         </div>
+    </div>
+    <div class="user-info-container">
+        <!-- Wrap the username in a container -->
+        <span class="username">Welcome,<br>@User.Identity.Name</span> <!-- Display the username -->
     </div>
     <div class="content">
         <div>

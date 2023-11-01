@@ -4,7 +4,6 @@
     padding: 0;
     overflow-x: auto;
     overflow-y: auto;
-    white-space: nowrap; 
 }
 
 footer {
@@ -29,7 +28,7 @@ footer {
     padding-left: 0px;
     width: 250px;
     background-color: #665A38;
-    position: absolute;
+    position: fixed;
     height: 100%;
     overflow: auto;
     left: 0;
@@ -85,6 +84,11 @@ div.content {
     height: 100%;
 }
 
+.content-container {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+}
+
 .title {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 40px;
@@ -123,6 +127,33 @@ div.content {
 }
 
 .row {
-    display: flex; /* Display the children in a row */
-    flex-wrap: wrap; /* Wrap children to a new row when space is limited */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.logout-button {
+    color: #ff0000; 
+    background: none;
+    border: none;
+    padding: 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+    .logout-button:hover {
+        background: none;
+    }
+
+.user-info-container {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    padding: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
 }
