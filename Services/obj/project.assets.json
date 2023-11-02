@@ -4839,19 +4839,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\zmaca\\.nuget\\packages\\": {}
+    "C:\\Users\\Aaron\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Repo\\BLC_ALLIANCE\\Services\\Services.csproj",
+      "projectUniqueName": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Services\\Services.csproj",
       "projectName": "Services",
-      "projectPath": "D:\\Repo\\BLC_ALLIANCE\\Services\\Services.csproj",
-      "packagesPath": "C:\\Users\\zmaca\\.nuget\\packages\\",
-      "outputPath": "D:\\Repo\\BLC_ALLIANCE\\Services\\obj\\",
+      "projectPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Services\\Services.csproj",
+      "packagesPath": "C:\\Users\\Aaron\\.nuget\\packages\\",
+      "outputPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Services\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\zmaca\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Aaron\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4865,11 +4865,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\Repo\\BLC_ALLIANCE\\Data\\Data.csproj": {
-              "projectPath": "D:\\Repo\\BLC_ALLIANCE\\Data\\Data.csproj"
+            "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Data\\Data.csproj": {
+              "projectPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Data\\Data.csproj"
             },
-            "D:\\Repo\\BLC_ALLIANCE\\Resources\\Resources.csproj": {
-              "projectPath": "D:\\Repo\\BLC_ALLIANCE\\Resources\\Resources.csproj"
+            "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Resources\\Resources.csproj": {
+              "projectPath": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\Resources\\Resources.csproj"
             }
           }
         }
@@ -4933,7 +4933,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
