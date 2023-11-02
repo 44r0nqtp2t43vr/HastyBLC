@@ -289,6 +289,22 @@
       "PackagePath": "staticwebassets\\lib\\react\\dist\\react.profiling.min.js"
     },
     {
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\uploads\\images\\2f3f1171-3246-4818-be70-915290572b81_4.jpg",
+      "PackagePath": "staticwebassets\\uploads\\images\\2f3f1171-3246-4818-be70-915290572b81_4.jpg"
+    },
+    {
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\uploads\\images\\78f1840c-bf9c-43e6-925d-7472bc05fc42_f73e2c41-96a1-4c06-b64e-5d287c3b2aa0.jpg",
+      "PackagePath": "staticwebassets\\uploads\\images\\78f1840c-bf9c-43e6-925d-7472bc05fc42_f73e2c41-96a1-4c06-b64e-5d287c3b2aa0.jpg"
+    },
+    {
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\uploads\\images\\b00accf6-93b9-4f0b-b0cb-aecb90996cd0_3.jpg",
+      "PackagePath": "staticwebassets\\uploads\\images\\b00accf6-93b9-4f0b-b0cb-aecb90996cd0_3.jpg"
+    },
+    {
+      "Id": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\uploads\\images\\bb98657c-c5a3-42ae-b347-89cb5d5ebbd5_2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\images\\bb98657c-c5a3-42ae-b347-89cb5d5ebbd5_2.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.HastyBLCAdmin.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

@@ -10,9 +10,9 @@ namespace Services.Interfaces
 {
     public interface IBookService
     {
-        void AddBook(BookViewModel model);
+        void AddBook(BookViewModel model, string imagePath);
         void DeleteBook(int bookId);
         IEnumerable<Book> GetBooks();
-        void EditBook(string isbn, BookViewModel model);
+        void EditBook(BookViewModel model, string imagePath);
     }
 }

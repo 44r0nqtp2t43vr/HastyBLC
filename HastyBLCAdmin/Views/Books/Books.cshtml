@@ -1,4 +1,4 @@
-﻿@model BookListViewModel
+﻿@model IEnumerable<Book>
 @section styles {
     <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
 }
@@ -33,12 +33,12 @@
     <div class="content">
         <h2 class="title">ALL BOOKS</h2>
             <div class="books-row">
-                @foreach (var book in Model.Books!)
+                @foreach (var book in Model)
                 {
                     <div class="book-item">
                         <div class="book-image-container">
                         <a asp-controller="Books" asp-action="ViewBook" asp-route-id="@book.BookId">
-                            <img src="~/img/@book.Image" alt="@book.Title" class="book-image" />
+                            <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
                         </a>
 
                         </div>

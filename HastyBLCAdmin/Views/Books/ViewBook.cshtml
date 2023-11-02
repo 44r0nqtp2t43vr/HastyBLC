@@ -12,7 +12,7 @@
     <div class="book-top-section">
         <a href="#" onclick="goBack()" class="back-button">←</a>
         <div class="book-image-container-view">
-            <img src="~/img/@Model.Image" alt="@Model.Title" class="book-detail-image" />
+            <img src="~/@Html.Raw(Model.Image)" alt="@Model.Title" class="book-detail-image" />
         </div>
         <div class="title-author-container">
             <h2>@Model.Title</h2>
@@ -56,10 +56,10 @@
         </div>
 
         <div class="book-action-buttons">
-            <a asp-controller="Books" asp-action="EditBook" asp-route-isbn="@Model.Isbn" class="btn btn-outline-danger">Edit</a>
+            <a asp-controller="Books" asp-action="EditBook" asp-route-bookId="@Model.BookId" class="btn btn-outline-danger">Edit</a>
 
-           <form method="post" asp-controller="Books" asp-action="DeleteBook" class="d-inline-block">
-                <input type="hidden" name="isbn" value="@Model.Isbn" />
+            <form method="post" action="/Books/DeleteBook" class="d-inline-block">
+                <input type="hidden" name="bookId" value="@Model.BookId" />
                 <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete this book?');">Delete</button>
             </form>
         </div>

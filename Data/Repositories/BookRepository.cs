@@ -30,13 +30,36 @@ namespace Data.Repositories
             this.GetDbSet<Book>().Add(book);
             UnitOfWork.SaveChanges();
         }
+        public void DeleteBookGenre(BookGenre bookGenre)
+        {
+            this.GetDbSet<BookGenre>().Remove(bookGenre);
+            UnitOfWork.SaveChanges();
+        }
 
         public void AddBookGenre(BookGenre bookGenre)
         {
             this.GetDbSet<BookGenre>().Add(bookGenre);
             UnitOfWork.SaveChanges();
         }
-         public void DeleteBook(int bookId)
+        public void EditBook(Book updatedBook)
+        {
+            try
+            {
+                var book = this.GetDbSet<Book>().Find(updatedBook.BookId);
+                if (book != null)
+                {
+                    this.GetDbSet<Book>().Update(book);
+                    UnitOfWork.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception here to see if any error is occurring
+                Console.WriteLine(ex.Message);
+            }
+
+        }
+        public void DeleteBook(int bookId)
         {
             try
             {
@@ -50,14 +73,14 @@ namespace Data.Repositories
             catch (Exception ex)
             {
                 // Log or handle the exception here to see if any error is occurring
-                System.Diagnostics.Debug.WriteLine(ex.Message);
+                Console.WriteLine(ex.Message);
             }
 
         }
 
-        public Book? GetBookByISBN(string isbn)
+        public Book? GetBookById(int bookId)
         {
-            return this.GetDbSet<Book>().FirstOrDefault(x => x.Isbn == isbn);
+            return this.GetDbSet<Book>().FirstOrDefault(x => x.BookId == bookId);
         }
 
     }

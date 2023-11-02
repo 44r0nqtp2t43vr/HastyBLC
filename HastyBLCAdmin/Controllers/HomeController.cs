@@ -13,6 +13,7 @@ using Services.ServiceModels;
 using Services.Interfaces;
 using System;
 using System.Linq;
+using static Data.PathManager;
 
 namespace HastyBLCAdmin.Controllers
 {
@@ -23,6 +24,7 @@ namespace HastyBLCAdmin.Controllers
     {
         private readonly HastyDBContext _context;
         private readonly IBookService _bookService;
+        private readonly string ImageUploadsDirectory = "uploads/";
 
         /// <summary>
         /// Constructor
@@ -47,35 +49,12 @@ namespace HastyBLCAdmin.Controllers
         /// Returns Home View.
         /// </summary>
         /// <returns> Home View </returns>
+        [HttpGet]
+        [AllowAnonymous]
         public IActionResult Books()
         {
-            var books = _context.Books
-                .Include(book => book.Author)
-                .Include(book => book.BookGenres)!
-                    .ThenInclude(bookGenre => bookGenre.Genre)
-                .Select(book => new Models.BookViewModel
-                {
-                    BookId = book.BookId,
-                    Title = book.Title,
-                    Description = book.Description,
-                    Image = book.Image,
-                    PublishDate = book.PublishDate,
-                    Publisher = book.Publisher,
-                    Isbn = book.Isbn,
-                    Language = book.Language,
-                    Format = book.Format,
-                    Pages = book.Pages,
-                    CreatedBy = book.CreatedBy,
-                    CreatedTime = book.CreatedTime,
-                    UpdatedBy = book.UpdatedBy,
-                    UpdatedTime = book.UpdatedTime,
-                    AuthorName = book.Author!.Name,
-                    Genres = book.BookGenres!.Select(bookGenre => bookGenre.Genre!.Name).ToList()!,
-                })
-                .ToList();
-            var viewModel = new BookListViewModel { Books = books };
-
-            return View(viewModel);
+            var books = _bookService.GetBooks();
+            return View(books);
         }
 
         [HttpGet]
@@ -91,8 +70,37 @@ namespace HastyBLCAdmin.Controllers
         {
             try
             {
-                _bookService.AddBook(model);
-                return RedirectToAction("Books", "Books");
+                if (model.Image != null && model.Image.Length > 0)
+                {
+                    string uploadsDirectory = "uploads/images"; // Specify the directory to save the images
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + model.Image.FileName;
+                    string filePath = Path.Combine(uploadsDirectory, uniqueFileName).Replace('\\', '/'); // Replacing backslashes with forward slashes
+
+                    string fullPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", filePath);
+
+                    // Check if the directory exists, if not, create it
+                    if (!Directory.Exists(Path.GetDirectoryName(fullPath)))
+                    {
+                        Directory.CreateDirectory(Path.GetDirectoryName(fullPath)!);
+                    }
+
+                    // Save the file to the specified path
+                    using (var fileStream = new FileStream(fullPath, FileMode.Create))
+                    {
+                        model.Image.CopyTo(fileStream);
+                    }
+
+                    // Set the imagePath variable to be used in your service or repository method
+                    _bookService.AddBook(model, filePath);
+                    return RedirectToAction("Books", "Books");
+                } else
+                {
+                    // Set the imagePath variable to be used in your service or repository method
+                    _bookService.AddBook(model, "");
+                    return RedirectToAction("Books", "Books");
+                }
+                
+
             }
             catch (InvalidDataException ex)
             {
@@ -113,22 +121,24 @@ namespace HastyBLCAdmin.Controllers
             {
                 _bookService.DeleteBook(bookId); 
                 TempData["SuccessMessage"] = "Book deleted successfully.";
+                return RedirectToAction("Books", "Books");
+
             }
             catch (Exception ex) 
             {
                 TempData["ErrorMessage"] = $"Error deleting book: {ex.Message}";
             }
 
-            return RedirectToAction("Books"); 
-	}
+            return RedirectToAction("ViewBook", "Books");
+        }
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult EditBook(string isbn)
+        public IActionResult EditBook(int bookId)
         {
             var existingBook = _context.Books.Include(book=> book.Author).Include(book => book.BookGenres)!
                     .ThenInclude(bookGenre => bookGenre.Genre)
-                .FirstOrDefault(book => book.Isbn == isbn);
+                .FirstOrDefault(book => book.BookId == bookId);
 
             if (existingBook == null)
             {
@@ -142,13 +152,13 @@ namespace HastyBLCAdmin.Controllers
 
                 var model = new Services.ServiceModels.BookViewModel
                 {
+                    BookId = existingBook.BookId,
                     Title = existingBook.Title,
                     Description = existingBook.Description,
-                    Image = existingBook.Image,
                     Publisher = existingBook.Publisher,
                     Language = existingBook.Language,
                     Format = existingBook.Format,
-                    GenreName = concatGenre?.ToString(),
+                    GenreNames = concatGenre?.ToString(),
                     AuthorName = existingBook.Author?.Name,
                     PublishDateStr = existingBook.PublishDate.ToString("yyyy-MM-dd"),
                     PagesStr = existingBook.Pages.ToString(),
@@ -160,12 +170,41 @@ namespace HastyBLCAdmin.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public IActionResult EditBook(string isbn, Services.ServiceModels.BookViewModel model)
+        public IActionResult EditBook(Services.ServiceModels.BookViewModel model)
         {
             try
             {
-                _bookService.EditBook(isbn,model);
-                return RedirectToAction("Books", "Books");
+                string? filePath;
+                if (model.Image != null && model.Image.Length > 0)
+                {
+                    string uploadsDirectory = "uploads/images"; // Specify the directory to save the images
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + model.Image.FileName;
+                    filePath = Path.Combine(uploadsDirectory, uniqueFileName).Replace('\\', '/'); // Replacing backslashes with forward slashes
+
+                    string fullPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", filePath);
+
+                    // Check if the directory exists, if not, create it
+                    if (!Directory.Exists(Path.GetDirectoryName(fullPath)))
+                    {
+                        Directory.CreateDirectory(Path.GetDirectoryName(fullPath)!);
+                    }
+
+                    // Save the file to the specified path
+                    using (var fileStream = new FileStream(fullPath, FileMode.Create))
+                    {
+                        model.Image.CopyTo(fileStream);
+                    }
+
+                    // Set the imagePath variable to be used in your service or repository method
+                    _bookService.EditBook(model, filePath);
+                    return RedirectToAction("Books", "Books");
+                }
+                else
+                {
+                    _bookService.EditBook(model, "");
+                    return RedirectToAction("Books", "Books");
+                }
+                
             }
             catch (Exception)
             {
@@ -177,7 +216,7 @@ namespace HastyBLCAdmin.Controllers
         {
             var book = _context.Books
                 .Include(b => b.Author)
-                .Include(b => b.BookGenres)
+                .Include(b => b.BookGenres)!
                 .ThenInclude(bg => bg.Genre)
                 .FirstOrDefault(b => b.BookId == id);
 
@@ -192,6 +231,7 @@ namespace HastyBLCAdmin.Controllers
 
             var bookViewModel = new Models.BookViewModel
             {
+                BookId = book.BookId,
                 Title = book.Title,
                 Description = book.Description,
                 Image = book.Image,
@@ -202,7 +242,7 @@ namespace HastyBLCAdmin.Controllers
                 Format = book.Format,
                 Pages = book.Pages,
                 AuthorName = book.Author!.Name,
-                Genres = book.BookGenres!.Select(bookGenre => bookGenre.Genre!.Name).ToList(),
+                Genres = book.BookGenres!.Select(bookGenre => bookGenre.Genre!.Name).ToList()!,
             };
 
             return View(bookViewModel);

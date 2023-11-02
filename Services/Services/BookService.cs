@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Data.Repositories;
 using Hangfire.Annotations;
+using System.Net;
 
 namespace Services.Services
 {
@@ -30,14 +31,14 @@ namespace Services.Services
             
         }
 
-        public void AddBook(BookViewModel model)
+        public void AddBook(BookViewModel model, string imagePath)
         {
             var book = new Book();
             if (!_repository.BookExists(model.Isbn!))
             {
                 book.Title = model.Title;
                 book.Description = model.Description;
-                book.Image = model.Image;
+                book.Image = imagePath;
                 book.Isbn = model.Isbn;
                 book.Publisher = model.Publisher;
                 book.Language = model.Language;
@@ -56,18 +57,28 @@ namespace Services.Services
                     book.Author = author;
                 }
 
-                var genre = _dbContext.Genres.FirstOrDefault(x => x.Name == model.GenreName);
-                if (genre == null)
+                string genreNames = model.GenreNames!;
+                char[] delimiter = { ',' };
+                string[] genreStrings = genreNames.Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
+                List<Genre> genreList = new List<Genre>();
+
+                foreach (var genreString in genreStrings)
                 {
-                    genre = new Genre()
+                    var genre = _dbContext.Genres.FirstOrDefault(x => x.Name!.ToLower() == genreString.Trim().ToLower());
+                    if (genre == null)
                     {
-                        Name = model.GenreName,
-                        CreatedTime = DateTime.Now,
-                        UpdatedTime = DateTime.Now,
-                        CreatedBy = System.Environment.UserName,
-                        UpdatedBy = System.Environment.UserName
-                    };
+                        genre = new Genre()
+                        {
+                            Name = genreString.Trim(),
+                            CreatedTime = DateTime.Now,
+                            UpdatedTime = DateTime.Now,
+                            CreatedBy = System.Environment.UserName,
+                            UpdatedBy = System.Environment.UserName
+                        };
+                    }
+                    genreList.Add(genre);
                 }
+                
 
                 DateTime dateTime;
                 if (DateTime.TryParse(model.PublishDateStr, out dateTime))
@@ -96,12 +107,16 @@ namespace Services.Services
 
                 _repository.AddBook(book);
 
-                BookGenre bookGenre = new BookGenre()
+                foreach (var genre in genreList)
                 {
-                    Book = book,
-                    Genre = genre
-                };
-                _repository.AddBookGenre(bookGenre);
+                    BookGenre bookGenre = new BookGenre()
+                    {
+                        Book = book,
+                        Genre = genre
+                    };
+                    _repository.AddBookGenre(bookGenre);
+                }
+                
             }
             else
             {
@@ -111,7 +126,6 @@ namespace Services.Services
 
         public void DeleteBook(int bookId)
         {
-            System.Diagnostics.Debug.WriteLine($"Deleting book with ID: {bookId}");
             _repository.DeleteBook(bookId);
         }
         public IEnumerable<Book> GetBooks()
@@ -119,9 +133,9 @@ namespace Services.Services
             return _repository.GetBooks().ToList();
         }
 
-        public void EditBook(string isbn, BookViewModel model)
+        public void EditBook(BookViewModel model, string imagePath)
         {
-            var existingBook = _repository.GetBookByISBN(isbn);
+            var existingBook = _repository.GetBookById(model.BookId);
 
             if (existingBook == null)
             {
@@ -132,10 +146,14 @@ namespace Services.Services
                 existingBook.Isbn = model.Isbn;
                 existingBook.Title = model.Title;
                 existingBook.Description = model.Description;
-                existingBook.Image = model.Image;
                 existingBook.Publisher = model.Publisher;
                 existingBook.Language = model.Language;
                 existingBook.Format = model.Format;
+
+                if (imagePath.Length > 0)
+                {
+                    existingBook.Image = imagePath;
+                }
 
                 existingBook.Author = _dbContext.Authors?.FirstOrDefault(x => x.Name == model.AuthorName);
 
@@ -148,12 +166,12 @@ namespace Services.Services
                 existingBook.Author = author;
 
                 
-                if (!string.IsNullOrEmpty(model.GenreName))
+                /*if (!string.IsNullOrEmpty(model.GenreNames))
                 {
-                    var genre = _dbContext.Genres.FirstOrDefault(x => x.Name == model.GenreName);
+                    var genre = _dbContext.Genres.FirstOrDefault(x => x.Name == model.GenreNames);
                     if (genre == null)
                     {
-                        genre = new Genre { Name = model.GenreName };
+                        genre = new Genre { Name = model.GenreNames };
                         _dbContext.Genres.Add(genre);
                     }
                     
@@ -169,7 +187,7 @@ namespace Services.Services
 
                     
                     existingBook.BookGenres.Add(new BookGenre { Book = existingBook, Genre = genre });
-                }
+                }*/
 
                 DateTime publishDate;
                 if (DateTime.TryParse(model.PublishDateStr, out publishDate))
@@ -194,7 +212,42 @@ namespace Services.Services
                 existingBook.UpdatedTime = DateTime.Now;
                 existingBook.UpdatedBy = System.Environment.UserName;
 
-                _dbContext.SaveChanges();
+                _repository.EditBook(existingBook);
+
+                var oldBookGenres = _dbContext.BookGenres.Where(bg => bg.BookId == existingBook.BookId).ToList();
+                foreach (var oldBookGenre in oldBookGenres)
+                {
+                    _repository.DeleteBookGenre(oldBookGenre);
+                }
+
+                string genreNames = model.GenreNames!;
+                char[] delimiter = { ',' };
+                string[] genreStrings = genreNames.Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
+                List<BookGenre> bookGenreList = new List<BookGenre>();
+
+                foreach (var genreString in genreStrings)
+                {
+                    var genre = _dbContext.Genres.FirstOrDefault(x => x.Name!.ToLower() == genreString.Trim().ToLower());
+                    if (genre == null)
+                    {
+                        genre = new Genre()
+                        {
+                            Name = genreString.Trim(),
+                            CreatedTime = DateTime.Now,
+                            UpdatedTime = DateTime.Now,
+                            CreatedBy = System.Environment.UserName,
+                            UpdatedBy = System.Environment.UserName
+                        };
+                        
+                    }
+                    BookGenre bookGenre = new BookGenre()
+                    {
+                        Book = existingBook,
+                        Genre = genre
+                    };
+                    _repository.AddBookGenre(bookGenre);
+
+                }
             }
         }
     }
