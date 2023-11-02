@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JCUTRUT4TX7M2ZUdj+xQTVE/WCxh3V//yJFwFWK4E9M=",
+  "Hash": "Wzu9Rzhl/5HEuL9i7oXGsRrpT5E814gKg4iV9wbSt54=",
   "Source": "HastyBLCAdmin",
   "BasePath": "_content/HastyBLCAdmin",
   "Mode": "Default",
@@ -2276,23 +2276,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\react-dom\\dist\\react-dom-unstable-native-dependencies.production.min.js"
-    },
-    {
-      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\uploads\\images\\6590bdf0-db8a-46b1-a717-16179fb811fb_2.jpg",
-      "SourceId": "HastyBLCAdmin",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
-      "BasePath": "_content/HastyBLCAdmin",
-      "RelativePath": "uploads/images/6590bdf0-db8a-46b1-a717-16179fb811fb_2.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\images\\6590bdf0-db8a-46b1-a717-16179fb811fb_2.jpg"
     },
     {
       "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\uploads\\images\\78f1840c-bf9c-43e6-925d-7472bc05fc42_f73e2c41-96a1-4c06-b64e-5d287c3b2aa0.jpg",

@@ -56,7 +56,7 @@
         </div>
 
         <div class="book-action-buttons">
-            <a asp-controller="Books" asp-action="EditBook" asp-route-isbn="@Model.Isbn" class="btn btn-outline-danger">Edit</a>
+            <a asp-controller="Books" asp-action="EditBook" asp-route-bookId="@Model.BookId" class="btn btn-outline-danger">Edit</a>
 
             <form method="post" action="/Books/DeleteBook" class="d-inline-block">
                 <input type="hidden" name="bookId" value="@Model.BookId" />

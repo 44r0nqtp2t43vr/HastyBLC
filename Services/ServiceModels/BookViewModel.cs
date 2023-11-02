@@ -11,13 +11,14 @@ namespace Services.ServiceModels
 {
     public class BookViewModel
     {
+        public int BookId { get; set; }
         [Required(ErrorMessage = "Title is required.")]
         public string? Title { get; set; }
         [Required(ErrorMessage = "Author is required.")]
         public string? AuthorName { get; set; }
         [Required(ErrorMessage = "Description is required.")]
         public string? Description { get; set; }
-        [Required(ErrorMessage = "Image is required.")]
+        /*[Required(ErrorMessage = "Image is required.")]*/
         public IFormFile? Image { get; set; }
         [Required(ErrorMessage = "Publish Date is required.")]
         public string? PublishDateStr { get; set; }

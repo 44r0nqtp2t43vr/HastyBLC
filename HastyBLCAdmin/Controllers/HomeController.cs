@@ -13,6 +13,7 @@ using Services.ServiceModels;
 using Services.Interfaces;
 using System;
 using System.Linq;
+using static Data.PathManager;
 
 namespace HastyBLCAdmin.Controllers
 {
@@ -94,7 +95,9 @@ namespace HastyBLCAdmin.Controllers
                     return RedirectToAction("Books", "Books");
                 } else
                 {
-                    throw new Exception();
+                    // Set the imagePath variable to be used in your service or repository method
+                    _bookService.AddBook(model, "");
+                    return RedirectToAction("Books", "Books");
                 }
                 
 
@@ -131,11 +134,11 @@ namespace HastyBLCAdmin.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult EditBook(string isbn)
+        public IActionResult EditBook(int bookId)
         {
             var existingBook = _context.Books.Include(book=> book.Author).Include(book => book.BookGenres)!
                     .ThenInclude(bookGenre => bookGenre.Genre)
-                .FirstOrDefault(book => book.Isbn == isbn);
+                .FirstOrDefault(book => book.BookId == bookId);
 
             if (existingBook == null)
             {
@@ -149,9 +152,9 @@ namespace HastyBLCAdmin.Controllers
 
                 var model = new Services.ServiceModels.BookViewModel
                 {
+                    BookId = existingBook.BookId,
                     Title = existingBook.Title,
                     Description = existingBook.Description,
-                    /*Image = existingBook.Image,*/
                     Publisher = existingBook.Publisher,
                     Language = existingBook.Language,
                     Format = existingBook.Format,
@@ -167,12 +170,53 @@ namespace HastyBLCAdmin.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public IActionResult EditBook(string isbn, Services.ServiceModels.BookViewModel model)
+        public IActionResult EditBook(Services.ServiceModels.BookViewModel model)
         {
             try
             {
-                _bookService.EditBook(isbn,model);
-                return RedirectToAction("Books", "Books");
+                string? filePath;
+                if (model.Image != null && model.Image.Length > 0)
+                {
+                    string uploadsDirectory = "uploads/images"; // Specify the directory to save the images
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + model.Image.FileName;
+                    filePath = Path.Combine(uploadsDirectory, uniqueFileName).Replace('\\', '/'); // Replacing backslashes with forward slashes
+
+                    string fullPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", filePath);
+
+                    // Check if the directory exists, if not, create it
+                    if (!Directory.Exists(Path.GetDirectoryName(fullPath)))
+                    {
+                        Directory.CreateDirectory(Path.GetDirectoryName(fullPath)!);
+                    }
+
+                    // Save the file to the specified path
+                    using (var fileStream = new FileStream(fullPath, FileMode.Create))
+                    {
+                        model.Image.CopyTo(fileStream);
+                    }
+
+                    // Set the imagePath variable to be used in your service or repository method
+                    _bookService.EditBook(model, filePath);
+                    return RedirectToAction("Books", "Books");
+                }
+                else
+                {
+                    Console.WriteLine("wrongblock");
+                    Console.WriteLine("wrongblock");
+                    Console.WriteLine("wrongblock");
+                    Console.WriteLine("wrongblock");
+                    Console.WriteLine("wrongblock");
+                    Console.WriteLine("wrongblock");
+                    Console.WriteLine("wrongblock");
+                    Console.WriteLine("wrongblock");
+                    Console.WriteLine("wrongblock");
+                    Console.WriteLine("wrongblock");
+                    Console.WriteLine("wrongblock");
+                    Console.WriteLine("wrongblock");
+                    _bookService.EditBook(model, "");
+                    return RedirectToAction("Books", "Books");
+                }
+                
             }
             catch (Exception)
             {

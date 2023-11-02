@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Data.Repositories;
 using Hangfire.Annotations;
+using System.Net;
 
 namespace Services.Services
 {
@@ -132,9 +133,9 @@ namespace Services.Services
             return _repository.GetBooks().ToList();
         }
 
-        public void EditBook(string isbn, BookViewModel model)
+        public void EditBook(BookViewModel model, string imagePath)
         {
-            var existingBook = _repository.GetBookByISBN(isbn);
+            var existingBook = _repository.GetBookById(model.BookId);
 
             if (existingBook == null)
             {
@@ -145,10 +146,14 @@ namespace Services.Services
                 existingBook.Isbn = model.Isbn;
                 existingBook.Title = model.Title;
                 existingBook.Description = model.Description;
-                /*existingBook.Image = model.Image;*/
                 existingBook.Publisher = model.Publisher;
                 existingBook.Language = model.Language;
                 existingBook.Format = model.Format;
+
+                if (imagePath.Length > 0)
+                {
+                    existingBook.Image = imagePath;
+                }
 
                 existingBook.Author = _dbContext.Authors?.FirstOrDefault(x => x.Name == model.AuthorName);
 
@@ -161,7 +166,7 @@ namespace Services.Services
                 existingBook.Author = author;
 
                 
-                if (!string.IsNullOrEmpty(model.GenreNames))
+                /*if (!string.IsNullOrEmpty(model.GenreNames))
                 {
                     var genre = _dbContext.Genres.FirstOrDefault(x => x.Name == model.GenreNames);
                     if (genre == null)
@@ -182,7 +187,7 @@ namespace Services.Services
 
                     
                     existingBook.BookGenres.Add(new BookGenre { Book = existingBook, Genre = genre });
-                }
+                }*/
 
                 DateTime publishDate;
                 if (DateTime.TryParse(model.PublishDateStr, out publishDate))
@@ -207,7 +212,7 @@ namespace Services.Services
                 existingBook.UpdatedTime = DateTime.Now;
                 existingBook.UpdatedBy = System.Environment.UserName;
 
-                _dbContext.SaveChanges();
+                _repository.EditBook(existingBook);
             }
         }
     }

@@ -7,8 +7,8 @@
 <div class="container">
     <h2>Edit Book</h2>
 
-    <form asp-controller="Books" asp-action="EditBook" method="post">
-        <input type="hidden" asp-for="Isbn" /> 
+    <form method="post" action="/Books/EditBook" enctype="multipart/form-data">
+        <input type="hidden" asp-for="BookId" /> 
 
         <div class="form-group">
             <label asp-for="Title">Title:</label>
@@ -32,8 +32,17 @@
         </div>
 
         <div class="form-group">
-            <label asp-for="Image">Image URL:</label>
-            <input asp-for="Image" class="form-control" />
+            @* <label asp-for="Image">Image URL:</label>
+            <input asp-for="Image" class="form-control" /> *@
+            <label class="form-label" for="image">Upload Image:</label>
+            <input type="file" id="image" name="image" asp-for="Image" />
+            <button type="button" class="btn btn-primary btn-block login-btn gradient-custom-2 mb-3" onclick="clearImageInput()">Clear Image</button>
+            <span asp-validation-for="Image" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PublishDateStr">Publish Date:</label>
+            <input asp-for="PublishDateStr" class="form-control" />
         </div>
 
         <div class="form-group">
@@ -42,8 +51,8 @@
         </div>
 
         <div class="form-group">
-            <label asp-for="PublishDateStr">Publish Date:</label>
-            <input asp-for="PublishDateStr" class="form-control" />
+            <label asp-for="Isbn">ISBN:</label>
+            <input asp-for="Isbn" class="form-control" />
         </div>
 
         <div class="form-group">
@@ -67,3 +76,15 @@
         </a>
     </form>
 </div>
+@section scripts {
+    <script>
+        // Check for error message and display Toastr notification
+        var errorMessage = '@TempData["ErrorMessage"]';
+        if (errorMessage) {
+            toastr.error(errorMessage);
+        }
+        function clearImageInput() {
+            document.getElementById('image').value = ''; // Resets the value of the input field
+        }
+    </script>
+}
