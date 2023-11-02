@@ -30,6 +30,11 @@ namespace Data.Repositories
             this.GetDbSet<Book>().Add(book);
             UnitOfWork.SaveChanges();
         }
+        public void DeleteBookGenre(BookGenre bookGenre)
+        {
+            this.GetDbSet<BookGenre>().Remove(bookGenre);
+            UnitOfWork.SaveChanges();
+        }
 
         public void AddBookGenre(BookGenre bookGenre)
         {

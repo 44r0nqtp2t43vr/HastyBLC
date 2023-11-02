@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Wzu9Rzhl/5HEuL9i7oXGsRrpT5E814gKg4iV9wbSt54=",
+  "Hash": "O+jZT1vrrnApvT+E1FKnbvPYfzqBiNf7BT5+NKW6Org=",
   "Source": "HastyBLCAdmin",
   "BasePath": "_content/HastyBLCAdmin",
   "Mode": "Default",
@@ -2278,6 +2278,23 @@
       "OriginalItemSpec": "wwwroot\\lib\\react-dom\\dist\\react-dom-unstable-native-dependencies.production.min.js"
     },
     {
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\uploads\\images\\2f3f1171-3246-4818-be70-915290572b81_4.jpg",
+      "SourceId": "HastyBLCAdmin",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "BasePath": "_content/HastyBLCAdmin",
+      "RelativePath": "uploads/images/2f3f1171-3246-4818-be70-915290572b81_4.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\images\\2f3f1171-3246-4818-be70-915290572b81_4.jpg"
+    },
+    {
       "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\uploads\\images\\78f1840c-bf9c-43e6-925d-7472bc05fc42_f73e2c41-96a1-4c06-b64e-5d287c3b2aa0.jpg",
       "SourceId": "HastyBLCAdmin",
       "SourceType": "Discovered",
@@ -2293,6 +2310,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\images\\78f1840c-bf9c-43e6-925d-7472bc05fc42_f73e2c41-96a1-4c06-b64e-5d287c3b2aa0.jpg"
+    },
+    {
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\uploads\\images\\b00accf6-93b9-4f0b-b0cb-aecb90996cd0_3.jpg",
+      "SourceId": "HastyBLCAdmin",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "BasePath": "_content/HastyBLCAdmin",
+      "RelativePath": "uploads/images/b00accf6-93b9-4f0b-b0cb-aecb90996cd0_3.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\images\\b00accf6-93b9-4f0b-b0cb-aecb90996cd0_3.jpg"
+    },
+    {
+      "Identity": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\uploads\\images\\bb98657c-c5a3-42ae-b347-89cb5d5ebbd5_2.jpg",
+      "SourceId": "HastyBLCAdmin",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Aaron Alcuitas\\ACADEMICS\\4th Yr 1st Sem\\FREE ELEC 2\\HastyBLC\\HastyBLCAdmin\\wwwroot\\",
+      "BasePath": "_content/HastyBLCAdmin",
+      "RelativePath": "uploads/images/bb98657c-c5a3-42ae-b347-89cb5d5ebbd5_2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\images\\bb98657c-c5a3-42ae-b347-89cb5d5ebbd5_2.jpg"
     }
   ]
 }

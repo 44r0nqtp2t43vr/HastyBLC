@@ -64,12 +64,12 @@ namespace Services.Services
 
                 foreach (var genreString in genreStrings)
                 {
-                    var genre = _dbContext.Genres.FirstOrDefault(x => x.Name!.ToLower() == genreString.ToLower());
+                    var genre = _dbContext.Genres.FirstOrDefault(x => x.Name!.ToLower() == genreString.Trim().ToLower());
                     if (genre == null)
                     {
                         genre = new Genre()
                         {
-                            Name = genreString,
+                            Name = genreString.Trim(),
                             CreatedTime = DateTime.Now,
                             UpdatedTime = DateTime.Now,
                             CreatedBy = System.Environment.UserName,
@@ -213,6 +213,41 @@ namespace Services.Services
                 existingBook.UpdatedBy = System.Environment.UserName;
 
                 _repository.EditBook(existingBook);
+
+                var oldBookGenres = _dbContext.BookGenres.Where(bg => bg.BookId == existingBook.BookId).ToList();
+                foreach (var oldBookGenre in oldBookGenres)
+                {
+                    _repository.DeleteBookGenre(oldBookGenre);
+                }
+
+                string genreNames = model.GenreNames!;
+                char[] delimiter = { ',' };
+                string[] genreStrings = genreNames.Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
+                List<BookGenre> bookGenreList = new List<BookGenre>();
+
+                foreach (var genreString in genreStrings)
+                {
+                    var genre = _dbContext.Genres.FirstOrDefault(x => x.Name!.ToLower() == genreString.Trim().ToLower());
+                    if (genre == null)
+                    {
+                        genre = new Genre()
+                        {
+                            Name = genreString.Trim(),
+                            CreatedTime = DateTime.Now,
+                            UpdatedTime = DateTime.Now,
+                            CreatedBy = System.Environment.UserName,
+                            UpdatedBy = System.Environment.UserName
+                        };
+                        
+                    }
+                    BookGenre bookGenre = new BookGenre()
+                    {
+                        Book = existingBook,
+                        Genre = genre
+                    };
+                    _repository.AddBookGenre(bookGenre);
+
+                }
             }
         }
     }

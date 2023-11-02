@@ -201,18 +201,6 @@ namespace HastyBLCAdmin.Controllers
                 }
                 else
                 {
-                    Console.WriteLine("wrongblock");
-                    Console.WriteLine("wrongblock");
-                    Console.WriteLine("wrongblock");
-                    Console.WriteLine("wrongblock");
-                    Console.WriteLine("wrongblock");
-                    Console.WriteLine("wrongblock");
-                    Console.WriteLine("wrongblock");
-                    Console.WriteLine("wrongblock");
-                    Console.WriteLine("wrongblock");
-                    Console.WriteLine("wrongblock");
-                    Console.WriteLine("wrongblock");
-                    Console.WriteLine("wrongblock");
                     _bookService.EditBook(model, "");
                     return RedirectToAction("Books", "Books");
                 }

@@ -13,6 +13,7 @@ namespace Data.Interfaces
         bool BookExists(string isbn);
         void AddBook(Book book);
         void AddBookGenre(BookGenre bookGenre);
+        void DeleteBookGenre(BookGenre bookGenre);
         void EditBook(Book updatedBook);
         void DeleteBook(int bookId);
         Book? GetBookById(int bookId);
