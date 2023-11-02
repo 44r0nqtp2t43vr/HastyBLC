@@ -15,3 +15,20 @@ D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\obj\Deb
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\obj\Debug\net7.0\refint\Services.dll
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\obj\Debug\net7.0\Services.pdb
 D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\Services\obj\Debug\net7.0\ref\Services.dll
+D:\Repo\BLC_ALLIANCE\Services\bin\Debug\net7.0\Services.deps.json
+D:\Repo\BLC_ALLIANCE\Services\bin\Debug\net7.0\Services.dll
+D:\Repo\BLC_ALLIANCE\Services\bin\Debug\net7.0\Services.pdb
+D:\Repo\BLC_ALLIANCE\Services\bin\Debug\net7.0\Data.dll
+D:\Repo\BLC_ALLIANCE\Services\bin\Debug\net7.0\Resources.dll
+D:\Repo\BLC_ALLIANCE\Services\bin\Debug\net7.0\Data.pdb
+D:\Repo\BLC_ALLIANCE\Services\bin\Debug\net7.0\Resources.pdb
+D:\Repo\BLC_ALLIANCE\Services\obj\Debug\net7.0\Services.csproj.AssemblyReference.cache
+D:\Repo\BLC_ALLIANCE\Services\obj\Debug\net7.0\Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\Repo\BLC_ALLIANCE\Services\obj\Debug\net7.0\Services.AssemblyInfoInputs.cache
+D:\Repo\BLC_ALLIANCE\Services\obj\Debug\net7.0\Services.AssemblyInfo.cs
+D:\Repo\BLC_ALLIANCE\Services\obj\Debug\net7.0\Services.csproj.CoreCompileInputs.cache
+D:\Repo\BLC_ALLIANCE\Services\obj\Debug\net7.0\Services.csproj.CopyComplete
+D:\Repo\BLC_ALLIANCE\Services\obj\Debug\net7.0\Services.dll
+D:\Repo\BLC_ALLIANCE\Services\obj\Debug\net7.0\refint\Services.dll
+D:\Repo\BLC_ALLIANCE\Services\obj\Debug\net7.0\Services.pdb
+D:\Repo\BLC_ALLIANCE\Services\obj\Debug\net7.0\ref\Services.dll

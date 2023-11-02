@@ -9,101 +9,101 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = HastyBLCAdmin
 build_property.RootNamespace = HastyBLCAdmin
-build_property.ProjectDir = D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\HastyBLCAdmin\
+build_property.ProjectDir = D:\Repo\BLC_ALLIANCE\HastyBLCAdmin\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = D:\Aaron Alcuitas\ACADEMICS\4th Yr 1st Sem\FREE ELEC 2\HastyBLC\HastyBLCAdmin
+build_property.MSBuildProjectDirectory = D:\Repo\BLC_ALLIANCE\HastyBLCAdmin
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/Account/CreateRole.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Account/CreateRole.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDcmVhdGVSb2xlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/Account/Login.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/Account/Register.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/Admin/Index.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/Books/AddBook.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Books/AddBook.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcQWRkQm9vay5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/Books/Books.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Books/Books.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcQm9va3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/Books/EditBook.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Books/EditBook.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcRWRpdEJvb2suY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/Books/ViewBook.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Books/ViewBook.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcVmlld0Jvb2suY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/Dashboard/Dashboard.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Dashboard/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXERhc2hib2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/Dashboard/NewBooks.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Dashboard/NewBooks.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXE5ld0Jvb2tzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/Dashboard/TopBooks.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Dashboard/TopBooks.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXFRvcEJvb2tzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/Error/Forbidden.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Error/Forbidden.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcRm9yYmlkZGVuLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/Genres/Genres.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Genres/Genres.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VucmVzXEdlbnJlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/Genres/ViewGenre.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Genres/ViewGenre.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VucmVzXFZpZXdHZW5yZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/Genres/_AddGenre.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Genres/_AddGenre.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VucmVzXF9BZGRHZW5yZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/Genres/_DeleteGenre.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Genres/_DeleteGenre.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VucmVzXF9EZWxldGVHZW5yZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/Genres/_EditGenre.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Genres/_EditGenre.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VucmVzXF9FZGl0R2VucmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/Shared/Error.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/Shared/_Header.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Shared/_Header.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9IZWFkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/_ViewImports.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/_ViewStart.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Aaron Alcuitas/ACADEMICS/4th Yr 1st Sem/FREE ELEC 2/HastyBLC/HastyBLCAdmin/Views/Shared/_Layout.cshtml]
+[D:/Repo/BLC_ALLIANCE/HastyBLCAdmin/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-osk6jol0ye
