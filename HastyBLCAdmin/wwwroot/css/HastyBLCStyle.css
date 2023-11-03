@@ -121,7 +121,6 @@ div.content {
 .viewAll-book-row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     text-align: center;
 }
 
