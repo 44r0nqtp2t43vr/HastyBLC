@@ -1,9 +1,13 @@
-﻿@model BookListViewModel
-@section styles {
-    <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
-}
+﻿@model IEnumerable<Book>
 @{
     ViewData["Title"] = "New Books";
+    int currentPage = (int)ViewData["CurrentPage"];
+    int totalPages = (int)ViewData["TotalPages"];
+    int pageSize = 10; 
+}
+@section styles {
+    <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
+    <link rel="stylesheet" href="~/css/viewbook.css" />
 }
 <html>
 <body>
@@ -26,35 +30,47 @@
     </div>
     <div class="user">
         <div class="user-info-container">
-            <span class="username">@User.Identity.Name</span>
+            <span class="username username-truncate">@User.Identity.Name</span>
             <div class="profile-image-container"></div>
         </div>
     </div>
     <div class="content">
         <div>
-            <h2 class="title">New Books</h2>
-            @{
-                var sortedBooks = Model.Books?.AsEnumerable().OrderByDescending(book => book.CreatedTime);
-            }
-
-            @for (int i = 0; i < sortedBooks?.Count(); i += 5)
-            {
-                <div>
-                    @foreach (var book in sortedBooks.Skip(i).Take(5))
-                    {
-                        <div class="newBookContainer">
-                            <div class="bookContent">
-                                <h5 style="max-width:150px;">@book.Title</h5>
-                                <ul>
-                                    <li>@book.AuthorName</li>
-                                    @* <li>@book.CreatedTime</li>  *@ @* <--- to check if content is in proper order according to latest creation time, uncomment the commented list *@
-                                </ul>
-                            </div>
+            <h2 class="title"><a href="#" onclick="goBack()" class="back-buttonn">←</a> New Books</h2>
+            <div class="viewAll-book-row">
+                @foreach (var book in Model.OrderByDescending(book => book.CreatedTime))
+                {
+                    <div class="topBookContainer">
+                        <div class="book-image-container">
+                            @* <h5 style="max-width:150px;">@book.Title</h5> *@
+                            <ul>
+                                <a asp-controller="Books" asp-action="ViewBook" asp-route-id="@book.BookId">
+                                    <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
+                                </a>
+                                @* <li>@book.Author</li> *@
+                                <!-- <li>@book.CreatedTime</li> -->
+                            </ul>
                         </div>
+                    </div>
+                }
+            </div>
+            <div class="fixed-pagination-container">
+                <ul class="pagination justify-content-center spaced-pagination">
+                    @for (int i = 1; i <= totalPages; i++)
+                    {
+                        <li class="page-item @(i == currentPage ? "active" : "unselected")">
+                            <a class="page-link page-number" href="@Url.Action("NewBooks", new { page = i })">@i</a>
+                        </li>
                     }
-                </div> @* to go back, just press the dashboard in the sidebar *@
-            }
+                </ul>
+            </div>
         </div>
-    </div>
+     </div>
+    <script>
+        function goBack() {
+            window.history.back();
+            return false;
+        }
+    </script>
 </body>
 </html>

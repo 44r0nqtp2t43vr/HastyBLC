@@ -1,9 +1,13 @@
-﻿@model BookListViewModel
-@section styles {
-    <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
-}
+﻿@model IEnumerable<Book>
 @{
     ViewData["Title"] = "Top Books";
+    int currentPage = (int)ViewData["CurrentPage"];
+    int totalPages = (int)ViewData["TotalPages"];
+    int pageSize = 10; 
+}
+@section styles {
+    <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
+    <link rel="stylesheet" href="~/css/viewbook.css" />
 }
 <html>
 <body>
@@ -26,31 +30,47 @@
     </div>
     <div class="user">
         <div class="user-info-container">
-            <span class="username">@User.Identity.Name</span>
+            <span class="username username-truncate">@User.Identity.Name</span>
             <div class="profile-image-container"></div>
         </div>
     </div>
     <div class="content">
         <div>
-            <h2 class="title">Top Books</h2>
-            <div>
-                <div class="topBookContainer">
-                    <img src="/img/1 (2).jpg" class="bookImage">
+            <h2 class="title"><a href="#" onclick="goBack()" class="back-buttonn">←</a> Top Books</h2>
+            <div class="viewAll-book-row">
+                @foreach (var book in Model.OrderByDescending(book => book.BookId))
+                {
+                    <div class="topBookContainer">
+                        <div class="book-image-container">
+                            @* <h5 style="max-width:150px;">@book.Title</h5> *@
+                            <ul>
+                                <a asp-controller="Books" asp-action="ViewBook" asp-route-id="@book.BookId">
+                                    <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
+                                </a>
+                                @* <li>@book.Author</li> *@
+                                <!-- <li>@book.BookId</li> -->
+                            </ul>
+                        </div>
+                    </div>
+                }
                 </div>
-                <div class="topBookContainer">
-                    <img src="/img/2.jpg" class="bookImage">
-                </div>
-                <div class="topBookContainer">
-                    <img src="/img/3.jpg" class="bookImage">
-                </div>
-                <div class="topBookContainer">
-                    <img src="/img/4.jpg" class="bookImage">
-                </div>
-                <div class="topBookContainer">
-                    <img src="/img/5.jpg" class="bookImage">
-                </div>
-            </div> @* to go back, just press the dashboard in the sidebar *@
+        </div>
+        <div class="fixed-pagination-container">
+            <ul class="pagination justify-content-center spaced-pagination">
+                @for (int i = 1; i <= totalPages; i++)
+                {
+                    <li class="page-item @(i == currentPage ? "active" : "unselected")">
+                        <a class="page-link page-number" href="@Url.Action("TopBooks", new { page = i })">@i</a>
+                    </li>
+                }
+            </ul>
         </div>
     </div>
+    <script>
+        function goBack() {
+            window.history.back();
+            return false;
+        }
+    </script>
 </body>
 </html>

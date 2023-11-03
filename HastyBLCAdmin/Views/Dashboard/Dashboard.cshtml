@@ -1,4 +1,4 @@
-﻿@model BookListViewModel
+﻿@model IEnumerable<Book>
 @section styles {
     <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
 }
@@ -26,61 +26,57 @@
     </div>
     <div class="user">
         <div class="user-info-container">
-            <span class="username">@User.Identity.Name</span>
+            <span class="username username-truncate">@User.Identity.Name</span>
             <div class="profile-image-container"></div>
         </div>
     </div>
     <div class="content">
         <div>
             <h2 class="title">Top Books</h2>
-            <div>
-                <div class="topBookContainer">
-                    <img src="/img/1 (2).jpg" class="bookImage">
-                </div>
-                <div class="topBookContainer">
-                    <img src="/img/2.jpg" class="bookImage">
-                </div>
-                <div class="topBookContainer">
-                    <img src="/img/3.jpg" class="bookImage">
-                </div>
-                <div class="topBookContainer">
-                    <img src="/img/4.jpg" class="bookImage">
-                </div>
-                <div class="topBookContainer">
-                    <img src="/img/5.jpg" class="bookImage">
-                </div>
+            <div class="book-row">
+                @foreach (var book in Model.OrderByDescending(book => book.BookId).Take(5))
+                {
+                    <div class="book-item">
+                        <div class="book-image-container">
+                            <ul>
+                                @* <li>@book.Author</li> *@
+                                @* <li>@book.BookId</li> *@
+                                <a asp-controller="Books" asp-action="ViewBook" asp-route-id="@book.BookId">
+                                    <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                }
                 <div class="topBookContainer">
                     <a asp-controller="Dashboard" asp-action="TopBooks" style="text-align:center; display:inline-block">
-                        <span style="font-family: 'Josefin Sans', sans-serif;">&#8594</span><br>Top Books
+                        <span style="display: inline-block; text-align: center; font-family: 'Josefin Sans', sans-serif;">&#8594</span><br>Top Books
                     </a>
                 </div>
             </div>
         </div>
         <div>
             <h2 class="title">New Books</h2>
-            @{
-                var sortedBooks = Model.Books?.AsEnumerable().OrderByDescending(book => book.CreatedTime).Take(5);
-            }
-
-            @foreach (var book in sortedBooks!)
-            {
-                <div class=" = newBookContainer">
-                    <div class="bookContent">
-                        <h5 style="max-width:150px;">@book.Title</h5>
-                        <ul>
-                            <li>@book.AuthorName</li>
-                            @* <li>@book.CreatedTime</li>  *@ @* <--- to check if content is in proper order according to latest creation time, uncomment the commented list *@
-                        </ul>
-                    </div>
-                </div>
-            }
-            <div class="topBookContainer">
-                @if (sortedBooks != null && sortedBooks.Any())
+            <div class="book-row">
+                @foreach (var book in Model.OrderByDescending(book => book.CreatedTime).Take(5))
                 {
+                    <div class="book-item">
+                        <div class="book-image-container">
+                            <ul>
+                                @* <li>@book.Author</li> *@
+                                @* <li>@book.CreatedTime</li> *@
+                                <a asp-controller="Books" asp-action="ViewBook" asp-route-id="@book.BookId">
+                                    <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                }
+                <div class="topBookContainer">
                     <a asp-controller="Dashboard" asp-action="NewBooks" style="text-align:center; display:block">
                         <span style="display: inline-block; text-align: center; font-family: 'Josefin Sans', sans-serif;">&#8594</span><br>New Books
                     </a>
-                }
+                </div>
             </div>
         </div>
     </div>
