@@ -12,7 +12,7 @@ namespace HastyBLC.Controllers
     /// <summary>
     /// Home Controller
     /// </summary>
-    public class HomeController : ControllerBase<HomeController>
+    public class BooksController : ControllerBase<BooksController>
     {
         /// <summary>
         /// Constructor
@@ -23,7 +23,7 @@ namespace HastyBLC.Controllers
         /// <param name="localizer"></param>
         /// <param name="mapper"></param>
         private readonly IBookService _bookService;
-        public HomeController(IHttpContextAccessor httpContextAccessor,
+        public BooksController(IHttpContextAccessor httpContextAccessor,
                               ILoggerFactory loggerFactory,
                               IConfiguration configuration,
                               IBookService bookService,
@@ -36,7 +36,7 @@ namespace HastyBLC.Controllers
         /// Returns Home View.
         /// </summary>
         /// <returns> Home View </returns>
-        public IActionResult Index()
+        public IActionResult Books()
         {
             var books = _bookService.GetBooks();
             return View(books);
