@@ -1,9 +1,12 @@
 ﻿@model IEnumerable<Book>
-@section styles {
-    <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
-}
 @{
     ViewData["Title"] = "Top Books";
+    int currentPage = (int)ViewData["CurrentPage"];
+    int totalPages = (int)ViewData["TotalPages"];
+    int pageSize = 10; 
+}
+@section styles {
+    <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
 }
 <html>
 <body>
@@ -33,10 +36,9 @@
     <div class="content">
         <div>
             <h2 class="title">Top Books</h2>
-
                 @foreach (var book in Model.OrderByDescending(book => book.BookId))
                 {
-                    <div class="newBookContainer">
+                    <div class="topBookContainer">
                         <div class="bookContent">
                             @* <h5 style="max-width:150px;">@book.Title</h5> *@
                             <ul>
@@ -47,7 +49,17 @@
                         </div>
                     </div>
                 }
-
+        </div>
+        <div class="fixed-pagination-container">
+            <ul class="pagination justify-content-center spaced-pagination">
+                @for (int i = 1; i <= totalPages; i++)
+                {
+                    <li class="page-item @(i == currentPage ? "selected" : "unselected")">
+                        <a class="page-link page-number" href="@Url.Action("TopBooks", new { page = i })">@i</a>
+                    </li>
+                }
+            </ul>
+        </div>
     </div>
 </body>
 </html>

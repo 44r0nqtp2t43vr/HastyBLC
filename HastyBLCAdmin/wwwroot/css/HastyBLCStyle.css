@@ -160,7 +160,7 @@ div.content {
 
 .bookContent {
     border-radius: 10px;
-    width: 140px;
+    width: 160px;
     height: 260px;
     text-align: center;
     border: 1px solid #000;
@@ -172,12 +172,16 @@ div.content {
 
 .newBookContainer {
     display: inline-block;
-    margin: 10px;
+    margin-right: 6px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .topBookContainer {
     display: inline-block;
-    margin: 10px;
+    margin-right: 6px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     padding-bottom: 30px;
 }
 
@@ -193,7 +197,7 @@ div.content {
 
 .logout-button {
     position: absolute;
-    color: #ff0000; 
+    color: #880808;
     background: none;
     border: none;
     padding: 16px;
@@ -234,4 +238,38 @@ div.content {
 .user {
     text-align: center;
     line-height: 70px;
+}
+
+.fixed-pagination-container {
+    position: absolute;
+    bottom: 10px; 
+    left: 55%; 
+    transform: translateX(-50%); 
+}
+
+.spaced-pagination .page-item {
+    margin: 0 5px; 
+}
+
+.page-number {
+    background-color: transparent;
+    border: none;
+    color: #000;
+}
+
+.selected {
+    color: #FF0000; 
+}
+
+.unselected {
+    color: #000; 
+}
+
+.page-item {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size:20px;
+}
+
+.page-link:hover {
+    background-color: #EEDEAA
 }

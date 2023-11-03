@@ -55,18 +55,50 @@ namespace HastyBLCAdmin.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult NewBooks()
+        public IActionResult NewBooks(int page = 1)
         {
-            var books = _bookService.GetBooks();
-            return View(books);
+            int pageSize = 10; 
+            var books = _bookService.GetBooks(); 
+
+            var orderedBooks = books.OrderByDescending(book => book.CreatedTime);
+
+            int totalItems = orderedBooks.Count();
+            int totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+
+            
+            if (page < 1) page = 1;
+            if (page > totalPages) page = totalPages;
+
+            
+            var currentPageBooks = orderedBooks.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+            ViewData["CurrentPage"] = page;
+            ViewData["TotalPages"] = totalPages;
+
+            return View(currentPageBooks);
         }
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult TopBooks()
+        public IActionResult TopBooks(int page=1)
         {
             var books = _bookService.GetBooks();
-            return View(books);
+            int pageSize = 10; 
+
+            var orderedBooks = books.OrderByDescending(book => book.BookId);
+
+            int totalItems = orderedBooks.Count();
+            int totalPages = (int)Math.Ceiling(totalItems/(double)pageSize);
+
+            if (page < 1) page = 1;
+            if (page > totalPages) page = totalPages;
+
+            var currentPageBooks = orderedBooks.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+            ViewData["CurrentPage"] = page;
+            ViewData["TotalPages"] = totalPages;
+
+            return View(currentPageBooks);
         }
     }
 }
