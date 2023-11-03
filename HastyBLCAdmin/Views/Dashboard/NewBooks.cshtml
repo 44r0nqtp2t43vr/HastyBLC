@@ -7,6 +7,7 @@
 }
 @section styles {
     <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
+    <link rel="stylesheet" href="~/css/viewbook.css" />
 }
 <html>
 <body>
@@ -29,18 +30,18 @@
     </div>
     <div class="user">
         <div class="user-info-container">
-            <span class="username">@User.Identity.Name</span>
+            <span class="username username-truncate">@User.Identity.Name</span>
             <div class="profile-image-container"></div>
         </div>
     </div>
     <div class="content">
         <div>
-            <h2 class="title">New Books</h2>
-            <div>
+            <h2 class="title"><a href="#" onclick="goBack()" class="back-buttonn">←</a> New Books</h2>
+            <div class="viewAll-book-row">
                 @foreach (var book in Model.OrderByDescending(book => book.CreatedTime))
                 {
                     <div class="topBookContainer">
-                        <div class="bookContent">
+                        <div class="book-image-container">
                             @* <h5 style="max-width:150px;">@book.Title</h5> *@
                             <ul>
                                 <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
@@ -55,7 +56,7 @@
                 <ul class="pagination justify-content-center spaced-pagination">
                     @for (int i = 1; i <= totalPages; i++)
                     {
-                        <li class="page-item @(i == currentPage ? "selected" : "unselected")">
+                        <li class="page-item @(i == currentPage ? "active" : "unselected")">
                             <a class="page-link page-number" href="@Url.Action("NewBooks", new { page = i })">@i</a>
                         </li>
                     }
@@ -63,5 +64,11 @@
             </div>
         </div>
      </div>
+    <script>
+        function goBack() {
+            window.history.back();
+            return false;
+        }
+    </script>
 </body>
 </html>

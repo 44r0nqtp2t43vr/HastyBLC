@@ -26,51 +26,55 @@
     </div>
     <div class="user">
         <div class="user-info-container">
-            <span class="username">@User.Identity.Name</span>
+            <span class="username username-truncate">@User.Identity.Name</span>
             <div class="profile-image-container"></div>
         </div>
     </div>
     <div class="content">
         <div>
             <h2 class="title">Top Books</h2>
-            @foreach (var book in Model.OrderByDescending(book => book.BookId).Take(5))
-            {
-                <div class="topBookContainer">
-                    <div class="bookContent">
-                        <h5 style="max-width:150px;">@book.Title</h5>
-                        <ul>
-                            <li>@book.Author</li>
-                            @* <li>@book.BookId</li> *@
-                            <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
-                        </ul>
+            <div class="book-row">
+                @foreach (var book in Model.OrderByDescending(book => book.BookId).Take(5))
+                {
+                    <div class="book-item">
+                        <div class="book-image-container">
+                            <h5 style="max-width:150px;">@book.Title</h5>
+                            <ul>
+                                @* <li>@book.Author</li> *@
+                                @* <li>@book.BookId</li> *@
+                                <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            }
-            <div class="topBookContainer">
+                }
+                <div class="topBookContainer">
                     <a asp-controller="Dashboard" asp-action="TopBooks" style="text-align:center; display:inline-block">
                         <span style="display: inline-block; text-align: center; font-family: 'Josefin Sans', sans-serif;">&#8594</span><br>Top Books
                     </a>
+                </div>
             </div>
         </div>
         <div>
             <h2 class="title">New Books</h2>
-            @foreach (var book in Model.OrderByDescending(book => book.CreatedTime).Take(5))
-            {
-                <div class="newBookContainer">
-                    <div class="bookContent">
-                        <h5 style="max-width:150px;">@book.Title</h5>
-                        <ul>
-                            <li>@book.Author</li>
-                            @* <li>@book.CreatedTime</li> *@
-                            <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
-                        </ul>
+            <div class="book-row">
+                @foreach (var book in Model.OrderByDescending(book => book.CreatedTime).Take(5))
+                {
+                    <div class="book-item">
+                        <div class="book-image-container">
+                            <h5 style="max-width:150px;">@book.Title</h5>
+                            <ul>
+                                @* <li>@book.Author</li> *@
+                                @* <li>@book.CreatedTime</li> *@
+                                <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            }
-            <div class="topBookContainer">
+                }
+                <div class="topBookContainer">
                     <a asp-controller="Dashboard" asp-action="NewBooks" style="text-align:center; display:block">
                         <span style="display: inline-block; text-align: center; font-family: 'Josefin Sans', sans-serif;">&#8594</span><br>New Books
                     </a>
+                </div>
             </div>
         </div>
     </div>
