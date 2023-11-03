@@ -38,11 +38,12 @@
                 {
                     <div class="book-item">
                         <div class="book-image-container">
-                            <h5 style="max-width:150px;">@book.Title</h5>
                             <ul>
                                 @* <li>@book.Author</li> *@
                                 @* <li>@book.BookId</li> *@
-                                <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
+                                <a asp-controller="Books" asp-action="ViewBook" asp-route-id="@book.BookId">
+                                    <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
+                                </a>
                             </ul>
                         </div>
                     </div>
@@ -61,11 +62,12 @@
                 {
                     <div class="book-item">
                         <div class="book-image-container">
-                            <h5 style="max-width:150px;">@book.Title</h5>
                             <ul>
                                 @* <li>@book.Author</li> *@
                                 @* <li>@book.CreatedTime</li> *@
-                                <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
+                                <a asp-controller="Books" asp-action="ViewBook" asp-route-id="@book.BookId">
+                                    <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
+                                </a>
                             </ul>
                         </div>
                     </div>
