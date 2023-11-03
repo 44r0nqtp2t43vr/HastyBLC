@@ -112,9 +112,9 @@ div.content {
         box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);
 }
 .book-row {
-    display: flex;
+    display: inline-block;
     flex-wrap: nowrap;
-    text-align:center;
+    text-align: center;
 }
 
 .viewAll-book-row {
