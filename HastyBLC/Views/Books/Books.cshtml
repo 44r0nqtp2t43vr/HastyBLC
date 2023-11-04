@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Book>
+@section styles {
+    <link rel="stylesheet" href="~/css/HastyBLC.css" />
+}
+
+@{
+    ViewData["Title"] = "Browse Books";
+}
+
+<html>
+<body>
+    <div class="sidebar">
+        <div class="image">
+            <img src="~/img/logo.png" class="imagehw">
+        </div>
+        <div class="hasty">
+            <h1>HASTY</h1>
+            <h1>BLC</h1>
+        </div>
+        <div class="screens">
+            <a asp-controller="Dashboard" asp-action="Dashboard">Dashboard</a>
+            <a asp-controller="Browse Books" asp-action="Books" class="active">Browse Books</a>
+        </div>
+    </div>
+    <div class="content">
+        <h2 class="title">ALL BOOKS</h2>
+        <div class="books-row">
+            @foreach (var book in Model)
+            {
+                <div class="book-item">
+                    <div class="book-image-container">
+                        <a asp-controller="Books" asp-action="ViewBook" asp-route-id="@book.BookId">
+                            <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
+                        </a>
+
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>
