@@ -2111,1228 +2111,1223 @@ namespace HastyBLCAdmin
                 // BookGenres
                 var bookgenre1 = new BookGenre()
                 {
-                    Book = book1,
-                    Genre = genre1,
+                    BookId = book1.BookId,
+                    GenreId = genre1.GenreId,
                 };
                 var bookgenre2 = new BookGenre()
                 {
-                    Book = book1,
-                    Genre = genre2,
+                    BookId = book1.BookId,
+                    GenreId = genre2.GenreId,
                 };
                 var bookgenre3 = new BookGenre()
                 {
-                    Book = book1,
-                    Genre = genre3,
+                    BookId = book1.BookId,
+                    GenreId = genre3.GenreId,
                 };
                 var bookgenre4 = new BookGenre()
                 {
-                    Book = book1,
-                    Genre = genre4,
+                    BookId = book1.BookId,
+                    GenreId = genre4.GenreId,
                 };
                 var bookgenre5 = new BookGenre()
                 {
-                    Book = book1,
-                    Genre = genre5,
+                    BookId = book1.BookId,
+                    GenreId = genre5.GenreId,
                 };
                 var bookgenre6 = new BookGenre()
                 {
-                    Book = book2,
-                    Genre = genre1,
+                    BookId = book2.BookId,
+                    GenreId = genre1.GenreId,
                 };
                 var bookgenre7 = new BookGenre()
                 {
-                    Book = book2,
-                    Genre = genre6,
+                    BookId = book2.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre8 = new BookGenre()
                 {
-                    Book = book2,
-                    Genre = genre7,
+                    BookId = book2.BookId,
+                    GenreId = genre7.GenreId,
                 };
                 var bookgenre9 = new BookGenre()
                 {
-                    Book = book2,
-                    Genre = genre8,
+                    BookId = book2.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre10 = new BookGenre()
                 {
-                    Book = book2,
-                    Genre = genre9,
+                    BookId = book2.BookId,
+                    GenreId = genre9.GenreId,
                 };
                 var bookgenre11 = new BookGenre()
                 {
-                    Book = book3,
-                    Genre = genre1,
+                    BookId = book3.BookId,
+                    GenreId = genre1.GenreId,
                 };
                 var bookgenre12 = new BookGenre()
                 {
-                    Book = book3,
-                    Genre = genre6,
+                    BookId = book3.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre13 = new BookGenre()
                 {
-                    Book = book3,
-                    Genre = genre8,
+                    BookId = book3.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre14 = new BookGenre()
                 {
-                    Book = book3,
-                    Genre = genre10,
+                    BookId = book3.BookId,
+                    GenreId = genre10.GenreId,
                 };
                 var bookgenre15 = new BookGenre()
                 {
-                    Book = book3,
-                    Genre = genre11,
+                    BookId = book3.BookId,
+                    GenreId = genre11.GenreId,
                 };
                 var bookgenre16 = new BookGenre()
                 {
-                    Book = book4,
-                    Genre = genre1,
+                    BookId = book4.BookId,
+                    GenreId = genre1.GenreId,
                 };
                 var bookgenre17 = new BookGenre()
                 {
-                    Book = book4,
-                    Genre = genre2,
+                    BookId = book4.BookId,
+                    GenreId = genre2.GenreId,
                 };
                 var bookgenre18 = new BookGenre()
                 {
-                    Book = book4,
-                    Genre = genre5,
-                };
-                var bookgenre19 = new BookGenre()
-                {
-                    Book = book4,
-                    Genre = genre5,
+                    BookId = book4.BookId,
+                    GenreId = genre5.GenreId,
                 };
                 var bookgenre20 = new BookGenre()
                 {
-                    Book = book4,
-                    Genre = genre11,
+                    BookId = book4.BookId,
+                    GenreId = genre11.GenreId,
                 };
                 var bookgenre21 = new BookGenre()
                 {
-                    Book = book5,
-                    Genre = genre1,
+                    BookId = book5.BookId,
+                    GenreId = genre1.GenreId,
                 };
                 var bookgenre22 = new BookGenre()
                 {
-                    Book = book5,
-                    Genre = genre2,
+                    BookId = book5.BookId,
+                    GenreId = genre2.GenreId,
                 };
                 var bookgenre23 = new BookGenre()
                 {
-                    Book = book5,
-                    Genre = genre5,
+                    BookId = book5.BookId,
+                    GenreId = genre5.GenreId,
                 };
                 var bookgenre24 = new BookGenre()
                 {
-                    Book = book5,
-                    Genre = genre8,
+                    BookId = book5.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre25 = new BookGenre()
                 {
-                    Book = book5,
-                    Genre = genre11,
+                    BookId = book5.BookId,
+                    GenreId = genre11.GenreId,
                 };
                 var bookgenre26 = new BookGenre()
                 {
-                    Book = book5,
-                    Genre = genre13,
+                    BookId = book5.BookId,
+                    GenreId = genre13.GenreId,
                 };
                 var bookgenre27 = new BookGenre()
                 {
-                    Book = book6,
-                    Genre = genre1,
+                    BookId = book6.BookId,
+                    GenreId = genre1.GenreId,
                 };
                 var bookgenre28 = new BookGenre()
                 {
-                    Book = book6,
-                    Genre = genre2,
+                    BookId = book6.BookId,
+                    GenreId = genre2.GenreId,
                 };
                 var bookgenre29 = new BookGenre()
                 {
-                    Book = book6,
-                    Genre = genre8,
+                    BookId = book6.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre30 = new BookGenre()
                 {
-                    Book = book6,
-                    Genre = genre12,
+                    BookId = book6.BookId,
+                    GenreId = genre12.GenreId,
                 };
                 var bookgenre31 = new BookGenre()
                 {
-                    Book = book7,
-                    Genre = genre1,
+                    BookId = book7.BookId,
+                    GenreId = genre1.GenreId,
                 };
                 var bookgenre32 = new BookGenre()
                 {
-                    Book = book7,
-                    Genre = genre8,
+                    BookId = book7.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre33 = new BookGenre()
                 {
-                    Book = book7,
-                    Genre = genre11,
+                    BookId = book7.BookId,
+                    GenreId = genre11.GenreId,
                 };
                 var bookgenre34 = new BookGenre()
                 {
-                    Book = book7,
-                    Genre = genre13,
+                    BookId = book7.BookId,
+                    GenreId = genre13.GenreId,
                 };
                 var bookgenre35 = new BookGenre()
                 {
-                    Book = book8,
-                    Genre = genre1,
+                    BookId = book8.BookId,
+                    GenreId = genre1.GenreId,
                 };
                 var bookgenre36 = new BookGenre()
                 {
-                    Book = book8,
-                    Genre = genre6,
+                    BookId = book8.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre37 = new BookGenre()
                 {
-                    Book = book8,
-                    Genre = genre8,
+                    BookId = book8.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre38 = new BookGenre()
                 {
-                    Book = book8,
-                    Genre = genre20,
+                    BookId = book8.BookId,
+                    GenreId = genre20.GenreId,
                 };
                 var bookgenre39 = new BookGenre()
                 {
-                    Book = book8,
-                    Genre = genre21,
+                    BookId = book8.BookId,
+                    GenreId = genre21.GenreId,
                 };
                 var bookgenre40 = new BookGenre()
                 {
-                    Book = book9,
-                    Genre = genre1,
+                    BookId = book9.BookId,
+                    GenreId = genre1.GenreId,
                 };
                 var bookgenre41 = new BookGenre()
                 {
-                    Book = book9,
-                    Genre = genre6,
+                    BookId = book9.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre42 = new BookGenre()
                 {
-                    Book = book9,
-                    Genre = genre10,
+                    BookId = book9.BookId,
+                    GenreId = genre10.GenreId,
                 };
                 var bookgenre43 = new BookGenre()
                 {
-                    Book = book9,
-                    Genre = genre23,
+                    BookId = book9.BookId,
+                    GenreId = genre23.GenreId,
                 };
                 var bookgenre44 = new BookGenre()
                 {
-                    Book = book10,
-                    Genre = genre1,
+                    BookId = book10.BookId,
+                    GenreId = genre1.GenreId,
                 };
                 var bookgenre45 = new BookGenre()
                 {
-                    Book = book10,
-                    Genre = genre2,
+                    BookId = book10.BookId,
+                    GenreId = genre2.GenreId,
                 };
                 var bookgenre46 = new BookGenre()
                 {
-                    Book = book10,
-                    Genre = genre6,
+                    BookId = book10.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre47 = new BookGenre()
                 {
-                    Book = book10,
-                    Genre = genre7,
+                    BookId = book10.BookId,
+                    GenreId = genre7.GenreId,
                 };
                 var bookgenre48 = new BookGenre()
                 {
-                    Book = book10,
-                    Genre = genre8,
+                    BookId = book10.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre49 = new BookGenre()
                 {
-                    Book = book10,
-                    Genre = genre9,
+                    BookId = book10.BookId,
+                    GenreId = genre9.GenreId,
                 };
                 var bookgenre50 = new BookGenre()
                 {
-                    Book = book11,
-                    Genre = genre6,
+                    BookId = book11.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre51 = new BookGenre()
                 {
-                    Book = book11,
-                    Genre = genre8,
+                    BookId = book11.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre52 = new BookGenre()
                 {
-                    Book = book11,
-                    Genre = genre11,
+                    BookId = book11.BookId,
+                    GenreId = genre11.GenreId,
                 };
                 var bookgenre53 = new BookGenre()
                 {
-                    Book = book11,
-                    Genre = genre28,
+                    BookId = book11.BookId,
+                    GenreId = genre28.GenreId,
                 };
                 var bookgenre54 = new BookGenre()
                 {
-                    Book = book12,
-                    Genre = genre8,
+                    BookId = book12.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre55 = new BookGenre()
                 {
-                    Book = book12,
-                    Genre = genre13,
+                    BookId = book12.BookId,
+                    GenreId = genre13.GenreId,
                 };
                 var bookgenre56 = new BookGenre()
                 {
-                    Book = book12,
-                    Genre = genre20,
+                    BookId = book12.BookId,
+                    GenreId = genre20.GenreId,
                 };
                 var bookgenre57 = new BookGenre()
                 {
-                    Book = book12,
-                    Genre = genre24,
+                    BookId = book12.BookId,
+                    GenreId = genre24.GenreId,
                 };
                 var bookgenre58 = new BookGenre()
                 {
-                    Book = book13,
-                    Genre = genre8,
+                    BookId = book13.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre59 = new BookGenre()
                 {
-                    Book = book13,
-                    Genre = genre13,
+                    BookId = book13.BookId,
+                    GenreId = genre13.GenreId,
                 };
                 var bookgenre60 = new BookGenre()
                 {
-                    Book = book13,
-                    Genre = genre24,
+                    BookId = book13.BookId,
+                    GenreId = genre24.GenreId,
                 };
                 var bookgenre61 = new BookGenre()
                 {
-                    Book = book13,
-                    Genre = genre32,
+                    BookId = book13.BookId,
+                    GenreId = genre32.GenreId,
                 };
                 var bookgenre62 = new BookGenre()
                 {
-                    Book = book13,
-                    Genre = genre33,
+                    BookId = book13.BookId,
+                    GenreId = genre33.GenreId,
                 };
                 var bookgenre63 = new BookGenre()
                 {
-                    Book = book13,
-                    Genre = genre34,
+                    BookId = book13.BookId,
+                    GenreId = genre34.GenreId,
                 };
                 var bookgenre64 = new BookGenre()
                 {
-                    Book = book14,
-                    Genre = genre2,
+                    BookId = book14.BookId,
+                    GenreId = genre2.GenreId,
                 };
                 var bookgenre65 = new BookGenre()
                 {
-                    Book = book14,
-                    Genre = genre8,
+                    BookId = book14.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre66 = new BookGenre()
                 {
-                    Book = book14,
-                    Genre = genre11,
+                    BookId = book14.BookId,
+                    GenreId = genre11.GenreId,
                 };
                 var bookgenre67 = new BookGenre()
                 {
-                    Book = book14,
-                    Genre = genre32,
+                    BookId = book14.BookId,
+                    GenreId = genre32.GenreId,
                 };
                 var bookgenre68 = new BookGenre()
                 {
-                    Book = book15,
-                    Genre = genre2,
+                    BookId = book15.BookId,
+                    GenreId = genre2.GenreId,
                 };
                 var bookgenre69 = new BookGenre()
                 {
-                    Book = book15,
-                    Genre = genre8,
+                    BookId = book15.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre70 = new BookGenre()
                 {
-                    Book = book15,
-                    Genre = genre11,
+                    BookId = book15.BookId,
+                    GenreId = genre11.GenreId,
                 };
                 var bookgenre71 = new BookGenre()
                 {
-                    Book = book15,
-                    Genre = genre13,
+                    BookId = book15.BookId,
+                    GenreId = genre13.GenreId,
                 };
                 var bookgenre72 = new BookGenre()
                 {
-                    Book = book15,
-                    Genre = genre38,
+                    BookId = book15.BookId,
+                    GenreId = genre38.GenreId,
                 };
                 var bookgenre73 = new BookGenre()
                 {
-                    Book = book16,
-                    Genre = genre8,
+                    BookId = book16.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre74 = new BookGenre()
                 {
-                    Book = book16,
-                    Genre = genre11,
+                    BookId = book16.BookId,
+                    GenreId = genre11.GenreId,
                 };
                 var bookgenre75 = new BookGenre()
                 {
-                    Book = book16,
-                    Genre = genre13,
+                    BookId = book16.BookId,
+                    GenreId = genre13.GenreId,
                 };
                 var bookgenre76 = new BookGenre()
                 {
-                    Book = book16,
-                    Genre = genre20,
+                    BookId = book16.BookId,
+                    GenreId = genre20.GenreId,
                 };
                 var bookgenre77 = new BookGenre()
                 {
-                    Book = book16,
-                    Genre = genre21,
+                    BookId = book16.BookId,
+                    GenreId = genre21.GenreId,
                 };
                 var bookgenre78 = new BookGenre()
                 {
-                    Book = book16,
-                    Genre = genre38,
+                    BookId = book16.BookId,
+                    GenreId = genre38.GenreId,
                 };
                 var bookgenre79 = new BookGenre()
                 {
-                    Book = book17,
-                    Genre = genre2,
+                    BookId = book17.BookId,
+                    GenreId = genre2.GenreId,
                 };
                 var bookgenre80 = new BookGenre()
                 {
-                    Book = book17,
-                    Genre = genre8,
+                    BookId = book17.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre81 = new BookGenre()
                 {
-                    Book = book17,
-                    Genre = genre11,
+                    BookId = book17.BookId,
+                    GenreId = genre11.GenreId,
                 };
                 var bookgenre82 = new BookGenre()
                 {
-                    Book = book17,
-                    Genre = genre24,
+                    BookId = book17.BookId,
+                    GenreId = genre24.GenreId,
                 };
                 var bookgenre83 = new BookGenre()
                 {
-                    Book = book17,
-                    Genre = genre32,
+                    BookId = book17.BookId,
+                    GenreId = genre32.GenreId,
                 };
                 var bookgenre84 = new BookGenre()
                 {
-                    Book = book17,
-                    Genre = genre36,
+                    BookId = book17.BookId,
+                    GenreId = genre36.GenreId,
                 };
                 var bookgenre85 = new BookGenre()
                 {
-                    Book = book18,
-                    Genre = genre6,
+                    BookId = book18.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre86 = new BookGenre()
                 {
-                    Book = book18,
-                    Genre = genre8,
+                    BookId = book18.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre87 = new BookGenre()
                 {
-                    Book = book18,
-                    Genre = genre23,
+                    BookId = book18.BookId,
+                    GenreId = genre23.GenreId,
                 };
                 var bookgenre88 = new BookGenre()
                 {
-                    Book = book19,
-                    Genre = genre8,
+                    BookId = book19.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre89 = new BookGenre()
                 {
-                    Book = book19,
-                    Genre = genre13,
+                    BookId = book19.BookId,
+                    GenreId = genre13.GenreId,
                 };
                 var bookgenre90 = new BookGenre()
                 {
-                    Book = book19,
-                    Genre = genre20,
+                    BookId = book19.BookId,
+                    GenreId = genre20.GenreId,
                 };
                 var bookgenre91 = new BookGenre()
                 {
-                    Book = book19,
-                    Genre = genre21,
+                    BookId = book19.BookId,
+                    GenreId = genre21.GenreId,
                 };
                 var bookgenre92 = new BookGenre()
                 {
-                    Book = book19,
-                    Genre = genre38,
+                    BookId = book19.BookId,
+                    GenreId = genre38.GenreId,
                 };
                 var bookgenre93 = new BookGenre()
                 {
-                    Book = book20,
-                    Genre = genre6,
+                    BookId = book20.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre94 = new BookGenre()
                 {
-                    Book = book20,
-                    Genre = genre8,
+                    BookId = book20.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre95 = new BookGenre()
                 {
-                    Book = book20,
-                    Genre = genre11,
+                    BookId = book20.BookId,
+                    GenreId = genre11.GenreId,
                 };
                 var bookgenre96 = new BookGenre()
                 {
-                    Book = book20,
-                    Genre = genre13,
+                    BookId = book20.BookId,
+                    GenreId = genre13.GenreId,
                 };
                 var bookgenre97 = new BookGenre()
                 {
-                    Book = book20,
-                    Genre = genre31,
+                    BookId = book20.BookId,
+                    GenreId = genre31.GenreId,
                 };
                 var bookgenre98 = new BookGenre()
                 {
-                    Book = book21,
-                    Genre = genre2,
+                    BookId = book21.BookId,
+                    GenreId = genre2.GenreId,
                 };
                 var bookgenre99 = new BookGenre()
                 {
-                    Book = book21,
-                    Genre = genre23,
+                    BookId = book21.BookId,
+                    GenreId = genre23.GenreId,
                 };
                 var bookgenre100 = new BookGenre()
                 {
-                    Book = book21,
-                    Genre = genre24,
+                    BookId = book21.BookId,
+                    GenreId = genre24.GenreId,
                 };
                 var bookgenre101 = new BookGenre()
                 {
-                    Book = book21,
-                    Genre = genre32,
+                    BookId = book21.BookId,
+                    GenreId = genre32.GenreId,
                 };
                 var bookgenre102 = new BookGenre()
                 {
-                    Book = book21,
-                    Genre = genre33,
+                    BookId = book21.BookId,
+                    GenreId = genre33.GenreId,
                 };
                 var bookgenre103 = new BookGenre()
                 {
-                    Book = book22,
-                    Genre = genre1,
+                    BookId = book22.BookId,
+                    GenreId = genre1.GenreId,
                 };
                 var bookgenre104 = new BookGenre()
                 {
-                    Book = book22,
-                    Genre = genre2,
+                    BookId = book22.BookId,
+                    GenreId = genre2.GenreId,
                 };
                 var bookgenre105 = new BookGenre()
                 {
-                    Book = book22,
-                    Genre = genre6,
+                    BookId = book22.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre106 = new BookGenre()
                 {
-                    Book = book22,
-                    Genre = genre23,
+                    BookId = book22.BookId,
+                    GenreId = genre23.GenreId,
                 };
                 var bookgenre107 = new BookGenre()
                 {
-                    Book = book22,
-                    Genre = genre32,
+                    BookId = book22.BookId,
+                    GenreId = genre32.GenreId,
                 };
                 var bookgenre108 = new BookGenre()
                 {
-                    Book = book23,
-                    Genre = genre1,
+                    BookId = book23.BookId,
+                    GenreId = genre1.GenreId,
                 };
                 var bookgenre109 = new BookGenre()
                 {
-                    Book = book23,
-                    Genre = genre2,
+                    BookId = book23.BookId,
+                    GenreId = genre2.GenreId,
                 };
                 var bookgenre110 = new BookGenre()
                 {
-                    Book = book23,
-                    Genre = genre5,
+                    BookId = book23.BookId,
+                    GenreId = genre5.GenreId,
                 };
                 var bookgenre111 = new BookGenre()
                 {
-                    Book = book23,
-                    Genre = genre8,
+                    BookId = book23.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre112 = new BookGenre()
                 {
-                    Book = book23,
-                    Genre = genre23,
+                    BookId = book23.BookId,
+                    GenreId = genre23.GenreId,
                 };
                 var bookgenre113 = new BookGenre()
                 {
-                    Book = book24,
-                    Genre = genre2,
+                    BookId = book24.BookId,
+                    GenreId = genre2.GenreId,
                 };
                 var bookgenre114 = new BookGenre()
                 {
-                    Book = book24,
-                    Genre = genre8,
+                    BookId = book24.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre115 = new BookGenre()
                 {
-                    Book = book24,
-                    Genre = genre23,
+                    BookId = book24.BookId,
+                    GenreId = genre23.GenreId,
                 };
                 var bookgenre116 = new BookGenre()
                 {
-                    Book = book24,
-                    Genre = genre24,
+                    BookId = book24.BookId,
+                    GenreId = genre24.GenreId,
                 };
                 var bookgenre117 = new BookGenre()
                 {
-                    Book = book24,
-                    Genre = genre39,
+                    BookId = book24.BookId,
+                    GenreId = genre39.GenreId,
                 };
                 var bookgenre118 = new BookGenre()
                 {
-                    Book = book25,
-                    Genre = genre6,
+                    BookId = book25.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre119 = new BookGenre()
                 {
-                    Book = book25,
-                    Genre = genre18,
+                    BookId = book25.BookId,
+                    GenreId = genre18.GenreId,
                 };
                 var bookgenre120 = new BookGenre()
                 {
-                    Book = book25,
-                    Genre = genre20,
+                    BookId = book25.BookId,
+                    GenreId = genre20.GenreId,
                 };
                 var bookgenre121 = new BookGenre()
                 {
-                    Book = book25,
-                    Genre = genre23,
+                    BookId = book25.BookId,
+                    GenreId = genre23.GenreId,
                 };
                 var bookgenre122 = new BookGenre()
                 {
-                    Book = book25,
-                    Genre = genre36,
+                    BookId = book25.BookId,
+                    GenreId = genre36.GenreId,
                 };
                 var bookgenre123 = new BookGenre()
                 {
-                    Book = book26,
-                    Genre = genre1,
+                    BookId = book26.BookId,
+                    GenreId = genre1.GenreId,
                 };
                 var bookgenre124 = new BookGenre()
                 {
-                    Book = book26,
-                    Genre = genre6,
+                    BookId = book26.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre125 = new BookGenre()
                 {
-                    Book = book26,
-                    Genre = genre8,
+                    BookId = book26.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre126 = new BookGenre()
                 {
-                    Book = book26,
-                    Genre = genre23,
+                    BookId = book26.BookId,
+                    GenreId = genre23.GenreId,
                 };
                 var bookgenre127 = new BookGenre()
                 {
-                    Book = book26,
-                    Genre = genre26,
+                    BookId = book26.BookId,
+                    GenreId = genre26.GenreId,
                 };
                 var bookgenre128 = new BookGenre()
                 {
-                    Book = book27,
-                    Genre = genre6,
+                    BookId = book27.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre129 = new BookGenre()
                 {
-                    Book = book27,
-                    Genre = genre12,
+                    BookId = book27.BookId,
+                    GenreId = genre12.GenreId,
                 };
                 var bookgenre130 = new BookGenre()
                 {
-                    Book = book27,
-                    Genre = genre18,
+                    BookId = book27.BookId,
+                    GenreId = genre18.GenreId,
                 };
                 var bookgenre131 = new BookGenre()
                 {
-                    Book = book27,
-                    Genre = genre23,
+                    BookId = book27.BookId,
+                    GenreId = genre23.GenreId,
                 };
                 var bookgenre132 = new BookGenre()
                 {
-                    Book = book27,
-                    Genre = genre26,
+                    BookId = book27.BookId,
+                    GenreId = genre26.GenreId,
                 };
                 var bookgenre133 = new BookGenre()
                 {
-                    Book = book28,
-                    Genre = genre2,
+                    BookId = book28.BookId,
+                    GenreId = genre2.GenreId,
                 };
                 var bookgenre134 = new BookGenre()
                 {
-                    Book = book28,
-                    Genre = genre23,
+                    BookId = book28.BookId,
+                    GenreId = genre23.GenreId,
                 };
                 var bookgenre135 = new BookGenre()
                 {
-                    Book = book28,
-                    Genre = genre24,
+                    BookId = book28.BookId,
+                    GenreId = genre24.GenreId,
                 };
                 var bookgenre136 = new BookGenre()
                 {
-                    Book = book28,
-                    Genre = genre32,
+                    BookId = book28.BookId,
+                    GenreId = genre32.GenreId,
                 };
                 var bookgenre137 = new BookGenre()
                 {
-                    Book = book28,
-                    Genre = genre36,
+                    BookId = book28.BookId,
+                    GenreId = genre36.GenreId,
                 };
                 var bookgenre138 = new BookGenre()
                 {
-                    Book = book29,
-                    Genre = genre1,
+                    BookId = book29.BookId,
+                    GenreId = genre1.GenreId,
                 };
                 var bookgenre139 = new BookGenre()
                 {
-                    Book = book29,
-                    Genre = genre2,
+                    BookId = book29.BookId,
+                    GenreId = genre2.GenreId,
                 };
                 var bookgenre140 = new BookGenre()
                 {
-                    Book = book29,
-                    Genre = genre6,
+                    BookId = book29.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre141 = new BookGenre()
                 {
-                    Book = book29,
-                    Genre = genre23,
+                    BookId = book29.BookId,
+                    GenreId = genre23.GenreId,
                 };
                 var bookgenre142 = new BookGenre()
                 {
-                    Book = book29,
-                    Genre = genre27,
+                    BookId = book29.BookId,
+                    GenreId = genre27.GenreId,
                 };
                 var bookgenre143 = new BookGenre()
                 {
-                    Book = book30,
-                    Genre = genre1,
+                    BookId = book30.BookId,
+                    GenreId = genre1.GenreId,
                 };
                 var bookgenre144 = new BookGenre()
                 {
-                    Book = book30,
-                    Genre = genre6,
+                    BookId = book30.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre145 = new BookGenre()
                 {
-                    Book = book30,
-                    Genre = genre23,
+                    BookId = book30.BookId,
+                    GenreId = genre23.GenreId,
                 };
                 var bookgenre146 = new BookGenre()
                 {
-                    Book = book30,
-                    Genre = genre26,
+                    BookId = book30.BookId,
+                    GenreId = genre26.GenreId,
                 };
                 var bookgenre147 = new BookGenre()
                 {
-                    Book = book30,
-                    Genre = genre43,
+                    BookId = book30.BookId,
+                    GenreId = genre43.GenreId,
                 };
                 var bookgenre148 = new BookGenre()
                 {
-                    Book = book31,
-                    Genre = genre1,
+                    BookId = book31.BookId,
+                    GenreId = genre1.GenreId,
                 };
                 var bookgenre149 = new BookGenre()
                 {
-                    Book = book31,
-                    Genre = genre6,
+                    BookId = book31.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre150 = new BookGenre()
                 {
-                    Book = book31,
-                    Genre = genre8,
+                    BookId = book31.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre151 = new BookGenre()
                 {
-                    Book = book31,
-                    Genre = genre10,
+                    BookId = book31.BookId,
+                    GenreId = genre10.GenreId,
                 };
                 var bookgenre152 = new BookGenre()
                 {
-                    Book = book31,
-                    Genre = genre13,
+                    BookId = book31.BookId,
+                    GenreId = genre13.GenreId,
                 };
                 var bookgenre153 = new BookGenre()
                 {
-                    Book = book32,
-                    Genre = genre1,
+                    BookId = book32.BookId,
+                    GenreId = genre1.GenreId,
                 };
                 var bookgenre154 = new BookGenre()
                 {
-                    Book = book32,
-                    Genre = genre6,
+                    BookId = book32.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre155 = new BookGenre()
                 {
-                    Book = book32,
-                    Genre = genre10,
+                    BookId = book32.BookId,
+                    GenreId = genre10.GenreId,
                 };
                 var bookgenre156 = new BookGenre()
                 {
-                    Book = book32,
-                    Genre = genre25,
+                    BookId = book32.BookId,
+                    GenreId = genre25.GenreId,
                 };
                 var bookgenre157 = new BookGenre()
                 {
-                    Book = book32,
-                    Genre = genre27,
+                    BookId = book32.BookId,
+                    GenreId = genre27.GenreId,
                 };
                 var bookgenre158 = new BookGenre()
                 {
-                    Book = book33,
-                    Genre = genre6,
+                    BookId = book33.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre159 = new BookGenre()
                 {
-                    Book = book33,
-                    Genre = genre11,
+                    BookId = book33.BookId,
+                    GenreId = genre11.GenreId,
                 };
                 var bookgenre160 = new BookGenre()
                 {
-                    Book = book33,
-                    Genre = genre12,
+                    BookId = book33.BookId,
+                    GenreId = genre12.GenreId,
                 };
                 var bookgenre161 = new BookGenre()
                 {
-                    Book = book33,
-                    Genre = genre20,
+                    BookId = book33.BookId,
+                    GenreId = genre20.GenreId,
                 };
                 var bookgenre162 = new BookGenre()
                 {
-                    Book = book33,
-                    Genre = genre60,
+                    BookId = book33.BookId,
+                    GenreId = genre60.GenreId,
                 };
                 var bookgenre163 = new BookGenre()
                 {
-                    Book = book34,
-                    Genre = genre6,
+                    BookId = book34.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre164 = new BookGenre()
                 {
-                    Book = book34,
-                    Genre = genre8,
+                    BookId = book34.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre165 = new BookGenre()
                 {
-                    Book = book34,
-                    Genre = genre20,
+                    BookId = book34.BookId,
+                    GenreId = genre20.GenreId,
                 };
                 var bookgenre166 = new BookGenre()
                 {
-                    Book = book34,
-                    Genre = genre21,
+                    BookId = book34.BookId,
+                    GenreId = genre21.GenreId,
                 };
                 var bookgenre167 = new BookGenre()
                 {
-                    Book = book34,
-                    Genre = genre24,
+                    BookId = book34.BookId,
+                    GenreId = genre24.GenreId,
                 };
                 var bookgenre168 = new BookGenre()
                 {
-                    Book = book35,
-                    Genre = genre1,
+                    BookId = book35.BookId,
+                    GenreId = genre1.GenreId,
                 };
                 var bookgenre169 = new BookGenre()
                 {
-                    Book = book35,
-                    Genre = genre6,
+                    BookId = book35.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre170 = new BookGenre()
                 {
-                    Book = book35,
-                    Genre = genre7,
+                    BookId = book35.BookId,
+                    GenreId = genre7.GenreId,
                 };
                 var bookgenre171 = new BookGenre()
                 {
-                    Book = book35,
-                    Genre = genre8,
+                    BookId = book35.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre172 = new BookGenre()
                 {
-                    Book = book35,
-                    Genre = genre28,
+                    BookId = book35.BookId,
+                    GenreId = genre28.GenreId,
                 };
                 var bookgenre173 = new BookGenre()
                 {
-                    Book = book36,
-                    Genre = genre1,
+                    BookId = book36.BookId,
+                    GenreId = genre1.GenreId,
                 };
                 var bookgenre174 = new BookGenre()
                 {
-                    Book = book36,
-                    Genre = genre6,
+                    BookId = book36.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre175 = new BookGenre()
                 {
-                    Book = book36,
-                    Genre = genre7,
+                    BookId = book36.BookId,
+                    GenreId = genre7.GenreId,
                 };
                 var bookgenre176 = new BookGenre()
                 {
-                    Book = book36,
-                    Genre = genre12,
+                    BookId = book36.BookId,
+                    GenreId = genre12.GenreId,
                 };
                 var bookgenre177 = new BookGenre()
                 {
-                    Book = book36,
-                    Genre = genre17,
+                    BookId = book36.BookId,
+                    GenreId = genre17.GenreId,
                 };
                 var bookgenre178 = new BookGenre()
                 {
-                    Book = book37,
-                    Genre = genre6,
+                    BookId = book37.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre179 = new BookGenre()
                 {
-                    Book = book37,
-                    Genre = genre7,
+                    BookId = book37.BookId,
+                    GenreId = genre7.GenreId,
                 };
                 var bookgenre180 = new BookGenre()
                 {
-                    Book = book37,
-                    Genre = genre8,
+                    BookId = book37.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre181 = new BookGenre()
                 {
-                    Book = book37,
-                    Genre = genre11,
+                    BookId = book37.BookId,
+                    GenreId = genre11.GenreId,
                 };
                 var bookgenre182 = new BookGenre()
                 {
-                    Book = book37,
-                    Genre = genre58,
+                    BookId = book37.BookId,
+                    GenreId = genre58.GenreId,
                 };
                 var bookgenre183 = new BookGenre()
                 {
-                    Book = book38,
-                    Genre = genre6,
+                    BookId = book38.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre184 = new BookGenre()
                 {
-                    Book = book38,
-                    Genre = genre8,
+                    BookId = book38.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre185 = new BookGenre()
                 {
-                    Book = book38,
-                    Genre = genre51,
+                    BookId = book38.BookId,
+                    GenreId = genre51.GenreId,
                 };
                 var bookgenre186 = new BookGenre()
                 {
-                    Book = book38,
-                    Genre = genre60,
+                    BookId = book38.BookId,
+                    GenreId = genre60.GenreId,
                 };
                 var bookgenre187 = new BookGenre()
                 {
-                    Book = book38,
-                    Genre = genre68,
+                    BookId = book38.BookId,
+                    GenreId = genre68.GenreId,
                 };
                 var bookgenre188 = new BookGenre()
                 {
-                    Book = book39,
-                    Genre = genre6,
+                    BookId = book39.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre189 = new BookGenre()
                 {
-                    Book = book39,
-                    Genre = genre8,
+                    BookId = book39.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre190 = new BookGenre()
                 {
-                    Book = book39,
-                    Genre = genre27,
+                    BookId = book39.BookId,
+                    GenreId = genre27.GenreId,
                 };
                 var bookgenre191 = new BookGenre()
                 {
-                    Book = book39,
-                    Genre = genre32,
+                    BookId = book39.BookId,
+                    GenreId = genre32.GenreId,
                 };
                 var bookgenre192 = new BookGenre()
                 {
-                    Book = book39,
-                    Genre = genre36,
+                    BookId = book39.BookId,
+                    GenreId = genre36.GenreId,
                 };
                 var bookgenre193 = new BookGenre()
                 {
-                    Book = book40,
-                    Genre = genre6,
+                    BookId = book40.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre194 = new BookGenre()
                 {
-                    Book = book40,
-                    Genre = genre8,
+                    BookId = book40.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre195 = new BookGenre()
                 {
-                    Book = book40,
-                    Genre = genre28,
+                    BookId = book40.BookId,
+                    GenreId = genre28.GenreId,
                 };
                 var bookgenre196 = new BookGenre()
                 {
-                    Book = book40,
-                    Genre = genre36,
+                    BookId = book40.BookId,
+                    GenreId = genre36.GenreId,
                 };
                 var bookgenre197 = new BookGenre()
                 {
-                    Book = book40,
-                    Genre = genre59,
+                    BookId = book40.BookId,
+                    GenreId = genre59.GenreId,
                 };
                 var bookgenre198 = new BookGenre()
                 {
-                    Book = book41,
-                    Genre = genre2,
+                    BookId = book41.BookId,
+                    GenreId = genre2.GenreId,
                 };
                 var bookgenre199 = new BookGenre()
                 {
-                    Book = book41,
-                    Genre = genre8,
+                    BookId = book41.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre200 = new BookGenre()
                 {
-                    Book = book41,
-                    Genre = genre11,
+                    BookId = book41.BookId,
+                    GenreId = genre11.GenreId,
                 };
                 var bookgenre201 = new BookGenre()
                 {
-                    Book = book41,
-                    Genre = genre38,
+                    BookId = book41.BookId,
+                    GenreId = genre38.GenreId,
                 };
                 var bookgenre202 = new BookGenre()
                 {
-                    Book = book41,
-                    Genre = genre50,
+                    BookId = book41.BookId,
+                    GenreId = genre50.GenreId,
                 };
                 var bookgenre203 = new BookGenre()
                 {
-                    Book = book42,
-                    Genre = genre2,
+                    BookId = book42.BookId,
+                    GenreId = genre2.GenreId,
                 };
                 var bookgenre204 = new BookGenre()
                 {
-                    Book = book42,
-                    Genre = genre12,
+                    BookId = book42.BookId,
+                    GenreId = genre12.GenreId,
                 };
                 var bookgenre205 = new BookGenre()
                 {
-                    Book = book42,
-                    Genre = genre17,
+                    BookId = book42.BookId,
+                    GenreId = genre17.GenreId,
                 };
                 var bookgenre206 = new BookGenre()
                 {
-                    Book = book42,
-                    Genre = genre23,
+                    BookId = book42.BookId,
+                    GenreId = genre23.GenreId,
                 };
                 var bookgenre207 = new BookGenre()
                 {
-                    Book = book42,
-                    Genre = genre79,
+                    BookId = book42.BookId,
+                    GenreId = genre79.GenreId,
                 };
                 var bookgenre208 = new BookGenre()
                 {
-                    Book = book43,
-                    Genre = genre6,
+                    BookId = book43.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre209 = new BookGenre()
                 {
-                    Book = book43,
-                    Genre = genre8,
+                    BookId = book43.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre210 = new BookGenre()
                 {
-                    Book = book43,
-                    Genre = genre36,
+                    BookId = book43.BookId,
+                    GenreId = genre36.GenreId,
                 };
                 var bookgenre211 = new BookGenre()
                 {
-                    Book = book43,
-                    Genre = genre50,
+                    BookId = book43.BookId,
+                    GenreId = genre50.GenreId,
                 };
                 var bookgenre212 = new BookGenre()
                 {
-                    Book = book44,
-                    Genre = genre6,
+                    BookId = book44.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre213 = new BookGenre()
                 {
-                    Book = book44,
-                    Genre = genre8,
+                    BookId = book44.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre214 = new BookGenre()
                 {
-                    Book = book44,
-                    Genre = genre50,
+                    BookId = book44.BookId,
+                    GenreId = genre50.GenreId,
                 };
                 var bookgenre215 = new BookGenre()
                 {
-                    Book = book44,
-                    Genre = genre79,
+                    BookId = book44.BookId,
+                    GenreId = genre79.GenreId,
                 };
                 var bookgenre216 = new BookGenre()
                 {
-                    Book = book45,
-                    Genre = genre2,
+                    BookId = book45.BookId,
+                    GenreId = genre2.GenreId,
                 };
                 var bookgenre217 = new BookGenre()
                 {
-                    Book = book45,
-                    Genre = genre6,
+                    BookId = book45.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre218 = new BookGenre()
                 {
-                    Book = book45,
-                    Genre = genre23,
+                    BookId = book45.BookId,
+                    GenreId = genre23.GenreId,
                 };
                 var bookgenre219 = new BookGenre()
                 {
-                    Book = book45,
-                    Genre = genre81,
+                    BookId = book45.BookId,
+                    GenreId = genre81.GenreId,
                 };
                 var bookgenre220 = new BookGenre()
                 {
-                    Book = book45,
-                    Genre = genre82,
+                    BookId = book45.BookId,
+                    GenreId = genre82.GenreId,
                 };
                 var bookgenre221 = new BookGenre()
                 {
-                    Book = book46,
-                    Genre = genre8,
+                    BookId = book46.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre222 = new BookGenre()
                 {
-                    Book = book46,
-                    Genre = genre11,
+                    BookId = book46.BookId,
+                    GenreId = genre11.GenreId,
                 };
                 var bookgenre223 = new BookGenre()
                 {
-                    Book = book46,
-                    Genre = genre12,
+                    BookId = book46.BookId,
+                    GenreId = genre12.GenreId,
                 };
                 var bookgenre224 = new BookGenre()
                 {
-                    Book = book46,
-                    Genre = genre18,
+                    BookId = book46.BookId,
+                    GenreId = genre18.GenreId,
                 };
                 var bookgenre225 = new BookGenre()
                 {
-                    Book = book46,
-                    Genre = genre50,
+                    BookId = book46.BookId,
+                    GenreId = genre50.GenreId,
                 };
                 var bookgenre226 = new BookGenre()
                 {
-                    Book = book47,
-                    Genre = genre6,
+                    BookId = book47.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre227 = new BookGenre()
                 {
-                    Book = book47,
-                    Genre = genre8,
+                    BookId = book47.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre228 = new BookGenre()
                 {
-                    Book = book47,
-                    Genre = genre12,
+                    BookId = book47.BookId,
+                    GenreId = genre12.GenreId,
                 };
                 var bookgenre229 = new BookGenre()
                 {
-                    Book = book47,
-                    Genre = genre18,
+                    BookId = book47.BookId,
+                    GenreId = genre18.GenreId,
                 };
                 var bookgenre230 = new BookGenre()
                 {
-                    Book = book47,
-                    Genre = genre50,
+                    BookId = book47.BookId,
+                    GenreId = genre50.GenreId,
                 };
                 var bookgenre231 = new BookGenre()
                 {
-                    Book = book48,
-                    Genre = genre6,
+                    BookId = book48.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre232 = new BookGenre()
                 {
-                    Book = book48,
-                    Genre = genre23,
+                    BookId = book48.BookId,
+                    GenreId = genre23.GenreId,
                 };
                 var bookgenre233 = new BookGenre()
                 {
-                    Book = book48,
-                    Genre = genre44,
+                    BookId = book48.BookId,
+                    GenreId = genre44.GenreId,
                 };
                 var bookgenre234 = new BookGenre()
                 {
-                    Book = book48,
-                    Genre = genre54,
+                    BookId = book48.BookId,
+                    GenreId = genre54.GenreId,
                 };
                 var bookgenre235 = new BookGenre()
                 {
-                    Book = book48,
-                    Genre = genre56,
+                    BookId = book48.BookId,
+                    GenreId = genre56.GenreId,
                 };
                 var bookgenre236 = new BookGenre()
                 {
-                    Book = book49,
-                    Genre = genre13,
+                    BookId = book49.BookId,
+                    GenreId = genre13.GenreId,
                 };
                 var bookgenre237 = new BookGenre()
                 {
-                    Book = book49,
-                    Genre = genre21,
+                    BookId = book49.BookId,
+                    GenreId = genre21.GenreId,
                 };
                 var bookgenre238 = new BookGenre()
                 {
-                    Book = book49,
-                    Genre = genre43,
+                    BookId = book49.BookId,
+                    GenreId = genre43.GenreId,
                 };
                 var bookgenre239 = new BookGenre()
                 {
-                    Book = book49,
-                    Genre = genre45,
+                    BookId = book49.BookId,
+                    GenreId = genre45.GenreId,
                 };
                 var bookgenre240 = new BookGenre()
                 {
-                    Book = book49,
-                    Genre = genre58,
+                    BookId = book49.BookId,
+                    GenreId = genre58.GenreId,
                 };
                 var bookgenre241 = new BookGenre()
                 {
-                    Book = book50,
-                    Genre = genre1,
+                    BookId = book50.BookId,
+                    GenreId = genre1.GenreId,
                 };
                 var bookgenre242 = new BookGenre()
                 {
-                    Book = book50,
-                    Genre = genre6,
+                    BookId = book50.BookId,
+                    GenreId = genre6.GenreId,
                 };
                 var bookgenre243 = new BookGenre()
                 {
-                    Book = book50,
-                    Genre = genre8,
+                    BookId = book50.BookId,
+                    GenreId = genre8.GenreId,
                 };
                 var bookgenre244 = new BookGenre()
                 {
-                    Book = book50,
-                    Genre = genre24,
+                    BookId = book50.BookId,
+                    GenreId = genre24.GenreId,
                 };
                 var bookgenre245 = new BookGenre()
                 {
-                    Book = book50,
-                    Genre = genre28,
+                    BookId = book50.BookId,
+                    GenreId = genre28.GenreId,
                 };
 
                 if (!context!.BookGenres.Any())
@@ -3357,7 +3352,6 @@ namespace HastyBLCAdmin
                         bookgenre16,
                         bookgenre17,
                         bookgenre18,
-                        bookgenre19,
                         bookgenre20,
                         bookgenre21,
                         bookgenre22,
@@ -3595,6 +3589,7 @@ namespace HastyBLCAdmin
                     Book = book1,
                     Name = "reviewer1",
                     UserEmail = "reviewer1@gmail.com",
+                    Rating = 5,
                     Description = "Very nice book",
                     CreatedTime = DateTime.Now,
                     UpdatedTime = DateTime.Now,

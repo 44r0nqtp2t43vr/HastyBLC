@@ -44,8 +44,10 @@ app.MapRazorPages();
 // Run application
 app.Run();*/
 
+using Data;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 
@@ -56,7 +58,17 @@ namespace HastyBLCAdmin
         
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();            
+            CreateWebHostBuilder(args).Build().Run();
+            if (args.Length == 1 && args[0].ToLower() == "seeddata")
+            {
+                var builder = WebApplication.CreateBuilder(args);
+                builder.Services.AddDbContext<HastyDBContext>(options =>
+                {
+                    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+                });
+                var app = builder.Build();
+                Seed.SeedData(app);
+            }      
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
