@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Data;
+using HastyBLC.Extensions.Configuration;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace HastyBLC
 {
@@ -28,6 +31,9 @@ namespace HastyBLC
             // Add services to the container.
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddMvc(options => options.EnableEndpointRouting = false);
+
+            services.AddLogging(x => x.AddConfiguration(Configuration.GetLoggingSection()).AddConsole().AddDebug());
+            PathManager.Setup(this.Configuration.GetSetupRootDirectoryPath());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +49,7 @@ namespace HastyBLC
                 app.UseHsts();                              // Enables the Strict-Transport-Security header.
             }
 
+            this.ConfigureLogger(app, env);
             app.UseStaticFiles();           // Enables the use of static files
             app.UseHttpsRedirection();      // Enables redirection of HTTP to HTTPS requests.
             app.UseCors("CorsPolicy");      // Enables CORS                              

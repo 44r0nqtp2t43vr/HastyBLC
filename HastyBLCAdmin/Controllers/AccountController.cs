@@ -33,26 +33,26 @@ namespace HastyBLCAdmin.Controllers
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
         [BindProperty]
-        public InputModel Input { get; set; }
+        public InputModel? Input { get; set; }
 
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
-        public IList<AuthenticationScheme> ExternalLogins { get; set; }
+        public IList<AuthenticationScheme>? ExternalLogins { get; set; }
 
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
-        public string ReturnUrl { get; set; }
+        public string? ReturnUrl { get; set; }
 
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
         [TempData]
-        public string ErrorMessage { get; set; }
+        public string? ErrorMessage { get; set; }
 
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -65,7 +65,7 @@ namespace HastyBLCAdmin.Controllers
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
-            public string Email { get; set; }
+            public string? Email { get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -73,7 +73,7 @@ namespace HastyBLCAdmin.Controllers
             /// </summary>
             [Required]
             [DataType(DataType.Password)]
-            public string Password { get; set; }
+            public string? Password { get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -82,7 +82,7 @@ namespace HastyBLCAdmin.Controllers
             [Display(Name = "Remember me?")]
             public bool RememberMe { get; set; }
         }
-        private readonly SessionManager _sessionManager;
+        private readonly SessionManager? _sessionManager;
         //private readonly SignInManager _signInManager;
         private readonly TokenValidationParametersFactory _tokenValidationParametersFactory;
         private readonly TokenProviderOptionsFactory _tokenProviderOptionsFactory;
@@ -91,6 +91,7 @@ namespace HastyBLCAdmin.Controllers
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        protected ILogger _logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountController"/> class.
@@ -125,6 +126,7 @@ namespace HastyBLCAdmin.Controllers
             this._userService = userService;
             this._roleManager = roleManager;
             this._userManager = userManager;
+            this._logger = loggerFactory.CreateLogger<AccountController>();
         }
 
         /// <summary>
@@ -133,7 +135,7 @@ namespace HastyBLCAdmin.Controllers
         /// <returns>Created response view</returns>
         [HttpGet]
         [AllowAnonymous]
-        public async Task<ActionResult> Login(string returnUrl = null)
+        public async Task<ActionResult> Login(string returnUrl = null!)
         {
             if (!string.IsNullOrEmpty(ErrorMessage))
             {
@@ -173,12 +175,10 @@ namespace HastyBLCAdmin.Controllers
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                var result = await _signInManager.PasswordSignInAsync(Input!.Email!, Input.Password!, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    Console.Write("success");
-                    //_logger.LogInformation("User logged in.");
-                    /*return RedirectToPage(returnUrl);*/
+                    _logger.LogInformation("User logged in.");
                     return RedirectToAction("Dashboard", "Dashboard");
                 }
                 if (result.RequiresTwoFactor)
@@ -187,25 +187,16 @@ namespace HastyBLCAdmin.Controllers
                 }
                 if (result.IsLockedOut)
                 {
-                    //_logger.LogWarning("User account locked out.");
+                    _logger.LogWarning("User account locked out.");
                     return RedirectToPage("./Lockout");
                 }
                 else
                 {
-                    Console.Write("this");
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                     return RedirectToPage(returnUrl);
                 }
             }
-            // Iterating through ModelState.Values and printing them to the console
-            foreach (var modelStateValue in ModelState.Values)
-            {
-                foreach (var error in modelStateValue.Errors)
-                {
-                    Console.WriteLine(error.ErrorMessage);
-                }
-            }
-            Console.Write("fail");
+            _logger.LogError("Model is invalid");
             // If we got this far, something failed, redisplay form
             return RedirectToPage(returnUrl);
 
@@ -255,7 +246,7 @@ namespace HastyBLCAdmin.Controllers
 
                     if (userRole != null)
                     {
-                        await _userManager.AddToRoleAsync(identityUser, userRole.Name);
+                        await _userManager.AddToRoleAsync(identityUser, userRole.Name!);
                     }
                 }
                 foreach (var error in result.Errors)
@@ -272,7 +263,7 @@ namespace HastyBLCAdmin.Controllers
             }
             catch (Exception ex)
             {
-                TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
+                TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError + ex;
             }
             return View();
         }
@@ -286,7 +277,7 @@ namespace HastyBLCAdmin.Controllers
         public async Task<IActionResult> CreateRole(CreateRoleViewModel createRoleViewModel)
         {
 
-            IdentityResult result = await _userService.CreateRole(createRoleViewModel.RoleName);
+            IdentityResult result = await _userService.CreateRole(createRoleViewModel.RoleName!);
 
             if (result.Succeeded)
             {

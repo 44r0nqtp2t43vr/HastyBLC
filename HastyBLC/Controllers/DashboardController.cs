@@ -21,6 +21,7 @@ namespace HastyBLC.Controllers
     {
         private readonly HastyDBContext _context;
         private readonly IBookService _bookService;
+        protected new ILogger _logger;
         /// <summary>
         /// Constructor
         /// </summary>
@@ -38,6 +39,7 @@ namespace HastyBLC.Controllers
         {
             _context = context;
             this._bookService = bookService;
+            this._logger = loggerFactory.CreateLogger<DashboardController>();
         }
 
         /// <summary>

@@ -21,6 +21,7 @@ namespace HastyBLCAdmin.Controllers
     {
         private readonly HastyDBContext _context;
         private readonly IGenreService _genreService;
+        protected new ILogger _logger;
         /// <summary>
         /// Constructor
         /// </summary>
@@ -38,6 +39,7 @@ namespace HastyBLCAdmin.Controllers
         {
             _context = context;
             this._genreService = genreService;
+            this._logger = loggerFactory.CreateLogger<GenresController>();
         }
 
         /// <summary>
