@@ -21,7 +21,7 @@ namespace HastyBLC.Controllers
     {
         private readonly HastyDBContext _context;
         private readonly IBookService _bookService;
-        private readonly string ImageUploadsDirectory = "uploads/";
+        protected new ILogger _logger;
         public BooksController(HastyDBContext context,
                               IHttpContextAccessor httpContextAccessor,
                               ILoggerFactory loggerFactory,
@@ -31,6 +31,7 @@ namespace HastyBLC.Controllers
         {
             _context = context;
             this._bookService = bookService;
+            this._logger = loggerFactory.CreateLogger<BooksController>();
         }
 
         [HttpGet]

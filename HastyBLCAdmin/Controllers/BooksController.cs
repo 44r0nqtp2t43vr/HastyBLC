@@ -24,7 +24,7 @@ namespace HastyBLCAdmin.Controllers
     {
         private readonly HastyDBContext _context;
         private readonly IBookService _bookService;
-        private readonly string ImageUploadsDirectory = "uploads/";
+        protected new ILogger _logger;
 
         /// <summary>
         /// Constructor
@@ -43,6 +43,7 @@ namespace HastyBLCAdmin.Controllers
         {
             _context = context;
             this._bookService = bookService;
+            this._logger = loggerFactory.CreateLogger<BooksController>();
         }
 
         /// <summary>

@@ -12,14 +12,13 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Resources.Constants;
-using Data;
 
 namespace HastyBLCAdmin.Authentication
 {
     public class RefreshTokenProviderMiddleware
     {
         private readonly RequestDelegate _next;
-        private ClaimsProvider _claimsProvider;
+        private ClaimsProvider? _claimsProvider;
         private readonly TokenProviderOptions _options;
 
         /// <summary>
@@ -63,13 +62,13 @@ namespace HastyBLCAdmin.Authentication
             string json = new StreamReader(stream).ReadToEnd();
             var user = JObject.Parse(json);
 
-            var username = user[Constants.Token.Username].ToString();
-            var refreshToken = user[Constants.Token.RefreshToken].ToString();
+            var username = user[Constants.Token.Username]!.ToString();
+            var refreshToken = user[Constants.Token.RefreshToken]!.ToString();
 
             var db = context.RequestServices.GetService<HastyDBContext>();
             var userManager = context.RequestServices.GetService<UserManager<IdentityUser>>();
 
-            var refreshTokenModel = db.RefreshToken
+            var refreshTokenModel = db!.RefreshToken
                 .SingleOrDefault(i => i.Token == refreshToken);
 
             if (refreshTokenModel == null)
@@ -78,9 +77,9 @@ namespace HastyBLCAdmin.Authentication
                 return;
             }
 
-            var userDb = await userManager.FindByNameAsync(username);
+            var userDb = await userManager!.FindByNameAsync(username);
 
-            var identity = await _claimsProvider.GetIdentityAsync(username, db);
+            var identity = await _claimsProvider!.GetIdentityAsync(username, db);
             if (identity == null)
             {
                 context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
@@ -101,7 +100,7 @@ namespace HastyBLCAdmin.Authentication
             }
 
             context.Response.Clear();
-            var response = GetAuthResponse.Execute(identity, db, userDb, refreshTokenModel);
+            var response = GetAuthResponse.Execute(identity, db, userDb!, refreshTokenModel);
             context.Response.StatusCode = (int)HttpStatusCode.OK;
             context.Response.ContentType = Constants.Common.JSONContentType;
             await context.Response.WriteAsync(JsonConvert.SerializeObject(response, new JsonSerializerSettings { Formatting = Formatting.Indented }));

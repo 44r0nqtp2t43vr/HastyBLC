@@ -1,9 +1,8 @@
 ﻿@model IEnumerable<Book>
 @{
     ViewData["Title"] = "Top Books";
-    int currentPage = (int)ViewData["CurrentPage"];
-    int totalPages = (int)ViewData["TotalPages"];
-    int pageSize = 10; 
+    int currentPage = (int)ViewData["CurrentPage"]!;
+    int totalPages = (int)ViewData["TotalPages"]!;
 }
 @section styles {
     <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
@@ -30,7 +29,7 @@
     </div>
     <div class="user">
         <div class="user-info-container">
-            <span class="username username-truncate">@User.Identity.Name</span>
+            <span class="username username-truncate">@User.Identity!.Name</span>
             <div class="profile-image-container"></div>
         </div>
     </div>
