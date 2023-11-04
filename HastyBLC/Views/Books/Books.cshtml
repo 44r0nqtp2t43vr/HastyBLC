@@ -4,7 +4,7 @@
 }
 
 @{
-    ViewData["Title"] = "Book Page";
+    ViewData["Title"] = "Browse Books";
 }
 
 <html>
@@ -19,7 +19,7 @@
         </div>
         <div class="screens">
             <a asp-controller="Dashboard" asp-action="Dashboard">Dashboard</a>
-            <a asp-controller="Browse Books" asp-action="Books" class="active">Books</a>
+            <a asp-controller="Browse Books" asp-action="Books" class="active">Browse Books</a>
         </div>
     </div>
     <div class="content">
@@ -37,10 +37,6 @@
                 </div>
             }
         </div>
-        <div class="add-book-btn-container">
-            <a asp-controller="Books" asp-action="AddBook" class="btn btn-outline-danger">Add Book</a>
-        </div>
     </div>
-
 </body>
 </html>

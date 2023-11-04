@@ -11,7 +11,6 @@ footer {
     display: none;
 }
 
-
 .hasty {
     color: #EEDEAA;
     font-family: 'Josefin Sans', sans-serif;
@@ -21,8 +20,6 @@ footer {
     font-size: 50px;
     word-break: break-word;
 }
-
-
 
 .sidebar {
     margin: 0;
@@ -76,7 +73,6 @@ div.image {
     height: 130px;
 }
 
-
 div.content {
     margin-left: 200px;
     padding-top: 50px;
@@ -125,4 +121,112 @@ div.content {
 .row {
     display: flex; /* Display the children in a row */
     flex-wrap: wrap; /* Wrap children to a new row when space is limited */
+}
+
+.logout-button {
+    position: absolute;
+    color: #EEDEAA;
+    background: none;
+    border: none;
+    padding: 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    bottom: 0;
+}
+
+    .logout-button:hover {
+        background: none;
+    }
+
+.user-info-container {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    padding: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+}
+
+.profile-image-container {
+    background: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 20px;
+    right: 150px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.user {
+    text-align: center;
+    line-height: 70px;
+}
+
+.fixed-pagination-container {
+    position: absolute;
+    bottom: 5px;
+    left: 55%;
+    transform: translateX(-50%);
+}
+
+.spaced-pagination .page-item {
+    margin: 0 5px;
+}
+
+.page-number {
+    background-color: transparent;
+    border: none;
+    color: #000;
+}
+
+.page-item.active a.page-link {
+    background-color: #665A38;
+    color: #EEDEAA;
+}
+
+.unselected {
+    color: #000;
+}
+
+.page-item {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+}
+
+.page-link:hover {
+    background-color: #EEDEAA
+}
+
+.username-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 10ch;
+    display: inline-block;
+}
+
+.back-buttonn {
+    background-color: #647CA4;
+    border: none;
+    border-radius: 150px;
+    color: #CAC6B1;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 3;
+    box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #4F678D;
 }

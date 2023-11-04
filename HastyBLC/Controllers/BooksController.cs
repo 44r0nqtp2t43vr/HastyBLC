@@ -4,49 +4,109 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Data;
+using Data.Models;
+using HastyBLC.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using Services.ServiceModels;
 using Services.Interfaces;
-using Services.Services;
+using System;
+using System.Linq;
+using static Data.PathManager;
 
 namespace HastyBLC.Controllers
 {
-    /// <summary>
-    /// Home Controller
-    /// </summary>
     public class BooksController : ControllerBase<BooksController>
     {
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="httpContextAccessor"></param>
-        /// <param name="loggerFactory"></param>
-        /// <param name="configuration"></param>
-        /// <param name="localizer"></param>
-        /// <param name="mapper"></param>
+        private readonly HastyDBContext _context;
         private readonly IBookService _bookService;
-        public BooksController(IHttpContextAccessor httpContextAccessor,
+        private readonly string ImageUploadsDirectory = "uploads/";
+        public BooksController(HastyDBContext context,
+                              IHttpContextAccessor httpContextAccessor,
                               ILoggerFactory loggerFactory,
                               IConfiguration configuration,
                               IBookService bookService,
                               IMapper? mapper = null) : base(httpContextAccessor, loggerFactory, configuration, mapper)
         {
-            _bookService = bookService;
+            _context = context;
+            this._bookService = bookService;
         }
 
-        /// <summary>
-        /// Returns Home View.
-        /// </summary>
-        /// <returns> Home View </returns>
+        [HttpGet]
+        [AllowAnonymous]
         public IActionResult Books()
         {
             var books = _bookService.GetBooks();
             return View(books);
         }
 
-        [HttpPost]
-        public IActionResult DeleteBook(int bookId)
+        public IActionResult ViewBook(int id)
         {
-            _bookService.DeleteBook(bookId);   
-            return RedirectToAction("Index");  
+            var book = _context.Books
+                .Include(b => b.Author)
+                .Include(b => b.BookGenres)!
+                .ThenInclude(bg => bg.Genre)
+                .FirstOrDefault(b => b.BookId == id);
+
+            if (book == null)
+            {
+                TempData["ErrorMessage"] = "Book not found.";
+                return RedirectToAction("Books");
+            }
+
+            var genreNames = book.BookGenres?.Select(bg => bg.Genre?.Name);
+            var concatGenre = string.Join(", ", genreNames!);
+
+            var bookViewModel = new Models.BookViewModel
+            {
+                BookId = book.BookId,
+                Title = book.Title,
+                Description = book.Description,
+                Image = book.Image,
+                PublishDate = book.PublishDate,
+                Publisher = book.Publisher,
+                Isbn = book.Isbn,
+                Language = book.Language,
+                Format = book.Format,
+                Pages = book.Pages,
+                AuthorName = book.Author!.Name,
+                Genres = book.BookGenres!.Select(bookGenre => bookGenre.Genre!.Name).ToList()!,
+            };
+
+            return View(bookViewModel);
+        }
+
+        [HttpGet]
+        public IActionResult Review(int id)
+        {
+            var book = _context.Books.FirstOrDefault(b => b.BookId == id);
+
+            if (book == null)
+            {
+                TempData["ErrorMessage"] = "Book not found.";
+                return RedirectToAction("Books");
+            }
+
+            var reviewViewModel = new ReviewViewModel
+            {
+                BookId = id,
+                BookTitle = book.Title
+            };
+
+            return View(reviewViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Review(ReviewViewModel reviewViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData["SuccessMessage"] = "Review submitted successfully!";
+                return RedirectToAction("ViewBook", new { id = reviewViewModel.BookId });
+            }
+
+            return View(reviewViewModel);
         }
     }
 }

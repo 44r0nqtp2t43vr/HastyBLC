@@ -1,0 +1,95 @@
+﻿@model HastyBLC.Models.BookViewModel
+@section styles {
+    <link rel="stylesheet" href="~/css/viewbook.css" />
+}
+
+@{
+    ViewData["Title"] = "View Book Details";
+}
+
+<html>
+<body class="viewbook">
+    <div class="book-top-section">
+        <a href="#" onclick="goBack()" class="back-button">←</a>
+        <div class="book-image-container-view">
+            <img src="~/@Html.Raw(Model.Image)" alt="@Model.Title" class="book-detail-image" />
+        </div>
+        <div class="title-author-container">
+            <h2>@Model.Title</h2>
+            <p>@Model.AuthorName</p>
+        </div>
+    </div>
+    </div>
+    <div class="book-details-container">
+        <!-- Description section -->
+        <div class="description-section">
+            <strong>Description:</strong> 
+            <p>@Model.Description</p>
+        </div>
+
+        <!-- Book details section -->
+        <div class="book-details-section">
+           
+            <div class="book-details-group-1">
+                <div><strong>Published Date:</strong> <p>@Model.PublishDate.ToString("yyyy-MM-dd")</p></div>
+                <div><strong>Publisher:</strong> @Model.Publisher</div>
+                <div><strong>Language:</strong> @Model.Language</div>
+            </div>
+
+            <div class="book-details-group-2">
+                <div><strong>Format:</strong> @Model.Format</div>
+                <div><strong>Pages:</strong> <p>@Model.Pages</p></div>
+                <div><strong>ISBN:</strong> @Model.Isbn</div>
+            </div>
+            
+        </div>
+
+        <!-- Genres section -->
+        <div class="genres-section">
+            <strong>Genres:</strong>
+            <div>
+                @foreach (var genre in Model.Genres ?? Enumerable.Empty<string>())
+                {
+                    <span>@genre</span>
+                }
+            </div>
+        </div>
+
+        <!-- Book Reviews section -->
+        <div class="book-reviews-section">
+            <h3>Book Reviews</h3>
+            <form asp-controller="Books" asp-action="Review" method="get">
+                <input type="hidden" name="id" value="@Model.BookId" />
+                <button type="submit" class="btn btn-link">Review this Book</button>
+            </form>
+
+            <!-- Review 1 -->
+            <div class="review">
+                <h4>Author Name</h4>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+                @* <a asp-controller="Books" asp-action="Comment">Comment</a> *@
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review">
+                <h4>Another Author</h4>
+                <p>
+                    Another review goes here. You can add more reviews as needed.
+                </p>
+               @*  <a asp-controller="Books" asp-action="Comment">Comment</a> *@
+            </div>
+
+    </div>
+    
+    <script>
+        function goBack() {
+            window.history.back();
+            return false;  
+        }
+    </script>
+
+
+</body>
+</html>
