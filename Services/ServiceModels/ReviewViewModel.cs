@@ -16,10 +16,10 @@ namespace Services.ServiceModels
         public string? Name { get; set; }
 
         [Required(ErrorMessage = "Email Address is required.")]
-        public string? Email { get; set; }
+        public string? UserEmail { get; set; }
 
-        [Required(ErrorMessage = "Stars is required.")]
-        public int Stars { get; set; }
+        [Required(ErrorMessage = "Rating is required.")]
+        public int Rating { get; set; }
 
         [Required(ErrorMessage = "Review is required.")]
         public string? Description { get; set; }

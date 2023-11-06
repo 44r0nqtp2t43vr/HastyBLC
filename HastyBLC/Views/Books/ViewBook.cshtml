@@ -19,7 +19,6 @@
             <p>@Model.AuthorName</p>
         </div>
     </div>
-    </div>
     <div class="book-details-container">
         <!-- Description section -->
         <div class="description-section">
@@ -78,15 +77,15 @@
                 @foreach (var comment in review.Comments!)
                 {
                     <div>
-                        <h4>@comment.Name</h4>
-                        <h4>@comment.UserEmail</h4>
+                        <h6>@comment.Name</h6>
+                        <h6>@comment.UserEmail</h6>
                         <p>
                             @comment.Description
                         </p>
                     </div>
                 }
             }
-
+            </div>
     </div>
     
     <script>

@@ -42,15 +42,17 @@ namespace HastyBLC.Controllers
             return View(books);
         }
 
-        public IActionResult ViewBook(int id)
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ViewBook(int id, bool ignoreReview = false)
         {
             var book = _context.Books
-        .Include(b => b.Author)
-        .Include(b => b.BookGenres)
-        .ThenInclude(bg => bg.Genre)
-        .Include(b => b.Reviews) // Include the reviews for the book
-        .ThenInclude(r => r.Comments) // Include comments for each review
-        .FirstOrDefault(b => b.BookId == id);
+                .Include(b => b.Author)
+                .Include(b => b.BookGenres)!
+                .ThenInclude(bg => bg.Genre)
+                .Include(b => b.Reviews)! // Include the reviews for the book
+                .ThenInclude(r => r.Comments) // Include comments for each review
+                .FirstOrDefault(b => b.BookId == id);
 
             if (book == null)
             {
@@ -100,6 +102,16 @@ namespace HastyBLC.Controllers
                 }).ToList()
             };
 
+            if (ignoreReview)
+            {
+                // Adjust the URL if it came from a review page
+                var previousUrl = Request.Headers["Referer"].ToString();
+                var previousPage = previousUrl.Substring(previousUrl.LastIndexOf("Review"));
+                var updatedUrl = previousUrl.Replace(previousPage, "");
+
+                return Redirect(updatedUrl);
+            }
+
             return View(bookViewModel);
         }
 
@@ -124,15 +136,16 @@ namespace HastyBLC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Review(Services.ServiceModels.ReviewViewModel reviewViewModel)
+        public IActionResult Review(Services.ServiceModels.ReviewViewModel model)
         {
             if (ModelState.IsValid)
             {
+                _bookService.AddReview(model);
                 TempData["SuccessMessage"] = "Review submitted successfully!";
-                return RedirectToAction("ViewBook", new { id = reviewViewModel.BookId });
-            }
+                return RedirectToAction("ViewBook", new { id = model.BookId });
 
-            return View(reviewViewModel);
+            }
+            return View(model);
         }
     }
 }

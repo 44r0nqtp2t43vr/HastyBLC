@@ -14,21 +14,21 @@
         <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label for="Email">Email Address:</label>
-        <input type="email" class="form-control" id="Email" name="Email" required />
-        <span asp-validation-for="Email" class="text-danger"></span>
+        <label for="UserEmail">Email Address:</label>
+        <input type="email" class="form-control" id="UserEmail" name="UserEmail" required />
+        <span asp-validation-for="UserEmail" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label>Stars:</label><br />
         @for (int i = 1; i <= 5; i++)
         {
-            <input type="radio" id="star@i" name="Stars" value="@i" required />
-            <label for="star@i"><span class="star"></span></label>
+            <input type="radio" id="rating@i" name="Rating" value="@i" required />
+            <label for="rating@i"><span class="rating"></span></label>
         }
     </div>
     <div class="form-group">
-        <label for="Comment">Comment:</label>
-        <textarea class="form-control" id="Comment" name="Comment" required></textarea>
+        <label for="Description">Comment:</label>
+        <textarea class="form-control" id="Description" name="Description" required></textarea>
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-primary">Submit Review</button>
