@@ -64,22 +64,28 @@
             </form>
 
             <!-- Review 1 -->
-            <div class="review">
-                <h4>Author Name</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-                @* <a asp-controller="Books" asp-action="Comment">Comment</a> *@
-            </div>
-
-            <!-- Review 2 -->
-            <div class="review">
-                <h4>Another Author</h4>
-                <p>
-                    Another review goes here. You can add more reviews as needed.
-                </p>
-               @*  <a asp-controller="Books" asp-action="Comment">Comment</a> *@
-            </div>
+            @foreach (var review in Model.Reviews!) 
+            {
+                <div class="review">
+                    <h4>@review.Name</h4>
+                    <h4>@review.UserEmail</h4>
+                    <p>@review.Rating</p>
+                    <p>
+                        @review.Description
+                    </p>
+                    @* <a asp-controller="Books" asp-action="Comment">Comment</a> *@
+                </div>
+                @foreach (var comment in review.Comments!)
+                {
+                    <div>
+                        <h4>@comment.Name</h4>
+                        <h4>@comment.UserEmail</h4>
+                        <p>
+                            @comment.Description
+                        </p>
+                    </div>
+                }
+            }
 
     </div>
     

@@ -1,4 +1,4 @@
-@model HastyBLC.Models.ReviewViewModel
+@model Services.ServiceModels.ReviewViewModel
 
 @{
     ViewData["Title"] = "Review Book";
@@ -29,7 +29,7 @@
     <div class="form-group">
         <label for="Comment">Comment:</label>
         <textarea class="form-control" id="Comment" name="Comment" required></textarea>
-        <span asp-validation-for="Comment" class="text-danger"></span>
+        <span asp-validation-for="Description" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-primary">Submit Review</button>
 </form>

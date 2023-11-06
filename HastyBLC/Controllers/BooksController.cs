@@ -45,10 +45,12 @@ namespace HastyBLC.Controllers
         public IActionResult ViewBook(int id)
         {
             var book = _context.Books
-                .Include(b => b.Author)
-                .Include(b => b.BookGenres)!
-                .ThenInclude(bg => bg.Genre)
-                .FirstOrDefault(b => b.BookId == id);
+        .Include(b => b.Author)
+        .Include(b => b.BookGenres)
+        .ThenInclude(bg => bg.Genre)
+        .Include(b => b.Reviews) // Include the reviews for the book
+        .ThenInclude(r => r.Comments) // Include comments for each review
+        .FirstOrDefault(b => b.BookId == id);
 
             if (book == null)
             {
@@ -73,6 +75,29 @@ namespace HastyBLC.Controllers
                 Pages = book.Pages,
                 AuthorName = book.Author!.Name,
                 Genres = book.BookGenres!.Select(bookGenre => bookGenre.Genre!.Name).ToList()!,
+                Reviews = book.Reviews?.Select(review => new Models.ReviewViewModel
+                {
+                    ReviewId = review.ReviewId,
+                    Rating = review.Rating,
+                    Description = review.Description,
+                    Name = review.Name,
+                    UserEmail = review.UserEmail,
+                    CreatedBy = review.CreatedBy,
+                    CreatedTime = review.CreatedTime,
+                    UpdatedBy = review.UpdatedBy,
+                    UpdatedTime = review.UpdatedTime,
+                    Comments = review.Comments?.Select(comment => new Models.CommentViewModel
+                    {
+                        CommentId = comment.CommentId,
+                        Description = comment.Description,
+                        Name = comment.Name,
+                        UserEmail = comment.UserEmail,
+                        CreatedBy = comment.CreatedBy,
+                        CreatedTime = comment.CreatedTime,
+                        UpdatedBy = comment.UpdatedBy,
+                        UpdatedTime = comment.UpdatedTime,
+                    }).ToList()
+                }).ToList()
             };
 
             return View(bookViewModel);
@@ -89,7 +114,7 @@ namespace HastyBLC.Controllers
                 return RedirectToAction("Books");
             }
 
-            var reviewViewModel = new ReviewViewModel
+            var reviewViewModel = new Services.ServiceModels.ReviewViewModel
             {
                 BookId = id,
                 BookTitle = book.Title
@@ -99,7 +124,7 @@ namespace HastyBLC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Review(ReviewViewModel reviewViewModel)
+        public IActionResult Review(Services.ServiceModels.ReviewViewModel reviewViewModel)
         {
             if (ModelState.IsValid)
             {
