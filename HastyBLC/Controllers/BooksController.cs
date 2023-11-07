@@ -14,6 +14,7 @@ using Services.Interfaces;
 using System;
 using System.Linq;
 using static Data.PathManager;
+using Services.Services;
 
 namespace HastyBLC.Controllers
 {
@@ -116,6 +117,7 @@ namespace HastyBLC.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Review(int id)
         {
             var book = _context.Books.FirstOrDefault(b => b.BookId == id);
@@ -136,6 +138,7 @@ namespace HastyBLC.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public IActionResult Review(Services.ServiceModels.ReviewViewModel model)
         {
             if (ModelState.IsValid)
@@ -146,6 +149,32 @@ namespace HastyBLC.Controllers
 
             }
             return View(model);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult Comment(Services.ServiceModels.CommentViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _bookService.AddComment(model);
+                    TempData["SuccessMessage"] = "Comment submitted successfully!";
+                    return RedirectToAction("ViewBook", new { id = model.BookId });
+                }
+                catch (InvalidDataException ex)
+                {
+                    TempData["ErrorMessage"] = ex.Message;
+                }
+                catch (Exception)
+                {
+                    TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
+                }
+                return RedirectToAction("Genres", "Genres");
+            }
+            return View(model);
+            
         }
     }
 }

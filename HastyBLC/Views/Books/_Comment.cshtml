@@ -1,0 +1,46 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@model Services.ServiceModels.CommentViewModel
+<div class="modal" id="addCommentModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Add Comment</h4>
+            </div>
+            <!-- Modal body -->
+            <form method="post" action="/Books/Comment">
+                <input type="hidden" id="addComReviewId" asp-for="ReviewId" />
+                <input type="hidden" id="addComBookId" asp-for="BookId" />
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="name">Name</label>
+                    <input type="text" id="name" class="form-control"
+                           asp-for="Name" placeholder="Enter name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="userEmail">Email</label>
+                    <input type="text" id="userEmail" class="form-control"
+                           asp-for="UserEmail" placeholder="Enter email" />
+                    <span asp-validation-for="UserEmail" class="text-danger"></span>
+                </div>
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="description">Comment</label>
+                    <input type="text" id="description" class="form-control"
+                           asp-for="Description" placeholder="Enter comment" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button class="btn btn-primary btn-block login-btn gradient-custom-2 mb-3" data-dismiss="modal">Close</button>
+                    <button class="btn btn-primary btn-block login-btn gradient-custom-2 mb-3" type="submit">Comment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="~/js/book.js"></script>

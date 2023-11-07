@@ -242,5 +242,19 @@ namespace Services.Services
             review.UpdatedBy = System.Environment.UserName;
             _repository.AddReview(review);
         }
+
+        public void AddComment(CommentViewModel model)
+        {
+            var comment = new Comment();
+            comment.ReviewId = model.ReviewId;
+            comment.Name = model.Name;
+            comment.UserEmail = model.UserEmail;
+            comment.Description = model.Description;
+            comment.CreatedTime = DateTime.Now;
+            comment.UpdatedTime = DateTime.Now;
+            comment.CreatedBy = System.Environment.UserName;
+            comment.UpdatedBy = System.Environment.UserName;
+            _repository.AddComment(comment);
+        }
     }
 }

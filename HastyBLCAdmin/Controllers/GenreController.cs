@@ -105,6 +105,7 @@ namespace HastyBLCAdmin.Controllers
             }
             return RedirectToAction("Genres", "Genres");
         }
+
         [HttpPost]
         [AllowAnonymous]
         public IActionResult DeleteGenre(int genreId)

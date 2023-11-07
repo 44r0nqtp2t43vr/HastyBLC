@@ -88,5 +88,11 @@ namespace Data.Repositories
             this.GetDbSet<Review>().Add(review);
             UnitOfWork.SaveChanges();
         }
+
+        public void AddComment(Comment comment)
+        {
+            this.GetDbSet<Comment>().Add(comment);
+            UnitOfWork.SaveChanges();
+        }
     }
 }

@@ -9,6 +9,9 @@
 
 <html>
 <body class="viewbook">
+    <!-- The Modal -->
+    @await Html.PartialAsync("_Comment", new Services.ServiceModels.CommentViewModel())
+
     <div class="book-top-section">
         <a href="#" onclick="goBack()" class="back-button">←</a>
         <div class="book-image-container-view">
@@ -72,7 +75,9 @@
                     <p>
                         @review.Description
                     </p>
-                    @* <a asp-controller="Books" asp-action="Comment">Comment</a> *@
+                    <button class="btn btn-outline-danger addCommentBtn" data-review-id="@review.ReviewId" data-book-id="@Model.BookId">
+                        <i class="fas fa-edit"></i>
+                    </button>
                 </div>
                 @foreach (var comment in review.Comments!)
                 {
@@ -98,3 +103,7 @@
 
 </body>
 </html>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="~/js/book.js"></script>
