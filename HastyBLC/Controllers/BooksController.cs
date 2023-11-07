@@ -14,6 +14,7 @@ using Services.Interfaces;
 using System;
 using System.Linq;
 using static Data.PathManager;
+using Services.Services;
 
 namespace HastyBLC.Controllers
 {
@@ -21,16 +22,19 @@ namespace HastyBLC.Controllers
     {
         private readonly HastyDBContext _context;
         private readonly IBookService _bookService;
+        private readonly IGenreService _genreService;
         protected new ILogger _logger;
         public BooksController(HastyDBContext context,
                               IHttpContextAccessor httpContextAccessor,
                               ILoggerFactory loggerFactory,
                               IConfiguration configuration,
                               IBookService bookService,
+                              IGenreService genreService,
                               IMapper? mapper = null) : base(httpContextAccessor, loggerFactory, configuration, mapper)
         {
             _context = context;
             this._bookService = bookService;
+            this._genreService = genreService;
             this._logger = loggerFactory.CreateLogger<BooksController>();
         }
 
@@ -39,6 +43,7 @@ namespace HastyBLC.Controllers
         public IActionResult Books()
         {
             var books = _bookService.GetBooks();
+            ViewBag.Genres = _genreService.GetGenres();
             return View(books);
         }
 
