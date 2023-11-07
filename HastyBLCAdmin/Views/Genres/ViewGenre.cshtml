@@ -9,8 +9,10 @@
 <html>
 <body>
     <div class="genre-container">
-        <a asp-controller="Genres" asp-action="BackToGenres" class="btn btn-outline-danger back-btn">Back</a>
-        <h1>@Model.Name</h1>
+        <div class="genre-header">
+            <a href="#" onclick="goBack()" class="back-button">←</a>
+            <h1 class="genre-title">@Model.Name</h1>
+        </div>
 
         <div class="books-grid">
             @if (Model.BookGenres == null || Model.BookGenres.Count == 0)
@@ -22,16 +24,22 @@
                 @foreach (var bookGenre in Model.BookGenres)
                 {
                     <div class="book-item">
-                        <!-- Display the book image -->
-                        <img src="~/@Html.Raw(bookGenre.Book!.Image)" alt="@bookGenre.Book!.Title" class="book-cover-img" />
-                        <form method="get" asp-action="ViewBook">
-                            <input type="hidden" name="bookId" value="@bookGenre.Book!.BookId" />
-                            <button type="submit" class="btn book-btn">@bookGenre.Book!.Title</button>
-                        </form>
+                        <a asp-action="ViewBook" asp-route-id="@bookGenre.Book!.BookId">
+                            <img src="~/@Html.Raw(bookGenre.Book!.Image)" alt="@bookGenre.Book!.Title" class="book-cover-img" />
+                        </a>
+                        
+                        <button formmethod="get" formaction="@Url.Action("ViewBook", new { bookId = bookGenre.Book!.BookId })" class="btn book-btn">@bookGenre.Book!.Title</button>
                     </div>
                 }
             }
         </div>
     </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+            return false;
+        }
+    </script>
 </body>
 </html>

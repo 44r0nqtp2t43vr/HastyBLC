@@ -3,19 +3,12 @@
     ViewData["Title"] = "Add Book Page";
 }
 @section styles {
-    <link rel="stylesheet" href="~/css/login.css" />
+    <link rel="stylesheet" href="~/css/addbook.css" />
 }
-<div class="container py-5 h-100 register-box">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-xl-10">
-            <div class="card rounded-3 text-black">
-                <div class="row g-0">
-                    <div class="card-body p-md-5 mx-md-4">
 
-                        <div class="text-center">
-                            <img src="https://www.alliance.com.ph/images/asi-logo-invert.svg"
-                                 style="width: 185px;" alt="logo">
-                        </div>
+                    <div class="card-body">
+
+                        
 
                         <form method="post" action="/Books/AddBook" enctype="multipart/form-data">
                             <div class="form-outline mb-4">
@@ -94,12 +87,7 @@
                                 </a>
                             </div>
                         </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                
 @section scripts {
     <script>
         // Check for error message and display Toastr notification

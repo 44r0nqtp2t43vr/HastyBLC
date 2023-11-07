@@ -1,44 +1,71 @@
-﻿.genre-container {
-    text-align: center;
+﻿.genre-header {
+    display: flex;
+    align-items: center;
+    margin-left:-200px;
     padding: 20px;
+    width: 100%;
 }
 
-.back-btn {
-    margin-bottom: 20px;
+.genre-title {
+    color: #AF924A;
+    margin-left: 25px;
+    margin-top: 5px;
 }
+.back-button {
+    background-color: #647CA4;
+    border: none;
+    border-radius: 150px;
+    color: #CAC6B1;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+     left: 0 !important;
+    position: relative;
+    box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.2);
+    transition: background-color 0.3s;
+}
+
+    .back-button:hover {
+        background-color: #4F678D;
+    }
+
+.genre-container {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+}
+
 
 .books-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center;
+    justify-content: center; 
+    width: 100%; 
+    margin-top: 20px; 
 }
 
 .book-item {
     position: relative;
     width: 150px;
+    margin-bottom: 20px; 
 }
-.book-image {
-    width: 100%;
-    height: auto;
+
+.book-cover-img {
+    width: 180px;
+    height: 260px;
+    border-radius: 10px;
 }
 
 .book-btn {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: none;
-    border: none;
-    text-align: center;
-    font-size: 16px;
-    color: #000;
-    cursor: pointer;
+    color: #AF924A;
 }
-.genre-container {
-    display: flex;
-    align-items: center; 
-
-.back-btn{
-    margin-right: 20px;
+.clickable-image {
+    cursor: pointer; /* Makes the cursor a pointer when hovering over the image */
 }
