@@ -244,10 +244,10 @@ div.content {
     align-items: center;
 }
 
-    .checkbox input {
-        margin: 0;
-    }
+.checkbox input {
+    margin: 0;
+}
 
-    .checkbox label {
-        margin: 0 5px;
-    }
+.checkbox label {
+    margin: 0 5px;
+}
