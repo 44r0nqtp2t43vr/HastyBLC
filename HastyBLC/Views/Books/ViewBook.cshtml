@@ -13,7 +13,8 @@
     @await Html.PartialAsync("_Comment", new Services.ServiceModels.CommentViewModel())
 
     <div class="book-top-section">
-        <a href="#" onclick="goBack()" class="back-button">←</a>
+        @* <a href="#" onclick="goBack()" class="back-button">←</a> *@
+        <a asp-controller="Books" asp-action="Books" class="back-button">←</a>
         <div class="book-image-container-view">
             <img src="~/@Html.Raw(Model.Image)" alt="@Model.Title" class="book-detail-image" />
         </div>
@@ -95,7 +96,13 @@
     
     <script>
         function goBack() {
-            window.history.back();
+            var baseBooksUrl = '@ViewBag.BaseBooksUrl'; // This will hold the stored page URL
+            if (baseBooksUrl != '') {
+                // You can use this URL or perform actions with it as needed
+                window.location.href = baseBooksUrl; // For example, redirect to the stored page
+            } else {
+                window.history.back();
+            }
             return false;  
         }
     </script>

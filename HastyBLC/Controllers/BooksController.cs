@@ -103,16 +103,6 @@ namespace HastyBLC.Controllers
                 }).ToList()
             };
 
-            if (ignoreReview)
-            {
-                // Adjust the URL if it came from a review page
-                var previousUrl = Request.Headers["Referer"].ToString();
-                var previousPage = previousUrl.Substring(previousUrl.LastIndexOf("Review"));
-                var updatedUrl = previousUrl.Replace(previousPage, "");
-
-                return Redirect(updatedUrl);
-            }
-
             return View(bookViewModel);
         }
 
@@ -171,10 +161,10 @@ namespace HastyBLC.Controllers
                 {
                     TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
                 }
-                return RedirectToAction("Genres", "Genres");
+                return RedirectToAction("ViewBook", new { id = model.BookId });
             }
-            return View(model);
-            
+            return RedirectToAction("Books", "Books");
+
         }
     }
 }
