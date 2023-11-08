@@ -112,7 +112,7 @@ div.content {
         box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);
 }
 .book-row {
-    display: inline-block;
+    display: flex;
     flex-wrap: nowrap;
     text-align: center;
 }

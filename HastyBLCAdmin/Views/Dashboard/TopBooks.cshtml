@@ -37,7 +37,7 @@
         <div>
             <h2 class="title"><a href="#" onclick="goBack()" class="back-buttonn">←</a> Top Books</h2>
             <div class="viewAll-book-row">
-                @foreach (var book in Model.OrderByDescending(book => book.BookId))
+                @foreach (var book in Model)
                 {
                     <div class="topBookContainer">
                         <div class="book-image-container">

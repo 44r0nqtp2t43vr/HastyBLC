@@ -82,25 +82,51 @@ namespace HastyBLCAdmin.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult TopBooks(int page=1)
+        public IActionResult TopBooks(int page = 1)
         {
-            var books = _bookService.GetBooks();
-            int pageSize = 10; 
+            var pageSize = 10;
 
-            var orderedBooks = books.OrderByDescending(book => book.BookId);
+            var books = _context.Books?
+                .Include(book => book.Author!)
+                .Include(book => book.BookGenres!)
+                    .ThenInclude(bookGenre => bookGenre.Genre)
+                .Include(book => book.Reviews);
+
+            
+            var allBooks = books!.ToList();
+
+            
+            var booksWithReviews = allBooks
+                .Where(book => book.Reviews != null && book.Reviews.Any())
+                .ToList();
+
+            var booksWithoutReviews = allBooks
+        .Where(book => book.Reviews == null || !book.Reviews.Any())
+        .OrderBy(book => book.Title) 
+        .ToList();
+
+            
+            var orderedBooks = booksWithReviews
+                .OrderByDescending(book => book.Reviews!.Max(review => review.Rating))
+                .Concat(booksWithoutReviews)
+                .ToList(); 
 
             int totalItems = orderedBooks.Count();
-            int totalPages = (int)Math.Ceiling(totalItems/(double)pageSize);
+            int totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
 
             if (page < 1) page = 1;
             if (page > totalPages) page = totalPages;
 
-            var currentPageBooks = orderedBooks.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            var currentPageBooks = orderedBooks
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
 
             ViewData["CurrentPage"] = page;
             ViewData["TotalPages"] = totalPages;
 
             return View(currentPageBooks);
         }
+
     }
 }
