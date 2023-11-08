@@ -165,29 +165,6 @@ namespace Services.Services
                 }
                 existingBook.Author = author;
 
-                
-                /*if (!string.IsNullOrEmpty(model.GenreNames))
-                {
-                    var genre = _dbContext.Genres.FirstOrDefault(x => x.Name == model.GenreNames);
-                    if (genre == null)
-                    {
-                        genre = new Genre { Name = model.GenreNames };
-                        _dbContext.Genres.Add(genre);
-                    }
-                    
-                    if (existingBook.BookGenres == null)
-                    {
-                        existingBook.BookGenres = new List<BookGenre>();
-                    }
-                    else if (existingBook.BookGenres.Any(bg => bg.GenreId == genre.GenreId))
-                    {
-                        
-                        return;
-                    }
-
-                    
-                    existingBook.BookGenres.Add(new BookGenre { Book = existingBook, Genre = genre });
-                }*/
 
                 DateTime publishDate;
                 if (DateTime.TryParse(model.PublishDateStr, out publishDate))
@@ -249,6 +226,35 @@ namespace Services.Services
 
                 }
             }
+        }
+
+        public void AddReview(ReviewViewModel model)
+        {
+            var review = new Review();
+            review.BookId = model.BookId;
+            review.Rating = model.Rating;
+            review.Name = model.Name;
+            review.UserEmail = model.UserEmail;
+            review.Description = model.Description;
+            review.CreatedTime = DateTime.Now;
+            review.UpdatedTime = DateTime.Now;
+            review.CreatedBy = System.Environment.UserName;
+            review.UpdatedBy = System.Environment.UserName;
+            _repository.AddReview(review);
+        }
+
+        public void AddComment(CommentViewModel model)
+        {
+            var comment = new Comment();
+            comment.ReviewId = model.ReviewId;
+            comment.Name = model.Name;
+            comment.UserEmail = model.UserEmail;
+            comment.Description = model.Description;
+            comment.CreatedTime = DateTime.Now;
+            comment.UpdatedTime = DateTime.Now;
+            comment.CreatedBy = System.Environment.UserName;
+            comment.UpdatedBy = System.Environment.UserName;
+            _repository.AddComment(comment);
         }
     }
 }

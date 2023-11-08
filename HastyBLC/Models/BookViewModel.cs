@@ -24,6 +24,7 @@ namespace HastyBLC.Models
         public DateTime UpdatedTime { get; set; }
         public string? AuthorName { get; set; }
         public List<string>? Genres { get; set; }
+        public List<ReviewViewModel>? Reviews { get; set; }
        
     }
 }

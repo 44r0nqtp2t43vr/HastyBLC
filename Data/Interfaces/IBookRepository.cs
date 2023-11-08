@@ -17,5 +17,7 @@ namespace Data.Interfaces
         void EditBook(Book updatedBook);
         void DeleteBook(int bookId);
         Book? GetBookById(int bookId);
+        void AddReview(Review review);
+        void AddComment(Comment comment);
     }
 }

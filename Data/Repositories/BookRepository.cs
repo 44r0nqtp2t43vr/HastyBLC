@@ -83,5 +83,16 @@ namespace Data.Repositories
             return this.GetDbSet<Book>().FirstOrDefault(x => x.BookId == bookId);
         }
 
+        public void AddReview(Review review)
+        {
+            this.GetDbSet<Review>().Add(review);
+            UnitOfWork.SaveChanges();
+        }
+
+        public void AddComment(Comment comment)
+        {
+            this.GetDbSet<Comment>().Add(comment);
+            UnitOfWork.SaveChanges();
+        }
     }
 }

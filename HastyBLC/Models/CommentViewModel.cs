@@ -1,11 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace HastyBLC.Models
+﻿namespace HastyBLC.Models
 {
-    public class ReviewViewModel
+    public class CommentViewModel
     {
-        public int ReviewId { get; set; }
-        public int Rating { get; set; }
+        public int CommentId { get; set; }
         public string? Description { get; set; }
         public string? Name { get; set; }
         public string? UserEmail { get; set; }
@@ -13,6 +10,5 @@ namespace HastyBLC.Models
         public DateTime CreatedTime { get; set; }
         public string? UpdatedBy { get; set; }
         public DateTime UpdatedTime { get; set; }
-        public List<CommentViewModel>? Comments { get; set; }
     }
 }
