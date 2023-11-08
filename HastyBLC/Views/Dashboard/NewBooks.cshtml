@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<Book>
 @{
-    ViewData["Title"] = "Top Books";
+    ViewData["Title"] = "New Books";
     int currentPage = (int)ViewData["CurrentPage"]!;
     int totalPages = (int)ViewData["TotalPages"]!;
 }
 @section styles {
-    <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
+    <link rel="stylesheet" href="~/css/HastyBLC.css" />
     <link rel="stylesheet" href="~/css/viewbook.css" />
 }
 <html>
@@ -20,11 +20,7 @@
         </div>
         <div class="screens">
             <a asp-controller="Dashboard" asp-action="Dashboard" class="active">Dashboard</a>
-            <a asp-controller="Genres" asp-action="Genres">Genres</a>
-            <a asp-controller="Books" asp-action="Books">Books</a>
-            <form method="post" asp-controller="Account" asp-action="SignOutUser" id="logoutForm">
-                <button type="submit" class="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</button>
-            </form>
+            <a asp-controller="Books" asp-action="Books">Browse Books</a>
         </div>
     </div>
     <div class="user">
@@ -35,9 +31,9 @@
     </div>
     <div class="content">
         <div>
-            <h2 class="title"><a asp-controller="Dashboard" asp-action="Dashboard" class="back-buttonn">←</a> Top Books</h2>
+            <h2 class="title"><a asp-controller="Dashboard" asp-action="Dashboard" class="back-buttonn">←</a> New Books</h2>
             <div class="viewAll-book-row">
-                @foreach (var book in Model)
+                @foreach (var book in Model.OrderByDescending(book => book.CreatedTime))
                 {
                     <div class="topBookContainer">
                         <div class="book-image-container">
@@ -47,22 +43,22 @@
                                     <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
                                 </a>
                                 @* <li>@book.Author</li> *@
-                                <!-- <li>@book.BookId</li> -->
+                                <!-- <li>@book.CreatedTime</li> -->
                             </ul>
                         </div>
                     </div>
                 }
-                </div>
-        </div>
-        <div class="fixed-pagination-container">
-            <ul class="pagination justify-content-center spaced-pagination">
-                @for (int i = 1; i <= totalPages; i++)
-                {
-                    <li class="page-item @(i == currentPage ? "active" : "unselected")">
-                        <a class="page-link page-number" href="@Url.Action("TopBooks", new { page = i })">@i</a>
-                    </li>
-                }
-            </ul>
+            </div>
+            <div class="fixed-pagination-container">
+                <ul class="pagination justify-content-center spaced-pagination">
+                    @for (int i = 1; i <= totalPages; i++)
+                    {
+                        <li class="page-item @(i == currentPage ? "active" : "unselected")">
+                            <a class="page-link page-number" href="@Url.Action("NewBooks", new { page = i })">@i</a>
+                        </li>
+                    }
+                </ul>
+            </div>
         </div>
     </div>
     <script>

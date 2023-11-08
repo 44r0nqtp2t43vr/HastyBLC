@@ -5,7 +5,7 @@
     int totalPages = (int)ViewData["TotalPages"]!;
 }
 @section styles {
-    <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
+    <link rel="stylesheet" href="~/css/HastyBLC.css" />
     <link rel="stylesheet" href="~/css/viewbook.css" />
 }
 <html>
@@ -20,11 +20,7 @@
         </div>
         <div class="screens">
             <a asp-controller="Dashboard" asp-action="Dashboard" class="active">Dashboard</a>
-            <a asp-controller="Genres" asp-action="Genres">Genres</a>
-            <a asp-controller="Books" asp-action="Books">Books</a>
-            <form method="post" asp-controller="Account" asp-action="SignOutUser" id="logoutForm">
-                <button type="submit" class="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</button>
-            </form>
+            <a asp-controller="Books" asp-action="Books">Browse Books</a>
         </div>
     </div>
     <div class="user">
@@ -52,7 +48,7 @@
                         </div>
                     </div>
                 }
-                </div>
+            </div>
         </div>
         <div class="fixed-pagination-container">
             <ul class="pagination justify-content-center spaced-pagination">
