@@ -4,6 +4,7 @@ Data/obj/*
 HastyBLC/appsettings.json
 HastyBLC/bin/*
 HastyBLC/obj/*
+HastyBLC/wwwroot/uploads/*
 HastyBLCAdmin/appsettings.json
 HastyBLCAdmin/bin/*
 HastyBLCAdmin/obj/*
