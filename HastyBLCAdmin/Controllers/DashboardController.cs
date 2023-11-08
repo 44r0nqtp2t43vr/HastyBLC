@@ -51,7 +51,11 @@ namespace HastyBLCAdmin.Controllers
         [AllowAnonymous]
         public IActionResult Dashboard()
         {
-            var books = _bookService.GetBooks();
+            var books = _context.Books?
+                .Include(book => book.Author!)
+                .Include(book => book.BookGenres!)
+                    .ThenInclude(bookGenre => bookGenre.Genre)
+                .Include(book => book.Reviews);
             return View(books);
         }
 
@@ -59,10 +63,14 @@ namespace HastyBLCAdmin.Controllers
         [AllowAnonymous]
         public IActionResult NewBooks(int page = 1)
         {
-            int pageSize = 10; 
-            var books = _bookService.GetBooks(); 
+            int pageSize = 10;
+            var books = _context.Books?
+                .Include(book => book.Author!)
+                .Include(book => book.BookGenres!)
+                    .ThenInclude(bookGenre => bookGenre.Genre)
+                .Include(book => book.Reviews);
 
-            var orderedBooks = books.OrderByDescending(book => book.CreatedTime);
+            var orderedBooks = books.OrderByDescending(book => book.CreatedTime).ThenByDescending(book => book.BookId);
 
             int totalItems = orderedBooks.Count();
             int totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
@@ -101,9 +109,9 @@ namespace HastyBLCAdmin.Controllers
                 .ToList();
 
             var booksWithoutReviews = allBooks
-        .Where(book => book.Reviews == null || !book.Reviews.Any())
-        .OrderBy(book => book.Title) 
-        .ToList();
+            .Where(book => book.Reviews == null || !book.Reviews.Any())
+            .OrderBy(book => book.Title) 
+            .ToList();
 
             
             var orderedBooks = booksWithReviews

@@ -35,9 +35,9 @@
     </div>
     <div class="content">
         <div>
-            <h2 class="title"><a href="#" onclick="goBack()" class="back-buttonn">←</a> New Books</h2>
+            <h2 class="title"><a asp-controller="Dashboard" asp-action="Dashboard" class="back-buttonn">←</a> New Books</h2>
             <div class="viewAll-book-row">
-                @foreach (var book in Model.OrderByDescending(book => book.CreatedTime))
+                @foreach (var book in Model)
                 {
                     <div class="topBookContainer">
                         <div class="book-image-container">

@@ -51,72 +51,90 @@ namespace HastyBLC.Controllers
         [AllowAnonymous]
         public IActionResult Dashboard()
         {
-            var books = _context.Books
-                .Include(book => book.Author)
-                .Include(book => book.BookGenres)!
+            var books = _context.Books?
+                .Include(book => book.Author!)
+                .Include(book => book.BookGenres!)
                     .ThenInclude(bookGenre => bookGenre.Genre)
-                .Select(book => new HastyBLC.Models.BookViewModel
-                {
-                    BookId = book.BookId,
-                    Title = book.Title,
-                    Description = book.Description,
-                    Image = book.Image,
-                    PublishDate = book.PublishDate,
-                    Publisher = book.Publisher,
-                    Isbn = book.Isbn,
-                    Language = book.Language,
-                    Format = book.Format,
-                    Pages = book.Pages,
-                    CreatedBy = book.CreatedBy,
-                    CreatedTime = book.CreatedTime,
-                    UpdatedBy = book.UpdatedBy,
-                    UpdatedTime = book.UpdatedTime,
-                    AuthorName = book.Author!.Name,
-                    Genres = book.BookGenres!.Select(bookGenre => bookGenre.Genre!.Name).ToList()!,
-                })
-                .ToList();
-            var viewModel = new BookListViewModel { Books = books };
+                .Include(book => book.Reviews);
 
-            return View(viewModel);
+            return View(books);
         }
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult NewBooks()
+        public IActionResult NewBooks(int page = 1)
         {
-            var books = _context.Books
-                .Include(book => book.Author)
-                .Include(book => book.BookGenres)!
+            int pageSize = 10;
+            var books = _context.Books?
+                .Include(book => book.Author!)
+                .Include(book => book.BookGenres!)
                     .ThenInclude(bookGenre => bookGenre.Genre)
-                .Select(book => new HastyBLC.Models.BookViewModel
-                {
-                    BookId = book.BookId,
-                    Title = book.Title,
-                    Description = book.Description,
-                    Image = book.Image,
-                    PublishDate = book.PublishDate,
-                    Publisher = book.Publisher,
-                    Isbn = book.Isbn,
-                    Language = book.Language,
-                    Format = book.Format,
-                    Pages = book.Pages,
-                    CreatedBy = book.CreatedBy,
-                    CreatedTime = book.CreatedTime,
-                    UpdatedBy = book.UpdatedBy,
-                    UpdatedTime = book.UpdatedTime,
-                    AuthorName = book.Author!.Name,
-                    Genres = book.BookGenres!.Select(bookGenre => bookGenre.Genre!.Name).ToList()!,
-                })
-                .ToList();
-            var viewModel = new BookListViewModel { Books = books };
+                .Include(book => book.Reviews);
 
-            return View(viewModel);
+            var orderedBooks = books.OrderByDescending(book => book.CreatedTime).ThenByDescending(book => book.BookId);
+
+            int totalItems = orderedBooks.Count();
+            int totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+
+
+            if (page < 1) page = 1;
+            if (page > totalPages) page = totalPages;
+
+
+            var currentPageBooks = orderedBooks.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+            ViewData["CurrentPage"] = page;
+            ViewData["TotalPages"] = totalPages;
+
+            return View(currentPageBooks);
         }
+
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult TopBooks()
+        public IActionResult TopBooks(int page = 1)
         {
-            return View();
+            var pageSize = 10;
+
+            var books = _context.Books?
+                .Include(book => book.Author!)
+                .Include(book => book.BookGenres!)
+                    .ThenInclude(bookGenre => bookGenre.Genre)
+                .Include(book => book.Reviews);
+
+
+            var allBooks = books!.ToList();
+
+
+            var booksWithReviews = allBooks
+                .Where(book => book.Reviews != null && book.Reviews.Any())
+                .ToList();
+
+            var booksWithoutReviews = allBooks
+        .Where(book => book.Reviews == null || !book.Reviews.Any())
+        .OrderBy(book => book.Title)
+        .ToList();
+
+
+            var orderedBooks = booksWithReviews
+                .OrderByDescending(book => book.Reviews!.Max(review => review.Rating))
+                .Concat(booksWithoutReviews)
+                .ToList();
+
+            int totalItems = orderedBooks.Count();
+            int totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+
+            if (page < 1) page = 1;
+            if (page > totalPages) page = totalPages;
+
+            var currentPageBooks = orderedBooks
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            ViewData["CurrentPage"] = page;
+            ViewData["TotalPages"] = totalPages;
+
+            return View(currentPageBooks);
         }
     }
 }
