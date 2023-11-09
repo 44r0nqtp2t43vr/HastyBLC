@@ -20,17 +20,11 @@
             <a asp-controller="Books" asp-action="Books">Browse Books</a>
         </div>
     </div>
-    <div class="user">
-        <div class="user-info-container">
-            <span class="username username-truncate">@User.Identity.Name</span>
-            <div class="profile-image-container"></div>
-        </div>
-    </div>
     <div class="content">
         <div>
             <h2 class="title">Top Books</h2>
             <div class="book-row">
-                @foreach (var book in Model.OrderByDescending(b => b.Reviews!.Any() ? b.Reviews!.Max(r => r.Rating) : -1).ThenBy(b => b.Title).Take(5))
+                @foreach (var book in Model.OrderByDescending(b => b.Reviews!.Any() ? b.Reviews!.Average(r => r.Rating) : -1).ThenBy(b => b.Title).Take(5))
                 {
                     <div class="book-item">
                         <div class="book-image-container">
@@ -42,7 +36,7 @@
                         </div>
                     </div>
                 }
-                <div style="text-align: center;">
+                <div class="book-row" style="justify-content: center; align-items: center;">
                     <a asp-controller="Dashboard" asp-action="TopBooks" style="text-align: center; display:inline-block">
                         <span style="display: inline-block; text-align: center; font-family: 'Josefin Sans', sans-serif;">&#8594</span><br>Top Books
                     </a>
@@ -66,7 +60,7 @@
                         </div>
                     </div>
                 }
-                <div class="topBookContainer">
+                <div class="book-row" style="justify-content: center; align-items: center;">
                     <a asp-controller="Dashboard" asp-action="NewBooks" style="text-align:center; display:block">
                         <span style="display: inline-block; text-align: center; font-family: 'Josefin Sans', sans-serif;">&#8594</span><br>New Books
                     </a>

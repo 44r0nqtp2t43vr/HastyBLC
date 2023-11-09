@@ -21,7 +21,14 @@ footer {
     word-break: break-word;
 }
 
+a {
+    color: black;
+}
 
+    a:hover {
+        color: initial;
+        text-decoration: none;
+    }
 
 .sidebar {
     margin: 0;
@@ -216,7 +223,6 @@ div.content {
     font-size: 16px;
     margin: 10px 0;
     cursor: pointer;
-    border-radius: 5px;
     bottom: 0;
 }
 
@@ -226,8 +232,8 @@ div.content {
 
 .user-info-container {
     position: absolute;
-    top: 20px;
-    right: 50px;
+    top: 0px;
+    right: 0px;
     padding: 10px;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
@@ -310,4 +316,117 @@ div.content {
 
 .back-button:hover {
     background-color: #4F678D;
+}
+
+@media (max-width: 1360px) {
+    .hasty {
+        font-size: 35px;
+    }
+
+    .imagehw {
+        width: 100px;
+        height: 100px;
+    }
+
+    .sidebar {
+        width: 200px;
+    }
+
+        .sidebar a {
+            font-size: 16px;
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: bolder;
+        }
+
+            .sidebar a.active {
+                height: 50px;
+                font-size: 16px;
+                font-family: 'Josefin Sans', sans-serif;
+                font-weight: bolder;
+            }
+}
+
+@media (max-width: 1280px) {
+    .hasty {
+        font-size: 35px;
+    }
+
+    .imagehw {
+        width: 100px;
+        height: 100px;
+    }
+
+    .sidebar {
+        width: 185px;
+    }
+
+        .sidebar a {
+            font-size: 16px;
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: bolder;
+        }
+
+            .sidebar a.active {
+                height: 50px;
+                font-size: 16px;
+                font-family: 'Josefin Sans', sans-serif;
+                font-weight: bolder;
+            }
+}
+
+@media (max-width: 1200px) {
+    .hasty {
+        font-size: 35px;
+    }
+
+    .imagehw {
+        width: 100px;
+        height: 100px;
+    }
+
+    .sidebar {
+        width: 160px;
+    }
+
+        .sidebar a {
+            font-size: 16px;
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: bolder;
+        }
+
+            .sidebar a.active {
+                height: 50px;
+                font-size: 16px;
+                font-family: 'Josefin Sans', sans-serif;
+                font-weight: bolder;
+            }
+}
+
+
+@media (max-width: 800px) {
+    .hasty {
+        font-size: 30px;
+    }
+
+    .imagehw {
+        width: 70px;
+        height: 70px;
+    }
+
+    .sidebar {
+        width: 150px;
+    }
+
+        .sidebar a {
+            font-size: 14px;
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: bolder;
+        }
+
+            .sidebar a.active {
+                height: 50px;
+                font-size: 14px;
+                font-family: 'Josefin Sans', sans-serif;
+                font-weight: bolder;
+            }
 }

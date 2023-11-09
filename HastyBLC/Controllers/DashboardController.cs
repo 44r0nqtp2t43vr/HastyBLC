@@ -110,13 +110,13 @@ namespace HastyBLC.Controllers
                 .ToList();
 
             var booksWithoutReviews = allBooks
-        .Where(book => book.Reviews == null || !book.Reviews.Any())
-        .OrderBy(book => book.Title)
-        .ToList();
+            .Where(book => book.Reviews == null || !book.Reviews.Any())
+            .OrderBy(book => book.Title)
+            .ToList();
 
 
             var orderedBooks = booksWithReviews
-                .OrderByDescending(book => book.Reviews!.Max(review => review.Rating))
+                .OrderByDescending(book => book.Reviews!.Average(review => review.Rating))
                 .Concat(booksWithoutReviews)
                 .ToList();
 

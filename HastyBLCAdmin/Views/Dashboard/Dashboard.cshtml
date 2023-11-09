@@ -34,7 +34,7 @@
         <div>
             <h2 class="title">Top Books</h2>
             <div class="book-row">
-                @foreach (var book in Model.OrderByDescending(b => b.Reviews!.Any() ? b.Reviews!.Max(r => r.Rating) : -1).ThenBy(b => b.Title).Take(5))
+                @foreach (var book in Model.OrderByDescending(b => b.Reviews!.Any() ? b.Reviews!.Average(r => r.Rating) : -1).ThenBy(b => b.Title).Take(5))
                 {
                     <div class="book-item">
                         <div class="book-image-container">
@@ -46,10 +46,10 @@
                         </div>
                     </div>
                 }
-                <div class="topBookContainer">
-                    <a asp-controller="Dashboard" asp-action="TopBooks" style="text-align:center; display:inline-block">
-                        <span style="display: inline-block; text-align: center; font-family: 'Josefin Sans', sans-serif;">&#8594</span><br>Top Books
-                    </a>
+                <div class="book-row" style="justify-content: center; align-items: center;">
+                        <a asp-controller="Dashboard" asp-action="TopBooks" style="text-align:center; display:inline-block">
+                            <span style="display: inline-block; text-align: center; font-family: 'Josefin Sans', sans-serif;">&#8594</span><br>Top Books
+                        </a>
                 </div>
             </div>
         </div>
@@ -70,8 +70,8 @@
                         </div>
                     </div>
                 }
-                <div class="topBookContainer">
-                    <a asp-controller="Dashboard" asp-action="NewBooks" style="text-align:center; display:block">
+                <div class="book-row" style="justify-content: center; align-items: center;">
+                    <a asp-controller="Dashboard" asp-action="NewBooks" style="text-align:center; display:block;">
                         <span style="display: inline-block; text-align: center; font-family: 'Josefin Sans', sans-serif;">&#8594</span><br>New Books
                     </a>
                 </div>
