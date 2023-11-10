@@ -430,3 +430,25 @@ div.content {
                 font-weight: bolder;
             }
 }
+
+.checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkbox {
+    flex: 0 0 calc(33.33% - 10px);
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+    .checkbox input {
+        margin: 0;
+    }
+
+    .checkbox label {
+        margin: 0 5px;
+    }
+
