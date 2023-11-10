@@ -35,10 +35,10 @@
 }
 
 input[type=text] {
-    background-color: #eedeaa;
+    background-color: #AF924A;
     color: white;
     outline: none;
-    border:none;
+    border: none;
 }
 
 .genre-input{
@@ -104,11 +104,15 @@ input[type=file] {
     
 }
 textarea {
-    width:80%;
+    width: 100%;
     overflow-y: scroll;
-    background-color: #EEDEAA;
+    background-color: #AF924A;
     border: none;
+   
 }
+    textarea.description::placeholder {
+        color: #EEDEAA;
+    }
 .descp {
     width: 100%;
     height: 300px;
@@ -117,19 +121,23 @@ textarea {
     border: none;
 }
 .description-label {
-    color: #AF924A;
+    
     font-size: 24px;
     font-weight: bold;
 }
+
 .title-input {
     margin-bottom: 10px;
 }
     .title-input input {
         color: #665A36;
         font-size: 3rem;
-        background-color: transparent;
+        background-color: #AF924A;
         border: none;
     }
+.title-input input::placeholder {
+    color: #EEDEAA;
+}
 
 
 .author-input {
@@ -137,27 +145,55 @@ textarea {
     text-align: center;
 }
     .author-input input {
-        color: #665A36;
+       
         font-size: 2rem;
-        background-color: transparent;
+        background-color: #AF924A;
         border: none;
         text-align: center;
     }
 
+        .author-input input::placeholder {
+            color: #EEDEAA;
+        }
+
+.genre-input input::placeholder {
+    color: #EEDEAA;
+}
+.publisher-input {
+    margin-bottom: 10px;
+}
 .publish-input {
     margin-bottom: 10px;
 }
-.publiser-input {
+.publish-input input::placeholder {
+    color: #EEDEAA;
+}
+.publisher-input {
     margin-bottom: 10px;
+}
+.publisher-input input::placeholder {
+    color: #EEDEAA;
 }
 .format-input {
     margin-bottom: 10px;
+}
+.format-input input::placeholder {
+    color: #EEDEAA;
 }
 .page-input {
     margin-bottom: 10px;
 }
 .isbn-input {
     margin-bottom: 10px;
+}
+.isbn-input input::placeholder {
+    color: #EEDEAA;
+}
+    .page-input input::placeholder {
+        color: #EEDEAA;
+    }
+.language-input input::placeholder {
+    color: #EEDEAA;
 }
 hr {
     display: block;
