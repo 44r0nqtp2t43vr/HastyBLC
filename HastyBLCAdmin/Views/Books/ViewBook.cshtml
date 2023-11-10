@@ -1,6 +1,7 @@
 ﻿@model HastyBLCAdmin.Models.BookViewModel
 @section styles {
     <link rel="stylesheet" href="~/css/viewbook.css" />
+    <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
 }
 
 @{
@@ -46,7 +47,7 @@
 
         <!-- Genres section -->
         <div class="genres-section">
-            <strong>Genres:</strong>
+            <strong>Genre/s:</strong>
             <div>
                 @foreach (var genre in Model.Genres ?? Enumerable.Empty<string>())
                 {

@@ -125,5 +125,47 @@ namespace HastyBLCAdmin.Controllers
             }
             return RedirectToAction("Genres", "Genres");
         }
+        public IActionResult ViewBook(int id)
+        {
+            // Fetch the book using the provided ID
+            var book = _context.Books
+                               .Include(b => b.Author)
+                               .Include(b => b.BookGenres)
+                               .ThenInclude(bg => bg.Genre)
+                               .FirstOrDefault(b => b.BookId == id);
+
+            if (book == null)
+            {
+                // Handle the case where the book isn't found
+                return NotFound();
+            }
+
+            // Create a new instance of the ViewModel and map the properties
+            var viewModel = new HastyBLCAdmin.Models.BookViewModel
+            {
+                BookId = book.BookId,
+                Title = book.Title,
+                Description = book.Description,
+                Image = book.Image,
+                PublishDate = book.PublishDate,
+                Publisher = book.Publisher,
+                Isbn = book.Isbn,
+                Language = book.Language,
+                Format = book.Format,
+                Pages = book.Pages,
+                CreatedBy = book.CreatedBy,
+                CreatedTime = book.CreatedTime,
+                UpdatedBy = book.UpdatedBy,
+                UpdatedTime = book.UpdatedTime,
+                AuthorName = book.Author?.Name, // Assuming Author has a Name property
+                Genres = book.BookGenres.Select(bg => bg.Genre.Name).ToList() // Assuming Genre has a Name property
+            };
+
+            // Pass the ViewModel to the View
+            return View("~/Views/Books/ViewBook.cshtml", viewModel);
+        }
+
+
+
     }
 }
