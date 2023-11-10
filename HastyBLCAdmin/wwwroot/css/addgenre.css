@@ -69,11 +69,11 @@
     }
 
 .btn-custom {
-    background-color: #647CA4; /* Base color */
+    background-color: #647CA4; 
     border: none;
     border-radius: 50px;
     color: #EEDEAA;
-    padding: 10px 20px; /* Example padding, adjust as needed */
+    padding: 10px 20px; 
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -83,8 +83,14 @@
     cursor: pointer;
 }
 
-    /* Button hover styles */
+    
     .btn-custom:hover {
         background-color: #506482; /* Darker shade for hover */
         color: #EEDEAA;
     }
+.modal-content p {
+    color: #EEDEAA !important; 
+    font-size: 16px; 
+    margin: 15px 0; 
+   
+}

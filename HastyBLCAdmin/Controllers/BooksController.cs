@@ -50,13 +50,7 @@ namespace HastyBLCAdmin.Controllers
         /// Returns Home View.
         /// </summary>
         /// <returns> Home View </returns>
-        [HttpGet]
-        [AllowAnonymous]
-        public IActionResult Books()
-        {
-            var books = _bookService.GetBooks();
-            return View(books);
-        }
+        
 
         [HttpGet]
         [AllowAnonymous]
@@ -247,6 +241,35 @@ namespace HastyBLCAdmin.Controllers
             };
 
             return View(bookViewModel);
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Books(int page = 1)
+        {
+            const int pageSize = 10;
+            var booksQuery = _context.Books.AsQueryable();
+
+            var totalBooks = booksQuery.Count();
+            var totalPages = (int)Math.Ceiling(totalBooks / (double)pageSize);
+
+            if (page < 1) page = 1;
+            if (page > totalPages) page = totalPages;
+
+            var currentPageBooks = booksQuery
+                .OrderByDescending(book => book.CreatedTime)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            var viewModel = new BooksPageViewModel
+            {
+                Books = currentPageBooks,
+                CurrentPage = page,
+                TotalPages = totalPages
+            };
+
+            return View(viewModel);
         }
 
 

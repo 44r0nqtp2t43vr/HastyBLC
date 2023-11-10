@@ -1,12 +1,18 @@
-﻿@model IEnumerable<Book>
+﻿@model HastyBLCAdmin.Models.BooksPageViewModel
+
+
+
+
+
 @section styles {
     <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
-
-
+    <link rel="stylesheet" href="~/css/book.css" />
 }
 
 @{
     ViewData["Title"] = "Book Page";
+    
+
 }
 
 <html>
@@ -35,25 +41,36 @@
         </div>
     </div>
     <div class="content">
+        <div class="genre-container">
         <h2 class="title">ALL BOOKS</h2>
-            <div class="books-row">
-                @foreach (var book in Model)
+            <div class="book-grid">
+                @foreach (var book in Model.Books)
                 {
                     <div class="book-item">
-                        <div class="book-image-container">
+                        
                         <a asp-controller="Books" asp-action="ViewBook" asp-route-id="@book.BookId">
                             <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
                         </a>
-
-                        </div>
                      </div>    
                 }
+
             </div>
+            <div class="fixed-pagination-container">
+                <ul class="pagination justify-content-center spaced-pagination">
+                    @for (int i = 1; i <= Model.TotalPages; i++)
+                    {
+                        <li class="page-item @(i == Model.CurrentPage ? "active" : "unselected")">
+                            <a class="page-link page-number" href="@Url.Action("Books", new { page = i })">@i</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+
         <div class="add-book-btn-container">
             <a asp-controller="Books" asp-action="AddBook" class="btn btn-outline-danger">Add Book</a>
         </div>
-
+</div>
     </div>
-   
+   </
 </body>
 </html>

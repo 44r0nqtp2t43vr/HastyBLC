@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
+<link rel="stylesheet" href="~/css/addgenre.css" />
 <div class="modal" id="deleteGenreModal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -16,8 +17,8 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button class="btn btn-primary btn-block login-btn gradient-custom-2 mb-3" data-dismiss="modal">Close</button>
-                    <button class="btn btn-primary btn-block login-btn gradient-custom-2 mb-3" type="submit">Delete Genre</button>
+                    <button class="btn btn-close" data-dismiss="modal">Close</button>
+                    <button class="btn btn-add-genre" type="submit">Delete Genre</button>
                 </div>
             </form>
         </div>

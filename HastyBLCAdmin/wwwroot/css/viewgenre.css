@@ -1,7 +1,7 @@
 ﻿.genre-header {
     display: flex;
     align-items: center;
-    margin-left:-200px;
+    margin-left:-90px;
     padding: 20px;
     width: 100%;
 }
@@ -37,24 +37,23 @@
     padding: 20px;
     display: flex;
     flex-direction: column; 
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 
 .books-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center; 
-    width: 100%; 
-    margin-top: 20px; 
+    justify-content:flex-start;
+    
+    
 }
 
 .book-item {
-    position: relative;
-    width: 150px;
-    margin-bottom: 20px; 
+    flex: 0 0 20%; /* Do not grow, do not shrink, base width of 20% */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    padding: 10px;
 }
 
 .book-cover-img {
@@ -67,5 +66,5 @@
     color: #AF924A;
 }
 .clickable-image {
-    cursor: pointer; /* Makes the cursor a pointer when hovering over the image */
+    cursor: pointer; 
 }

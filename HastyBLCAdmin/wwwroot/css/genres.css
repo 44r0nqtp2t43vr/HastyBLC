@@ -1,10 +1,14 @@
-﻿.genres-row {
-    display: flex; 
-    flex-wrap: wrap; 
-    justify-content: flex-start; 
-    gap: 10px; 
-    margin-right: -420px;
-    margin-top:25px;
+﻿.text-center{
+    position:relative;
+    justify-content:center;
+    align-items: center;
+}
+.genres-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 25px;
 }
 
 .genre-container {
@@ -14,7 +18,7 @@
 }
 
 .genre-button {
-    width: 100%;
+    width: 240px;
     height: 80px;
     border: none;
     border-radius: 10px;
@@ -41,7 +45,7 @@
 .editGenreBtn, .deleteGenreBtn {
     position: absolute;
     top: 5px;
-    right: 0px;
+    right: 5px;
     padding: 0.25rem;
     font-size: 0.75rem;
     border-radius: 3px;
@@ -52,14 +56,14 @@
         background-color: #EEDEAA;
     }
 .deleteGenreBtn {
-    right: calc(5px + 30px); 
+    right: calc(5px + 25px); 
 }
 
 .fixed-bottom-right {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 1000;
+    
     border-radius: 50px;
     background-color: #647CA4;
     color: #CAC6B1;
@@ -71,9 +75,6 @@
         background-color: #2B4165;
     }
 
-* {
-    box-sizing: border-box;
-}
 
 
 

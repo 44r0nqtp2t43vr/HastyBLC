@@ -1,0 +1,18 @@
+﻿.book-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px; 
+    width: 100%; 
+   
+}
+.book-item {
+    box-sizing: border-box; 
+    margin: 5px; 
+}
+
+.book-image {
+    width: 100%; 
+    height: auto; 
+    display: block; 
+    border-radius:10px;
+}

@@ -1,1 +1,180 @@
-﻿
+﻿.add-container{
+    margin-top:60px;
+    
+}
+.top-section a {
+    background-color: #647CA4;
+    color: #EEDEAA;
+    height: 3rem;
+    width: 7rem;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.top-section{
+    margin-bottom:1.25rem;
+}
+.right-side {
+    float: right;
+    width:70%;
+}
+.left-side {
+    float: left;
+    width: 231px;
+    height: 360px;
+   
+}
+.bottom {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  padding-top:2rem;
+  padding-left:20rem;
+  width: 100%;            
+}
+
+input[type=text] {
+    background-color: #eedeaa;
+    color: white;
+    outline: none;
+    border:none;
+}
+
+.genre-input{
+    margin-bottom:10px;
+}
+.centered-text {
+    text-align: center;
+    color: #AF924A;
+}
+.book-details {
+    width: 100%;
+}
+.left {
+    float: left;
+    width: 45%;
+}
+.right {
+    float: right;
+    width: 45%;
+}
+.upload-input input[type="file"]::-webkit-file-upload-button {
+    display: none;
+}
+
+.upload-input input[type="file"]::file-selector-button {
+    display: none;
+}
+input[type=file] {
+    color: transparent;
+}
+.photo-container {
+    position: relative;
+    width: 231px;
+    height: 360px;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: darkgrey;
+}
+
+    .photo-container .file-icon {
+        background-color: #647CA4;
+        color: #EEDEAA;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+
+    .photo-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+.file-icon {
+    position: absolute;
+    top: 8rem;
+    left: 23rem;
+    color: white;
+    font-size: 24px;
+    border-radius: 10px;
+    
+}
+textarea {
+    width:80%;
+    overflow-y: scroll;
+    background-color: #EEDEAA;
+    border: none;
+}
+.descp {
+    width: 100%;
+    height: 300px;
+    overflow-y: scroll;
+    background-color: #EEDEAA;
+    border: none;
+}
+.description-label {
+    color: #AF924A;
+    font-size: 24px;
+    font-weight: bold;
+}
+.title-input {
+    margin-bottom: 10px;
+}
+    .title-input input {
+        color: #665A36;
+        font-size: 3rem;
+        background-color: transparent;
+        border: none;
+    }
+
+
+.author-input {
+    margin-bottom: 10px;
+    text-align: center;
+}
+    .author-input input {
+        color: #665A36;
+        font-size: 2rem;
+        background-color: transparent;
+        border: none;
+        text-align: center;
+    }
+
+.publish-input {
+    margin-bottom: 10px;
+}
+.publiser-input {
+    margin-bottom: 10px;
+}
+.format-input {
+    margin-bottom: 10px;
+}
+.page-input {
+    margin-bottom: 10px;
+}
+.isbn-input {
+    margin-bottom: 10px;
+}
+hr {
+    display: block;
+    background-color: #647CA4;
+    border-width: 1px;
+}
+.clear-btn {
+    position: absolute;
+    margin-top: 260px
+}
+.add-btn {
+    background-color: #647CA4;
+    color: #EEDEAA;
+    height:3rem;
+    width:7rem;
+    border-radius:50px;
+   
+}
+
+
