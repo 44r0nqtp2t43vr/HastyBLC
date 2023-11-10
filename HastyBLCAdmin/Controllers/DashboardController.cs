@@ -115,7 +115,7 @@ namespace HastyBLCAdmin.Controllers
 
             
             var orderedBooks = booksWithReviews
-                .OrderByDescending(book => book.Reviews!.Max(review => review.Rating))
+                .OrderByDescending(book => book.Reviews!.Average(review => review.Rating))
                 .Concat(booksWithoutReviews)
                 .ToList(); 
 
