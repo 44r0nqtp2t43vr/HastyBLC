@@ -257,13 +257,35 @@ namespace Services.Services
             _repository.AddComment(comment);
         }
 
+        public void EditReview(ReviewViewModel model)
+        {
+            var existingReview = _repository.GetReviewById(model.ReviewId);
+
+            if (existingReview == null)
+            {
+                throw new InvalidDataException("Review not found.");
+            }
+            else
+            {
+                existingReview.Name = model.Name;
+                existingReview.UserEmail = model.UserEmail;
+                existingReview.Rating = model.Rating;
+                existingReview.Description = model.Description;
+                existingReview.UpdatedTime = DateTime.Now;
+                existingReview.UpdatedBy = System.Environment.UserName;
+
+                _repository.EditReview(existingReview);
+
+            }
+        }
+
         public void EditComment(CommentViewModel model)
         {
             var existingComment = _repository.GetCommentById(model.CommentId);
 
             if (existingComment == null)
             {
-                throw new InvalidDataException("Book not found.");
+                throw new InvalidDataException("Comment not found.");
             }
             else
             {

@@ -10,6 +10,7 @@ namespace Services.ServiceModels
     public class ReviewViewModel
     {
         public int BookId { get; set; }
+        public int ReviewId { get; set; }
         public string? BookTitle { get; set; }
 
         [Required(ErrorMessage = "Name is required.")]

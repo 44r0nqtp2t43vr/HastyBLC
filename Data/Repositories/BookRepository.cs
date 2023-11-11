@@ -2,6 +2,7 @@
 using Data.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -96,6 +97,24 @@ namespace Data.Repositories
             UnitOfWork.SaveChanges();
         }
 
+        public void EditReview(Review updatedReview)
+        {
+            try
+            {
+                var review = this.GetDbSet<Review>().Find(updatedReview.ReviewId);
+                if (review != null)
+                {
+                    this.GetDbSet<Review>().Update(review);
+                    UnitOfWork.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception here to see if any error is occurring
+                Console.WriteLine(ex.Message);
+            }
+        }
+
         public void EditComment(Comment updatedComment)
         {
             try
@@ -148,6 +167,11 @@ namespace Data.Repositories
                 // Log or handle the exception here to see if any error is occurring
                 System.Diagnostics.Debug.WriteLine(ex.Message);
             }
+        }
+
+        public Review? GetReviewById(int reviewId)
+        {
+            return this.GetDbSet<Review>().FirstOrDefault(x => x.ReviewId == reviewId);
         }
 
         public Comment? GetCommentById(int commentId)

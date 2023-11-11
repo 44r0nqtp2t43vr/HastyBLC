@@ -11,6 +11,7 @@
 <html>
 <body class="viewbook">
     <!-- The Modal -->
+    @await Html.PartialAsync("_EditReview", new Services.ServiceModels.ReviewViewModel())
     @await Html.PartialAsync("_EditComment", new Services.ServiceModels.CommentViewModel())
     @await Html.PartialAsync("_DeleteReview")
     @await Html.PartialAsync("_DeleteComment")
@@ -85,6 +86,9 @@
                     <p>
                         @review.Description
                     </p>
+                    <button class="btn btn-outline-danger editReviewBtn" data-review-id="@review.ReviewId" data-review-name="@review.Name" data-review-user-email="@review.UserEmail" data-review-rating="@review.Rating" data-review-description="@review.Description">
+                        <i class="fas fa-edit"></i>
+                    </button>
                     <button class="btn btn-outline-danger deleteReviewBtn" data-review-id="@review.ReviewId">
                         <i class="fas fa-trash"></i>
                     </button>
