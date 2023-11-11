@@ -49,7 +49,7 @@ namespace HastyBLC.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult ViewBook(int id, bool ignoreReview = false)
+        public IActionResult ViewBook(int id)
         {
             var book = _context.Books
                 .Include(b => b.Author)

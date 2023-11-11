@@ -2,7 +2,9 @@
 using Data.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -93,6 +95,88 @@ namespace Data.Repositories
         {
             this.GetDbSet<Comment>().Add(comment);
             UnitOfWork.SaveChanges();
+        }
+
+        public void EditReview(Review updatedReview)
+        {
+            try
+            {
+                var review = this.GetDbSet<Review>().Find(updatedReview.ReviewId);
+                if (review != null)
+                {
+                    this.GetDbSet<Review>().Update(review);
+                    UnitOfWork.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception here to see if any error is occurring
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        public void EditComment(Comment updatedComment)
+        {
+            try
+            {
+                var comment = this.GetDbSet<Comment>().Find(updatedComment.CommentId);
+                if (comment != null)
+                {
+                    this.GetDbSet<Comment>().Update(comment);
+                    UnitOfWork.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception here to see if any error is occurring
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        public void DeleteReview(int reviewId)
+        {
+            try
+            {
+                var review = this.GetDbSet<Review>().Find(reviewId);
+                if (review != null)
+                {
+                    this.GetDbSet<Review>().Remove(review);
+                    UnitOfWork.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception here to see if any error is occurring
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+        }
+
+        public void DeleteComment(int commentId)
+        {
+            try
+            {
+                var comment = this.GetDbSet<Comment>().Find(commentId);
+                if (comment != null)
+                {
+                    this.GetDbSet<Comment>().Remove(comment);
+                    UnitOfWork.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception here to see if any error is occurring
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+        }
+
+        public Review? GetReviewById(int reviewId)
+        {
+            return this.GetDbSet<Review>().FirstOrDefault(x => x.ReviewId == reviewId);
+        }
+
+        public Comment? GetCommentById(int commentId)
+        {
+            return this.GetDbSet<Comment>().FirstOrDefault(x => x.CommentId == commentId);
         }
     }
 }

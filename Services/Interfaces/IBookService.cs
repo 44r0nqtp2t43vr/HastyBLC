@@ -16,5 +16,9 @@ namespace Services.Interfaces
         void EditBook(BookViewModel model, string imagePath);
         void AddReview(ReviewViewModel model);
         void AddComment(CommentViewModel model);
+        void EditReview(ReviewViewModel model);
+        void EditComment(CommentViewModel model);
+        void DeleteReview(int reviewId);
+        void DeleteComment(int commentId);
     }
 }

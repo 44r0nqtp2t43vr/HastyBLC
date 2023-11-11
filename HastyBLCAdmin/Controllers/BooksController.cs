@@ -14,6 +14,7 @@ using Services.Interfaces;
 using System;
 using System.Linq;
 using static Data.PathManager;
+using Services.Services;
 
 namespace HastyBLCAdmin.Controllers
 {
@@ -213,6 +214,8 @@ namespace HastyBLCAdmin.Controllers
                 .Include(b => b.Author)
                 .Include(b => b.BookGenres)!
                 .ThenInclude(bg => bg.Genre)
+                .Include(b => b.Reviews)! // Include the reviews for the book
+                .ThenInclude(r => r.Comments) // Include comments for each review
                 .FirstOrDefault(b => b.BookId == id);
 
             if (book == null)
@@ -238,6 +241,29 @@ namespace HastyBLCAdmin.Controllers
                 Pages = book.Pages,
                 AuthorName = book.Author!.Name,
                 Genres = book.BookGenres!.Select(bookGenre => bookGenre.Genre!.Name).ToList()!,
+                Reviews = book.Reviews?.Select(review => new Models.ReviewViewModel
+                {
+                    ReviewId = review.ReviewId,
+                    Rating = review.Rating,
+                    Description = review.Description,
+                    Name = review.Name,
+                    UserEmail = review.UserEmail,
+                    CreatedBy = review.CreatedBy,
+                    CreatedTime = review.CreatedTime,
+                    UpdatedBy = review.UpdatedBy,
+                    UpdatedTime = review.UpdatedTime,
+                    Comments = review.Comments?.Select(comment => new Models.CommentViewModel
+                    {
+                        CommentId = comment.CommentId,
+                        Description = comment.Description,
+                        Name = comment.Name,
+                        UserEmail = comment.UserEmail,
+                        CreatedBy = comment.CreatedBy,
+                        CreatedTime = comment.CreatedTime,
+                        UpdatedBy = comment.UpdatedBy,
+                        UpdatedTime = comment.UpdatedTime,
+                    }).ToList()
+                }).ToList()
             };
 
             return View(bookViewModel);
@@ -272,7 +298,133 @@ namespace HastyBLCAdmin.Controllers
             return View(viewModel);
         }
 
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult EditReview(Services.ServiceModels.ReviewViewModel model)
+        {
+            try
+            {
+                _bookService.EditReview(model);
+                // Get the URL of the referring page
+                string referrerUrl = ControllerContext.HttpContext.Request.Headers["Referer"].ToString();
 
+                if (!string.IsNullOrEmpty(referrerUrl))
+                {
+                    // Redirect back to the referring page
+                    return Redirect(referrerUrl);
+                }
+                else
+                {
+                    // If no referrer is available, you can redirect to a default action or URL
+                    return RedirectToAction("Books", "Books");
+                }
+            }
+            catch (InvalidDataException ex)
+            {
+                TempData["ErrorMessage"] = ex.Message;
+            }
+            catch (Exception)
+            {
+                TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
+            }
+            return RedirectToAction("Books", "Books");
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult EditComment(Services.ServiceModels.CommentViewModel model)
+        {
+            try
+            {
+                _bookService.EditComment(model);
+                // Get the URL of the referring page
+                string referrerUrl = ControllerContext.HttpContext.Request.Headers["Referer"].ToString();
+
+                if (!string.IsNullOrEmpty(referrerUrl))
+                {
+                    // Redirect back to the referring page
+                    return Redirect(referrerUrl);
+                }
+                else
+                {
+                    // If no referrer is available, you can redirect to a default action or URL
+                    return RedirectToAction("Books", "Books");
+                }
+            }
+            catch (InvalidDataException ex)
+            {
+                TempData["ErrorMessage"] = ex.Message;
+            }
+            catch (Exception)
+            {
+                TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
+            }
+            return RedirectToAction("Books", "Books");
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult DeleteReview(int reviewId)
+        {
+            try
+            {
+                _bookService.DeleteReview(reviewId);
+                // Get the URL of the referring page
+                string referrerUrl = ControllerContext.HttpContext.Request.Headers["Referer"].ToString();
+
+                if (!string.IsNullOrEmpty(referrerUrl))
+                {
+                    // Redirect back to the referring page
+                    return Redirect(referrerUrl);
+                }
+                else
+                {
+                    // If no referrer is available, you can redirect to a default action or URL
+                    return RedirectToAction("Books", "Books");
+                }
+            }
+            catch (InvalidDataException ex)
+            {
+                TempData["ErrorMessage"] = ex.Message;
+            }
+            catch (Exception)
+            {
+                TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
+            }
+            return RedirectToAction("Books", "Books");
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult DeleteComment(int commentId)
+        {
+            try
+            {
+                _bookService.DeleteComment(commentId);
+                // Get the URL of the referring page
+                string referrerUrl = ControllerContext.HttpContext.Request.Headers["Referer"].ToString();
+
+                if (!string.IsNullOrEmpty(referrerUrl))
+                {
+                    // Redirect back to the referring page
+                    return Redirect(referrerUrl);
+                }
+                else
+                {
+                    // If no referrer is available, you can redirect to a default action or URL
+                    return RedirectToAction("Books", "Books");
+                }
+            }
+            catch (InvalidDataException ex)
+            {
+                TempData["ErrorMessage"] = ex.Message;
+            }
+            catch (Exception)
+            {
+                TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
+            }
+            return RedirectToAction("Books", "Books");
+        }
 
     }
 }
