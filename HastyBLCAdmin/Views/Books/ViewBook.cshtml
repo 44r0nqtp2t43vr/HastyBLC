@@ -11,6 +11,7 @@
 <html>
 <body class="viewbook">
     <!-- The Modal -->
+    @await Html.PartialAsync("_EditComment", new Services.ServiceModels.CommentViewModel())
     @await Html.PartialAsync("_DeleteReview")
     @await Html.PartialAsync("_DeleteComment")
 
@@ -96,6 +97,9 @@
                         <p>
                             @comment.Description
                         </p>
+                        <button class="btn btn-outline-danger editCommentBtn" data-comment-id="@comment.CommentId" data-comment-name="@comment.Name" data-comment-user-email="@comment.UserEmail" data-comment-description="@comment.Description">
+                            <i class="fas fa-edit"></i>
+                        </button>
                         <button class="btn btn-outline-danger deleteCommentBtn" data-comment-id="@comment.CommentId">
                             <i class="fas fa-trash"></i>
                         </button>

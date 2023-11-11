@@ -257,6 +257,27 @@ namespace Services.Services
             _repository.AddComment(comment);
         }
 
+        public void EditComment(CommentViewModel model)
+        {
+            var existingComment = _repository.GetCommentById(model.CommentId);
+
+            if (existingComment == null)
+            {
+                throw new InvalidDataException("Book not found.");
+            }
+            else
+            {
+                existingComment.Name = model.Name;
+                existingComment.UserEmail = model.UserEmail;
+                existingComment.Description = model.Description;
+                existingComment.UpdatedTime = DateTime.Now;
+                existingComment.UpdatedBy = System.Environment.UserName;
+
+                _repository.EditComment(existingComment);
+
+            }
+        }
+
         public void DeleteReview(int reviewId)
         {
             _repository.DeleteReview(reviewId);

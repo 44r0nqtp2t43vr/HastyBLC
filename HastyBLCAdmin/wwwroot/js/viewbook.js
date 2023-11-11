@@ -1,14 +1,18 @@
 ﻿var jq = jQuery.noConflict();
 jq(document).ready(function () {
-    /*jq(".editGenreBtn").click(function () {
-        var genreId = $(this).data("genre-id");
-        var genreName = $(this).data("genre-name");
+    jq(".editCommentBtn").click(function () {
+        var commentId = $(this).data("comment-id");
+        var commentName = $(this).data("comment-name");
+        var commentUserEmail = $(this).data("comment-user-email");
+        var commentDescription = $(this).data("comment-description");
 
-        $("#editGenreId").val(genreId);
-        $("#editGenreName").val(genreName);
+        $("#editCommentId").val(commentId);
+        $("#editCommentName").val(commentName);
+        $("#editCommentUserEmail").val(commentUserEmail);
+        $("#editCommentDescription").val(commentDescription);
 
-        jq("#editGenreModal").modal("show");
-    });*/
+        jq("#editCommentModal").modal("show");
+    });
     jq(".deleteReviewBtn").click(function () {
         var reviewId = $(this).data("review-id");
 

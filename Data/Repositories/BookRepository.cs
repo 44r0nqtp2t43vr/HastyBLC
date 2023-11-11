@@ -3,6 +3,7 @@ using Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -95,6 +96,24 @@ namespace Data.Repositories
             UnitOfWork.SaveChanges();
         }
 
+        public void EditComment(Comment updatedComment)
+        {
+            try
+            {
+                var comment = this.GetDbSet<Comment>().Find(updatedComment.CommentId);
+                if (comment != null)
+                {
+                    this.GetDbSet<Comment>().Update(comment);
+                    UnitOfWork.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception here to see if any error is occurring
+                Console.WriteLine(ex.Message);
+            }
+        }
+
         public void DeleteReview(int reviewId)
         {
             try
@@ -129,6 +148,11 @@ namespace Data.Repositories
                 // Log or handle the exception here to see if any error is occurring
                 System.Diagnostics.Debug.WriteLine(ex.Message);
             }
+        }
+
+        public Comment? GetCommentById(int commentId)
+        {
+            return this.GetDbSet<Comment>().FirstOrDefault(x => x.CommentId == commentId);
         }
     }
 }
