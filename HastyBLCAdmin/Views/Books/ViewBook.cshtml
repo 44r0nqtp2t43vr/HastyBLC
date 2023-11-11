@@ -10,8 +10,12 @@
 
 <html>
 <body class="viewbook">
+    <!-- The Modal -->
+    @await Html.PartialAsync("_DeleteReview")
+
     <div class="book-top-section">
-        <a href="#" onclick="goBack()" class="back-button">←</a>
+        @* <a href="#" onclick="goBack()" class="back-button">←</a> *@
+        <a asp-controller="Books" asp-action="Books" class="back-button">←</a>
         <div class="book-image-container-view">
             <img src="~/@Html.Raw(Model.Image)" alt="@Model.Title" class="book-detail-image" />
         </div>
@@ -65,6 +69,37 @@
             </form>
         </div>
 
+        <!-- Book Reviews section -->
+        <div class="book-reviews-section">
+            <h3>Book Reviews</h3>
+
+            <!-- Review 1 -->
+            @foreach (var review in Model.Reviews!)
+            {
+                <div class="review">
+                    <h4>@review.Name</h4>
+                    <h4>@review.UserEmail</h4>
+                    <p>@review.Rating</p>
+                    <p>
+                        @review.Description
+                    </p>
+                    <button class="btn btn-outline-danger deleteReviewBtn" data-review-id="@review.ReviewId">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+                @foreach (var comment in review.Comments!)
+                {
+                    <div>
+                        <h6>@comment.Name</h6>
+                        <h6>@comment.UserEmail</h6>
+                        <p>
+                            @comment.Description
+                        </p>
+                    </div>
+                }
+            }
+        </div>
+
     </div>
     
     <script>
@@ -77,3 +112,7 @@
 
 </body>
 </html>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="~/js/viewbook.js"></script>

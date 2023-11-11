@@ -94,5 +94,23 @@ namespace Data.Repositories
             this.GetDbSet<Comment>().Add(comment);
             UnitOfWork.SaveChanges();
         }
+
+        public void DeleteReview(int reviewId)
+        {
+            try
+            {
+                var review = this.GetDbSet<Review>().Find(reviewId);
+                if (review != null)
+                {
+                    this.GetDbSet<Review>().Remove(review);
+                    UnitOfWork.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception here to see if any error is occurring
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+        }
     }
 }

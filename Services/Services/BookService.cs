@@ -256,5 +256,10 @@ namespace Services.Services
             comment.UpdatedBy = System.Environment.UserName;
             _repository.AddComment(comment);
         }
+
+        public void DeleteReview(int reviewId)
+        {
+            _repository.DeleteReview(reviewId);
+        }
     }
 }
