@@ -112,5 +112,23 @@ namespace Data.Repositories
                 System.Diagnostics.Debug.WriteLine(ex.Message);
             }
         }
+
+        public void DeleteComment(int commentId)
+        {
+            try
+            {
+                var comment = this.GetDbSet<Comment>().Find(commentId);
+                if (comment != null)
+                {
+                    this.GetDbSet<Comment>().Remove(comment);
+                    UnitOfWork.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception here to see if any error is occurring
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+        }
     }
 }

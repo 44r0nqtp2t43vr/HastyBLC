@@ -17,5 +17,6 @@ namespace Services.Interfaces
         void AddReview(ReviewViewModel model);
         void AddComment(CommentViewModel model);
         void DeleteReview(int reviewId);
+        void DeleteComment(int commentId);
     }
 }

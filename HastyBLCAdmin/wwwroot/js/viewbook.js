@@ -16,4 +16,11 @@ jq(document).ready(function () {
 
         jq("#deleteReviewModal").modal("show");
     });
+    jq(".deleteCommentBtn").click(function () {
+        var commentId = $(this).data("comment-id");
+
+        $("#deleteCommentId").val(commentId);
+
+        jq("#deleteCommentModal").modal("show");
+    });
 });

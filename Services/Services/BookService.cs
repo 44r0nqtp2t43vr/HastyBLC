@@ -261,5 +261,10 @@ namespace Services.Services
         {
             _repository.DeleteReview(reviewId);
         }
+
+        public void DeleteComment(int commentId)
+        {
+            _repository.DeleteComment(commentId);
+        }
     }
 }

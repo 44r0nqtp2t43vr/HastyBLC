@@ -330,5 +330,37 @@ namespace HastyBLCAdmin.Controllers
             return RedirectToAction("Books", "Books");
         }
 
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult DeleteComment(int commentId)
+        {
+            try
+            {
+                _bookService.DeleteComment(commentId);
+                // Get the URL of the referring page
+                string referrerUrl = ControllerContext.HttpContext.Request.Headers["Referer"].ToString();
+
+                if (!string.IsNullOrEmpty(referrerUrl))
+                {
+                    // Redirect back to the referring page
+                    return Redirect(referrerUrl);
+                }
+                else
+                {
+                    // If no referrer is available, you can redirect to a default action or URL
+                    return RedirectToAction("Books", "Books");
+                }
+            }
+            catch (InvalidDataException ex)
+            {
+                TempData["ErrorMessage"] = ex.Message;
+            }
+            catch (Exception)
+            {
+                TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
+            }
+            return RedirectToAction("Books", "Books");
+        }
+
     }
 }

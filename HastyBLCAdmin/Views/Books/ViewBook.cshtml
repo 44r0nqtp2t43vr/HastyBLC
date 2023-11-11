@@ -12,6 +12,7 @@
 <body class="viewbook">
     <!-- The Modal -->
     @await Html.PartialAsync("_DeleteReview")
+    @await Html.PartialAsync("_DeleteComment")
 
     <div class="book-top-section">
         @* <a href="#" onclick="goBack()" class="back-button">←</a> *@
@@ -95,6 +96,9 @@
                         <p>
                             @comment.Description
                         </p>
+                        <button class="btn btn-outline-danger deleteCommentBtn" data-comment-id="@comment.CommentId">
+                            <i class="fas fa-trash"></i>
+                        </button>
                     </div>
                 }
             }

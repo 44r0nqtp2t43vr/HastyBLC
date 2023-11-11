@@ -20,5 +20,6 @@ namespace Data.Interfaces
         void AddReview(Review review);
         void AddComment(Comment comment);
         void DeleteReview(int reviewId);
+        void DeleteComment(int commentId);
     }
 }
