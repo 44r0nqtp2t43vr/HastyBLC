@@ -1,10 +1,8 @@
 ﻿using Data;
 using Data.Models;
-using Services.Manager;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using System.Security.Cryptography;
-using System.Text;
+using Microsoft.AspNetCore.Identity;
+using Services.Interfaces;
+using Services.Services;
 
 namespace HastyBLCAdmin
 {
@@ -15,8 +13,28 @@ namespace HastyBLCAdmin
             using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
             {
                 var context = serviceScope.ServiceProvider.GetService<HastyDBContext>();
-
+                var userManager = serviceScope.ServiceProvider.GetService<UserManager<IdentityUser>>();
+                var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
                 context?.Database.EnsureCreated();
+
+                // AspNetRoles
+                var role1 = new IdentityRole()
+                {
+                    Name = "Superadmin"
+                };
+
+                roleManager!.CreateAsync(role1).Wait();
+
+                // AspNetUsers
+                var aspuser1 = new IdentityUser()
+                {
+                    Email = "superadmin@gmail.com",
+                    UserName = "superadmin"
+                };
+                userManager!.CreateAsync(aspuser1, "Superadmin123!").Wait();
+
+                // AspNetUserRoles
+                userManager.AddToRoleAsync(aspuser1, "Superadmin").Wait();
 
                 // Authors
                 var author1 = new Author()

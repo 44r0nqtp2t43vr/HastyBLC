@@ -175,7 +175,8 @@ namespace HastyBLCAdmin.Controllers
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(Input!.Email!, Input.Password!, Input.RememberMe, lockoutOnFailure: false);
+                var user = _userService.FindUserByEmail(Input!.Email!);
+                var result = await _signInManager.PasswordSignInAsync(user.UserName!, Input.Password!, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
@@ -235,12 +236,12 @@ namespace HastyBLCAdmin.Controllers
             {
                 var identityUser = new IdentityUser();
                 identityUser.Email = model.Email;
-                identityUser.UserName = model.Email;
+                identityUser.UserName = model.Username;
                 var result = await _userManager.CreateAsync(identityUser, model.Password!);
 
                 if (result.Succeeded)
                 {
-                    _userService.AddUser(model);
+                    /*_userService.AddUser(model);*/
 
                     var userRole = _roleManager.FindByNameAsync("Admin").Result;
 
