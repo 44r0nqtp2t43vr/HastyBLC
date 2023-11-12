@@ -10,6 +10,7 @@
 <html>
 <body class="viewbook">
     <!-- The Modal -->
+    @await Html.PartialAsync("_Review", new Services.ServiceModels.ReviewViewModel())
     @await Html.PartialAsync("_Comment", new Services.ServiceModels.CommentViewModel())
 
     <div class="book-top-section">
@@ -61,10 +62,7 @@
         <!-- Book Reviews section -->
         <div class="book-reviews-section">
             <h3>Book Reviews</h3>
-            <form asp-controller="Books" asp-action="Review" method="get">
-                <input type="hidden" name="id" value="@Model.BookId" />
-                <button type="submit" class="btn btn-link">Review this Book</button>
-            </form>
+            <button class="btn btn-outline-danger addReviewBtn" data-book-id="@Model.BookId">Review this Book</button>
 
             <!-- Review 1 -->
             @foreach (var review in Model.Reviews!) 
@@ -76,7 +74,7 @@
                     <p>
                         @review.Description
                     </p>
-                    <button class="btn btn-outline-danger addCommentBtn" data-review-id="@review.ReviewId" data-book-id="@Model.BookId">
+                    <button class="btn btn-outline-danger addCommentBtn" data-review-id="@review.ReviewId">
                         <i class="fas fa-edit"></i>
                     </button>
                 </div>
