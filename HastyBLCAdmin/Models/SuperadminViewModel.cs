@@ -6,5 +6,6 @@ namespace HastyBLCAdmin.Models
     {
         public List<IdentityRole>? Roles { get; set; }
         public List<IdentityUser>? Users { get; set; }
+        public Dictionary<string, List<IdentityRole>>? UserRoles { get; set; }
     }
 }

@@ -117,16 +117,36 @@ namespace HastyBLCAdmin.Controllers
             this._userManager = userManager;
             this._logger = loggerFactory.CreateLogger<SuperadminController>();
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             var superadminViewModel = new SuperadminViewModel
             {
                 Roles = _roleManager.Roles.OrderBy(r => r.Name).ToList(),
                 Users = _userManager.Users.OrderBy(u => u.UserName).ToList(),
+                UserRoles = new Dictionary<string, List<IdentityRole>>()
             };
 
+            foreach (var user in superadminViewModel.Users)
+            {
+                var roles = await _userManager.GetRolesAsync(user);
+                var identityRoles = new List<IdentityRole>();
+
+                foreach (var roleName in roles)
+                {
+                    var role = await _roleManager.FindByNameAsync(roleName);
+                    if (role != null)
+                    {
+                        identityRoles.Add(role);
+                    }
+                }
+
+                superadminViewModel.UserRoles.Add(user.Id, identityRoles);
+            }
+
+            ViewBag.Roles = superadminViewModel.Roles;
             return View(superadminViewModel);
         }
+
 
         [HttpGet]
         public IActionResult CreateRole()
@@ -267,5 +287,30 @@ namespace HastyBLCAdmin.Controllers
             return RedirectToAction("Index", "Superadmin");
         }
 
-    }
+        [HttpPost]
+		public async Task<IActionResult> AddUserRole(AspNetUserRoleViewModel model)
+		{
+			// Retrieve the user by ID
+			var user = await _userManager.FindByIdAsync(model.UserId!);
+
+			if (user != null)
+			{
+				// Check if the role exists
+				var role = await _roleManager.FindByNameAsync(model.RoleName!);
+
+				if (role != null)
+				{
+					// Check if the user is not already in the role
+					if (!await _userManager.IsInRoleAsync(user, role.Name!))
+					{
+						// Add the user to the role
+						var _ = await _userManager.AddToRoleAsync(user, role.Name!);
+					}
+				}
+			}
+			return RedirectToAction("Index", "Superadmin");
+		}
+
+
+	}
 }

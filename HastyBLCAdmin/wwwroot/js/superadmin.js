@@ -22,4 +22,11 @@ jq(document).ready(function () {
 
         jq("#editUserModal").modal("show");
     });
+    jq(".addUserRoleBtn").click(function () {
+        var userId = $(this).data("user-id");
+
+        $("#addUserRoleUserId").val(userId);
+
+        jq("#addUserRoleModal").modal("show");
+    });
 });
