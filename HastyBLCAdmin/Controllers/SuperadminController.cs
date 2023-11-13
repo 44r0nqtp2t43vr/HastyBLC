@@ -161,6 +161,25 @@ namespace HastyBLCAdmin.Controllers
             return RedirectToAction("Index", "Superadmin");
         }
 
+        [HttpPost]
+        public async Task<IActionResult> EditRole(AspNetRoleViewModel model)
+        {
+            // Retrieve the role by ID
+            var role = await _roleManager.FindByIdAsync(model.RoleId!);
+
+            if (role != null)
+            {
+                // Set the new role name
+                role.Name = model.Name;
+                role.NormalizedName = model.Name!.ToUpper();
+
+                // Attempt to update the role
+                var _ = await _roleManager.UpdateAsync(role);
+                
+            }
+            return RedirectToAction("Index", "Superadmin");
+        }
+
         [HttpGet]
         public IActionResult Register()
         {

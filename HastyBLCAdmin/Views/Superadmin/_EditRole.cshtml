@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@model Services.ServiceModels.AspNetRoleViewModel
+<link rel="stylesheet" href="~/css/addgenre.css" />
+<div class="modal" id="editRoleModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Edit Role</h4>
+            </div>
+            <!-- Modal body -->
+            <form method="post" action="/Superadmin/EditRole">
+                <div class="form-outline mb-4">
+                    <input type="hidden" id="editRoleId" asp-for="RoleId"/>
+                    <input type="text" id="editRoleName" class="form-control"
+                           asp-for="Name" placeholder="Enter role name"/>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button class="btn-custom btn-close" data-dismiss="modal">Close</button>
+                    <button class="btn-custom btn-add-genre" type="submit">Edit Role</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="~/js/superadmin.js"></script>
