@@ -1,32 +1,21 @@
-﻿using Data.Models;
+﻿using AutoMapper;
 using Data.ViewModels;
+using HastyBLCAdmin.Authentication;
+using HastyBLCAdmin.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Services.Interfaces;
 using Services.Manager;
 using Services.ServiceModels;
-using HastyBLCAdmin.Authentication;
-using HastyBLCAdmin.Models;
-using HastyBLCAdmin.Mvc;
-using AutoMapper;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
+using Services.Services;
 using System.ComponentModel.DataAnnotations;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using static Resources.Constants.Enums;
-
 
 namespace HastyBLCAdmin.Controllers
 {
-    public class AccountController : Controller
+    [Authorize(Roles = "Superadmin")]
+    public class SuperadminController : Controller
     {
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -105,7 +94,7 @@ namespace HastyBLCAdmin.Controllers
         /// <param name="mapper">The mapper.</param>
         /// <param name="tokenValidationParametersFactory">The token validation parameters factory.</param>
         /// <param name="tokenProviderOptionsFactory">The token provider options factory.</param>
-        public AccountController(
+        public SuperadminController(
                             //SignInManager signInManager,
                             SignInManager<IdentityUser> signInManager,
                             IHttpContextAccessor httpContextAccessor,
@@ -126,120 +115,94 @@ namespace HastyBLCAdmin.Controllers
             this._userService = userService;
             this._roleManager = roleManager;
             this._userManager = userManager;
-            this._logger = loggerFactory.CreateLogger<AccountController>();
+            this._logger = loggerFactory.CreateLogger<SuperadminController>();
+        }
+        public IActionResult Index()
+        {
+            var superadminViewModel = new SuperadminViewModel
+            {
+                Roles = _roleManager.Roles.OrderBy(r => r.Name).ToList()
+            };
+
+            return View(superadminViewModel);
         }
 
-        /// <summary>
-        /// Login Method
-        /// </summary>
-        /// <returns>Created response view</returns>
         [HttpGet]
-        [AllowAnonymous]
-        public async Task<ActionResult> Login(string returnUrl = null!)
+        public IActionResult CreateRole()
         {
-            if (!string.IsNullOrEmpty(ErrorMessage))
-            {
-                ModelState.AddModelError(string.Empty, ErrorMessage);
-            }
-
-            returnUrl ??= Url.Content("~/");
-
-            // Clear the existing external cookie to ensure a clean login process
-            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
-
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-
-            ReturnUrl = returnUrl;
-
-            /*TempData["returnUrl"] = System.Net.WebUtility.UrlDecode(HttpContext.Request.Query["ReturnUrl"]);
-            this._sessionManager.Clear();
-            this._session.SetString("SessionId", System.Guid.NewGuid().ToString());*/
             return View();
         }
 
-        /// <summary>
-        /// Authenticate user and signs the user in when successful.
-        /// </summary>
-        /// <param name="model">The model.</param>
-        /// <param name="returnUrl">The return URL.</param>
-        /// <returns> Created response view </returns>
         [HttpPost]
-        [AllowAnonymous]
-        public async Task<IActionResult> Login(LoginViewModel model, string? returnUrl)
+        public async Task<IActionResult> CreateRole(CreateRoleViewModel createRoleViewModel)
         {
-            returnUrl ??= Url.Content("~/");
 
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            IdentityResult result = await _userService.CreateRole(createRoleViewModel.RoleName!);
 
-            if (ModelState.IsValid)
+            if (result.Succeeded)
             {
-                // This doesn't count login failures towards account lockout
-                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var user = _userService.FindUserByEmail(Input!.Email!);
-                var result = await _signInManager.PasswordSignInAsync(user.UserName!, Input.Password!, Input.RememberMe, lockoutOnFailure: false);
-                if (result.Succeeded)
-                {
-                    _logger.LogInformation("User logged in.");
-                    // Check user's role and redirect accordingly
-                    var roles = await _userManager.GetRolesAsync(user);
-                    if (roles.Contains("Superadmin"))
-                    {
-                        return RedirectToAction("Index", "Superadmin");
-                    }
-                    else if (roles.Contains("Admin"))
-                    {
-                        return RedirectToAction("Dashboard", "Dashboard");
-                    }
-                    return RedirectToAction("Dashboard", "Dashboard");
-                }
-                if (result.RequiresTwoFactor)
-                {
-                    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
-                }
-                if (result.IsLockedOut)
-                {
-                    _logger.LogWarning("User account locked out.");
-                    return RedirectToPage("./Lockout");
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return RedirectToPage(returnUrl);
-                }
+                return RedirectToAction("Index", "Superadmin");
             }
-            _logger.LogError("Model is invalid");
-            // If we got this far, something failed, redisplay form
-            return RedirectToPage(returnUrl);
 
-            /*this._session.SetString("HasSession", "Exist");
-
-            User user = null;
-            var loginResult = _userService.AuthenticateUser(model.UserId, model.Password, ref user);
-            if (loginResult == LoginResult.Success)
-            {
-                // 認証OK
-               // await this._signInManager.SignInAsync(user);
-                this._session.SetString("UserName", user.Name);
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                // 認証NG
-                TempData["ErrorMessage"] = "Incorrect UserId or Password";
-                return View();
-            }
-            return View();*/
+            return View();
         }
 
-        /// <summary>
-        /// Sign Out current account and return login view.
-        /// </summary>
-        /// <returns>Created response view</returns>
-        [AllowAnonymous]
-        public async Task<IActionResult> SignOutUser()
+        [HttpPost]
+        public async Task<IActionResult> DeleteRole(string roleId)
         {
-            await this._signInManager.SignOutAsync();
-            return RedirectToAction("Login", "Account");
+            // Retrieve the role by ID
+            var role = await _roleManager.FindByIdAsync(roleId);
+
+            if (role != null)
+            {
+                // Attempt to delete the role
+                var _ = await _roleManager.DeleteAsync(role);
+            }
+            return RedirectToAction("Index", "Superadmin");
+        }
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(UserViewModel model)
+        {
+            try
+            {
+                var identityUser = new IdentityUser();
+                identityUser.Email = model.Email;
+                identityUser.UserName = model.Username;
+                var result = await _userManager.CreateAsync(identityUser, model.Password!);
+
+                /*if (result.Succeeded)
+                {
+                    var userRole = _roleManager.FindByNameAsync("Admin").Result;
+
+                    if (userRole != null)
+                    {
+                        await _userManager.AddToRoleAsync(identityUser, userRole.Name!);
+                    }
+                }*/
+                foreach (var error in result.Errors)
+                {
+                    Console.WriteLine($"Error: {error.Description}");
+                }
+
+
+                return RedirectToAction("Index", "Superadmin");
+            }
+            catch (InvalidDataException ex)
+            {
+                TempData["ErrorMessage"] = ex.Message;
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError + ex;
+            }
+            return View();
         }
     }
 }
