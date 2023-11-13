@@ -18,6 +18,7 @@ using Services.Services;
 
 namespace HastyBLCAdmin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     /// <summary>
     /// Home Controller
     /// </summary>
@@ -61,7 +62,6 @@ namespace HastyBLCAdmin.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         public IActionResult AddBook(Services.ServiceModels.BookViewModel model)
         {
             try
@@ -110,7 +110,6 @@ namespace HastyBLCAdmin.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         public IActionResult DeleteBook(int bookId) 
         {
             try
@@ -129,7 +128,6 @@ namespace HastyBLCAdmin.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public IActionResult EditBook(int bookId)
         {
             var existingBook = _context.Books.Include(book=> book.Author).Include(book => book.BookGenres)!
@@ -165,7 +163,6 @@ namespace HastyBLCAdmin.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         public IActionResult EditBook(Services.ServiceModels.BookViewModel model)
         {
             try
@@ -270,7 +267,6 @@ namespace HastyBLCAdmin.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public IActionResult Books(int page = 1)
         {
             const int pageSize = 10;
@@ -299,7 +295,6 @@ namespace HastyBLCAdmin.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         public IActionResult EditReview(Services.ServiceModels.ReviewViewModel model)
         {
             try
@@ -331,7 +326,6 @@ namespace HastyBLCAdmin.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         public IActionResult EditComment(Services.ServiceModels.CommentViewModel model)
         {
             try
@@ -363,7 +357,6 @@ namespace HastyBLCAdmin.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         public IActionResult DeleteReview(int reviewId)
         {
             try
@@ -395,7 +388,6 @@ namespace HastyBLCAdmin.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         public IActionResult DeleteComment(int commentId)
         {
             try

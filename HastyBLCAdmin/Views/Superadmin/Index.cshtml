@@ -48,6 +48,23 @@
                 <li>
                     <span>@user.UserName</span>
                     <span>@user.Email</span>
+                    <div>
+                        <strong>User Roles:</strong>
+                        <ul>
+                            @foreach (var userRole in Model.UserRoles![user.Id])
+                            {
+                                <li>
+                                    <span>@userRole.Name</span>
+                                    <form method="post" action="/Superadmin/DeleteUserRole" class="d-inline-block">
+                                        <input type="hidden" name="userId" value="@user.Id" />
+                                        <input type="hidden" name="roleName" value="@userRole.Name" />
+                                        <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete this role for this user?');">Delete</button>
+                                    </form>
+                                </li>
+
+                            }
+                        </ul>
+                    </div>
                     <button class="btn btn-outline-danger editUserBtn" data-user-id="@user.Id" data-user-email="@user.Email" data-user-name="@user.UserName">
                         <i class="fas fa-edit"></i>
                     </button>
