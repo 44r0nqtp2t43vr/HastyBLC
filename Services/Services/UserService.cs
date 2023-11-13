@@ -67,6 +67,11 @@ namespace Services.Services
             return _repository.FindUser(userName);
         }
 
+        public IdentityUser FindUserByEmail(string email)
+        {
+            return _repository.FindUserByEmail(email);
+        }
+
         public async Task<IdentityResult> CreateRole(string roleName)
         {
             return await _repository.CreateRole(roleName);

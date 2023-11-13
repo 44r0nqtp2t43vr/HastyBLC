@@ -45,6 +45,12 @@ namespace Data.Repositories
             return userDB!;
         }
 
+        public IdentityUser FindUserByEmail(string email)
+        {
+            var userDB = GetDbSet<IdentityUser>().Where(x => x.Email.Equals(email)).AsNoTracking().FirstOrDefault();
+            return userDB!;
+        }
+
         public async Task<IdentityUser> FindUserAsync(string userName, string password)
         {
             var userDB = GetDbSet<IdentityUser>().Where(x => x.UserName.ToLower().Equals(userName.ToLower())).AsNoTracking().FirstOrDefault();

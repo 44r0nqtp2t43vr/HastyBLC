@@ -10,6 +10,7 @@ namespace Services.Interfaces
         LoginResult AuthenticateUser(string userid, string password, ref User user);
         void AddUser(UserViewModel model);
         IdentityUser FindUser(string userName);
+        IdentityUser FindUserByEmail(string email);
         Task<IdentityUser> FindUserAsync(string userName, string password);
         Task<IdentityResult> CreateRole(string roleName);
     }

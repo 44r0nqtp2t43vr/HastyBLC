@@ -9,6 +9,7 @@ namespace Services.ServiceModels
 {
     public class UserViewModel
     {
+        public string? Id { get; set; }
         [Required(ErrorMessage = "Email is required.")]
         public string? Email { get; set; }
 
