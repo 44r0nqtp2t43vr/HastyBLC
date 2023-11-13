@@ -253,5 +253,19 @@ namespace HastyBLCAdmin.Controllers
             return RedirectToAction("Index", "Superadmin");
         }
 
+        [HttpPost]
+        public async Task<IActionResult> DeleteUser(string userId)
+        {
+            // Retrieve the user by ID
+            var user = await _userManager.FindByIdAsync(userId);
+
+            if (user != null)
+            {
+                // Attempt to delete the role
+                var _ = await _userManager.DeleteAsync(user);
+            }
+            return RedirectToAction("Index", "Superadmin");
+        }
+
     }
 }
