@@ -12,6 +12,7 @@
 <html>
     <body>
     @await Html.PartialAsync("_EditRole", new Services.ServiceModels.AspNetRoleViewModel())
+    @await Html.PartialAsync("_EditUser", new Services.ServiceModels.UserViewModel())
 
     <h1>Index</h1>
     
@@ -38,6 +39,27 @@
 
     <h1>Users</h1>
     <a asp-controller="Superadmin" asp-action="Register">Create User</a>
+    <ul>
+        @foreach (var user in @Model.Users!)
+        {
+            @if (user.UserName != "superadmin")
+            {
+                <li>
+                    <span>@user.UserName</span>
+                    <span>@user.Email</span>
+                    <button class="btn btn-outline-danger editUserBtn" data-user-id="@user.Id" data-user-email="@user.Email" data-user-name="@user.UserName">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    @* <form method="post" action="/Superadmin/DeleteRole" class="d-inline-block">
+                    <input type="hidden" name="roleId" value="@role.Id" />
+                    <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete this role?');">Delete</button>
+                    </form> *@
+                </li>
+            }
+            
+        }
+    </ul>
+
     <form method="post" asp-controller="Account" asp-action="SignOutUser" id="logoutForm">
         <button type="submit" class="btn btn-outline-danger"><i class="fas fa-sign-out-alt"></i>Logout</button>
     </form>

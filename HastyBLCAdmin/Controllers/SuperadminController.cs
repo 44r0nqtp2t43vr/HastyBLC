@@ -121,7 +121,8 @@ namespace HastyBLCAdmin.Controllers
         {
             var superadminViewModel = new SuperadminViewModel
             {
-                Roles = _roleManager.Roles.OrderBy(r => r.Name).ToList()
+                Roles = _roleManager.Roles.OrderBy(r => r.Name).ToList(),
+                Users = _userManager.Users.OrderBy(u => u.UserName).ToList(),
             };
 
             return View(superadminViewModel);
@@ -223,5 +224,34 @@ namespace HastyBLCAdmin.Controllers
             }
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> EditUser(UserViewModel model)
+        {
+            // Retrieve the user by ID
+            var user = await _userManager.FindByIdAsync(model.Id!);
+
+            if (user != null)
+            {
+                // Update user properties
+                user.Email = model.Email;
+                user.UserName = model.Username;
+
+                // Attempt to update the user
+                var result = await _userManager.UpdateAsync(user);
+
+                if (result.Succeeded)
+                {
+                    // If a new password is provided, update the password
+                    if (!string.IsNullOrEmpty(model.Password) && model.Password != "noedit")
+                    {
+                        var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+                        var _ = await _userManager.ResetPasswordAsync(user, token, model.Password);
+                    }
+                }
+            }
+            return RedirectToAction("Index", "Superadmin");
+        }
+
     }
 }

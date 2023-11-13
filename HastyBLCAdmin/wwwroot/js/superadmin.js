@@ -9,4 +9,17 @@ jq(document).ready(function () {
 
         jq("#editRoleModal").modal("show");
     });
+    jq(".editUserBtn").click(function () {
+        var userId = $(this).data("user-id");
+        var userName = $(this).data("user-name");
+        var userEmail = $(this).data("user-email");
+
+        $("#editUserId").val(userId);
+        $("#editUserName").val(userName);
+        $("#editUserEmail").val(userEmail);
+        $("#editUserPassword").val("noedit");
+        $("#editUserConfirmPassword").val("noedit");
+
+        jq("#editUserModal").modal("show");
+    });
 });
