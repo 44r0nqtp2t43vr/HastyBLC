@@ -16,5 +16,6 @@ namespace Services.Interfaces
         void EditBook(BookViewModel model, string imagePath);
         void AddReview(ReviewViewModel model);
         void AddComment(CommentViewModel model);
+        IEnumerable<Book> SearchBooks(string searchCriteria);
     }
 }

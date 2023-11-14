@@ -256,5 +256,10 @@ namespace Services.Services
             comment.UpdatedBy = System.Environment.UserName;
             _repository.AddComment(comment);
         }
+
+        public IEnumerable<Book> SearchBooks(string searchCriteria)
+        {
+            return _repository.SearchBooks(searchCriteria).ToList();
+        }
     }
 }
