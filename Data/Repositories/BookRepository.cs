@@ -97,6 +97,17 @@ namespace Data.Repositories
             UnitOfWork.SaveChanges();
         }
 
+        public IQueryable<Book> SearchBooks (string searchCriteria)
+        {
+            var query = this.GetDbSet<Book>().AsQueryable();
+
+            if(!string.IsNullOrEmpty(searchCriteria))
+            {
+                query = query.Where(book => book.Title.Contains(searchCriteria) || book.Author.Name.Contains(searchCriteria));
+            }
+            return query;
+        }
+
         public void EditReview(Review updatedReview)
         {
             try

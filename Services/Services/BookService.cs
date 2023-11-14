@@ -257,6 +257,12 @@ namespace Services.Services
             _repository.AddComment(comment);
         }
 
+
+        public IEnumerable<Book> SearchBooks(string searchCriteria)
+        {
+            return _repository.SearchBooks(searchCriteria).ToList();
+        }
+            
         public void EditReview(ReviewViewModel model)
         {
             var existingReview = _repository.GetReviewById(model.ReviewId);

@@ -19,6 +19,7 @@ namespace Data.Interfaces
         Book? GetBookById(int bookId);
         void AddReview(Review review);
         void AddComment(Comment comment);
+        IQueryable<Book> SearchBooks(string searchCriteria);
         void EditReview(Review updatedReview);
         void EditComment(Comment updatedComment);
         void DeleteReview(int reviewId);
