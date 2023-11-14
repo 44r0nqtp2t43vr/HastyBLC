@@ -19,7 +19,7 @@ namespace Services.ServiceModels
         [Required(ErrorMessage = "Description is required.")]
         public string? Description { get; set; }
         /*[Required(ErrorMessage = "Image is required.")]*/
-        public IFormFile? Image { get; set; }
+        public IFormFile? ImageFile { get; set; }
         [Required(ErrorMessage = "Publish Date is required.")]
         public string? PublishDateStr { get; set; }
         [Required(ErrorMessage = "Publisher is required.")]
@@ -34,5 +34,7 @@ namespace Services.ServiceModels
         public string? PagesStr { get; set; }
         [Required(ErrorMessage = "Genre/s are required.")]
         public string? GenreNames { get; set; }
+        public string? ImagePath { get; set; }
+        
     }
 }

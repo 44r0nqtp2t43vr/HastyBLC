@@ -65,10 +65,10 @@ namespace HastyBLCAdmin.Controllers
         {
             try
             {
-                if (model.Image != null && model.Image.Length > 0)
+                if (model.ImageFile != null && model.ImageFile.Length > 0)
                 {
                     string uploadsDirectory = "uploads/images"; // Specify the directory to save the images
-                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + model.Image.FileName;
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + model.ImageFile.FileName;
                     string filePath = Path.Combine(uploadsDirectory, uniqueFileName).Replace('\\', '/'); // Replacing backslashes with forward slashes
 
                     string fullPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", filePath);
@@ -82,7 +82,7 @@ namespace HastyBLCAdmin.Controllers
                     // Save the file to the specified path
                     using (var fileStream = new FileStream(fullPath, FileMode.Create))
                     {
-                        model.Image.CopyTo(fileStream);
+                        model.ImageFile.CopyTo(fileStream);
                     }
 
                     // Set the imagePath variable to be used in your service or repository method
@@ -158,6 +158,9 @@ namespace HastyBLCAdmin.Controllers
                     PublishDateStr = existingBook.PublishDate.ToString("yyyy-MM-dd"),
                     PagesStr = existingBook.Pages.ToString(),
                     Isbn = existingBook.Isbn,
+                    ImagePath = "~/uploads/images/2.jpg"
+
+
                 };
                 return View(model);
             }
@@ -169,44 +172,48 @@ namespace HastyBLCAdmin.Controllers
         {
             try
             {
-                string? filePath;
-                if (model.Image != null && model.Image.Length > 0)
+                // Check if a new image file is uploaded
+                if (model.ImageFile != null && model.ImageFile.Length > 0)
                 {
                     string uploadsDirectory = "uploads/images"; // Specify the directory to save the images
-                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + model.Image.FileName;
-                    filePath = Path.Combine(uploadsDirectory, uniqueFileName).Replace('\\', '/'); // Replacing backslashes with forward slashes
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + model.ImageFile.FileName;
+                    string filePath = Path.Combine(uploadsDirectory, uniqueFileName).Replace('\\', '/'); // Replacing backslashes with forward slashes
 
                     string fullPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", filePath);
 
                     // Check if the directory exists, if not, create it
                     if (!Directory.Exists(Path.GetDirectoryName(fullPath)))
                     {
-                        Directory.CreateDirectory(Path.GetDirectoryName(fullPath)!);
+                        Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
                     }
 
                     // Save the file to the specified path
                     using (var fileStream = new FileStream(fullPath, FileMode.Create))
                     {
-                        model.Image.CopyTo(fileStream);
+                        model.ImageFile.CopyTo(fileStream);
                     }
 
-                    // Set the imagePath variable to be used in your service or repository method
-                    _bookService.EditBook(model, filePath);
-                    return RedirectToAction("Books", "Books");
+                    model.ImagePath = filePath; // Set the new image path
                 }
-                else
-                {
-                    _bookService.EditBook(model, "");
-                    return RedirectToAction("Books", "Books");
-                }
-                
+                // Otherwise, the existing image path will be used (model.ImagePath should already be set)
+
+                // Call the service method to update the book
+                // (Ensure that your service method correctly handles both cases: updating the image path and not updating it)
+                _bookService.EditBook(model, model.ImagePath);
+
+                // Redirect to the list of books after successful edit
+                return RedirectToAction("Books", "Books");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
+                // Log the exception and show an error message
+                _logger.LogError(ex, "Error editing book with ID {BookId}", model.BookId);
+                TempData["ErrorMessage"] = "An error occurred while editing the book.";
                 return View(model);
             }
         }
+
+
         public IActionResult ViewBook(int id)
         {
             var book = _context.Books
@@ -238,6 +245,7 @@ namespace HastyBLCAdmin.Controllers
                 Pages = book.Pages,
                 AuthorName = book.Author!.Name,
                 Genres = book.BookGenres!.Select(bookGenre => bookGenre.Genre!.Name).ToList()!,
+
             };
 
             return View(bookViewModel);

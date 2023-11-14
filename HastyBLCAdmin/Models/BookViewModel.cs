@@ -1,6 +1,7 @@
 ﻿using Data.Models;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Http;
 
 namespace HastyBLCAdmin.Models
 {
@@ -25,10 +26,12 @@ namespace HastyBLCAdmin.Models
         public DateTime UpdatedTime { get; set; }
         public string? AuthorName { get; set; }
         public List<string>? Genres { get; set; }
+        public IFormFile? ImageFile { get; set; }
+       
 
 
 
     }
-    
+
 
 }
