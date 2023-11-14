@@ -1,4 +1,6 @@
 ﻿@model Services.ServiceModels.BookViewModel
+@using Microsoft.AspNetCore.Http
+
 
 @{
     ViewData["Title"] = "Edit Book";
@@ -18,7 +20,10 @@
         <div class="book-image-container-view">
             <div class="photo-container-2">
                 <div class="photo-container">
-                    <img id="photo" src="~/@Html.Raw(Model.Image)" alt="@Model.Title" />
+                    <img id="photo" src="@Url.Content(Model.ImagePath)" alt="@Model.Title" />
+
+
+
                 </div>
 
             </div>
@@ -26,9 +31,10 @@
                 <label for="image" class="file-icon">
                     <i class="fas fa-upload"></i>
                 </label>
-                <input type="file" id="image" name="image" asp-for="Image" onchange="displayPhoto()" />
+                <input type="file" id="image" name="imageFile" asp-for="ImageFile" onchange="displayPhoto()" />
 
-                <span asp-validation-for="Image" class="text-danger"></span>
+
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
             </div>
         </div>
         <div class="title-author-container">
