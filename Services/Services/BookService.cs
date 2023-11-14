@@ -256,5 +256,64 @@ namespace Services.Services
             comment.UpdatedBy = System.Environment.UserName;
             _repository.AddComment(comment);
         }
+
+
+        public IEnumerable<Book> SearchBooks(string searchCriteria)
+        {
+            return _repository.SearchBooks(searchCriteria).ToList();
+        }
+            
+        public void EditReview(ReviewViewModel model)
+        {
+            var existingReview = _repository.GetReviewById(model.ReviewId);
+
+            if (existingReview == null)
+            {
+                throw new InvalidDataException("Review not found.");
+            }
+            else
+            {
+                existingReview.Name = model.Name;
+                existingReview.UserEmail = model.UserEmail;
+                existingReview.Rating = model.Rating;
+                existingReview.Description = model.Description;
+                existingReview.UpdatedTime = DateTime.Now;
+                existingReview.UpdatedBy = System.Environment.UserName;
+
+                _repository.EditReview(existingReview);
+
+            }
+        }
+
+        public void EditComment(CommentViewModel model)
+        {
+            var existingComment = _repository.GetCommentById(model.CommentId);
+
+            if (existingComment == null)
+            {
+                throw new InvalidDataException("Comment not found.");
+            }
+            else
+            {
+                existingComment.Name = model.Name;
+                existingComment.UserEmail = model.UserEmail;
+                existingComment.Description = model.Description;
+                existingComment.UpdatedTime = DateTime.Now;
+                existingComment.UpdatedBy = System.Environment.UserName;
+
+                _repository.EditComment(existingComment);
+
+            }
+        }
+
+        public void DeleteReview(int reviewId)
+        {
+            _repository.DeleteReview(reviewId);
+        }
+
+        public void DeleteComment(int commentId)
+        {
+            _repository.DeleteComment(commentId);
+        }
     }
 }

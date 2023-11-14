@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Books\_DeleteReview.cshtml" />
     <Content Remove="wwwroot\%2a%2a" />
   </ItemGroup>
 
@@ -63,7 +64,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <UpToDateCheckInput Remove="Views\Books\_DeleteReview.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Books\_DeleteReview.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Books\_DeleteReview.cshtml" />
   </ItemGroup>
 
 </Project>

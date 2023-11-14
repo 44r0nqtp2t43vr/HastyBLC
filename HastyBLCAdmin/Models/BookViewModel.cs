@@ -27,10 +27,7 @@ namespace HastyBLCAdmin.Models
         public string? AuthorName { get; set; }
         public List<string>? Genres { get; set; }
         public IFormFile? ImageFile { get; set; }
-       
-
-
-
+        public List<ReviewViewModel>? Reviews { get; set; }
     }
 
 

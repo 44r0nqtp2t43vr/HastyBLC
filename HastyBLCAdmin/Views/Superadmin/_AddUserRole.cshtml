@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@model Services.ServiceModels.AspNetUserRoleViewModel
+<link rel="stylesheet" href="~/css/addgenre.css" />
+<div class="modal" id="addUserRoleModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Add Role to User</h4>
+            </div>
+            <!-- Modal body -->
+            <form method="post" action="/Superadmin/AddUserRole">
+                <div class="form-outline mb-4">
+                    <input type="hidden" id="addUserRoleUserId" asp-for="UserId"/>
+                    <input type="text" id="addUserRoleName" class="form-control"
+                           asp-for="RoleName" placeholder="Enter role name"/>
+                    <span asp-validation-for="RoleName" class="text-danger"></span>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button class="btn-custom btn-close" data-dismiss="modal">Close</button>
+                    <button class="btn-custom btn-add-genre" type="submit">Add Role</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="~/js/superadmin.js"></script>

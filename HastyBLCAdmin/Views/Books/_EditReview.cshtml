@@ -1,0 +1,54 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@model Services.ServiceModels.ReviewViewModel
+<link rel="stylesheet" href="~/css/addgenre.css" />
+<div class="modal" id="editReviewModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Edit Review</h4>
+            </div>
+            <!-- Modal body -->
+            <form method="post" action="/Books/EditReview">
+                <input type="hidden" id="editReviewId" asp-for="ReviewId" />
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="name">Name</label>
+                    <input type="text" id="editReviewName" class="form-control"
+                           asp-for="Name" placeholder="Enter name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="userEmail">Email</label>
+                    <input type="text" id="editReviewUserEmail" class="form-control"
+                           asp-for="UserEmail" placeholder="Enter email" />
+                    <span asp-validation-for="UserEmail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Stars:</label><br />
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        <input type="radio" id="editReviewRating@i" name="Rating" value="@i" required />
+                        <label for="editReviewRating@i"><span class="rating"></span></label>
+                    }
+                </div>
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="description">Review</label>
+                    <input type="text" id="editReviewDescription" class="form-control"
+                           asp-for="Description" placeholder="Enter review" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button class="btn-custom btn-close" data-dismiss="modal">Close</button>
+                    <button class="btn-custom btn-add-genre" type="submit">Edit Review</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="~/js/viewbook.js"></script>

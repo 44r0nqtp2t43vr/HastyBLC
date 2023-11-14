@@ -24,7 +24,7 @@
                 @foreach (var bookGenre in Model.BookGenres)
                 {
                     <div class="book-item">
-                        <a asp-action="ViewBook" asp-route-id="@bookGenre.Book!.BookId">
+                        <a asp-controller="Books" asp-action="ViewBook" asp-route-id="@bookGenre.Book!.BookId">
                             <img src="~/@Html.Raw(bookGenre.Book!.Image)" alt="@bookGenre.Book!.Title" class="book-cover-img" />
                         </a>
                         

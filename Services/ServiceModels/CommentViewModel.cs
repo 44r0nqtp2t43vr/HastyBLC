@@ -9,8 +9,8 @@ namespace Services.ServiceModels
 {
     public class CommentViewModel
     {
-        public int BookId { get; set; }
         public int ReviewId { get; set; }
+        public int CommentId { get; set; }
 
         [Required(ErrorMessage = "Name is required.")]
         public string? Name { get; set; }
