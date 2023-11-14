@@ -1,27 +1,27 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
-@model Services.ServiceModels.GenreViewModel
+@model Services.ServiceModels.AspNetUserRoleViewModel
 <link rel="stylesheet" href="~/css/addgenre.css" />
-<div class="modal" id="editGenreModal">
+<div class="modal" id="addUserRoleModal">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Edit Genre</h4>
+                <h4 class="modal-title">Add Role to User</h4>
             </div>
             <!-- Modal body -->
-            <form method="post" action="/Genres/EditGenre">
+            <form method="post" action="/Superadmin/AddUserRole">
                 <div class="form-outline mb-4">
-                    <input type="hidden" id="editGenreId" asp-for="GenreId"/>
-                    <input type="text" id="editGenreName" class="form-control"
-                           asp-for="Name" placeholder="Enter genre name"/>
-                    <span asp-validation-for="Name" class="text-danger"></span>
+                    <input type="hidden" id="addUserRoleUserId" asp-for="UserId"/>
+                    <input type="text" id="addUserRoleName" class="form-control"
+                           asp-for="RoleName" placeholder="Enter role name"/>
+                    <span asp-validation-for="RoleName" class="text-danger"></span>
                 </div>
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <button class="btn-custom btn-close" data-dismiss="modal">Close</button>
-                    <button class="btn-custom btn-add-genre" type="submit">Edit Genre</button>
+                    <button class="btn-custom btn-add-genre" type="submit">Add Role</button>
                 </div>
             </form>
         </div>
@@ -30,4 +30,4 @@
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="~/js/genre.js"></script>
+<script src="~/js/superadmin.js"></script>

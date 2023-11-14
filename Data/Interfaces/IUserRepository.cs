@@ -14,6 +14,7 @@ namespace Data.Interfaces
         bool UserExists(string userId);
         void AddUser(User user);
         IdentityUser FindUser(string userName);
+        IdentityUser FindUserByEmail(string email);
         Task<IdentityUser> FindUserAsync(string userName, string password);
         Task<IdentityResult> CreateRole(string roleName);
     }

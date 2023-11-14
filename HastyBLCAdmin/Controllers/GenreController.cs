@@ -14,6 +14,7 @@ using Services.Interfaces;
 
 namespace HastyBLCAdmin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     /// <summary>
     /// Home Controller
     /// </summary>
@@ -59,7 +60,6 @@ namespace HastyBLCAdmin.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public IActionResult ViewGenre(int genreId)
         {
             var genre = _genreService.GetGenre(genreId);
@@ -67,7 +67,6 @@ namespace HastyBLCAdmin.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         public IActionResult AddGenre(GenreViewModel model)
         {
             try
@@ -87,7 +86,6 @@ namespace HastyBLCAdmin.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         public IActionResult EditGenre(GenreViewModel model)
         {
             try
@@ -107,7 +105,6 @@ namespace HastyBLCAdmin.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         public IActionResult DeleteGenre(int genreId)
         {
             try
@@ -125,5 +122,6 @@ namespace HastyBLCAdmin.Controllers
             }
             return RedirectToAction("Genres", "Genres");
         }
+
     }
 }

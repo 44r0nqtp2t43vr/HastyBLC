@@ -7,6 +7,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="%2a%2a\**" />
+    <Content Remove="%2a%2a\**" />
+    <EmbeddedResource Remove="%2a%2a\**" />
+    <EntityDeploy Remove="%2a%2a\**" />
+    <None Remove="%2a%2a\**" />
+    <TypeScriptCompile Remove="%2a%2a\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Books\_DeleteReview.cshtml" />
+    <Content Remove="wwwroot\%2a%2a" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EntityDeploy Remove="%2a%2a/%2a.edmx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Remove="%2a%2a\%2a.ts" />
+    <TypeScriptCompile Remove="%2a%2a\%2a.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="LinqKit" Version="1.2.4" />
@@ -41,7 +64,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\uploads\images\" />
+    <UpToDateCheckInput Remove="Views\Books\_DeleteReview.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Books\_DeleteReview.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Books\_DeleteReview.cshtml" />
   </ItemGroup>
 
 </Project>

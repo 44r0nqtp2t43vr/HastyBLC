@@ -3,103 +3,114 @@
     ViewData["Title"] = "Add Book Page";
 }
 @section styles {
-    <link rel="stylesheet" href="~/css/login.css" />
-}
-<div class="container py-5 h-100 register-box">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-xl-10">
-            <div class="card rounded-3 text-black">
-                <div class="row g-0">
-                    <div class="card-body p-md-5 mx-md-4">
+    <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
+    <link rel="stylesheet" href="~/css/addbook.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-                        <div class="text-center">
-                            <img src="https://www.alliance.com.ph/images/asi-logo-invert.svg"
-                                 style="width: 185px;" alt="logo">
-                        </div>
+}
+<html>
+<body>
+
+                        <div class="add-container">
 
                         <form method="post" action="/Books/AddBook" enctype="multipart/form-data">
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="title">Title</label>
+            <div class="top-section">
+                <a asp-controller="Books" asp-action="Books">
+                    &#8592 Back
+                </a>
+            </div>
+                            <div class="right-side">
+                            <div class="title-input">
                                 <input type="text" id="title" class="form-control"
                                        asp-for="Title" placeholder="Enter title" />
                                 <span asp-validation-for="Title" class="text-danger"></span>
                             </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="authorName">Author</label>
+                            <div class="author-input">
+                               
                                 <input type="text" id="authorName" class="form-control"
                                        asp-for="AuthorName" placeholder="Enter author" />
                                 <span asp-validation-for="AuthorName" class="text-danger"></span>
                             </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="genreName">Genre</label>
-                                <input type="text" id="genreName" class="form-control"
-                                       asp-for="GenreNames" placeholder="Enter genre" />
-                                <span asp-validation-for="GenreNames" class="text-danger"></span>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="description">Description</label>
-                                <input type="text" id="description" class="form-control"
-                                       asp-for="Description" placeholder="Enter description" />
+                            <div class="description-input">
+                                <textarea id="description" class="description" asp-for="Description" placeholder="Enter description"></textarea>
                                 <span asp-validation-for="Description" class="text-danger"></span>
                             </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="image">Upload Image:</label>
-                                <input type="file" id="image" name="image" asp-for="Image" />
-                                <button type="button" class="btn btn-primary btn-block login-btn gradient-custom-2 mb-3" onclick="clearImageInput()">Clear Image</button>
-                                <span asp-validation-for="Image" class="text-danger"></span>
+
+                <hr>
+                            <div class="genre-input">
+                                
+                                <input type="text" id="genreName" class="form-control"
+                                     asp-for="GenreNames" placeholder="Enter genre/s" />
+                                <span asp-validation-for="GenreNames" class="text-danger"></span>
                             </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="publishDateStr">Publish Date</label>
+                
+                            <div class="book-details">
+                    <hr>
+                                <h2 class="centered-text">Book Details</h2>
+                    <hr>
+                            <div class="left">
+                            <div class="publish-input">
+                               
                                 <input type="text" id="publishDateStr" class="form-control"
                                        asp-for="PublishDateStr" placeholder="Enter Publish Date" />
                                 <span asp-validation-for="PublishDateStr" class="text-danger"></span>
                             </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="publisher">Publisher</label>
+                            <div class="publisher-input">
+                               
                                 <input type="text" id="publisher" class="form-control"
                                        asp-for="Publisher" placeholder="Enter Publisher" />
                                 <span asp-validation-for="Publisher" class="text-danger"></span>
                             </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="isbn">ISBN</label>
-                                <input type="text" id="isbn" class="form-control"
-                                       asp-for="Isbn" placeholder="Enter ISBN" />
-                                <span asp-validation-for="Isbn" class="text-danger"></span>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="language">Language</label>
+                            <div class="language-input">
+                                
                                 <input type="text" id="language" class="form-control"
                                        asp-for="Language" placeholder="Enter Language" />
                                 <span asp-validation-for="Language" class="text-danger"></span>
                             </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="format">Format</label>
+                            </div>
+                            <div class="right">
+                            <div class="format-input">
+                               
                                 <input type="text" id="format" class="form-control"
                                        asp-for="Format" placeholder="Enter Format" />
                                 <span asp-validation-for="Format" class="text-danger"></span>
                             </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="pagesStr">Pages</label>
+                            <div class="page-input">
+                               
                                 <input type="text" id="pagesStr" class="form-control"
                                        asp-for="PagesStr" placeholder="Enter Pages" />
                                 <span asp-validation-for="PagesStr" class="text-danger"></span>
                             </div>
-                            
-                            <div class="text-center pt-1 mb-5 pb-1 d-flex flex-column align-items-center">
-                                <button class="btn btn-primary btn-block login-btn gradient-custom-2 mb-3" type="submit">
+                            <div class="isbn-input">
+                                
+                                <input type="text" id="isbn" class="form-control"
+                                        asp-for="Isbn" placeholder="Enter ISBN" />
+                                <span asp-validation-for="Isbn" class="text-danger"></span>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="left-side">
+                                <div class="photo-container">
+                                    <img id="photo" src="" alt="No photo" />
+                                </div>
+                                <div class="upload-input">
+                                    <label for="image" class="file-icon">
+                                        <i class="fas fa-upload"></i>
+                                    </label>
+                                    <input type="file" id="image" name="image" asp-for="Image" onchange="displayPhoto()" />
+                                    
+                                    <span asp-validation-for="Image" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <button class="add-btn" type="submit">
                                     Add Book
                                 </button>
-                                <a asp-controller="Books" asp-action="Books">
-                                    &#8592 Back
-                                </a>
+                              
                             </div>
                         </form>
-                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
 @section scripts {
     <script>
         // Check for error message and display Toastr notification
@@ -110,5 +121,19 @@
         function clearImageInput() {
             document.getElementById('image').value = ''; // Resets the value of the input field
         }
+            function displayPhoto() {
+                var file = document.getElementById("image").files[0];
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById("photo").src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
     </script>
+   
+   
 }
+
+
+</body>
+</html>

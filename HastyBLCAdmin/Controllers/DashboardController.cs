@@ -14,6 +14,7 @@ using Services.Interfaces;
 
 namespace HastyBLCAdmin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     /// <summary>
     /// Home Controller
     /// </summary>
@@ -48,7 +49,6 @@ namespace HastyBLCAdmin.Controllers
         /// <returns> Home View </returns>
 
         [HttpGet]
-        [AllowAnonymous]
         public IActionResult Dashboard()
         {
             var books = _context.Books?
@@ -60,7 +60,6 @@ namespace HastyBLCAdmin.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public IActionResult NewBooks(int page = 1)
         {
             int pageSize = 10;
@@ -89,7 +88,6 @@ namespace HastyBLCAdmin.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public IActionResult TopBooks(int page = 1)
         {
             var pageSize = 10;

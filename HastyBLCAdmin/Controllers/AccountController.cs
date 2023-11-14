@@ -175,10 +175,21 @@ namespace HastyBLCAdmin.Controllers
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(Input!.Email!, Input.Password!, Input.RememberMe, lockoutOnFailure: false);
+                var user = _userService.FindUserByEmail(Input!.Email!);
+                var result = await _signInManager.PasswordSignInAsync(user.UserName!, Input.Password!, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+                    // Check user's role and redirect accordingly
+                    var roles = await _userManager.GetRolesAsync(user);
+                    if (roles.Contains("Superadmin"))
+                    {
+                        return RedirectToAction("Index", "Superadmin");
+                    }
+                    else if (roles.Contains("Admin"))
+                    {
+                        return RedirectToAction("Dashboard", "Dashboard");
+                    }
                     return RedirectToAction("Dashboard", "Dashboard");
                 }
                 if (result.RequiresTwoFactor)
@@ -218,73 +229,6 @@ namespace HastyBLCAdmin.Controllers
                 return View();
             }
             return View();*/
-        }
-
-        [HttpGet]
-        [AllowAnonymous]
-        public IActionResult Register()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [AllowAnonymous]
-        public async Task<IActionResult> Register(UserViewModel model)
-        {
-            try
-            {
-                var identityUser = new IdentityUser();
-                identityUser.Email = model.Email;
-                identityUser.UserName = model.Email;
-                var result = await _userManager.CreateAsync(identityUser, model.Password!);
-
-                if (result.Succeeded)
-                {
-                    _userService.AddUser(model);
-
-                    var userRole = _roleManager.FindByNameAsync("Admin").Result;
-
-                    if (userRole != null)
-                    {
-                        await _userManager.AddToRoleAsync(identityUser, userRole.Name!);
-                    }
-                }
-                foreach (var error in result.Errors)
-                {
-                    Console.WriteLine($"Error: {error.Description}");
-                }
-
-
-                return RedirectToAction("Login", "Account");
-            }
-            catch (InvalidDataException ex)
-            {
-                TempData["ErrorMessage"] = ex.Message;
-            }
-            catch (Exception ex)
-            {
-                TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError + ex;
-            }
-            return View();
-        }
-
-        public IActionResult CreateRole()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> CreateRole(CreateRoleViewModel createRoleViewModel)
-        {
-
-            IdentityResult result = await _userService.CreateRole(createRoleViewModel.RoleName!);
-
-            if (result.Succeeded)
-            {
-                return RedirectToAction("Login", "Account");
-            }
-
-            return View();
         }
 
         /// <summary>

@@ -20,7 +20,7 @@
     width: 231px;
     height: 360px;
     border: 1px solid #ccc;
-    background-color: #f5f5f5;
+    background-color: #4F678D;
     display: flex;
     overflow: hidden;
     flex: 0 0 auto;
@@ -47,19 +47,22 @@
         color: #665A36;
         font-size: 2rem;
     }
-.book-details-container {
-    background-color: #EEDEAA;
-    border-radius: 20px;
-    padding: 90px;
-    margin-top: -190px;
-    position: relative;
-    grid-template-rows:auto auto;
-    z-index: 1;
-    gap:1rem;
-    display: grid;
+    .title-author-container label {
+        color: #665A36;
+        font-size: 3rem;
+    }
 
-
-}
+    .book-details-container {
+        background-color: #EEDEAA;
+        border-radius: 20px;
+        padding: 90px;
+        margin-top: -190px;
+        position: relative;
+        grid-template-rows: auto auto;
+        z-index: 1;
+        gap: 1rem;
+        display: grid;
+    }
 .description-section {
     width: 60%;
     min-height: 300px;
@@ -76,6 +79,7 @@
       
         color: #AF924A;
     }
+    
 
     .description-section p {
         color: #665A36;
@@ -87,6 +91,7 @@
       font-size:24px;
 
     }
+
 .book-details-section {
     width: auto;
     display: grid;
@@ -100,12 +105,12 @@
     .book-details-section strong {
         color: #AF924A;
     }
-
     .book-details-section ul li {
         color: #665A36;
     }
 .book-details-group-1{
     margin-right:10rem;
+     width: 50%;
 }
 
 .genres-section {
@@ -121,6 +126,7 @@
     .genres-section strong {
         color: #AF924A;
     }
+    
 
     .genres-section span {
         color: #665A36;
@@ -129,7 +135,7 @@
 
 .book-action-buttons {
     position: absolute;
-    bottom: 20px; /* adjust as needed */
+    bottom: 20px; 
     right: 20px;
 }
 
@@ -165,3 +171,17 @@
     .back-button:hover {
         background-color: #4F678D; 
     }
+.save-btn {
+    position: relative;
+    bottom: -330px;
+    right: 75px;
+}
+.save-btn .btn {
+    border-radius: 50px;
+    background-color: #647CA4;
+    color: #CAC6B1;
+    padding: 15px;
+    position: relative;
+    border-color: #647CA4;
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.3);
+}

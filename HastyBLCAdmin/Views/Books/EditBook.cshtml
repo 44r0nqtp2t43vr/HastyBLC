@@ -3,79 +3,106 @@
 @{
     ViewData["Title"] = "Edit Book";
 }
+@section styles {
+    <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
+    <link rel="stylesheet" href="~/css/edit.css" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-<div class="container">
-    <h2>Edit Book</h2>
+}
+<html>
+    
+<body class="viewbook">
+    <div class="book-top-section">
+        <a href="#" onclick="goBack()" class="back-button">←</a>
+        <div class="book-image-container-view">
+            <div class="photo-container-2">
+                <div class="photo-container">
+                    <img id="photo" src="~/@Html.Raw(Model.Image)" alt="@Model.Title" />
+                </div>
 
+            </div>
+            <div class="upload-input-2">
+                <label for="image" class="file-icon">
+                    <i class="fas fa-upload"></i>
+                </label>
+                <input type="file" id="image" name="image" asp-for="Image" onchange="displayPhoto()" />
+
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="title-author-container">
+            <div class="title-input">
+                <input asp-for="Title" class="form-control" />
+            </div>
+
+            <div class="author-input">
+                <input type="text" id="authorName" class="form-control"
+                       asp-for="AuthorName" placeholder="Enter author" value="@Model.AuthorName" />
+            </div>
+        </div>
+     </div>
+     
     <form method="post" action="/Books/EditBook" enctype="multipart/form-data">
-        <input type="hidden" asp-for="BookId" /> 
-
-        <div class="form-group">
-            <label asp-for="Title">Title:</label>
-            <input asp-for="Title" class="form-control" />
+        <input type="hidden" asp-for="BookId" />
+        
         </div>
+        <div class="book-details-container">
+            <div class="description-section">
+                <label asp-for="Description" class="description-label">Description:</label>
+                <textarea asp-for="Description" class="descp" rows="4"></textarea>
+            </div>
+           <div class="book-details-section">
+               <div class="book-details-group-1">
+                   <div class="form-group">
+                    <label asp-for="PublishDateStr" class="publish-label">Publish Date:</label>
+                    <input asp-for="PublishDateStr" class="form-control" />
+                   </div>
 
-        <div class="form-group">
-            <label asp-for="AuthorName">Author:</label>
-            <input type="text" id="authorName" class="form-control"
-                   asp-for="AuthorName" placeholder="Enter author" value="@Model.AuthorName" />
+                <div class="form-group">
+                    <label asp-for="Publisher" class="publisher-label">Publisher:</label>
+                    <input asp-for="Publisher" class="form-control" />
+                </div>
+                <div class="form-group">
+                     <label asp-for="Language">Language:</label>
+                     <input asp-for="Language" class="form-control" />
+                </div>
+                
+            </div>
+                <div class="book-details-group-2">
+                    <div class="form-group">
+                        <label asp-for="Format">Format:</label>
+                        <input asp-for="Format" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="PagesStr">Pages:</label>
+                        <input asp-for="PagesStr" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Isbn">ISBN:</label>
+                        <input asp-for="Isbn" class="form-control" />
+                    </div>
+                </div>
+           </div>
+            <div class="genres-section">
+                <div class="form-group">
+                    <label asp-for="GenreNames">Genre/s:</label>
+                    <input asp-for="GenreNames" class="form-control" value="@Model.GenreNames" />
+                </div>
+            </div>
+            <div class="book-action-buttons">
+                <button type="submit" class="save-btn">Save Changes</button>
+                @* <a asp-controller="Books" asp-action="Books">
+                &#8592 Back
+                </a>*@
+            </div>
         </div>
-
-        <div class="form-group">
-            <label asp-for="GenreNames">Genre:</label>
-            <input asp-for="GenreNames" class="form-control" value="@Model.GenreNames" />
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Description">Description:</label>
-            <textarea asp-for="Description" class="form-control" rows="4"></textarea>
-        </div>
-
-        <div class="form-group">
-            @* <label asp-for="Image">Image URL:</label>
-            <input asp-for="Image" class="form-control" /> *@
-            <label class="form-label" for="image">Upload Image:</label>
-            <input type="file" id="image" name="image" asp-for="Image" />
-            <button type="button" class="btn btn-primary btn-block login-btn gradient-custom-2 mb-3" onclick="clearImageInput()">Clear Image</button>
-            <span asp-validation-for="Image" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="PublishDateStr">Publish Date:</label>
-            <input asp-for="PublishDateStr" class="form-control" />
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Publisher">Publisher:</label>
-            <input asp-for="Publisher" class="form-control" />
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Isbn">ISBN:</label>
-            <input asp-for="Isbn" class="form-control" />
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Language">Language:</label>
-            <input asp-for="Language" class="form-control" />
-        </div>
-
-        <div class="form-group">
-            <label asp-for="Format">Format:</label>
-            <input asp-for="Format" class="form-control" />
-        </div>
-
-        <div class="form-group">
-            <label asp-for="PagesStr">Pages:</label>
-            <input asp-for="PagesStr" class="form-control" />
-        </div>
-
-        <button type="submit" class="btn btn-primary">Save Changes</button>
-        <a asp-controller="Books" asp-action="Books">
-            &#8592 Back
-        </a>
+       
     </form>
-</div>
+
+</body>
+</html>
 @section scripts {
     <script>
         // Check for error message and display Toastr notification
@@ -85,6 +112,19 @@
         }
         function clearImageInput() {
             document.getElementById('image').value = ''; // Resets the value of the input field
+        }
+        
+        function displayPhoto() {
+            var file = document.getElementById("image").files[0];
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById("photo").src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+        function goBack() {
+            window.history.back();
+            return false;
         }
     </script>
 }

@@ -22,7 +22,43 @@
             <a asp-controller="Books" asp-action="Books" class="active">Browse Books</a>
         </div>
     </div>
+
     <div class="content">
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search...">
+        </div>
+
+        <!-- Filter by Book Genres -->
+        <div class="filter-section">
+            <h3>
+                <span>Filter by</span>
+                <button id="expandCollapseGenres" class="btn btn-link float-right">Collapse</button>
+            </h3>
+            <h4>Book Genres</h4>
+
+            <!-- Checkbox for each genre -->
+            <div class="checkbox-container">
+                @foreach (var genre in ViewBag.Genres)
+                {
+                    <div class="checkbox">
+                        <input type="checkbox" id="@genre.GenreId" class="genre-filter" value="@genre.GenreId" />
+                        <label for="@genre.GenreId">@genre.Name</label>
+                    </div>
+                }
+            </div>
+
+            <!-- Clear all filters button -->
+            <button id="clearFilters" class="btn btn-link float-right">Clear all filters</button>
+
+            <!-- Search and Clear Buttons Container -->
+            <div class="clearfix"></div>
+            <div class="buttons-container">
+                <!-- Clear all filters button -->
+                <button id="searchButton" class="btn btn-primary mx-auto d-block">Search</button>
+            </div>
+        </div>
+
         <h2 class="title">ALL BOOKS</h2>
         <div class="books-row">
             @foreach (var book in Model)
@@ -38,5 +74,74 @@
             }
         </div>
     </div>
+
+    <script>
+        // Expand/Collapse functionality
+        document.getElementById('expandCollapseGenres').addEventListener('click', function () {
+            var button = this;
+            var text = button.textContent.trim();
+
+            if (text === 'Expand') {
+                button.textContent = 'Collapse';
+                var genreCheckboxes = document.querySelectorAll('.genre-filter');
+                genreCheckboxes.forEach(function (checkbox) {
+                    checkbox.parentElement.style.display = 'block';
+                });
+            } else {
+                button.textContent = 'Expand';
+                var genreCheckboxes = document.querySelectorAll('.genre-filter');
+                genreCheckboxes.forEach(function (checkbox) {
+                    checkbox.parentElement.style.display = 'none';
+                });
+            }
+        });
+
+
+        // Clear all filters functionality  
+        document.getElementById('clearFilters').addEventListener('click', function () {
+            var genreFilters = document.querySelectorAll('.genre-filter:checked');
+
+            genreFilters.forEach(function (filter) {
+                filter.checked = false;
+            });
+        });
+
+        // Search functionality
+        document.getElementById('searchButton').addEventListener('click', function () {
+            var searchTerm = document.getElementById('search').value.toLowerCase();
+            var bookItems = document.querySelectorAll('.book-item');
+
+            bookItems.forEach(function (item) {
+                var title = item.querySelector('.book-title').textContent.toLowerCase();
+                item.style.display = title.includes(searchTerm) ? 'block' : 'none';
+            });
+        });
+
+        // Filter functionality
+        var genreFilters = document.querySelectorAll('.genre-filter');
+
+        genreFilters.forEach(function (filter) {
+            filter.addEventListener('change', function () {
+                var selectedGenres = Array.from(document.querySelectorAll('.genre-filter:checked')).map(function (checkbox) {
+                    return parseInt(checkbox.value);
+                });
+
+                var bookItems = document.querySelectorAll('.book-item');
+
+                bookItems.forEach(function (item) {
+                    var genres = item.dataset.genres.split(',').map(function (id) {
+                        return parseInt(id.trim());
+                    });
+
+                    var isVisible = selectedGenres.some(function (genre) {
+                        return genres.includes(genre);
+                    });
+
+                    item.style.display = isVisible ? 'block' : 'none';
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>

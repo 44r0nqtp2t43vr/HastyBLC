@@ -45,10 +45,17 @@ app.MapRazorPages();
 app.Run();*/
 
 using Data;
+using Data.Interfaces;
+using Data.Repositories;
+using HastyBLCAdmin.Authentication;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Services.Interfaces;
+using Services.Services;
 using System.IO;
 
 namespace HastyBLCAdmin
@@ -66,6 +73,11 @@ namespace HastyBLCAdmin
                 {
                     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
                 });
+                builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+                    .AddRoles<IdentityRole>()
+                    .AddEntityFrameworkStores<HastyDBContext>()
+                    .AddDefaultUI()
+                    .AddDefaultTokenProviders();
                 var app = builder.Build();
                 Seed.SeedData(app);
             }      

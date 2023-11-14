@@ -22,16 +22,19 @@ namespace HastyBLC.Controllers
     {
         private readonly HastyDBContext _context;
         private readonly IBookService _bookService;
+        private readonly IGenreService _genreService;
         protected new ILogger _logger;
         public BooksController(HastyDBContext context,
                               IHttpContextAccessor httpContextAccessor,
                               ILoggerFactory loggerFactory,
                               IConfiguration configuration,
                               IBookService bookService,
+                              IGenreService genreService,
                               IMapper? mapper = null) : base(httpContextAccessor, loggerFactory, configuration, mapper)
         {
             _context = context;
             this._bookService = bookService;
+            this._genreService = genreService;
             this._logger = loggerFactory.CreateLogger<BooksController>();
         }
 
@@ -40,12 +43,13 @@ namespace HastyBLC.Controllers
         public IActionResult Books()
         {
             var books = _bookService.GetBooks();
+            ViewBag.Genres = _genreService.GetGenres();
             return View(books);
         }
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult ViewBook(int id, bool ignoreReview = false)
+        public IActionResult ViewBook(int id)
         {
             var book = _context.Books
                 .Include(b => b.Author)
@@ -106,27 +110,6 @@ namespace HastyBLC.Controllers
             return View(bookViewModel);
         }
 
-        [HttpGet]
-        [AllowAnonymous]
-        public IActionResult Review(int id)
-        {
-            var book = _context.Books.FirstOrDefault(b => b.BookId == id);
-
-            if (book == null)
-            {
-                TempData["ErrorMessage"] = "Book not found.";
-                return RedirectToAction("Books");
-            }
-
-            var reviewViewModel = new Services.ServiceModels.ReviewViewModel
-            {
-                BookId = id,
-                BookTitle = book.Title
-            };
-
-            return View(reviewViewModel);
-        }
-
         [HttpPost]
         [AllowAnonymous]
         public IActionResult Review(Services.ServiceModels.ReviewViewModel model)
@@ -135,10 +118,22 @@ namespace HastyBLC.Controllers
             {
                 _bookService.AddReview(model);
                 TempData["SuccessMessage"] = "Review submitted successfully!";
-                return RedirectToAction("ViewBook", new { id = model.BookId });
+                // Get the URL of the referring page
+                string referrerUrl = ControllerContext.HttpContext.Request.Headers["Referer"].ToString();
+
+                if (!string.IsNullOrEmpty(referrerUrl))
+                {
+                    // Redirect back to the referring page
+                    return Redirect(referrerUrl);
+                }
+                else
+                {
+                    // If no referrer is available, you can redirect to a default action or URL
+                    return RedirectToAction("Books", "Books");
+                }
 
             }
-            return View(model);
+            return RedirectToAction("Books", "Books");
         }
 
         [HttpPost]
@@ -151,7 +146,19 @@ namespace HastyBLC.Controllers
                 {
                     _bookService.AddComment(model);
                     TempData["SuccessMessage"] = "Comment submitted successfully!";
-                    return RedirectToAction("ViewBook", new { id = model.BookId });
+                    // Get the URL of the referring page
+                    string referrerUrl = ControllerContext.HttpContext.Request.Headers["Referer"].ToString();
+
+                    if (!string.IsNullOrEmpty(referrerUrl))
+                    {
+                        // Redirect back to the referring page
+                        return Redirect(referrerUrl);
+                    }
+                    else
+                    {
+                        // If no referrer is available, you can redirect to a default action or URL
+                        return RedirectToAction("Books", "Books");
+                    }
                 }
                 catch (InvalidDataException ex)
                 {
@@ -161,7 +168,6 @@ namespace HastyBLC.Controllers
                 {
                     TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
                 }
-                return RedirectToAction("ViewBook", new { id = model.BookId });
             }
             return RedirectToAction("Books", "Books");
 

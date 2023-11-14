@@ -1,0 +1,42 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@model Services.ServiceModels.UserViewModel
+<link rel="stylesheet" href="~/css/addgenre.css" />
+<div class="modal" id="editUserModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Edit User</h4>
+            </div>
+            <!-- Modal body -->
+            <form method="post" action="/Superadmin/EditUser">
+                <div class="form-outline mb-4">
+                    <input type="hidden" id="editUserId" asp-for="Id"/>
+                    <input type="text" id="editUserName" class="form-control"
+                           asp-for="Username" placeholder="Enter username"/>
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                    <input type="text" id="editUserEmail" class="form-control"
+                           asp-for="Email" placeholder="Enter email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                    <input type="text" id="editUserPassword" class="form-control"
+                           asp-for="Password" placeholder="Enter password"/>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                    <input type="text" id="editUserConfirmPassword" class="form-control"
+                           asp-for="ConfirmPassword" placeholder="Confirm password" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button class="btn-custom btn-close" data-dismiss="modal">Close</button>
+                    <button class="btn-custom btn-add-genre" type="submit">Edit User</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="~/js/superadmin.js"></script>

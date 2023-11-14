@@ -1,26 +1,24 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
-@model Services.ServiceModels.GenreViewModel
 <link rel="stylesheet" href="~/css/addgenre.css" />
-<div class="modal" id="addGenreModal">
+<div class="modal" id="deleteReviewModal">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Add a new Genre</h4>
+                <h4 class="modal-title">Delete Review</h4>
             </div>
             <!-- Modal body -->
-            <form method="post" action="/Genres/AddGenre">
+            <form method="post" action="/Books/DeleteReview">
                 <div class="form-outline mb-4">
-                    <input type="text" id="name" class="form-control"
-                           asp-for="Name" placeholder="Enter genre name" />
-                    <span asp-validation-for="Name" class="text-danger"></span>
+                    <input type="hidden" id="deleteReviewId" name="reviewId" />
+                    <p>Are you sure you want to delete this review?</p>
                 </div>
-            
+
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <button class="btn btn-close" data-dismiss="modal">Close</button>
-                    <button class="btn btn-add-genre" type="submit">Add Genre</button>
+                    <button class="btn btn-add-genre" type="submit">Delete Review</button>
                 </div>
             </form>
         </div>
@@ -29,4 +27,4 @@
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="~/js/genre.js"></script>
+<script src="~/js/viewbook.js"></script>
