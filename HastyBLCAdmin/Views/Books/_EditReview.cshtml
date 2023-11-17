@@ -28,10 +28,11 @@
                     <label>Stars:</label><br />
                     @for (int i = 1; i <= 5; i++)
                     {
-                        <input type="radio" id="editReviewRating@i" name="Rating" value="@i" required />
-                        <label for="editReviewRating@i"><span class="rating"></span></label>
+                        <input type="radio" id="editReviewRating@i" name="Rating" value="@i" @(Model.Rating == i ? "checked" : "") required />
+                        <label for="editReviewRating@i" class="fa @(i <= Model.Rating ? "fa-star checked" : "fa-star")"></label>
                     }
                 </div>
+
                 <div class="form-outline mb-4">
                     <label class="form-label" for="description">Review</label>
                     <input type="text" id="editReviewDescription" class="form-control"
@@ -52,3 +53,31 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="~/js/viewbook.js"></script>
+<script>
+    // Wait for the DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function () {
+        // Select all the star labels within the .form-group container
+        var stars = document.querySelectorAll('.form-group .fa');
+
+        // Iterate over each star label
+        stars.forEach(function (star) {
+            // Add a click event listener to each star
+            star.addEventListener('click', function () {
+                // Remove 'checked' class from all stars
+                stars.forEach(function (s) {
+                    s.classList.remove('checked');
+                });
+
+                // This 'star' is the one that was clicked
+                this.classList.add('checked'); // Add 'checked' class to the clicked star
+
+                // Also add 'checked' class to all previous siblings (to fill all left stars)
+                var currentStar = this;
+                while (currentStar.previousElementSibling) {
+                    currentStar.previousElementSibling.classList.add('checked');
+                    currentStar = currentStar.previousElementSibling;
+                }
+            });
+        });
+    });
+</script>

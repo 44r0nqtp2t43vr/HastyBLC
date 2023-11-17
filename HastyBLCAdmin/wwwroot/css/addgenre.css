@@ -94,3 +94,22 @@
     margin: 15px 0; 
    
 }
+/* This CSS goes in your stylesheets */
+.rating {
+    color: #ddd; /* Default color for empty stars */
+    cursor: pointer;
+}
+
+    .rating .fa {
+        color: #ddd; /* Default color for empty stars */
+    }
+
+        .rating .fa.checked {
+            color: #ffc107; /* Color for filled stars */
+        }
+
+/* Hide the radio input visually but remain accessible */
+[type="radio"] {
+    position: absolute;
+    left: -9999px;
+}

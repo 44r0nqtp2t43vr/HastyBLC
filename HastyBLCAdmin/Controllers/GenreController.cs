@@ -48,16 +48,34 @@ namespace HastyBLCAdmin.Controllers
         /// </summary>
         /// <returns> Home View </returns>
 
-        public IActionResult Genres()
+        [HttpGet]
+        public IActionResult Genres(int page = 1)
         {
-            var genres = _genreService.GetGenres();
-            return View(genres);
+            const int pageSize = 12; // Or any other page size you prefer
+            var genresQuery = _context.Genres.AsQueryable(); // Assuming _context is your database context
+
+            var totalGenres = genresQuery.Count();
+            var totalPages = (int)Math.Ceiling(totalGenres / (double)pageSize);
+
+            if (page < 1) page = 1;
+            if (page > totalPages) page = totalPages;
+
+            var currentPageGenres = genresQuery
+                .OrderBy(genre => genre.Name) // Or order by any other property
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            var viewModel = new GenresPageViewModel
+            {
+                Genres = currentPageGenres,
+                CurrentPage = page,
+                TotalPages = totalPages
+            };
+
+            return View(viewModel);
         }
 
-        public IActionResult BackToGenres()
-        {
-            return RedirectToAction("Genres", "Genres");
-        }
 
         [HttpGet]
         public IActionResult ViewGenre(int genreId)
