@@ -25,10 +25,12 @@
 
     <div class="content">
         <!-- Search Bar -->
-        <form asp-controller="Books" asp-action="Search" method="get">
-            <input type="text" name="query" placeholder="Search by title or author...">
-            <button type="submit">Search</button>
-        </form>
+        <div class="search-bar">
+            <form asp-controller="Books" asp-action="Search" method="get">
+                <input type="text" name="query" placeholder="Search by title or author...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
 
         <!-- Filter by Book Genres -->
         <div class="filter-section">
