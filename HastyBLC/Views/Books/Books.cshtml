@@ -25,9 +25,10 @@
 
     <div class="content">
         <!-- Search Bar -->
-        <div class="search-bar">
-            <input type="text" id="search" placeholder="Search...">
-        </div>
+        <form asp-controller="Books" asp-action="Search" method="get">
+            <input type="text" name="query" placeholder="Search by title or author...">
+            <button type="submit">Search</button>
+        </form>
 
         <!-- Filter by Book Genres -->
         <div class="filter-section">
@@ -52,11 +53,11 @@
             <button id="clearFilters" class="btn btn-link float-right">Clear all filters</button>
 
             <!-- Search and Clear Buttons Container -->
-            <div class="clearfix"></div>
-            <div class="buttons-container">
+            @* <div class="clearfix"></div> *@
+            @* <div class="buttons-container">
                 <!-- Clear all filters button -->
                 <button id="searchButton" class="btn btn-primary mx-auto d-block">Search</button>
-            </div>
+            </div> *@
         </div>
 
         <h2 class="title">ALL BOOKS</h2>
@@ -76,7 +77,20 @@
     </div>
 
     <script>
-        // Expand/Collapse functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            var button = document.getElementById('expandCollapseGenres');
+            var genreCheckboxes = document.querySelectorAll('.genre-filter');
+
+            // Set the button text to 'Expand'
+            button.textContent = 'Expand';
+
+            // Hide genre checkboxes
+            genreCheckboxes.forEach(function (checkbox) {
+                checkbox.parentElement.style.display = 'none';
+            });
+        });
+
+        // Toggle expand/collapse functionality
         document.getElementById('expandCollapseGenres').addEventListener('click', function () {
             var button = this;
             var text = button.textContent.trim();

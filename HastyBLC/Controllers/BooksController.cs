@@ -172,5 +172,14 @@ namespace HastyBLC.Controllers
             return RedirectToAction("Books", "Books");
 
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult Search(string query)
+        {
+            var books = _bookService.SearchBooks(query);
+            ViewBag.Genres = _genreService.GetGenres();
+            return View("Books", books);
+        }
     }
 }
