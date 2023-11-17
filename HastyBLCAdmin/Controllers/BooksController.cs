@@ -157,7 +157,7 @@ namespace HastyBLCAdmin.Controllers
                     PublishDateStr = existingBook.PublishDate.ToString("yyyy-MM-dd"),
                     PagesStr = existingBook.Pages.ToString(),
                     Isbn = existingBook.Isbn,
-                    ImagePath = "~/uploads/images/2.jpg"
+                    ImagePath = existingBook.Image
 
 
                 };

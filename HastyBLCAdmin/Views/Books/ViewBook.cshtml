@@ -2,6 +2,8 @@
 @section styles {
     <link rel="stylesheet" href="~/css/viewbook.css" />
     <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+
 }
 
 @{
@@ -52,8 +54,10 @@
             
         </div>
 
+     
         <!-- Genres section -->
         <div class="genres-section">
+            <hr class="section-divider">
             <strong>Genre/s:</strong>
             <div>
                 @foreach (var genre in Model.Genres ?? Enumerable.Empty<string>())
@@ -62,7 +66,8 @@
                 }
             </div>
         </div>
-
+        
+        
         <div class="book-action-buttons">
             <a asp-controller="Books" asp-action="EditBook" asp-route-bookId="@Model.BookId" class="btn btn-outline-danger">Edit</a>
 
@@ -71,48 +76,71 @@
                 <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete this book?');">Delete</button>
             </form>
         </div>
-
+       
         <!-- Book Reviews section -->
         <div class="book-reviews-section">
-            <h3>Book Reviews</h3>
+            <hr class="section-divider">
+    <h3 class="book-reviews-title">Book Reviews</h3>
 
-            <!-- Review 1 -->
-            @foreach (var review in Model.Reviews!)
-            {
-                <div class="review">
-                    <h4>@review.Name</h4>
-                    <h4>@review.UserEmail</h4>
-                    <p>@review.Rating</p>
-                    <p>
-                        @review.Description
-                    </p>
-                    <button class="btn btn-outline-danger editReviewBtn" data-review-id="@review.ReviewId" data-review-name="@review.Name" data-review-user-email="@review.UserEmail" data-review-rating="@review.Rating" data-review-description="@review.Description">
-                        <i class="fas fa-edit"></i>
-                    </button>
-                    <button class="btn btn-outline-danger deleteReviewBtn" data-review-id="@review.ReviewId">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                </div>
+    @foreach (var review in Model.Reviews!)
+    {
+        <div class="review">
+            <div class="review-header">
+                <h4 class="review-author">@review.Name</h4>
+                <span class="review-email">@review.UserEmail</span>
+                        <div class="review-rating-container">
+                            
+                            <div class="rating">
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    <span class="fa fa-star @(i <= review.Rating ? "checked" : "")"></span>
+                                }
+                            </div>
+                            <span class="review-rating">@review.Rating</span>
+                        </div>
+
+
+            </div>
+            <p class="review-description">@review.Description</p>
+            
+            <div class="review-actions">
+                <button class="btn btn-outline-danger editReviewBtn" data-review-id="@review.ReviewId">
+                    <i class="fas fa-edit"></i> 
+                </button>
+                <button class="btn btn-outline-danger deleteReviewBtn" data-review-id="@review.ReviewId">
+                    <i class="fas fa-trash"></i> 
+                </button>
+            </div>
+                    <hr class="section-divider">
+            <div class="comments-section">
                 @foreach (var comment in review.Comments!)
                 {
-                    <div>
-                        <h6>@comment.Name</h6>
-                        <h6>@comment.UserEmail</h6>
-                        <p>
-                            @comment.Description
-                        </p>
-                        <button class="btn btn-outline-danger editCommentBtn" data-comment-id="@comment.CommentId" data-comment-name="@comment.Name" data-comment-user-email="@comment.UserEmail" data-comment-description="@comment.Description">
-                            <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="btn btn-outline-danger deleteCommentBtn" data-comment-id="@comment.CommentId">
-                            <i class="fas fa-trash"></i>
-                        </button>
+                    <div class="comment">
+                        <div class="comment-header">
+                            <h6 class="comment-author">@comment.Name</h6>
+                            <span class="comment-email">@comment.UserEmail</span>
+                        </div>
+                        <p class="comment-description">@comment.Description</p>
+                        
+                        <div class="comment-actions">
+                            <button class="btn btn-outline-danger editCommentBtn" data-comment-id="@comment.CommentId">
+                                <i class="fas fa-edit"></i> 
+                            </button>
+                            <button class="btn btn-outline-danger deleteCommentBtn" data-comment-id="@comment.CommentId">
+                                <i class="fas fa-trash"></i> 
+                            </button>
+                                   
+                        </div>
+                              
                     </div>
+                            <hr class="section-divider">
                 }
-            }
+            </div>
         </div>
+    }
+</div>
 
-    </div>
+          
     
     <script>
         function goBack() {

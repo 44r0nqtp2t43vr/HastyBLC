@@ -1,4 +1,5 @@
-﻿@model List<Genre>?
+﻿@model HastyBLCAdmin.Models.GenresPageViewModel
+
 @section styles {
     <link rel="stylesheet" href="~/css/genres.css" />
     <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
@@ -53,7 +54,7 @@
             else
             {
                 <div class="genres-row">
-                @foreach (var genre in Model)
+                @foreach (var genre in Model.Genres)
                 {
                     <div class="genre-container">
                         <form method="get" asp-action="ViewGenre" class="genre-form">
@@ -73,7 +74,20 @@
                 }
                 </div>
             }
+
             
+
+            
+        </div>
+        <div class="fixed-pagination-container">
+            <ul class="pagination justify-content-center spaced-pagination">
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    <li class="page-item @(i == Model.CurrentPage ? "active" : "unselected")">
+                        <a class="page-link page-number" href="@Url.Action("Genres", new { page = i })">@i</a>
+                    </li>
+                }
+            </ul>
         </div>
     </div>
 </body>
