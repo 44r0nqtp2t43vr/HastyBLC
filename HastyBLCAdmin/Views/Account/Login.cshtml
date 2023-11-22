@@ -42,7 +42,7 @@
                                 <span asp-validation-for="Password" class="text-danger"></span>
                                 <div style="display: flex; justify-content: space-between; align-items: center;">
                                     <div></div> <!-- This creates space on the left -->
-                                    <a class="text-muted text-decoration-none" href="#!" style="font-size: 12px; color: #665A38">Forgot Password? @ForgotPass</a>
+                                    <a asp-controller="Account" asp-action="ForgotPassword" class="text-muted text-decoration-none" style="font-size: 12px; color: #665A38">Forgot Password? @ForgotPass</a>
                                 </div>
                             </div>
                             <div class="text-center pt-1 mb-5 pb-1 d-flex flex-column align-items-center">

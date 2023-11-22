@@ -2,6 +2,7 @@
 using HastyBLCAdmin.Extensions.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,6 +28,10 @@ namespace HastyBLCAdmin
             this.ConfigureCors(services);               // Configuration for CORS
             this.ConfigureAuth(services);               // Configuration for Authentication logic
             this.ConfigureMVC(services);                // Configuration for MVC                  
+
+            // Add SendGrid configuration
+            services.Configure<SendGridSettings>(Configuration.GetSection("SendGrid"));
+            services.AddTransient<IEmailSender, SendGridEmailSender>();
 
             // Add services to the container.
             services.AddControllersWithViews().AddRazorRuntimeCompilation();

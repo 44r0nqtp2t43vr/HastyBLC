@@ -22,6 +22,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using static Resources.Constants.Enums;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 
 namespace HastyBLCAdmin.Controllers
@@ -88,6 +89,7 @@ namespace HastyBLCAdmin.Controllers
         private readonly TokenProviderOptionsFactory _tokenProviderOptionsFactory;
         private readonly IConfiguration _appConfiguration;
         private readonly IUserService _userService;
+        private readonly IEmailSender _emailSender;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
@@ -113,6 +115,7 @@ namespace HastyBLCAdmin.Controllers
                             IConfiguration configuration,
                             IMapper mapper,
                             IUserService userService,
+                            IEmailSender emailSender,
                             TokenValidationParametersFactory tokenValidationParametersFactory,
                             TokenProviderOptionsFactory tokenProviderOptionsFactory,
                             RoleManager<IdentityRole> roleManager,
@@ -126,6 +129,7 @@ namespace HastyBLCAdmin.Controllers
             this._userService = userService;
             this._roleManager = roleManager;
             this._userManager = userManager;
+            this._emailSender = emailSender;
             this._logger = loggerFactory.CreateLogger<AccountController>();
         }
 
@@ -241,5 +245,31 @@ namespace HastyBLCAdmin.Controllers
             await this._signInManager.SignOutAsync();
             return RedirectToAction("Login", "Account");
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        {
+            var user = await _userManager.FindByEmailAsync(model.RecoveryEmail!);
+            if (user != null)
+            {
+                var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = token }, protocol: HttpContext.Request.Scheme);
+
+                // Send password reset email
+                await _emailSender.SendEmailAsync(model.RecoveryEmail!, "Reset Password",
+                    $"Please reset your password by clicking here: <a href='{callbackUrl}'>link</a>");
+                return View("ForgotPasswordConfirmation");
+            }
+            return RedirectToAction("Login", "Account");
+        }
+
     }
 }
