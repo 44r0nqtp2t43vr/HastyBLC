@@ -32,6 +32,8 @@ namespace HastyBLCAdmin
             // Add SendGrid configuration
             services.Configure<SendGridSettings>(Configuration.GetSection("SendGrid"));
             services.AddTransient<IEmailSender, SendGridEmailSender>();
+            services.Configure<SendGridSettings>(Configuration.GetSection("SendGrid"));
+
 
             // Add services to the container.
             services.AddControllersWithViews().AddRazorRuntimeCompilation();

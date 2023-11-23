@@ -264,11 +264,39 @@ namespace HastyBLCAdmin.Controllers
                 var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = token }, protocol: HttpContext.Request.Scheme);
 
                 // Send password reset email
-                await _emailSender.SendEmailAsync(model.RecoveryEmail!, "Reset Password",
-                    $"Please reset your password by clicking here: <a href='{callbackUrl}'>link</a>");
+                await _emailSender.SendEmailAsync(model.RecoveryEmail!, "Reset Password", $"Please reset your password by clicking here: <a href='{callbackUrl}'>link</a>");
                 return View("ForgotPasswordConfirmation");
             }
             return RedirectToAction("Login", "Account");
+        }
+
+        [HttpGet]
+        public IActionResult ResetPassword(string userId, string code)
+        {
+            if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(code))
+            {
+                // Handle invalid or missing userId or code
+                return RedirectToAction("Login", "Account");
+            }
+
+            // Validate userId and code
+            return View(new ResetPasswordViewModel { UserId = userId, Code = code });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            var user = await _userManager.FindByIdAsync(model.UserId!);
+            if (user != null)
+            {
+                var result = await _userManager.ResetPasswordAsync(user, model.Code!, model.NewPassword!);
+                if (result.Succeeded)
+                {
+                    // Password reset successful
+                    return View("ResetPasswordConfirmation");
+                }
+            }
+            return View(model);
         }
 
     }
