@@ -71,23 +71,33 @@ namespace HastyBLC.Controllers
                     .ThenInclude(bookGenre => bookGenre.Genre)
                 .Include(book => book.Reviews);
 
-            var orderedBooks = books.OrderByDescending(book => book.CreatedTime).ThenByDescending(book => book.BookId);
+            var fourteenDaysAgo = DateTime.Now.AddDays(-14);
+            var orderedBooks = books?
+                .Where(book => book.CreatedTime >= fourteenDaysAgo)
+                .OrderByDescending(book => book.CreatedTime)
+                .ThenByDescending(book => book.BookId)
+                .ToList(); 
 
-            int totalItems = orderedBooks.Count();
+            int totalItems = orderedBooks?.Count() ?? 0;
             int totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
 
+            if (totalPages == 0)
+                totalPages = 1;
 
-            if (page < 1) page = 1;
-            if (page > totalPages) page = totalPages;
+            page = Math.Max(1, Math.Min(page, totalPages));
 
-
-            var currentPageBooks = orderedBooks.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            var currentPageBooks = orderedBooks
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
 
             ViewData["CurrentPage"] = page;
             ViewData["TotalPages"] = totalPages;
 
             return View(currentPageBooks);
         }
+
+
 
         [HttpGet]
         [AllowAnonymous]
