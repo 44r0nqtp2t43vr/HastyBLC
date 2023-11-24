@@ -646,3 +646,12 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="~/js/superadmin.js"></script>
+
+<script>
+    $('.deleteUserRoleBtn').on('click', function () {
+        var userId = $(this).data('user-id');
+        var roleName = $(this).data('role-name');
+        $('#userIdToDeleteRole').val(userId);
+        $('#roleNameToDelete').val(roleName);
+    });
+</script>

@@ -1,16 +1,27 @@
-﻿.user-master-create {
+﻿html, body {
     background-color: #eedeaa;
+    height: 100%;
+    margin: 0;
     display: flex;
-    flex-direction: row;
+    align-items: center;
     justify-content: center;
+}
+
+.user-master-create {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; 
     width: 100%;
+    box-sizing: border-box;
 }
 
     .user-master-create .div {
-        background-color: #eedeaa;
-        height: 1080px;
-        position: relative;
-        width: 1920px;
+        background-color: transparent;
+        width: 100%;
+        max-width: 1536px;
     }
 
     .user-master-create .header {
@@ -20,6 +31,8 @@
         position: absolute;
         top: 87px;
         width: 1696px;
+        border: none;
+        box-shadow: none;
     }
 
     .user-master-create .text-wrapper {
@@ -67,11 +80,11 @@
     }
 
     .user-master-create .icon-logout {
-        height: 40px;
-        left: 1530px;
+        height: 30px;
+        left: 1535px;
         position: absolute;
-        top: 137px;
-        width: 42px;
+        top: 145px;
+        width: 32px;
     }
 
     .user-master-create .logo {
@@ -129,6 +142,8 @@
         text-align: center;
         top: 16px;
         white-space: nowrap;
+        background-color: transparent;
+        border: none;
     }
 
     .user-master-create .role-name-input-box {
@@ -139,6 +154,7 @@
         position: absolute;
         top: 186px;
         width: 1612px;
+        border: none;
     }
 
     .user-master-create .text-wrapper-5 {
@@ -184,9 +200,9 @@
     }
 
     .user-master-create .icon-return {
-        height: 40px;
-        left: 38px;
+        height: 33px;
+        left: -42px;
         position: absolute;
-        top: 31px;
-        width: 40px;
+        top: 0px;
+        width: 33px;
     }

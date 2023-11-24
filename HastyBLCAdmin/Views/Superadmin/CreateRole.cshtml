@@ -5,55 +5,55 @@
 @{
     ViewData["Title"] = "CreateRole";
 }
-
-<div class="user-master-create">
-    <div class="div">
-        <header class="header">
-            <div class="text-wrapper">Hasty Book Lovers’ Club</div>
-            <div class="text-wrapper-2">Logout</div>
-
-            <div class="text-wrapper-3">USER MASTER</div>
-            <img class="icon-logout" alt="Icon logout" src="~/img/logout-icon.png" />
-            @* <form method="post" asp-controller="Account" asp-action="SignOutUser" id="logoutForm">
-            <button type="submit" class="btn btn-outline-danger"><i class="fas fa-sign-out-alt"></i>Logout</button>
-            </form> *@
-            <img class="logo" alt="Logo" src="~/img/logo.png" />
-        </header>
-        <div class="create-role-section">
-            <div class="overlap">
-                <div class="create-role-button">
-                    <div class="overlap-group">
-                        <div class="text-wrapper-4">Create Role</div>
+<html>
+    <body>
+    <div class="user-master-create">
+        <div class="div">
+            <header class="header">
+                <div class="text-wrapper">Hasty Book Lovers’ Club</div>
+                <div class="text-wrapper-2">
+                    <img class="icon-logout" alt="Icon logout" src="~/img/logout-icon.png" />
+                    <form method="post" asp-controller="Account" asp-action="SignOutUser" id="logoutForm">
+                        <button type="submit" class="btn btn-outline-danger">
+                            <i class="fas fa-sign-out-alt"></i>Logout
+                        </button>
+                    </form>
+                </div>
+                <div class="text-wrapper-3">USER MASTER</div>
+                @* <img class="icon-logout" alt="Icon logout" src="~/img/logout-icon.png" /> *@
+                @* <form method="post" asp-controller="Account" asp-action="SignOutUser" id="logoutForm">
+                <button type="submit" class="btn btn-outline-danger"><i class="fas fa-sign-out-alt"></i>Logout</button>
+                </form> *@
+                <img class="logo" alt="Logo" src="~/img/logo.png" />
+            </header>
+            <div class="create-role-section">
+                <div class="overlap">
+                    <form asp-action="CreateRole">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div>
+                            <label class="text-wrapper-5" asp-for=" RoleName" class="control-label">Role Name</label>
+                            <input class="role-name-input-box" asp-for=" RoleName" />
+                            <span asp-validation-for=" RoleName" class="text-danger"></span>
+                        </div>
+                        <div class="create-role-button">
+                            <div class="overlap-group">
+                                <input type="submit" value="Create Role" class="text-wrapper-4"/>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="text-wrapper-6">CREATE ROLE</div>
+                    <div>
+                        <a class="text-wrapper-7" asp-action="Index">
+                            <img class="icon-return" alt="Icon return" src="~/img/back.png" />
+                            Back to List
+                        </a>
                     </div>
                 </div>
-                <div class="role-name-input-box">
-                    <div class="text-wrapper-5">Role Name</div>
-                </div>
-                <div class="text-wrapper-6">CREATE ROLE</div>
-                <div class="text-wrapper-7">Back to List</div>
-                <img class="icon-return" alt="Icon return" src="icon-return.png" />
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <form asp-action="CreateRole">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="RoleName" class="control-label"></label>
-                        <input asp-for="RoleName" class="form-control" />
-                        <span asp-validation-for="RoleName" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-primary" />
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div>
-            <a asp-action="Index">Back to List</a>
         </div>
     </div>
-</div>
+    </body>
+</html>
 
 @section Scripts {
     @{

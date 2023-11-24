@@ -6,7 +6,7 @@
 .box .edit-role-modal {
     height: 271px;
     left: 0;
-    position: fixed;
+    position: relative;
     top: 0;
     width: 599px;
 }
