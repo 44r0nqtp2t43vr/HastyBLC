@@ -5,60 +5,72 @@
     ViewData["Title"] = "Register Page";
 }
 @section styles {
-    <link rel="stylesheet" href="~/css/login.css" />
+    <link rel="stylesheet" href="~/css/registeruser.css" />
 }
-<div class="container py-5 h-100 register-box">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-xl-10">
-            <div class="card rounded-3 text-black">
-                <div class="row g-0">
-                    <div class="card-body p-md-5 mx-md-4">
 
-                        <div class="text-center">
-                            <img src="https://www.alliance.com.ph/images/asi-logo-invert.svg"
-                                 style="width: 185px;" alt="logo">
-                        </div>
-
-                        <form method="post" action="/Superadmin/Register">
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="email">Email</label>
-                                <input type="text" id="email" class="form-control"
-                                       asp-for="Email" placeholder="Enter email" />
-                                <span asp-validation-for="Email" class="text-danger"></span>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="username">Name</label>
-                                <input type="text" id="username" class="form-control"
-                                       asp-for="Username" placeholder="Enter name" />
-                                <span asp-validation-for="Username" class="text-danger"></span>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="password">Password</label>
-                                <input type="password" id="password" class="form-control"
-                                       asp-for="Password" placeholder="Enter password" />
-                                <span asp-validation-for="Password" class="text-danger"></span>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="confirmpassword">Confirm Password</label>
-                                <input type="password" id="confirmpassword" class="form-control"
-                                       asp-for="ConfirmPassword" placeholder="Confirm Password" />
-                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-                            </div>
-                            <div class="text-center pt-1 mb-5 pb-1 d-flex flex-column align-items-center">
-                                <button class="btn btn-primary btn-block login-btn gradient-custom-2 mb-3" type="submit">
-                                    Register
-                                </button>
-                                <a asp-controller="Superadmin" asp-action="Index">
-                                    &#8592 Back
-                                </a>
-                            </div>
-                        </form>
+<div class="user-master-create">
+    <div class="div">
+        <header class="header">
+            <div class="text-wrapper">Hasty Book Lovers’ Club</div>
+            <div class="text-wrapper-2">
+                <img class="icon-logout" alt="Icon logout" src="~/img/logout-icon.png" />
+                <form method="post" asp-controller="Account" asp-action="SignOutUser" id="logoutForm">
+                    <button type="submit" class="btn btn-outline-danger">
+                        <i class="fas fa-sign-out-alt"></i>Logout
+                    </button>
+                </form>
+            </div>
+            <div class="text-wrapper-3">USER MASTER</div>
+            @* <img class="icon-logout" alt="Icon logout" src="~/img/logout-icon.png" /> *@
+            @* <form method="post" asp-controller="Account" asp-action="SignOutUser" id="logoutForm">
+            <button type="submit" class="btn btn-outline-danger"><i class="fas fa-sign-out-alt"></i>Logout</button>
+            </form> *@
+            <img class="logo" alt="Logo" src="~/img/logo.png" />
+        </header>
+        <div class="create-role-section">
+            <div class="overlap">
+                <form method="post" action="/Superadmin/Register">
+                    <div class="role-name-input-box">
+                        <label class="text-wrapper-6" for="email">Email</label>
+                        <input class="role-name-input-box-2" type="text" id="email" class="form-control"
+                               asp-for="Email" placeholder="Enter email" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
+                    <div>
+                        <label class="text-wrapper-7" for="username">Name</label>
+                        <input class="role-name-input-box-3" type="text" id="username" class="form-control"
+                               asp-for="Username" placeholder="Enter name" />
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label class="text-wrapper-8" for="password">Password</label>
+                        <input class="role-name-input-box-4" type="password" id="password" class="form-control"
+                               asp-for="Password" placeholder="Enter password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label class="text-wrapper-4" for="confirmpassword">Confirm Password</label>
+                        <input class="role-name-input-box" type="password" id="confirmpassword" class="form-control"
+                               asp-for="ConfirmPassword" placeholder="Confirm Password" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    <div class="register-user-button">
+                        <div class="overlap-group">
+                            <input type="submit" value="Register User" class="text-wrapper-5" />
+                        </div>
+                    </div>
+                </form>
+                <div>
+                    <a class="text-wrapper-7" asp-action="Index">
+                        <img class="icon-return" alt="Icon return" src="~/img/back.png" />
+                        Back to List
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 @section scripts {
     <script>
         // Check for error message and display Toastr notification
