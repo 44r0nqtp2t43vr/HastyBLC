@@ -443,3 +443,9 @@ div.content {
         background-color: #665A38;
         color: #000;
     }
+
+.page-link.ellipsis {
+    border: none;
+    background-color: #EEDEAA;
+    color: black;
+}
