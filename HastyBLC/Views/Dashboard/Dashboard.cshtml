@@ -46,13 +46,11 @@
         <div>
             <h2 class="title">New Books</h2>
             <div class="book-row">
-                @foreach (var book in Model.OrderByDescending(book => book.CreatedTime).ThenByDescending(book => book.BookId).Take(5))
+                @foreach (var book in Model.Where(b => b.CreatedTime >= DateTime.Now.AddDays(-14)))
                 {
                     <div class="book-item">
                         <div class="book-image-container">
                             <ul>
-                                @* <li>@book.Author</li> *@
-                                @* <li>@book.CreatedTime</li> *@
                                 <a asp-controller="Books" asp-action="ViewBook" asp-route-id="@book.BookId">
                                     <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
                                 </a>
@@ -60,11 +58,20 @@
                         </div>
                     </div>
                 }
-                <div class="book-row" style="justify-content: center; align-items: center;">
-                    <a asp-controller="Dashboard" asp-action="NewBooks" style="text-align:center; display:block">
-                        <span style="display: inline-block; text-align: center; font-family: 'Josefin Sans', sans-serif;">&#8594</span><br>New Books
-                    </a>
-                </div>
+                @if (!Model.Any(b => b.CreatedTime >= DateTime.Now.AddDays(-14)))
+                {
+                    <div class="book-row" style="justify-content: center; align-items: center;">
+                        <span style="display: inline-block; text-align: center; font-family: 'Josefin Sans', sans-serif;">No New Books Available</span>
+                    </div>
+                }
+                else
+                {
+                    <div class="book-row" style="justify-content: center; align-items: center;">
+                        <a asp-controller="Dashboard" asp-action="NewBooks" style="text-align:center; display:block">
+                            <span style="display: inline-block; text-align: center; font-family: 'Josefin Sans', sans-serif;">&#8594</span><br>New Books
+                        </a>
+                    </div>
+                }
             </div>
         </div>
     </div>

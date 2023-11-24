@@ -242,4 +242,10 @@
             }
 }
 
+.page-link.ellipses {
+    border: none;
+    background-color: #EEDEAA;
+    color: black;
+}
+
 

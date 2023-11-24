@@ -432,3 +432,20 @@ div.content {
                 font-weight: bolder;
             }
 }
+
+.arrow-link {
+    background-color: #EEDEAA;
+    border: none;
+    color: black;
+}
+
+    .arrow-link:hover {
+        background-color: #665A38;
+        color: #000;
+    }
+
+.page-link.ellipsis {
+    border: none;
+    background-color: #EEDEAA;
+    color: black;
+}

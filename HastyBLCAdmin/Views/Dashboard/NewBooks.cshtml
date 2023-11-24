@@ -55,12 +55,54 @@
             </div>
             <div class="fixed-pagination-container">
                 <ul class="pagination justify-content-center spaced-pagination">
-                    @for (int i = 1; i <= totalPages; i++)
+                    <li class="page-item">
+                        <a class="page-link arrow-link" href="@Url.Action("NewBooks", new { page = 1 })">&#9664;</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link arrow-link" href="@Url.Action("NewBooks", new { page = Math.Max(currentPage - 1, 1) })">&#8249;</a>
+                    </li>
+                    @if (totalPages > 5)
                     {
-                        <li class="page-item @(i == currentPage ? "active" : "unselected")">
-                            <a class="page-link page-number" href="@Url.Action("NewBooks", new { page = i })">@i</a>
-                        </li>
+                        @if (currentPage > 3)
+                        {
+                            <li class="page-item">
+                                <a class="page-link page-number" href="@Url.Action("NewBooks", new { page = 1 })">1</a>
+                            </li>
+                            <li class="page-item disabled">
+                                <span class="page-link" ; style="border: none; background-color: #EEDEAA; color: black">...</span>
+                            </li>
+                        }
+                        @for (int i = Math.Max(currentPage - 2, 1); i <= Math.Min(currentPage + 2, totalPages); i++)
+                        {
+                            <li class="page-item @(i == currentPage ? "active" : "")">
+                                <a class="page-link page-number" href="@Url.Action("NewBooks", new { page = i })">@i</a>
+                            </li>
+                        }
+                        @if (currentPage < totalPages - 2)
+                        {
+                            <li class="page-item disabled">
+                                <span class="page-link" ; style="border: none; background-color: #EEDEAA; color: black">...</span>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link page-number" href="@Url.Action("NewBooks", new { page = totalPages })">@totalPages</a>
+                            </li>
+                        }
                     }
+                    else
+                    {
+                        @for (int i = 1; i <= totalPages; i++)
+                        {
+                            <li class="page-item @(i == currentPage ? "active" : "")">
+                                <a class="page-link page-number" href="@Url.Action("NewBooks", new { page = i })">@i</a>
+                            </li>
+                        }
+                    }
+                    <li class="page-item">
+                        <a class="page-link arrow-link" href="@Url.Action("NewBooks", new { page = Math.Min(currentPage + 1, totalPages) })">&#8250;</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link arrow-link" href="@Url.Action("NewBooks", new { page = totalPages })">&#9654;</a>
+                    </li>
                 </ul>
             </div>
         </div>

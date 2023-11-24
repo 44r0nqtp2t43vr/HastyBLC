@@ -479,3 +479,12 @@ div.content {
             background-color: #0056b3;
         }
 
+.arrow-link {
+    background-color: #EEDEAA;
+    border: none;
+    color: black;
+}
+    .arrow-link:hover {
+        background-color: #665A38;
+        color: #000;
+    }
