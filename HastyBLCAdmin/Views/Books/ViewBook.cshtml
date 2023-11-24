@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="~/css/viewbook.css" />
     <link rel="stylesheet" href="~/css/HastyBLCStyle.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 
 }
 
@@ -86,7 +87,23 @@
     {
         <div class="review">
             <div class="review-header">
+                        <div class="review-header-top">
                 <h4 class="review-author">@review.Name</h4>
+                        <div class="review-actions">
+                                <button class="btn btn-outline-danger editReviewBtn"
+                                        data-review-id="@review.ReviewId"
+                                        data-review-name="@review.Name"
+                                        data-review-user-email="@review.UserEmail"
+                                        data-review-rating="@review.Rating"
+                                        data-review-description="@review.Description">
+                                    <i class="fas fa-edit"></i> 
+                                </button>
+
+                            <button class="btn btn-outline-danger deleteReviewBtn" data-review-id="@review.ReviewId">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                        </div>
                 <span class="review-email">@review.UserEmail</span>
                         <div class="review-rating-container">
                             
@@ -96,25 +113,21 @@
                                     <span class="fa fa-star @(i <= review.Rating ? "checked" : "")"></span>
                                 }
                             </div>
-                            <span class="review-rating">@review.Rating</span>
+
+                          
                         </div>
 
 
             </div>
             <p class="review-description">@review.Description</p>
             
-            <div class="review-actions">
-                <button class="btn btn-outline-danger editReviewBtn" data-review-id="@review.ReviewId">
-                    <i class="fas fa-edit"></i> 
-                </button>
-                <button class="btn btn-outline-danger deleteReviewBtn" data-review-id="@review.ReviewId">
-                    <i class="fas fa-trash"></i> 
-                </button>
-            </div>
+            
                     <hr class="section-divider">
-            <div class="comments-section">
+                    <button class="btn show-comments-btn">Comments</button>
+                    <div class="comments-section" style="display: none;">
                 @foreach (var comment in review.Comments!)
                 {
+
                     <div class="comment">
                         <div class="comment-header">
                             <h6 class="comment-author">@comment.Name</h6>
@@ -133,7 +146,7 @@
                         </div>
                               
                     </div>
-                            <hr class="section-divider">
+                   
                 }
             </div>
         </div>
@@ -156,3 +169,20 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="~/js/viewbook.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    var commentsButtons = document.querySelectorAll('.show-comments-btn');
+
+    commentsButtons.forEach(function(button) {
+        button.addEventListener('click', function () {
+            var commentsSection = this.nextElementSibling; // Assuming comments section is right after the button
+            if (commentsSection.style.display === 'none') {
+                commentsSection.style.display = 'block';
+            } else {
+                commentsSection.style.display = 'none';
+            }
+        });
+    });
+});
+
+</script>

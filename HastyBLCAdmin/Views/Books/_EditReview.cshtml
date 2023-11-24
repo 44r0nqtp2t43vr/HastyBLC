@@ -28,9 +28,10 @@
                     <label>Stars:</label><br />
                     @for (int i = 1; i <= 5; i++)
                     {
-                        <input type="radio" id="editReviewRating@i" name="Rating" value="@i" @(Model.Rating == i ? "checked" : "") required />
-                        <label for="editReviewRating@i" class="fa @(i <= Model.Rating ? "fa-star checked" : "fa-star")"></label>
+                        <input type="radio" id="editReviewRating@i" name="Rating" value="@i" required />
+                        <label for="editReviewRating@i" class="fa fa-star"></label>
                     }
+
                 </div>
 
                 <div class="form-outline mb-4">
