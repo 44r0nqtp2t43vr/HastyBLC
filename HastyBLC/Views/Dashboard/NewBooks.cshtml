@@ -45,12 +45,24 @@
             </div>
             <div class="fixed-pagination-container">
                 <ul class="pagination justify-content-center spaced-pagination">
+                    <li class="page-item">
+                        <a class="page-link arrow-link" href="@Url.Action("NewBooks", new { page = 1 })">&#9664;</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link arrow-link" href="@Url.Action("NewBooks", new { page = Math.Max(currentPage - 1, 1) })">&#8249;</a>
+                    </li>
                     @for (int i = 1; i <= totalPages; i++)
                     {
                         <li class="page-item @(i == currentPage ? "active" : "unselected")">
                             <a class="page-link page-number" href="@Url.Action("NewBooks", new { page = i })">@i</a>
                         </li>
                     }
+                    <li class="page-item">
+                        <a class="page-link arrow-link" href="@Url.Action("NewBooks", new { page = Math.Min(currentPage + 1, totalPages) })">&#8250;</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link arrow-link" href="@Url.Action("NewBooks", new { page = totalPages })">&#9654;</a>
+                    </li>
                 </ul>
             </div>
         </div>
