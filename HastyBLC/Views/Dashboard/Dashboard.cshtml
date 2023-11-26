@@ -46,7 +46,7 @@
         <div>
             <h2 class="title">New Books</h2>
             <div class="book-row">
-                @foreach (var book in Model.Where(b => b.CreatedTime >= DateTime.Now.AddDays(-14)))
+                @foreach (var book in Model.Where(b => b.CreatedTime >= DateTime.Now.AddDays(-14)).Take(5))
                 {
                     <div class="book-item">
                         <div class="book-image-container">
