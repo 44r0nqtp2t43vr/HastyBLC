@@ -65,18 +65,38 @@
                 </div> *@
             </div>
         </form>
+        <!-- Sort options dropdown -->
+        <div class="sort-options">
+            <label for="sortOption">Sort by:</label>
+            <select id="sortOption" name="SortOption">
+                <option value="None">None</option>
+                <option value="Title">Title</option>
+                <option value="AverageRating">Rating</option>
+            </select>
+        </div>
+
+        <!-- Sort order dropdown -->
+        <div class="sort-options">
+            <label for="sortOrder">Sort order:</label>
+            <select id="sortOrder" name="SortOrder">
+                <option value="Ascending">Ascending</option>
+                <option value="Descending">Descending</option>
+            </select>
+        </div>
         <h2 class="title">ALL BOOKS</h2>
         <div class="books-row">
             @foreach (var book in Model.Books!)
             {
-                <div class="book-item">
+                @* var averageRating = calculateAverageRating(book.Reviews); *@
+                var averageRating = 0;
+                <div class="book-item" data-title="@book.Title" data-averageRating="@averageRating">
                     <div class="book-image-container">
                         <a asp-controller="Books" asp-action="ViewBook" asp-route-id="@book.BookId">
                             <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
                         </a>
-
                     </div>
                 </div>
+
             }
         </div>
     </div>
@@ -160,6 +180,63 @@
                 });
             });
         });
+
+        // Function to sort books based on the selected sort option and order
+        function sortBooks(sortOption, sortOrder) {
+            var bookItems = document.querySelectorAll('.book-item');
+
+            var sortedBookItems = Array.from(bookItems).sort(function (a, b) {
+                var aData = a.dataset;
+                var bData = b.dataset;
+
+                if (sortOption === 'Title') {
+                    return sortOrder === 'Ascending'
+                        ? aData.title.localeCompare(bData.title)
+                        : bData.title.localeCompare(aData.title);
+                } else if (sortOption === 'AverageRating') {
+                    var aRating = parseFloat(aData.averageRating);
+                    var bRating = parseFloat(bData.averageRating);
+
+                    return sortOrder === 'Ascending' ? aRating - bRating : bRating - aRating;
+                }
+
+                return 0;
+            });
+
+            // Update the display with the sorted book items
+            var booksRow = document.querySelector('.books-row');
+            booksRow.innerHTML = '';
+            sortedBookItems.forEach(function (item) {
+                booksRow.appendChild(item);
+            });
+        }
+
+        // Event listener for sort options dropdown
+        document.getElementById('sortOption').addEventListener('change', function () {
+            var sortOption = this.value;
+            var sortOrder = document.getElementById('sortOrder').value;
+            sortBooks(sortOption, sortOrder);
+        });
+
+        // Event listener for sort order dropdown
+        document.getElementById('sortOrder').addEventListener('change', function () {
+            var sortOption = document.getElementById('sortOption').value;
+            var sortOrder = this.value;
+            sortBooks(sortOption, sortOrder);
+        });
+
+        // Function to calculate the average rating
+        function calculateAverageRating(reviews) {
+            if (!reviews || reviews.length === 0) {
+                return 0; // or any default value for no reviews
+            }
+
+            var totalRating = reviews.reduce(function (sum, review) {
+                return sum + review.Rating;
+            }, 0);
+
+            return totalRating / reviews.length;
+        }
     </script>
 
 </body>

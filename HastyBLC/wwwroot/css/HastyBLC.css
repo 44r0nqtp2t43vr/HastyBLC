@@ -91,7 +91,7 @@ div.content {
 }
 
 .content-container {
-    display: flex;
+    display: none;
     overflow-x: auto;
 }
 
