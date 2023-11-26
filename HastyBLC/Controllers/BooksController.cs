@@ -15,6 +15,7 @@ using System;
 using System.Linq;
 using static Data.PathManager;
 using Services.Services;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace HastyBLC.Controllers
 {
@@ -40,11 +41,51 @@ namespace HastyBLC.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Books()
+        public IActionResult Books(BookSearchViewModel model)
         {
-            var books = _bookService.GetBooks();
-            ViewBag.Genres = _genreService.GetGenres();
-            return View(books);
+            var books = model.Books;
+            if (books == null)
+            {
+                books = _bookService.GetBooks().ToList();
+            }
+
+            var genres = model.Genres;
+            if (genres == null)
+            {
+                genres = _bookService.GetGenres().ToList();
+            }
+
+            var isGenreSelected = model.IsGenreSelected;
+            if (isGenreSelected == null)
+            {
+                isGenreSelected = Enumerable.Repeat(false, genres.Count).ToList();
+            }
+            var viewModel = new BookSearchViewModel
+            {
+                Books = books,
+                Genres = genres,
+                IsGenreSelected = isGenreSelected
+            };
+
+            return View(viewModel);
+
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public IActionResult SearchBooks(BookSearchViewModel model)
+        {
+            model.IsGenreSelected ??= new List<bool>();
+            var genres = _bookService.GetGenres().ToList();
+            var selectedGenres = genres.Where((genre, index) => model.IsGenreSelected![index]).ToList();
+            var books = _bookService.SearchBooks(model.SearchText!).ToList();
+            var viewModel = new BookSearchViewModel
+            {
+                Books = books,
+                Genres = genres
+            };
+
+            return View("Books", viewModel);
         }
 
         [HttpGet]
@@ -171,15 +212,6 @@ namespace HastyBLC.Controllers
             }
             return RedirectToAction("Books", "Books");
 
-        }
-
-        [HttpGet]
-        [AllowAnonymous]
-        public IActionResult Search(string query)
-        {
-            var books = _bookService.SearchBooks(query);
-            ViewBag.Genres = _genreService.GetGenres();
-            return View("Books", books);
         }
     }
 }

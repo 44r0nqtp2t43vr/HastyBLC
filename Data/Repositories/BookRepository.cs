@@ -103,7 +103,7 @@ namespace Data.Repositories
 
             if(!string.IsNullOrEmpty(searchCriteria))
             {
-                query = query.Where(book => book.Title.Contains(searchCriteria) || book.Author.Name.Contains(searchCriteria));
+                query = query.Where(book => book.Title!.Contains(searchCriteria) || book.Author.Name!.Contains(searchCriteria));
             }
             return query;
         }

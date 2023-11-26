@@ -128,9 +128,15 @@ namespace Services.Services
         {
             _repository.DeleteBook(bookId);
         }
+
         public IEnumerable<Book> GetBooks()
         {
             return _repository.GetBooks().ToList();
+        }
+
+        public IEnumerable<Genre> GetGenres()
+        {
+            return _dbContext.Genres.ToList();
         }
 
         public void EditBook(BookViewModel model, string imagePath)
