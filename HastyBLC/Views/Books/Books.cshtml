@@ -69,9 +69,8 @@
         <div class="sort-options">
             <label for="sortOption">Sort by:</label>
             <select id="sortOption" name="SortOption">
-                <option value="None">None</option>
                 <option value="Title">Title</option>
-                <option value="AverageRating">Rating</option>
+                <option value="Rating">Rating</option>
             </select>
         </div>
 
@@ -87,9 +86,7 @@
         <div class="books-row">
             @foreach (var book in Model.Books!)
             {
-                @* var averageRating = calculateAverageRating(book.Reviews); *@
-                var averageRating = 0;
-                <div class="book-item" data-title="@book.Title" data-averageRating="@averageRating">
+                <div class="book-item" data-title="@book.Title" data-averagerating="@book.AverageRating">
                     <div class="book-image-container">
                         <a asp-controller="Books" asp-action="ViewBook" asp-route-id="@book.BookId">
                             <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
@@ -193,11 +190,12 @@
                     return sortOrder === 'Ascending'
                         ? aData.title.localeCompare(bData.title)
                         : bData.title.localeCompare(aData.title);
-                } else if (sortOption === 'AverageRating') {
-                    var aRating = parseFloat(aData.averageRating);
-                    var bRating = parseFloat(bData.averageRating);
+                } else if (sortOption === 'Rating') {
+                    var aRating = parseFloat(aData.averagerating);
+                    var bRating = parseFloat(bData.averagerating);
 
                     return sortOrder === 'Ascending' ? aRating - bRating : bRating - aRating;
+
                 }
 
                 return 0;
@@ -225,18 +223,8 @@
             sortBooks(sortOption, sortOrder);
         });
 
-        // Function to calculate the average rating
-        function calculateAverageRating(reviews) {
-            if (!reviews || reviews.length === 0) {
-                return 0; // or any default value for no reviews
-            }
-
-            var totalRating = reviews.reduce(function (sum, review) {
-                return sum + review.Rating;
-            }, 0);
-
-            return totalRating / reviews.length;
-        }
+        // Call sortBooks with default values when the screen is loaded
+        sortBooks(document.getElementById('sortOption').value, document.getElementById('sortOrder').value);
     </script>
 
 </body>

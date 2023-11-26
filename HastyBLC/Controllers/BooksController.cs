@@ -46,7 +46,19 @@ namespace HastyBLC.Controllers
             var books = model.Books;
             if (books == null)
             {
-                books = _bookService.GetBooks().ToList();
+                books = _bookService.GetBooksWithReviews().ToList();
+                // Calculate average ratings for each book
+                foreach (var book in books)
+                {
+                    if (book.Reviews != null && book.Reviews.Count > 0)
+                    {
+                        book.AverageRating = book.Reviews.Average(review => review.Rating);
+                    } else
+                    {
+                        book.AverageRating = 0;
+                    }
+                    
+                }
             }
 
             var genres = model.Genres;
@@ -79,11 +91,27 @@ namespace HastyBLC.Controllers
             var genres = _bookService.GetGenres().ToList();
             var selectedGenres = genres.Where((genre, index) => model.IsGenreSelected![index]).ToList();
             var books = _bookService.SearchBooks(model).ToList();
+
+            // Calculate average ratings for each book
+            foreach (var book in books)
+            {
+                if (book.Reviews != null && book.Reviews.Count > 0)
+                {
+                    book.AverageRating = book.Reviews.Average(review => review.Rating);
+                }
+                else
+                {
+                    book.AverageRating = 0;
+                }
+
+            }
+
             var viewModel = new BookSearchViewModel
             {
                 Books = books,
                 Genres = genres
             };
+            
 
             return View("Books", viewModel);
         }

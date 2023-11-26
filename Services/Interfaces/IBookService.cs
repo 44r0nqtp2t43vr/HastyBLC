@@ -14,6 +14,7 @@ namespace Services.Interfaces
         void DeleteBook(int bookId);
         IEnumerable<Book> GetBooks();
         IEnumerable<Genre> GetGenres();
+        IEnumerable<Book> GetBooksWithReviews();
         void EditBook(BookViewModel model, string imagePath);
         void AddReview(ReviewViewModel model);
         void AddComment(CommentViewModel model);
