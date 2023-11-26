@@ -1097,14 +1097,6 @@ namespace HastyBLCAdmin
                     CreatedBy = System.Environment.UserName,
                     UpdatedBy = System.Environment.UserName
                 };
-                var genre101 = new Genre()
-                {
-                    Name = "Westerns",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
 
                 if (!context!.Genres.Any())
                 {
@@ -1210,7 +1202,6 @@ namespace HastyBLCAdmin
                         genre98,
                         genre99,
                         genre100,
-                        genre101,
 
                     });
                     context.SaveChanges();

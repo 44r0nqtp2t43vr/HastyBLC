@@ -78,7 +78,7 @@ namespace HastyBLC.Controllers
             model.IsGenreSelected ??= new List<bool>();
             var genres = _bookService.GetGenres().ToList();
             var selectedGenres = genres.Where((genre, index) => model.IsGenreSelected![index]).ToList();
-            var books = _bookService.SearchBooks(model.SearchText!).ToList();
+            var books = _bookService.SearchBooks(model).ToList();
             var viewModel = new BookSearchViewModel
             {
                 Books = books,

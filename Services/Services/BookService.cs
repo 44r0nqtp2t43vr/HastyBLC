@@ -263,12 +263,24 @@ namespace Services.Services
             _repository.AddComment(comment);
         }
 
-
-        public IEnumerable<Book> SearchBooks(string searchCriteria)
+        public IEnumerable<Book> SearchBooks(BookSearchViewModel model)
         {
-            return _repository.SearchBooks(searchCriteria).ToList();
+            var query = _repository.SearchBooksByTitleOrAuthor(model.SearchText!);
+
+            // Filter by selectedGenres
+            if (model.IsGenreSelected != null && model.IsGenreSelected.Any(selected => selected))
+            {
+                var selectedGenreIds = model.IsGenreSelected
+                    .Select((selected, index) => new { Selected = selected, Index = index })
+                    .Where(item => item.Selected)
+                    .Select(item => model.Genres![item.Index].GenreId);
+
+                query = query.Where(book => book.BookGenres!.Any(bg => selectedGenreIds.Contains(bg.GenreId)));
+            }
+
+            return query.ToList();
         }
-            
+
         public void EditReview(ReviewViewModel model)
         {
             var existingReview = _repository.GetReviewById(model.ReviewId);
