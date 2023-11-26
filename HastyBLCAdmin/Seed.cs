@@ -18,7 +18,7 @@ namespace HastyBLCAdmin
                 context?.Database.EnsureCreated();
 
                 // AspNetRoles
-                var role1 = new IdentityRole()
+                /*var role1 = new IdentityRole()
                 {
                     Name = "Superadmin"
                 };
@@ -34,7 +34,7 @@ namespace HastyBLCAdmin
                 userManager!.CreateAsync(aspuser1, "Superadmin123!").Wait();
 
                 // AspNetUserRoles
-                userManager.AddToRoleAsync(aspuser1, "Superadmin").Wait();
+                userManager.AddToRoleAsync(aspuser1, "Superadmin").Wait();*/
 
                 // Authors
                 var author1 = new Author()
@@ -401,30 +401,6 @@ namespace HastyBLCAdmin
                     CreatedBy = System.Environment.UserName,
                     UpdatedBy = System.Environment.UserName
                 };
-                var genre14 = new Genre()
-                {
-                    Name = "Christmas",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre15 = new Genre()
-                {
-                    Name = "Chick Lit",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre16 = new Genre()
-                {
-                    Name = "Holiday",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
                 var genre17 = new Genre()
                 {
                     Name = "Lesbian",
@@ -441,14 +417,6 @@ namespace HastyBLCAdmin
                     CreatedBy = System.Environment.UserName,
                     UpdatedBy = System.Environment.UserName
                 };
-                var genre19 = new Genre()
-                {
-                    Name = "Sports",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
                 var genre20 = new Genre()
                 {
                     Name = "Historical Fiction",
@@ -460,14 +428,6 @@ namespace HastyBLCAdmin
                 var genre21 = new Genre()
                 {
                     Name = "Historical",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre22 = new Genre()
-                {
-                    Name = "World War II",
                     CreatedTime = DateTime.Now,
                     UpdatedTime = DateTime.Now,
                     CreatedBy = System.Environment.UserName,
@@ -521,22 +481,6 @@ namespace HastyBLCAdmin
                     CreatedBy = System.Environment.UserName,
                     UpdatedBy = System.Environment.UserName
                 };
-                var genre29 = new Genre()
-                {
-                    Name = "Paranormal Romance",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre30 = new Genre()
-                {
-                    Name = "High Fantasy",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
                 var genre31 = new Genre()
                 {
                     Name = "Science Fiction Fantasy",
@@ -569,25 +513,9 @@ namespace HastyBLCAdmin
                     CreatedBy = System.Environment.UserName,
                     UpdatedBy = System.Environment.UserName
                 };
-                var genre35 = new Genre()
-                {
-                    Name = "Cozy Mystery",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
                 var genre36 = new Genre()
                 {
                     Name = "Horror",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre37 = new Genre()
-                {
-                    Name = "Gothic",
                     CreatedTime = DateTime.Now,
                     UpdatedTime = DateTime.Now,
                     CreatedBy = System.Environment.UserName,
@@ -604,30 +532,6 @@ namespace HastyBLCAdmin
                 var genre39 = new Genre()
                 {
                     Name = "Mental Health",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre40 = new Genre()
-                {
-                    Name = "Adult Fiction",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre41 = new Genre()
-                {
-                    Name = "Nature",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre42 = new Genre()
-                {
-                    Name = "Cults",
                     CreatedTime = DateTime.Now,
                     UpdatedTime = DateTime.Now,
                     CreatedBy = System.Environment.UserName,
@@ -657,38 +561,6 @@ namespace HastyBLCAdmin
                     CreatedBy = System.Environment.UserName,
                     UpdatedBy = System.Environment.UserName
                 };
-                var genre46 = new Genre()
-                {
-                    Name = "Urban Fantasy",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre47 = new Genre()
-                {
-                    Name = "British Literature",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre48 = new Genre()
-                {
-                    Name = "Victorian",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre49 = new Genre()
-                {
-                    Name = "Novels",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
                 var genre50 = new Genre()
                 {
                     Name = "Science Fiction",
@@ -705,22 +577,6 @@ namespace HastyBLCAdmin
                     CreatedBy = System.Environment.UserName,
                     UpdatedBy = System.Environment.UserName
                 };
-                var genre52 = new Genre()
-                {
-                    Name = "Murder Mystery",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre53 = new Genre()
-                {
-                    Name = "Suspense",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
                 var genre54 = new Genre()
                 {
                     Name = "Adventure",
@@ -729,25 +585,9 @@ namespace HastyBLCAdmin
                     CreatedBy = System.Environment.UserName,
                     UpdatedBy = System.Environment.UserName
                 };
-                var genre55 = new Genre()
-                {
-                    Name = "Young Adult Romance",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
                 var genre56 = new Genre()
                 {
                     Name = "Realistic Fiction",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre57 = new Genre()
-                {
-                    Name = "Transgender",
                     CreatedTime = DateTime.Now,
                     UpdatedTime = DateTime.Now,
                     CreatedBy = System.Environment.UserName,
@@ -777,62 +617,6 @@ namespace HastyBLCAdmin
                     CreatedBy = System.Environment.UserName,
                     UpdatedBy = System.Environment.UserName
                 };
-                var genre61 = new Genre()
-                {
-                    Name = "Standalone",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre62 = new Genre()
-                {
-                    Name = "Ghosts",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre63 = new Genre()
-                {
-                    Name = "Fantasy Sci-Fi",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre64 = new Genre()
-                {
-                    Name = "Cozy Fantasy",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre65 = new Genre()
-                {
-                    Name = "New Adult",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre66 = new Genre()
-                {
-                    Name = "Age Adult",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre67 = new Genre()
-                {
-                    Name = "Historical Mystery",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
                 var genre68 = new Genre()
                 {
                     Name = "Magical Realism",
@@ -841,97 +625,9 @@ namespace HastyBLCAdmin
                     CreatedBy = System.Environment.UserName,
                     UpdatedBy = System.Environment.UserName
                 };
-                var genre69 = new Genre()
-                {
-                    Name = "Adult Romance",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre70 = new Genre()
-                {
-                    Name = "Fairy Tale Retelling",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre71 = new Genre()
-                {
-                    Name = "New York",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre72 = new Genre()
-                {
-                    Name = "Cultural",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre73 = new Genre()
-                {
-                    Name = "Religion",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre74 = new Genre()
-                {
-                    Name = "Judaica",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre75 = new Genre()
-                {
-                    Name = "Judaism",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre76 = new Genre()
-                {
-                    Name = "Supernatural",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre77 = new Genre()
-                {
-                    Name = "Books About Books",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre78 = new Genre()
-                {
-                    Name = "Speculative Fiction",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
                 var genre79 = new Genre()
                 {
                     Name = "Dystopia",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre80 = new Genre()
-                {
-                    Name = "Young Adult Contemporary",
                     CreatedTime = DateTime.Now,
                     UpdatedTime = DateTime.Now,
                     CreatedBy = System.Environment.UserName,
@@ -948,158 +644,6 @@ namespace HastyBLCAdmin
                 var genre82 = new Genre()
                 {
                     Name = "Anthologies",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre83 = new Genre()
-                {
-                    Name = "Collections",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre84 = new Genre()
-                {
-                    Name = "Military Fiction",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre85 = new Genre()
-                {
-                    Name = "War",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre86 = new Genre()
-                {
-                    Name = "Time Travel",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre87 = new Genre()
-                {
-                    Name = "Teen",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre88 = new Genre()
-                {
-                    Name = "Short Story Collection",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre89 = new Genre()
-                {
-                    Name = "Politics",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre90 = new Genre()
-                {
-                    Name = "Climate Change Fiction",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre91 = new Genre()
-                {
-                    Name = "Space Opera",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre92 = new Genre()
-                {
-                    Name = "Animals",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre93 = new Genre()
-                {
-                    Name = "Childrens",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre94 = new Genre()
-                {
-                    Name = "Dogs",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre95 = new Genre()
-                {
-                    Name = "Juvenile",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre96 = new Genre()
-                {
-                    Name = "Classics",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre97 = new Genre()
-                {
-                    Name = "Greece",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre98 = new Genre()
-                {
-                    Name = "Feminism",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre99 = new Genre()
-                {
-                    Name = "Alternate History",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre100 = new Genre()
-                {
-                    Name = "Urban Fantasy",
-                    CreatedTime = DateTime.Now,
-                    UpdatedTime = DateTime.Now,
-                    CreatedBy = System.Environment.UserName,
-                    UpdatedBy = System.Environment.UserName
-                };
-                var genre101 = new Genre()
-                {
-                    Name = "Westerns",
                     CreatedTime = DateTime.Now,
                     UpdatedTime = DateTime.Now,
                     CreatedBy = System.Environment.UserName,
@@ -1123,95 +667,37 @@ namespace HastyBLCAdmin
                         genre11,
                         genre12,
                         genre13,
-                        genre14,
-                        genre15,
-                        genre16,
                         genre17,
                         genre18,
-                        genre19,
                         genre20,
                         genre21,
-                        genre22,
                         genre23,
                         genre24,
                         genre25,
                         genre26,
                         genre27,
                         genre28,
-                        genre29,
-                        genre30,
                         genre31,
                         genre32,
                         genre33,
                         genre34,
-                        genre35,
                         genre36,
-                        genre37,
                         genre38,
                         genre39,
-                        genre40,
-                        genre41,
-                        genre42,
                         genre43,
                         genre44,
                         genre45,
-                        genre46,
-                        genre47,
-                        genre48,
-                        genre49,
                         genre50,
                         genre51,
-                        genre52,
-                        genre53,
                         genre54,
-                        genre55,
                         genre56,
-                        genre57,
                         genre58,
                         genre59,
                         genre60,
-                        genre61,
-                        genre62,
-                        genre63,
-                        genre64,
-                        genre65,
-                        genre66,
-                        genre67,
                         genre68,
-                        genre69,
-                        genre70,
-                        genre71,
-                        genre72,
-                        genre73,
-                        genre74,
-                        genre75,
-                        genre76,
-                        genre77,
-                        genre78,
                         genre79,
-                        genre80,
                         genre81,
                         genre82,
-                        genre83,
-                        genre84,
-                        genre85,
-                        genre86,
-                        genre87,
-                        genre88,
-                        genre89,
-                        genre90,
-                        genre91,
-                        genre92,
-                        genre93,
-                        genre94,
-                        genre95,
-                        genre96,
-                        genre97,
-                        genre98,
-                        genre99,
-                        genre100,
-                        genre101,
-
                     });
                     context.SaveChanges();
                 }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Book>
+﻿@model BookSearchViewModel
 @section styles {
     <link rel="stylesheet" href="~/css/HastyBLC.css" />
 }
@@ -24,56 +24,76 @@
     </div>
 
     <div class="content">
-        <!-- Search Bar -->
-        <div class="search-bar">
-            <form asp-controller="Books" asp-action="Search" method="get">
-                <input type="text" name="query" placeholder="Search by title or author...">
-                <button type="submit">Search</button>
-            </form>
-        </div>
+        <form method="post" action="/Books/SearchBooks">
+            <!-- Search Bar -->
+            <div class="search-bar">
 
-        <!-- Filter by Book Genres -->
-        <div class="filter-section">
-            <h3>
-                <span>Filter by</span>
-                <button id="expandCollapseGenres" class="btn btn-link float-right">Collapse</button>
-            </h3>
-            <h4>Book Genres</h4>
-
-            <!-- Checkbox for each genre -->
-            <div class="checkbox-container">
-                @foreach (var genre in ViewBag.Genres)
-                {
-                    <div class="checkbox">
-                        <input type="checkbox" id="@genre.GenreId" class="genre-filter" value="@genre.GenreId" />
-                        <label for="@genre.GenreId">@genre.Name</label>
-                    </div>
-                }
+                <input asp-for="SearchText" type="text" name="SearchText" placeholder="Search by title or author...">
+                    <button type="submit">Search</button>
+            
             </div>
 
-            <!-- Clear all filters button -->
-            <button id="clearFilters" class="btn btn-link float-right">Clear all filters</button>
+            <!-- Filter by Book Genres -->
+            <div class="filter-section">
+                <h3>
+                    <span>Filter by</span>
+                    <button type="button" id="expandCollapseGenres" class="btn btn-link float-right">Collapse</button>
+                </h3>
+                <h4>Book Genres</h4>
 
-            <!-- Search and Clear Buttons Container -->
-            @* <div class="clearfix"></div> *@
-            @* <div class="buttons-container">
+                <!-- Checkbox for each genre -->
+                <div class="checkbox-container">
+                    @for (var i = 0; i < Model.Genres!.Count; i++)
+                    {
+                        <div>
+                            <input type="hidden" asp-for="Genres![i]" name="Genres[@i].GenreId" value="@Model.Genres[i].GenreId" />
+                            <input asp-for="IsGenreSelected![i]" type="checkbox" id="genre@(i)" class="genre-filter" />
+                            <label>@Model.Genres[i].Name</label>
+                        </div>
+                    }
+                </div>
+
+
                 <!-- Clear all filters button -->
-                <button id="searchButton" class="btn btn-primary mx-auto d-block">Search</button>
-            </div> *@
+                <button type="button" id="clearFilters" class="btn btn-link float-right">Clear all filters</button>
+
+                <!-- Search and Clear Buttons Container -->
+                @* <div class="clearfix"></div> *@
+                @* <div class="buttons-container">
+                    <!-- Clear all filters button -->
+                    <button id="searchButton" class="btn btn-primary mx-auto d-block">Search</button>
+                </div> *@
+            </div>
+        </form>
+        <!-- Sort options dropdown -->
+        <div class="sort-options">
+            <label for="sortOption">Sort by:</label>
+            <select id="sortOption" name="SortOption">
+                <option value="Title">Title</option>
+                <option value="Rating">Rating</option>
+            </select>
         </div>
 
+        <!-- Sort order dropdown -->
+        <div class="sort-options">
+            <label for="sortOrder">Sort order:</label>
+            <select id="sortOrder" name="SortOrder">
+                <option value="Ascending">Ascending</option>
+                <option value="Descending">Descending</option>
+            </select>
+        </div>
         <h2 class="title">ALL BOOKS</h2>
         <div class="books-row">
-            @foreach (var book in Model)
+            @foreach (var book in Model.Books!)
             {
-                <div class="book-item">
+                <div class="book-item" data-title="@book.Title" data-averagerating="@book.AverageRating">
                     <div class="book-image-container">
                         <a asp-controller="Books" asp-action="ViewBook" asp-route-id="@book.BookId">
                             <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
                         </a>
-
                     </div>
                 </div>
+
             }
         </div>
     </div>
@@ -123,15 +143,15 @@
         });
 
         // Search functionality
-        document.getElementById('searchButton').addEventListener('click', function () {
-            var searchTerm = document.getElementById('search').value.toLowerCase();
-            var bookItems = document.querySelectorAll('.book-item');
-
-            bookItems.forEach(function (item) {
-                var title = item.querySelector('.book-title').textContent.toLowerCase();
-                item.style.display = title.includes(searchTerm) ? 'block' : 'none';
-            });
-        });
+        // document.getElementById('searchButton').addEventListener('click', function () {
+        //     var searchTerm = document.getElementById('search').value.toLowerCase();
+        //     var bookItems = document.querySelectorAll('.book-item');
+        // 
+        //     bookItems.forEach(function (item) {
+        //         var title = item.querySelector('.book-title').textContent.toLowerCase();
+        //         item.style.display = title.includes(searchTerm) ? 'block' : 'none';
+        //     });
+        // });
 
         // Filter functionality
         var genreFilters = document.querySelectorAll('.genre-filter');
@@ -157,6 +177,54 @@
                 });
             });
         });
+
+        // Function to sort books based on the selected sort option and order
+        function sortBooks(sortOption, sortOrder) {
+            var bookItems = document.querySelectorAll('.book-item');
+
+            var sortedBookItems = Array.from(bookItems).sort(function (a, b) {
+                var aData = a.dataset;
+                var bData = b.dataset;
+
+                if (sortOption === 'Title') {
+                    return sortOrder === 'Ascending'
+                        ? aData.title.localeCompare(bData.title)
+                        : bData.title.localeCompare(aData.title);
+                } else if (sortOption === 'Rating') {
+                    var aRating = parseFloat(aData.averagerating);
+                    var bRating = parseFloat(bData.averagerating);
+
+                    return sortOrder === 'Ascending' ? aRating - bRating : bRating - aRating;
+
+                }
+
+                return 0;
+            });
+
+            // Update the display with the sorted book items
+            var booksRow = document.querySelector('.books-row');
+            booksRow.innerHTML = '';
+            sortedBookItems.forEach(function (item) {
+                booksRow.appendChild(item);
+            });
+        }
+
+        // Event listener for sort options dropdown
+        document.getElementById('sortOption').addEventListener('change', function () {
+            var sortOption = this.value;
+            var sortOrder = document.getElementById('sortOrder').value;
+            sortBooks(sortOption, sortOrder);
+        });
+
+        // Event listener for sort order dropdown
+        document.getElementById('sortOrder').addEventListener('change', function () {
+            var sortOption = document.getElementById('sortOption').value;
+            var sortOrder = this.value;
+            sortBooks(sortOption, sortOrder);
+        });
+
+        // Call sortBooks with default values when the screen is loaded
+        sortBooks(document.getElementById('sortOption').value, document.getElementById('sortOrder').value);
     </script>
 
 </body>

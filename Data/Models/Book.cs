@@ -25,6 +25,20 @@ namespace Data.Models
         public DateTime UpdatedTime { get; set; }
         public ICollection<BookGenre>? BookGenres { get; set; }
         public ICollection<Review>? Reviews { get; set; }
+        public double CalculateAverageRating
+        {
+            get
+            {
+                if (Reviews == null || Reviews.Count == 0)
+                {
+                    return 0; // or any default value for no reviews
+                }
+
+                return Reviews.Average(review => review.Rating);
+            }
+        }
+        [NotMapped]
+        public double AverageRating { get; set; }
 
     }
 }

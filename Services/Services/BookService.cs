@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using Data.Repositories;
 using Hangfire.Annotations;
 using System.Net;
+using Microsoft.EntityFrameworkCore;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Services.Services
 {
@@ -128,9 +130,20 @@ namespace Services.Services
         {
             _repository.DeleteBook(bookId);
         }
+
         public IEnumerable<Book> GetBooks()
         {
             return _repository.GetBooks().ToList();
+        }
+
+        public IEnumerable<Genre> GetGenres()
+        {
+            return _dbContext.Genres.ToList();
+        }
+
+        public IEnumerable<Book> GetBooksWithReviews()
+        {
+            return _repository.GetBooks().Include(book => book.Reviews).ToList();
         }
 
         public void EditBook(BookViewModel model, string imagePath)
@@ -257,12 +270,27 @@ namespace Services.Services
             _repository.AddComment(comment);
         }
 
-
-        public IEnumerable<Book> SearchBooks(string searchCriteria)
+        public IEnumerable<Book> SearchBooks(BookSearchViewModel model)
         {
-            return _repository.SearchBooks(searchCriteria).ToList();
+            var query = _repository.SearchBooksByTitleOrAuthor(model.SearchText!);
+
+            // Include Reviews for eager loading
+            query = query.Include(book => book.Reviews);
+
+            // Filter by selectedGenres
+            if (model.IsGenreSelected != null && model.IsGenreSelected.Any(selected => selected))
+            {
+                var selectedGenreIds = model.IsGenreSelected
+                    .Select((selected, index) => new { Selected = selected, Index = index })
+                    .Where(item => item.Selected)
+                    .Select(item => model.Genres![item.Index].GenreId);
+
+                query = query.Where(book => book.BookGenres!.Any(bg => selectedGenreIds.Contains(bg.GenreId)));
+            }
+
+            return query.ToList();
         }
-            
+
         public void EditReview(ReviewViewModel model)
         {
             var existingReview = _repository.GetReviewById(model.ReviewId);
