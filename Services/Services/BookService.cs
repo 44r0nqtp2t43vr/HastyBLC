@@ -146,7 +146,7 @@ namespace Services.Services
             return _repository.GetBooks().Include(book => book.Reviews).ToList();
         }
 
-        public void EditBook(BookViewModel model, string imagePath)
+        public void EditBook(BookViewModel model, string? imagePath)
         {
             var existingBook = _repository.GetBookById(model.BookId);
 
@@ -163,7 +163,7 @@ namespace Services.Services
                 existingBook.Language = model.Language;
                 existingBook.Format = model.Format;
 
-                if (imagePath.Length > 0)
+                if (imagePath != null && imagePath.Length > 0)
                 {
                     existingBook.Image = imagePath;
                 }
