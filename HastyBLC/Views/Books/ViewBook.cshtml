@@ -24,6 +24,7 @@
             <p>@Model.AuthorName</p>
         </div>
     </div>
+    </div>
     <div class="book-details-container">
         <!-- Description section -->
         <div class="description-section">
@@ -61,36 +62,62 @@
 
         <!-- Book Reviews section -->
         <div class="book-reviews-section">
-            <h3>Book Reviews</h3>
+            <hr class="section-divider">
+            <h3 class="book-reviews-title">Book Reviews</h3>
             <button class="btn btn-outline-danger addReviewBtn" data-book-id="@Model.BookId">Review this Book</button>
 
-            <!-- Review 1 -->
-            @foreach (var review in Model.Reviews!) 
+            @foreach (var review in Model.Reviews!)
             {
                 <div class="review">
-                    <h4>@review.Name</h4>
-                    <h4>@review.UserEmail</h4>
-                    <p>@review.Rating</p>
-                    <p>
-                        @review.Description
-                    </p>
-                    <button class="btn btn-outline-danger addCommentBtn" data-review-id="@review.ReviewId">
-                        <i class="fas fa-edit"></i>
-                    </button>
-                </div>
-                @foreach (var comment in review.Comments!)
-                {
-                    <div>
-                        <h6>@comment.Name</h6>
-                        <h6>@comment.UserEmail</h6>
-                        <p>
-                            @comment.Description
-                        </p>
+                    <div class="review-header">
+                        <div class="review-header-top">
+                            <h4 class="review-author">@review.Name</h4>
+                            
+                        </div>
+                        <span class="review-email">@review.UserEmail</span>
+                        <div class="review-rating-container">
+
+                            <div class="rating">
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    <span class="fa fa-star @(i <= review.Rating ? "checked" : "")"></span>
+                                }
+                            </div>
+
+
+                        </div>
+
+
                     </div>
-                }
+                    <p class="review-description">@review.Description</p>
+
+                   
+
+                    <hr class="section-divider">
+                    <button class="btn show-comments-btn">Comments</button>
+                    <div class="comments-section" style="display: none;">
+                        @foreach (var comment in review.Comments!)
+                        {
+
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <h6 class="comment-author">@comment.Name</h6>
+                                    <span class="comment-email">@comment.UserEmail</span>
+                                </div>
+                                <p class="comment-description">@comment.Description</p>
+
+                                
+
+                            </div>
+
+                        }
+                        <button class="btn btn-outline-danger addCommentBtn" data-review-id="@review.ReviewId">
+                            Add Comment
+                        </button>
+                    </div>
+                </div>
             }
-            </div>
-    </div>
+        </div>
     
     <script>
         function goBack() {
@@ -112,3 +139,20 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="~/js/book.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var commentsButtons = document.querySelectorAll('.show-comments-btn');
+
+        commentsButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                var commentsSection = this.nextElementSibling; // Assuming comments section is right after the button
+                if (commentsSection.style.display === 'none') {
+                    commentsSection.style.display = 'block';
+                } else {
+                    commentsSection.style.display = 'none';
+                }
+            });
+        });
+    });
+
+</script>

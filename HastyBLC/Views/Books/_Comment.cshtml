@@ -1,6 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 @model Services.ServiceModels.CommentViewModel
+<link rel="stylesheet" href="~/css/addcomment.css" />
 <div class="modal" id="addCommentModal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -33,7 +34,7 @@
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <button class="btn btn-primary btn-block login-btn gradient-custom-2 mb-3" data-dismiss="modal">Close</button>
-                    <button class="btn btn-primary btn-block login-btn gradient-custom-2 mb-3" type="submit">Comment</button>
+                    <button class="btn btn-primary btn-block login-btn gradient-custom-2 mb-3" type="submit"> Add Comment</button>
                 </div>
             </form>
         </div>

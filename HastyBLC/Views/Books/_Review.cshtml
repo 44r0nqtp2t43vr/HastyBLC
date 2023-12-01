@@ -1,6 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 @model Services.ServiceModels.ReviewViewModel
+<link rel="stylesheet" href="~/css/addreview.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <div class="modal" id="addReviewModal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -27,10 +29,12 @@
                     <label>Stars:</label><br />
                     @for (int i = 1; i <= 5; i++)
                     {
-                        <input type="radio" id="addReviewRating@i" name="Rating" value="@i" required />
-                        <label for="addReviewRating@i"><span class="rating"></span></label>
+                        <input type="radio" id="addReviewRating@i" name="Rating" value="@i" required class="star-rating-input" />
+                        <label for="addReviewRating@i" class="star-rating-star"><i class="far fa-star"></i></label>
                     }
                 </div>
+
+
                 <div class="form-outline mb-4">
                     <label class="form-label" for="description">Review</label>
                     <input type="text" id="addReviewDescription" class="form-control"
