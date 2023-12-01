@@ -13,6 +13,8 @@ namespace Services.ServiceModels
         public List<Book>? Books { get; set; }
         public List<Genre>? Genres { get; set; }
         public List<bool>? IsGenreSelected { get; set; }
+        public int CurrentPage { get; set; }
+        public int TotalPages { get; set; }
     }
 
 }

@@ -298,7 +298,10 @@ namespace HastyBLCAdmin.Controllers
                 TotalPages = totalPages
             };
 
-            return View(viewModel);
+            ViewData["CurrentPage"] = page;
+            ViewData["TotalPages"] = totalPages;
+
+            return View(currentPageBooks);
         }
 
         [HttpPost]

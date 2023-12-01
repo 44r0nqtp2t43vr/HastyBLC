@@ -266,7 +266,7 @@ div.content {
 
 .fixed-pagination-container {
     position: absolute;
-    bottom: 5px; 
+    bottom: 0px; 
     left: 55%; 
     transform: translateX(-50%); 
 }
