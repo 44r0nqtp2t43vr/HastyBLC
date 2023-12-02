@@ -18,6 +18,7 @@
   <ItemGroup>
     <Content Remove="Views\Books\_DeleteReview.cshtml" />
     <Content Remove="wwwroot\%2a%2a" />
+    <Content Remove="wwwroot\img\edit - Copy.png" />
   </ItemGroup>
 
   <ItemGroup>
