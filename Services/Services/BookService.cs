@@ -148,6 +148,7 @@ namespace Services.Services
 
         public void EditBook(BookViewModel model, string? imagePath)
         {
+            var modeldup = model;
             var existingBook = _repository.GetBookById(model.BookId);
 
             if (existingBook == null)
@@ -170,10 +171,10 @@ namespace Services.Services
 
                 existingBook.Author = _dbContext.Authors?.FirstOrDefault(x => x.Name == model.AuthorName);
 
-                var author = _dbContext.Authors?.FirstOrDefault(x => x.Name == model.AuthorName);
+                var author = _dbContext.Authors?.FirstOrDefault(x => x.Name == model.AuthorName!.Trim());
                 if (author == null)
                 {
-                    author = new Author { Name = model.AuthorName };
+                    author = new Author { Name = model.AuthorName!.Trim() };
                     _dbContext.Authors?.Add(author);
                 }
                 existingBook.Author = author;
@@ -204,7 +205,7 @@ namespace Services.Services
 
                 _repository.EditBook(existingBook);
 
-                var oldBookGenres = _dbContext.BookGenres.Where(bg => bg.BookId == existingBook.BookId).ToList();
+                var oldBookGenres = _dbContext.BookGenres.Include(bg => bg.Genre).Where(bg => bg.BookId == existingBook.BookId).ToList();
                 foreach (var oldBookGenre in oldBookGenres)
                 {
                     _repository.DeleteBookGenre(oldBookGenre);
@@ -228,7 +229,6 @@ namespace Services.Services
                             CreatedBy = System.Environment.UserName,
                             UpdatedBy = System.Environment.UserName
                         };
-                        
                     }
                     BookGenre bookGenre = new BookGenre()
                     {

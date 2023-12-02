@@ -12,6 +12,7 @@ namespace Data.Interfaces
         IQueryable<Book> GetBooks();
         bool BookExists(string isbn);
         void AddBook(Book book);
+        void AddGenre(Genre genre);
         void AddBookGenre(BookGenre bookGenre);
         void DeleteBookGenre(BookGenre bookGenre);
         void EditBook(Book updatedBook);
