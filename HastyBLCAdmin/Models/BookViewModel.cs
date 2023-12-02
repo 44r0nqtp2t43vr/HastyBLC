@@ -28,6 +28,7 @@ namespace HastyBLCAdmin.Models
         public List<string>? Genres { get; set; }
         public IFormFile? ImageFile { get; set; }
         public List<ReviewViewModel>? Reviews { get; set; }
+        public double AverageRating { get; set; }
     }
 
 

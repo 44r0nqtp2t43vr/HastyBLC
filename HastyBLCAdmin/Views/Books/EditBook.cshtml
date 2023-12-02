@@ -62,7 +62,7 @@
            <div class="book-details-section">
                <div class="book-details-group-1">
                    <div class="form-group">
-                    <label asp-for="PublishDateStr" class="publish-label">Publish Date:</label>
+                    <label asp-for="PublishDateStr" class="publish-label">Publish Date (yyyy-mm-dd):</label>
                     <input asp-for="PublishDateStr" class="form-control" />
                    </div>
 
@@ -142,9 +142,6 @@
                 reader.readAsDataURL(file);
             }
         }
-
-
-
         function goBack() {
             window.history.back();
             return false;

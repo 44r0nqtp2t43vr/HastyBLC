@@ -176,6 +176,16 @@ namespace HastyBLC.Controllers
                 }).ToList()
             };
 
+            // Calculate average ratings for book
+            if (book.Reviews != null && book.Reviews.Count > 0)
+            {
+                bookViewModel.AverageRating = book.Reviews.Average(review => review.Rating);
+            }
+            else
+            {
+                bookViewModel.AverageRating = 0;
+            }
+
             return View(bookViewModel);
         }
 
