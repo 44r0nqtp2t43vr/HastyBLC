@@ -1,5 +1,6 @@
 ﻿using Data.Interfaces;
 using Data.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -32,10 +33,29 @@ namespace Data.Repositories
             this.GetDbSet<Book>().Add(book);
             UnitOfWork.SaveChanges();
         }
+
+        public void AddGenre(Genre genre)
+        {
+            this.GetDbSet<Genre>().Add(genre);
+            UnitOfWork.SaveChanges();
+        }
+
         public void DeleteBookGenre(BookGenre bookGenre)
         {
-            this.GetDbSet<BookGenre>().Remove(bookGenre);
-            UnitOfWork.SaveChanges();
+            try
+            {
+                var bookGenreToDelete = this.GetDbSet<BookGenre>().Find(bookGenre.BookId, bookGenre.GenreId);
+                if (bookGenreToDelete != null)
+                {
+                    this.GetDbSet<BookGenre>().Remove(bookGenreToDelete);
+                    UnitOfWork.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception here to see if any error is occurring
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void AddBookGenre(BookGenre bookGenre)
