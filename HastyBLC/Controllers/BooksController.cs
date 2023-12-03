@@ -42,26 +42,18 @@ namespace HastyBLC.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Books(int page = 1, int pageSize = 10)
+        public IActionResult Books()
         {
             // Retrieve data from the session
             var searchText = HttpContext.Session.GetString("SearchText");
             var books = HttpContext.Session.Get<List<Book>>("Books") ?? _bookService.GetBooksWithReviews().ToList();
             var genres = HttpContext.Session.Get<List<Genre>>("Genres") ?? _bookService.GetGenres().ToList();
             var isGenreSelected = HttpContext.Session.Get<List<bool>>("IsGenreSelected") ?? Enumerable.Repeat(false, genres.Count).ToList();
+            var currentPage = HttpContext.Session.GetInt32("CurrentPage") ?? 0;
+            var totalPages = HttpContext.Session.GetInt32("TotalPages") ?? 0;
 
-            // Sort books by a certain criterion, e.g., by Title
-            books = books.OrderBy(book => book.Title).ToList(); // Change the sorting criterion as needed
-
-            
-            var totalItems = books.Count;
-            var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
-
-            // Paginate the sorted books
-            var paginatedBooks = books.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-
-            // Calculate average ratings for each book in the current page
-            foreach (var book in paginatedBooks)
+            // Calculate average ratings for each book
+            foreach (var book in books)
             {
                 if (book.Reviews != null && book.Reviews.Count > 0)
                 {
@@ -72,21 +64,18 @@ namespace HastyBLC.Controllers
                     book.AverageRating = 0;
                 }
             }
-
             var viewModel = new BookSearchViewModel
             {
                 SearchText = searchText,
-                Books = paginatedBooks,
+                Books = books,
                 Genres = genres,
                 IsGenreSelected = isGenreSelected,
-                CurrentPage = page,
+                CurrentPage = currentPage,
                 TotalPages = totalPages
             };
 
             return View(viewModel);
         }
-
-
 
 
 
