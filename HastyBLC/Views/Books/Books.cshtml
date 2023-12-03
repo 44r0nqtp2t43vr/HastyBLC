@@ -41,17 +41,26 @@
                 </h3>
                 <h4>Book Genres</h4>
 
-                <!-- Checkbox for each genre -->
-                <div class="checkbox-container">
-                    @for (var i = 0; i < Model.Genres!.Count; i++)
+                <!-- Create three columns for genres -->
+                <div class="checkbox-container genre-columns">
+                    @{
+                        var sortedGenres = Model.Genres.OrderBy(g => g.Name).ToList();
+                    }
+                    @for (var i = 0; i < sortedGenres.Count; i += 3)
                     {
-                        <div>
-                            <input type="hidden" asp-for="Genres![i]" name="Genres[@i].GenreId" value="@Model.Genres[i].GenreId" />
-                            <input asp-for="IsGenreSelected![i]" type="checkbox" id="genre@(i)" class="genre-filter" />
-                            <label>@Model.Genres[i].Name</label>
+                        <div class="genre-column">
+                            @for (var j = i; j < Math.Min(i + 3, sortedGenres.Count); j++)
+                            {
+                                <div class="checkbox">
+                                    <input type="hidden" asp-for="Genres![j]" name="Genres[@j].GenreId" value="@sortedGenres[j].GenreId" />
+                                    <input asp-for="IsGenreSelected![j]" type="checkbox" id="genre@(j)" class="genre-filter" />
+                                    <label for="genre@(j)">@sortedGenres[j].Name</label>
+                                </div>
+                            }
                         </div>
                     }
                 </div>
+
 
 
                 <!-- Clear all filters button -->
@@ -226,6 +235,40 @@
         // Call sortBooks with default values when the screen is loaded
         sortBooks(document.getElementById('sortOption').value, document.getElementById('sortOrder').value);
     </script>
+
+    @if (Model.TotalBooksCount > Model.PageSize)
+    {
+        <div class="fixed-pagination-container">
+            <ul class="pagination justify-content-center spaced-pagination">
+                @if (Model.CurrentPage > 1)
+                {
+                    <li class="page-item">
+                        <a asp-controller="Books" asp-action="Books" asp-route-page="1" asp-route-SearchText="@Model.SearchText"class="page-link">&#9664;</a>
+                    </li>
+                    <li class="page-item">
+                        <a asp-controller="Books" asp-action="Books" asp-route-page="@(Model.CurrentPage - 1)" asp-route-SearchText="@Model.SearchText" class="page-link">&#8249;</a>
+                    </li>
+                }
+
+                @for (int i = 1; i <= Math.Ceiling((double)Model.TotalBooksCount / Model.PageSize); i++)
+                {
+                    <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                        <a asp-controller="Books" asp-action="Books" asp-route-page="@i" asp-route-SearchText="@Model.SearchText"class="page-link">@i</a>
+                    </li>
+                }
+
+                @if (Model.CurrentPage < Math.Ceiling((double)Model.TotalBooksCount / Model.PageSize))
+                {
+                    <li class="page-item">
+                        <a asp-controller="Books" asp-action="Books" asp-route-page="@(Model.CurrentPage + 1)" asp-route-SearchText="@Model.SearchText" class="page-link">&#8250;</a>
+                    </li>
+                    <li class="page-item">
+                        <a asp-controller="Books" asp-action="Books" asp-route-page="@Math.Ceiling((double)Model.TotalBooksCount / Model.PageSize)" asp-route-SearchText="@Model.SearchText" class="page-link">&#9654;</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿using HastyBLC.Mvc;
+using HastyBLC.Mvc;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -64,7 +64,6 @@ namespace HastyBLC.Controllers
                     book.AverageRating = 0;
                 }
             }
-
             var viewModel = new BookSearchViewModel
             {
                 SearchText = searchText,
@@ -77,6 +76,8 @@ namespace HastyBLC.Controllers
 
             return View(viewModel);
         }
+
+
 
         [HttpPost]
         [AllowAnonymous]
@@ -99,7 +100,7 @@ namespace HastyBLC.Controllers
                     book.AverageRating = 0;
                 }
             }
-
+            
             // Store data in the session
             HttpContext.Session.SetString("SearchText", model.SearchText ?? "");
             HttpContext.Session.Set<List<Book>>("Books", books);

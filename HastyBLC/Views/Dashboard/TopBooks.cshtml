@@ -46,12 +46,15 @@
         </div>
         <div class="fixed-pagination-container">
             <ul class="pagination justify-content-center spaced-pagination">
-                <li class="page-item">
-                    <a class="page-link arrow-link" href="@Url.Action("TopBooks", new { page = 1 })">&#9664;</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link arrow-link" href="@Url.Action("TopBooks", new { page = Math.Max(currentPage - 1, 1) })">&#8249;</a>
-                </li>
+                @if (currentPage > 1)
+                {
+                    <li class="page-item">
+                        <a class="page-link arrow-link" href="@Url.Action("TopBooks", new { page = 1 })">&#9664;</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link arrow-link" href="@Url.Action("TopBooks", new { page = Math.Max(currentPage - 1, 1) })">&#8249;</a>
+                    </li>
+                }
                 @if (totalPages > 5)
                 {
                     @if (currentPage > 3)
@@ -88,12 +91,15 @@
                         </li>
                     }
                 }
-                <li class="page-item">
-                    <a class="page-link arrow-link" href="@Url.Action("TopBooks", new { page = Math.Min(currentPage + 1, totalPages) })">&#8250;</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link arrow-link" href="@Url.Action("TopBooks", new { page = totalPages })">&#9654;</a>
-                </li>
+                @if (currentPage < totalPages)
+                {
+                    <li class="page-item">
+                        <a class="page-link arrow-link" href="@Url.Action("TopBooks", new { page = Math.Min(currentPage + 1, totalPages) })">&#8250;</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link arrow-link" href="@Url.Action("TopBooks", new { page = totalPages })">&#9654;</a>
+                    </li>
+                }
             </ul>
         </div>
     </div>
