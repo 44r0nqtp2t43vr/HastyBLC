@@ -92,10 +92,10 @@
             </select>
         </div>
         <h2 class="title">ALL BOOKS</h2>
-        <div class="books-row">
+        <div class="user-books-row">
             @foreach (var book in Model.Books!)
             {
-                <div class="book-item" data-title="@book.Title" data-averagerating="@book.AverageRating">
+                <div class="user-book-item" data-title="@book.Title" data-averagerating="@book.AverageRating">
                     <div class="book-image-container">
                         <a asp-controller="Books" asp-action="ViewBook" asp-route-id="@book.BookId">
                             <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
@@ -236,39 +236,36 @@
         sortBooks(document.getElementById('sortOption').value, document.getElementById('sortOrder').value);
     </script>
 
-    @if (Model.TotalBooksCount > Model.PageSize)
-    {
-        <div class="fixed-pagination-container">
-            <ul class="pagination justify-content-center spaced-pagination">
-                @if (Model.CurrentPage > 1)
-                {
-                    <li class="page-item">
-                        <a asp-controller="Books" asp-action="Books" asp-route-page="1" asp-route-SearchText="@Model.SearchText"class="page-link">&#9664;</a>
-                    </li>
-                    <li class="page-item">
-                        <a asp-controller="Books" asp-action="Books" asp-route-page="@(Model.CurrentPage - 1)" asp-route-SearchText="@Model.SearchText" class="page-link">&#8249;</a>
-                    </li>
-                }
+    <div class="fixed-pagination-container">
+        <ul class="pagination justify-content-center spaced-pagination">
+            @if (Model.CurrentPage > 1)
+            {
+                <li class="page-item @(Model.CurrentPage == 1 ? "disabled" : "")">
+                    <a class="page-link page-number" href="/Books/Books?page=1">&#9664;</a>
+                </li>
+                <li class="page-item @(Model.CurrentPage == 1 ? "disabled" : "")">
+                    <a class="page-link page-number" href="/Books/Books?page=@(Model.CurrentPage - 1)">&#8249;</a>
+                </li>
+            }
+            @for (var i = 1; i <= Model.TotalPages; i++)
+            {
+                <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                    <a class="page-link page-number" href="/Books/Books?page=@i">@i</a>
+                </li>
+            }
+            @if (Model.CurrentPage < Model.TotalPages)
+            {
+                <li class="page-item @(Model.CurrentPage == Model.TotalPages ? "disabled" : "")">
+                    <a class="page-link page-number" href="/Books/Books?page=@(Model.CurrentPage + 1)">&#8250;</a>
+                </li>
+                <li class="page-item @(Model.CurrentPage == Model.TotalPages ? "disabled" : "")">
+                    <a class="page-link page-number" href="/Books/Books?page=@Model.TotalPages">&#9654;</a>
+                </li>
+            }
+        </ul>
+    </div>
 
-                @for (int i = 1; i <= Math.Ceiling((double)Model.TotalBooksCount / Model.PageSize); i++)
-                {
-                    <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
-                        <a asp-controller="Books" asp-action="Books" asp-route-page="@i" asp-route-SearchText="@Model.SearchText"class="page-link">@i</a>
-                    </li>
-                }
 
-                @if (Model.CurrentPage < Math.Ceiling((double)Model.TotalBooksCount / Model.PageSize))
-                {
-                    <li class="page-item">
-                        <a asp-controller="Books" asp-action="Books" asp-route-page="@(Model.CurrentPage + 1)" asp-route-SearchText="@Model.SearchText" class="page-link">&#8250;</a>
-                    </li>
-                    <li class="page-item">
-                        <a asp-controller="Books" asp-action="Books" asp-route-page="@Math.Ceiling((double)Model.TotalBooksCount / Model.PageSize)" asp-route-SearchText="@Model.SearchText" class="page-link">&#9654;</a>
-                    </li>
-                }
-            </ul>
-        </div>
-    }
 
 </body>
 </html>

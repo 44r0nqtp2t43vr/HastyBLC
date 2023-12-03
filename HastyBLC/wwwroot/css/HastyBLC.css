@@ -257,7 +257,7 @@ div.content {
 
 .fixed-pagination-container {
     position: absolute;
-    bottom: 5px;
+    bottom: 0px;
     left: 55%;
     transform: translateX(-50%);
 }
@@ -580,6 +580,29 @@ div.content {
         background-color: #EEDEAA;
         color: black;
     }
+.pagination-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination-item {
+    margin: 0 5px;
+    display: inline-block;
+}
+
+.user-books-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.user-book-item {
+    flex: 0 0 calc(20% - 10px); /* 20% width for 5 books in a row with margins */
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
 
 
 
