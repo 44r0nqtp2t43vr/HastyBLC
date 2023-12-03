@@ -16,6 +16,7 @@ using System.Linq;
 using static Data.PathManager;
 using Services.Services;
 using static System.Reflection.Metadata.BlobBuilder;
+using HastyBLC.Extensions;
 
 namespace HastyBLC.Controllers
 {
@@ -41,14 +42,18 @@ namespace HastyBLC.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Books(BookSearchViewModel model, int page = 1, int pageSize = 10)
+        public IActionResult Books()
         {
-            var allBooks = _bookService.GetBooksWithReviews().ToList();
-
-            var totalBooksCount = allBooks.Count;
+            // Retrieve data from the session
+            var searchText = HttpContext.Session.GetString("SearchText");
+            var books = HttpContext.Session.Get<List<Book>>("Books") ?? _bookService.GetBooksWithReviews().ToList();
+            var genres = HttpContext.Session.Get<List<Genre>>("Genres") ?? _bookService.GetGenres().ToList();
+            var isGenreSelected = HttpContext.Session.Get<List<bool>>("IsGenreSelected") ?? Enumerable.Repeat(false, genres.Count).ToList();
+            var currentPage = HttpContext.Session.GetInt32("CurrentPage") ?? 0;
+            var totalPages = HttpContext.Session.GetInt32("TotalPages") ?? 0;
 
             // Calculate average ratings for each book
-            foreach (var book in allBooks)
+            foreach (var book in books)
             {
                 if (book.Reviews != null && book.Reviews.Count > 0)
                 {
@@ -59,23 +64,14 @@ namespace HastyBLC.Controllers
                     book.AverageRating = 0;
                 }
             }
-
-            // Apply pagination after ordering the books
-            var orderedBooks = allBooks.OrderBy(book => book.Title).ToList(); // Order by title for example; modify as needed
-
-            var paginatedBooks = orderedBooks.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-
-            var genres = model.Genres ?? _bookService.GetGenres().ToList();
-            var isGenreSelected = model.IsGenreSelected ?? Enumerable.Repeat(false, genres.Count).ToList();
-
             var viewModel = new BookSearchViewModel
             {
-                Books = paginatedBooks,
+                SearchText = searchText,
+                Books = books,
                 Genres = genres,
                 IsGenreSelected = isGenreSelected,
-                TotalBooksCount = totalBooksCount, 
-                PageSize = pageSize, 
-                CurrentPage = page 
+                CurrentPage = currentPage,
+                TotalPages = totalPages
             };
 
             return View(viewModel);
@@ -103,18 +99,19 @@ namespace HastyBLC.Controllers
                 {
                     book.AverageRating = 0;
                 }
-
             }
+            
+            // Store data in the session
+            HttpContext.Session.SetString("SearchText", model.SearchText ?? "");
+            HttpContext.Session.Set<List<Book>>("Books", books);
+            HttpContext.Session.Set<List<Genre>>("Genres", genres);
+            HttpContext.Session.Set<List<bool>>("IsGenreSelected", model.IsGenreSelected);
+            HttpContext.Session.SetInt32("CurrentPage", model.CurrentPage);
+            HttpContext.Session.SetInt32("TotalPages", model.TotalPages);
 
-            var viewModel = new BookSearchViewModel
-            {
-                Books = books,
-                Genres = genres
-            };
-
-
-            return RedirectToAction("Books", new { model = viewModel });
+            return RedirectToAction("Books");
         }
+
 
         [HttpGet]
         [AllowAnonymous]

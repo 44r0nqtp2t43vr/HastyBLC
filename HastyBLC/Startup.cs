@@ -30,6 +30,7 @@ namespace HastyBLC
 
             // Add services to the container.
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddSession();
             services.AddMvc(options => options.EnableEndpointRouting = false);
 
             services.AddLogging(x => x.AddConfiguration(Configuration.GetLoggingSection()).AddConsole().AddDebug());
@@ -55,6 +56,7 @@ namespace HastyBLC
             app.UseCors("CorsPolicy");      // Enables CORS                              
             app.UseRouting();
             app.UseAuthentication();        // Enables the ConfigureAuth service.
+            app.UseSession();
             app.UseMvc();
             app.UseAuthorization();
 
