@@ -1,4 +1,4 @@
-﻿using HastyBLC.Mvc;
+using HastyBLC.Mvc;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -41,47 +41,47 @@ namespace HastyBLC.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Books(BookSearchViewModel model)
+        public IActionResult Books(BookSearchViewModel model, int page = 1, int pageSize = 10)
         {
-            var books = model.Books;
-            if (books == null)
+            var allBooks = _bookService.GetBooksWithReviews().ToList();
+
+            var totalBooksCount = allBooks.Count;
+
+            // Calculate average ratings for each book
+            foreach (var book in allBooks)
             {
-                books = _bookService.GetBooksWithReviews().ToList();
-                // Calculate average ratings for each book
-                foreach (var book in books)
+                if (book.Reviews != null && book.Reviews.Count > 0)
                 {
-                    if (book.Reviews != null && book.Reviews.Count > 0)
-                    {
-                        book.AverageRating = book.Reviews.Average(review => review.Rating);
-                    } else
-                    {
-                        book.AverageRating = 0;
-                    }
-                    
+                    book.AverageRating = book.Reviews.Average(review => review.Rating);
+                }
+                else
+                {
+                    book.AverageRating = 0;
                 }
             }
 
-            var genres = model.Genres;
-            if (genres == null)
-            {
-                genres = _bookService.GetGenres().ToList();
-            }
+            // Apply pagination after ordering the books
+            var orderedBooks = allBooks.OrderBy(book => book.Title).ToList(); // Order by title for example; modify as needed
 
-            var isGenreSelected = model.IsGenreSelected;
-            if (isGenreSelected == null)
-            {
-                isGenreSelected = Enumerable.Repeat(false, genres.Count).ToList();
-            }
+            var paginatedBooks = orderedBooks.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+            var genres = model.Genres ?? _bookService.GetGenres().ToList();
+            var isGenreSelected = model.IsGenreSelected ?? Enumerable.Repeat(false, genres.Count).ToList();
+
             var viewModel = new BookSearchViewModel
             {
-                Books = books,
+                Books = paginatedBooks,
                 Genres = genres,
-                IsGenreSelected = isGenreSelected
+                IsGenreSelected = isGenreSelected,
+                TotalBooksCount = totalBooksCount, 
+                PageSize = pageSize, 
+                CurrentPage = page 
             };
 
             return View(viewModel);
-
         }
+
+
 
         [HttpPost]
         [AllowAnonymous]
@@ -111,9 +111,9 @@ namespace HastyBLC.Controllers
                 Books = books,
                 Genres = genres
             };
-            
 
-            return View("Books", viewModel);
+
+            return RedirectToAction("Books", new { model = viewModel });
         }
 
         [HttpGet]

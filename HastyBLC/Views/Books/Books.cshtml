@@ -243,33 +243,32 @@
                 @if (Model.CurrentPage > 1)
                 {
                     <li class="page-item">
-                        <a asp-controller="Books" asp-action="Books" asp-route-page="1" class="page-link">&#9664;</a>
+                        <a asp-controller="Books" asp-action="Books" asp-route-page="1" asp-route-SearchText="@Model.SearchText"class="page-link">&#9664;</a>
                     </li>
                     <li class="page-item">
-                        <a asp-controller="Books" asp-action="Books" asp-route-page="@(Model.CurrentPage - 1)" class="page-link">&#8249;</a>
+                        <a asp-controller="Books" asp-action="Books" asp-route-page="@(Model.CurrentPage - 1)" asp-route-SearchText="@Model.SearchText" class="page-link">&#8249;</a>
                     </li>
                 }
 
                 @for (int i = 1; i <= Math.Ceiling((double)Model.TotalBooksCount / Model.PageSize); i++)
                 {
                     <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
-                        <a asp-controller="Books" asp-action="Books" asp-route-page="@i" class="page-link">@i</a>
+                        <a asp-controller="Books" asp-action="Books" asp-route-page="@i" asp-route-SearchText="@Model.SearchText"class="page-link">@i</a>
                     </li>
                 }
 
                 @if (Model.CurrentPage < Math.Ceiling((double)Model.TotalBooksCount / Model.PageSize))
                 {
                     <li class="page-item">
-                        <a asp-controller="Books" asp-action="Books" asp-route-page="@(Model.CurrentPage + 1)" class="page-link">&#8250;</a>
+                        <a asp-controller="Books" asp-action="Books" asp-route-page="@(Model.CurrentPage + 1)" asp-route-SearchText="@Model.SearchText" class="page-link">&#8250;</a>
                     </li>
                     <li class="page-item">
-                        <a asp-controller="Books" asp-action="Books" asp-route-page="@Math.Ceiling((double)Model.TotalBooksCount / Model.PageSize)" class="page-link">&#9654;</a>
+                        <a asp-controller="Books" asp-action="Books" asp-route-page="@Math.Ceiling((double)Model.TotalBooksCount / Model.PageSize)" asp-route-SearchText="@Model.SearchText" class="page-link">&#9654;</a>
                     </li>
                 }
             </ul>
         </div>
     }
-
 
 </body>
 </html>
