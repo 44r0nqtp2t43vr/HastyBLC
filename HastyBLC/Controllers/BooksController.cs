@@ -42,7 +42,7 @@ namespace HastyBLC.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Books(int page = 1, int pageSize = 10) // Assuming default page size is 10
+        public IActionResult Books(int page = 1, int pageSize = 10)
         {
             // Retrieve data from the session
             var searchText = HttpContext.Session.GetString("SearchText");
@@ -53,7 +53,7 @@ namespace HastyBLC.Controllers
             // Sort books by a certain criterion, e.g., by Title
             books = books.OrderBy(book => book.Title).ToList(); // Change the sorting criterion as needed
 
-            // Calculate total pages
+            
             var totalItems = books.Count;
             var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
 
