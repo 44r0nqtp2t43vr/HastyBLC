@@ -16,6 +16,7 @@ using System.Linq;
 using static Data.PathManager;
 using Services.Services;
 using static System.Reflection.Metadata.BlobBuilder;
+using HastyBLC.Extensions;
 
 namespace HastyBLC.Controllers
 {
@@ -41,46 +42,40 @@ namespace HastyBLC.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Books(BookSearchViewModel model)
+        public IActionResult Books()
         {
-            var books = model.Books;
-            if (books == null)
+            // Retrieve data from the session
+            var searchText = HttpContext.Session.GetString("SearchText");
+            var books = HttpContext.Session.Get<List<Book>>("Books") ?? _bookService.GetBooksWithReviews().ToList();
+            var genres = HttpContext.Session.Get<List<Genre>>("Genres") ?? _bookService.GetGenres().ToList();
+            var isGenreSelected = HttpContext.Session.Get<List<bool>>("IsGenreSelected") ?? Enumerable.Repeat(false, genres.Count).ToList();
+            var currentPage = HttpContext.Session.GetInt32("CurrentPage") ?? 0;
+            var totalPages = HttpContext.Session.GetInt32("TotalPages") ?? 0;
+
+            // Calculate average ratings for each book
+            foreach (var book in books)
             {
-                books = _bookService.GetBooksWithReviews().ToList();
-                // Calculate average ratings for each book
-                foreach (var book in books)
+                if (book.Reviews != null && book.Reviews.Count > 0)
                 {
-                    if (book.Reviews != null && book.Reviews.Count > 0)
-                    {
-                        book.AverageRating = book.Reviews.Average(review => review.Rating);
-                    } else
-                    {
-                        book.AverageRating = 0;
-                    }
-                    
+                    book.AverageRating = book.Reviews.Average(review => review.Rating);
+                }
+                else
+                {
+                    book.AverageRating = 0;
                 }
             }
 
-            var genres = model.Genres;
-            if (genres == null)
-            {
-                genres = _bookService.GetGenres().ToList();
-            }
-
-            var isGenreSelected = model.IsGenreSelected;
-            if (isGenreSelected == null)
-            {
-                isGenreSelected = Enumerable.Repeat(false, genres.Count).ToList();
-            }
             var viewModel = new BookSearchViewModel
             {
+                SearchText = searchText,
                 Books = books,
                 Genres = genres,
-                IsGenreSelected = isGenreSelected
+                IsGenreSelected = isGenreSelected,
+                CurrentPage = currentPage,
+                TotalPages = totalPages
             };
 
             return View(viewModel);
-
         }
 
         [HttpPost]
@@ -103,18 +98,19 @@ namespace HastyBLC.Controllers
                 {
                     book.AverageRating = 0;
                 }
-
             }
 
-            var viewModel = new BookSearchViewModel
-            {
-                Books = books,
-                Genres = genres
-            };
-            
+            // Store data in the session
+            HttpContext.Session.SetString("SearchText", model.SearchText ?? "");
+            HttpContext.Session.Set<List<Book>>("Books", books);
+            HttpContext.Session.Set<List<Genre>>("Genres", genres);
+            HttpContext.Session.Set<List<bool>>("IsGenreSelected", model.IsGenreSelected);
+            HttpContext.Session.SetInt32("CurrentPage", model.CurrentPage);
+            HttpContext.Session.SetInt32("TotalPages", model.TotalPages);
 
-            return View("Books", viewModel);
+            return RedirectToAction("Books");
         }
+
 
         [HttpGet]
         [AllowAnonymous]
