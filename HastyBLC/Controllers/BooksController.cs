@@ -170,20 +170,46 @@ namespace HastyBLC.Controllers
                         UpdatedBy = comment.UpdatedBy,
                         UpdatedTime = comment.UpdatedTime,
                     }).ToList()
-                }).ToList()
+                }).ToList(),
+                Percentages = new double[5]
             };
 
-            // Calculate average ratings for book
-            if (book.Reviews != null && book.Reviews.Count > 0)
+            if (book.Reviews != null && book.Reviews.Any())
             {
-                bookViewModel.AverageRating = book.Reviews.Average(review => review.Rating);
+                var totalRatings = book.Reviews.Sum(review => review.Rating);
+                var totalReviews = book.Reviews.Count;
+                var ratingsCount = new int[5];
+
+                foreach (var review in book.Reviews)
+                {
+                    int index = review.Rating - 1;
+                    if (index >= 0 && index < ratingsCount.Length)
+                    {
+                        ratingsCount[index]++;
+                    }
+                }
+
+                decimal averageRating = totalReviews > 0 ? (decimal)totalRatings / totalReviews : 0;
+                bookViewModel.AverageRating = (double)averageRating;
+                bookViewModel.AverageRatingRounded = Math.Round(averageRating, 1);
+                bookViewModel.RoundedRating = (int)Math.Round(averageRating);
+
+                for (int i = 0; i < ratingsCount.Length; i++)
+                {
+                    bookViewModel.Percentages[i] = totalReviews > 0 ? (double)ratingsCount[i] / totalReviews * 100 : 0;
+                }
             }
             else
             {
                 bookViewModel.AverageRating = 0;
+                bookViewModel.AverageRatingRounded = 0;
+                bookViewModel.RoundedRating = 0;
             }
 
+            // Now that we've finished setting up our model, we can return it to the view
             return View(bookViewModel);
+
+
         }
 
         [HttpPost]

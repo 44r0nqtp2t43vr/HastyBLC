@@ -1,6 +1,19 @@
 ﻿var jq = jQuery.noConflict();
 jq(document).ready(function () {
-    
+    jq(".editCommentBtn").click(function () {
+        var commentId = jq(this).data("comment-id");
+        var commentName = jq(this).data("comment-name");
+        var commentUserEmail = jq(this).data("comment-user-email");
+        var commentDescription = jq(this).data("comment-description");
+
+        jq("#editCommentId").val(commentId);
+        jq("#editCommentName").val(commentName);
+        jq("#editCommentUserEmail").val(commentUserEmail);
+        jq("#editCommentDescription").val(commentDescription);
+
+        // Show the modal
+        jq("#editCommentModal").modal("show");
+    });
     jq('.editReviewBtn').on('click', function () {
         var reviewId = jq(this).data('review-id');
         var name = jq(this).data('review-name');
@@ -31,19 +44,7 @@ jq(document).ready(function () {
         console.log("New Rating Selected: ", jq(this).val());
     });
   
-    jq(".editCommentBtn").click(function () {
-        var commentId = $(this).data("comment-id");
-        var commentName = $(this).data("comment-name");
-        var commentUserEmail = $(this).data("comment-user-email");
-        var commentDescription = $(this).data("comment-description");
-
-        $("#editCommentId").val(commentId);
-        $("#editCommentName").val(commentName);
-        $("#editCommentUserEmail").val(commentUserEmail);
-        $("#editCommentDescription").val(commentDescription);
-
-        jq("#editCommentModal").modal("show");
-    });
+    
     jq(".deleteReviewBtn").click(function () {
         var reviewId = $(this).data("review-id");
 
