@@ -49,17 +49,18 @@
                 </div>
 
                 <div class="score-bar-container">
-                    @for (int i = 0; i < Model.Percentages.Length; i++)
+                    @for (int i = Model.Percentages.Length; i > 0; i--)
                     {
                         <div class="score-bar">
-                            <div class="rating-number">@(i + 1) Star@(i == 0 ? "" : "s"):</div>
+                            <div class="rating-number">@(i) Star@(i == 1 ? "" : "s"):</div>
                             <div class="rating-bar">
-                                <div class="rating-bar-fill" style="width: @Model.Percentages[i]%;"></div>
+                                <div class="rating-bar-fill" style="width: @Model.Percentages[i - 1]%;"></div>
                             </div>
-                            <span class="percentage-text">@Model.Percentages[i].ToString("0")%</span> 
+                            <span class="percentage-text">@Model.Percentages[i - 1].ToString("0")%</span>
                         </div>
                     }
                 </div>
+
 
             </div>
 
@@ -103,12 +104,16 @@
             <hr class="section-divider">
             <strong>Genre/s:</strong>
             <div>
-                @foreach (var genre in Model.Genres ?? Enumerable.Empty<string>())
-                {
-                    <span>@genre</span>
+                @{
+                    var genreList = Model.Genres ?? Enumerable.Empty<string>().ToList();
+                    for (int i = 0; i < genreList.Count; i++)
+                    {
+                        <span>@genreList[i]@(i < (genreList.Count - 1) ? ", " : "")</span>
+                    }
                 }
             </div>
         </div>
+
         
         
         <div class="book-action-buttons">
@@ -184,8 +189,12 @@
 
                                 <!-- Comment Actions (Edit and Delete) -->
                                 <div class="comment-actions">
-                                    <button class="btn btn-outline-danger editCommentBtn" data-comment-id="@comment.CommentId">
-                                        <i class="fas fa-edit"></i> 
+                                    <button class="btn btn-outline-danger editCommentBtn"
+                                            data-comment-id="@comment.CommentId"
+                                            data-comment-name="@comment.Name"
+                                            data-comment-user-email="@comment.UserEmail"
+                                            data-comment-description="@comment.Description">
+                                        <i class="fas fa-edit"></i>
                                     </button>
                                     <button class="btn btn-outline-danger deleteCommentBtn" data-comment-id="@comment.CommentId">
                                         <i class="fas fa-trash"></i> 
