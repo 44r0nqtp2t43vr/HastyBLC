@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 @model Services.ServiceModels.UserViewModel
-<link rel="stylesheet" href="~/css/addgenre.css" />
+<link rel="stylesheet" href="~/css/edituser.css" />
 <div class="modal" id="editUserModal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -13,16 +13,24 @@
             <form method="post" action="/Superadmin/EditUser">
                 <div class="form-outline mb-4">
                     <input type="hidden" id="editUserId" asp-for="Id"/>
+
+                    <label class="form-name" for="editUserName">Username</label>
                     <input type="text" id="editUserName" class="form-control"
                            asp-for="Username" placeholder="Enter username"/>
                     <span asp-validation-for="Username" class="text-danger"></span>
+
+                    <label class="form-name" for="editUserEmail">Email Address</label>
                     <input type="text" id="editUserEmail" class="form-control"
                            asp-for="Email" placeholder="Enter email" />
                     <span asp-validation-for="Email" class="text-danger"></span>
-                    <input type="text" id="editUserPassword" class="form-control"
+
+                    <label class="form-name" for="editUserPassword">Password</label>
+                    <input type="password" id="editUserPassword" class="form-control"
                            asp-for="Password" placeholder="Enter password"/>
                     <span asp-validation-for="Password" class="text-danger"></span>
-                    <input type="text" id="editUserConfirmPassword" class="form-control"
+
+                    <label class="form-name" for="editUserConfirmPassword">Confirm Password</label>
+                    <input type="password" id="editUserConfirmPassword" class="form-control"
                            asp-for="ConfirmPassword" placeholder="Confirm password" />
                     <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                 </div>

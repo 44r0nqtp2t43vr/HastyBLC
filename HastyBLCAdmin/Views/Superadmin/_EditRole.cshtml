@@ -10,29 +10,6 @@
             <div class="modal-header">
                 <h4 class="modal-title">Edit Role</h4>
             </div>
-            <!-- Modal body -->
-            @* <div class="box">
-                <div class="edit-role-modal">
-                    <div class="overlap">
-                        <div class="edit-role-input-box">
-                            <div class="overlap-group">
-                                <div class="text-wrapper">@Model.Name</div>
-                            </div>
-                        </div>
-                        <div class="div">Edit Role</div>
-                        <div class="create-role-button">
-                            <div class="div-wrapper">
-                                <div class="text-wrapper-2">Close</div>
-                            </div>
-                        </div>
-                        <div class="overlap-wrapper">
-                            <div class="overlap-2">
-                                <div class="text-wrapper-3">Edit Role</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> *@
             <form method="post" action="/Superadmin/EditRole">
                 <div class="form-outline mb-4">
                     <input type="hidden" id="editRoleId" asp-for="RoleId" />
