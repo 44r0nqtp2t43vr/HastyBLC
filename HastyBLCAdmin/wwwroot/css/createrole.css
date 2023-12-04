@@ -8,6 +8,10 @@ html, body {
     justify-content: center;
 }
 
+footer {
+    display: none;
+}
+
 .user-master-create {
     background-color: transparent;
     display: flex;
