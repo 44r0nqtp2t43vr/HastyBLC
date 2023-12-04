@@ -23,19 +23,13 @@
             <div class="photo-container-2">
                 <div class="photo-container">
                     <img id="photo" src="@Url.Content("~/" + Model.ImagePath)" alt="@Model.Title" />
-
-
                 </div>
-
-            </div>
-            <div class="upload-input-2">
-                <label for="image" class="file-icon">
-                    <i class="fas fa-upload"></i>
-                </label>
-                <input type="file" id="image" name="imageFile" asp-for="ImageFile" onchange="displayPhoto()" />
-
-
-                <span asp-validation-for="ImageFile" class="text-danger"></span>
+                    <div class="upload-input-2">
+                        <label for="image" class="file-icon">
+                            <i class="fas fa-upload"></i>
+                        </label>
+                        <input type="file" id="image" name="imageFile" asp-for="ImageFile" onchange="displayPhoto()" style="display: none;" />
+                    </div>
             </div>
         </div>
         <div class="title-author-container">
@@ -125,17 +119,17 @@
             var fileInput = document.getElementById("image");
             var photoElement = document.getElementById("photo");
 
-            // Check if a file is selected
+           
             if (fileInput.files.length > 0) {
                 var file = fileInput.files[0];
                 var reader = new FileReader();
 
                 reader.onload = function (e) {
-                    // Log the file and its data URL
+                    
                     console.log("File:", file);
                     console.log("Data URL:", e.target.result);
 
-                    // Set the src attribute of the img element to the newly selected image
+                   
                     photoElement.src = e.target.result;
                 };
 

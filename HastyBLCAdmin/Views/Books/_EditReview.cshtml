@@ -25,13 +25,12 @@
                     <span asp-validation-for="UserEmail" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label>Stars:</label><br />
+                    <label class="form-label"> Stars: </label><br />
                     @for (int i = 1; i <= 5; i++)
                     {
-                        <input type="radio" id="editReviewRating@i" name="Rating" value="@i" required />
-                        <label for="editReviewRating@i" class="fa fa-star"></label>
+                        <input type="radio" id="editReviewRating@i" name="Rating" value="@i" @(Model.Rating == i ? "checked" : "") required />
+                        <label for="editReviewRating@i" class="fa fa-star @(Model.Rating >= i ? "checked" : "")"></label>
                     }
-
                 </div>
 
                 <div class="form-outline mb-4">
@@ -54,29 +53,62 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="~/js/viewbook.js"></script>
-<script>
-    // Wait for the DOM to be fully loaded
-    document.addEventListener('DOMContentLoaded', function () {
-        // Select all the star labels within the .form-group container
-        var stars = document.querySelectorAll('.form-group .fa');
 
-        // Iterate over each star label
-        stars.forEach(function (star) {
-            // Add a click event listener to each star
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var stars = document.querySelectorAll('.form-group .fa-star');
+        var ratingInput = document.querySelector('input[name="Rating"]');
+
+        stars.forEach(function (star, index) {
             star.addEventListener('click', function () {
-                // Remove 'checked' class from all stars
-                stars.forEach(function (s) {
-                    s.classList.remove('checked');
+                var newRating = index + 1; // Calculate new rating based on the star index
+
+                // Update the stars display in the modal
+                stars.forEach(function (s, idx) {
+                    if (idx < newRating) {
+                        s.classList.add('checked');
+                    } else {
+                        s.classList.remove('checked');
+                    }
                 });
 
-                // This 'star' is the one that was clicked
-                this.classList.add('checked'); // Add 'checked' class to the clicked star
+                // Set the value of the hidden rating input in the modal
+                ratingInput.value = newRating;
 
-                // Also add 'checked' class to all previous siblings (to fill all left stars)
-                var currentStar = this;
-                while (currentStar.previousElementSibling) {
-                    currentStar.previousElementSibling.classList.add('checked');
-                    currentStar = currentStar.previousElementSibling;
+                // Trigger a change event on the rating input to update the model value
+                var event = new Event('change');
+                ratingInput.dispatchEvent(event);
+
+                // Update the stars display in the ViewBook page
+                updateStarsInViewBook(newRating);
+            });
+        });
+
+        function updateStarsInViewBook(rating) {
+            // Update the stars display in the ViewBook page
+            var viewBookStars = document.querySelectorAll('.avg-rating .fa-star');
+
+            viewBookStars.forEach(function (star, index) {
+                if (index < rating) {
+                    star.classList.add('checked');
+                } else {
+                    star.classList.remove('checked');
+                }
+            });
+        }
+
+        // Handle the edit button click event
+        var editButtons = document.querySelectorAll('.editReviewBtn');
+        editButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                var rating = this.getAttribute('data-review-rating');
+                var reviewId = this.getAttribute('data-review-id');
+
+                document.getElementById('editReviewId').value = reviewId;
+
+                if (rating) {
+                    updateStarRating(parseInt(rating));
+                    updateStarsInViewBook(parseInt(rating));
                 }
             });
         });

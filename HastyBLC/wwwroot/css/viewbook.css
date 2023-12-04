@@ -24,7 +24,7 @@
     display: flex;
     overflow: hidden;
     flex: 0 0 auto;
-    margin-bottom: 25px;
+   
     margin-left: 100px;
 }
 
@@ -38,7 +38,7 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    top: -80px;
+    top: -15rem;
     position: relative;
 }
 
@@ -61,7 +61,7 @@
     background-color: #EEDEAA;
     border-radius: 20px;
     padding: 90px;
-    margin-top: -190px;
+    margin-top: -30rem;
     position: relative;
     grid-template-areas:
         "image details"
@@ -82,6 +82,7 @@
     grid-column: 1;
     position: relative;
     grid-area: description;
+    margin-top: 10rem;
 }
 
     .description-section strong {
@@ -305,13 +306,107 @@
     width: 100%;
 }
 button.btn.btn-outline-danger.addCommentBtn {
-    text-decoration: none !important;
-    border-bottom: none !important;
+    border-color: transparent;
 }
 .addReviewBtn {
     background-color: #647CA4;
     color: #EEDEAA;
     text-decoration: none;
     border-bottom: none;
+    border-color: transparent;
+}
+.avg-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
 
+.avg-rating .fa:first-child {
+    margin-left: 100px;
+}
+
+.avg-rating .fa {
+    font-size: 20px;
+}
+
+.avg-rating p {
+    margin-top: 0.5rem;
+}
+
+.show-comments-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+    .show-comments-btn .button-text {
+        color: #665A36;
+        flex: 1;
+        text-align: center;
+    }
+
+.icon-expand, .icon-collapse {
+    color: #647CA4;
+    position: absolute;
+    right: 10px;
+}
+
+.btn-outline-danger {
+    border-color: transparent;
+}
+
+.rating-title {
+    color: #665A36;
+    margin-left: 100px;
+}
+
+.average-rating-value {
+    margin-left: 100px;
+    font-size: 16px;
+    color: #665A36;
+}
+.score-bar-container {
+    margin-left: 45px;
+    width: 100%;
+}
+
+.score-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* This will push the percentage-text to the right */
+    margin-bottom: 10px;
+}
+
+.rating-number {
+    width: 30px;
+    text-align: right;
+    margin-right: 3rem;
+    white-space: nowrap;
+}
+
+.rating-bar {
+    flex-grow: 1;
+    background-color: #ddd; /* Background of the bar */
+    height: 10px; /* Height of the bar */
+    border-radius: 5px;
+    overflow: hidden; /* Ensures the fill doesn't spill out */
+    margin-right: 10px;
+}
+
+.rating-bar-fill {
+    background-color: #506482; /* Color of the fill */
+    height: 100%;
+    text-align: right;
+    color: white; /* Text color inside the fill bar */
+    padding-right: 5px; /* Padding for the text inside the bar */
+    border-radius: 5px; /* If you want rounded corners */
+}
+
+.percentage-text {
+    padding-left: 10px; /* Space between the bar and the text */
+    white-space: nowrap; /* Ensures the text does not wrap */
 }

@@ -52,7 +52,7 @@ namespace HastyBLCAdmin.Controllers
         /// Returns Home View.
         /// </summary>
         /// <returns> Home View </returns>
-        
+
 
         [HttpGet]
         [AllowAnonymous]
@@ -89,13 +89,14 @@ namespace HastyBLCAdmin.Controllers
                     // Set the imagePath variable to be used in your service or repository method
                     _bookService.AddBook(model, filePath);
                     return RedirectToAction("Books", "Books");
-                } else
+                }
+                else
                 {
                     // Set the imagePath variable to be used in your service or repository method
                     _bookService.AddBook(model, "");
                     return RedirectToAction("Books", "Books");
                 }
-                
+
 
             }
             catch (InvalidDataException ex)
@@ -110,16 +111,16 @@ namespace HastyBLCAdmin.Controllers
         }
 
         [HttpPost]
-        public IActionResult DeleteBook(int bookId) 
+        public IActionResult DeleteBook(int bookId)
         {
             try
             {
-                _bookService.DeleteBook(bookId); 
+                _bookService.DeleteBook(bookId);
                 TempData["SuccessMessage"] = "Book deleted successfully.";
                 return RedirectToAction("Books", "Books");
 
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 TempData["ErrorMessage"] = $"Error deleting book: {ex.Message}";
             }
@@ -130,7 +131,7 @@ namespace HastyBLCAdmin.Controllers
         [HttpGet]
         public IActionResult EditBook(int bookId)
         {
-            var existingBook = _context.Books.Include(book=> book.Author).Include(book => book.BookGenres)!
+            var existingBook = _context.Books.Include(book => book.Author).Include(book => book.BookGenres)!
                     .ThenInclude(bookGenre => bookGenre.Genre)
                 .FirstOrDefault(book => book.BookId == bookId);
 
@@ -267,21 +268,47 @@ namespace HastyBLCAdmin.Controllers
                         UpdatedBy = comment.UpdatedBy,
                         UpdatedTime = comment.UpdatedTime,
                     }).ToList()
-                }).ToList()
+                }).ToList(),
+                Percentages = new double[5]
             };
 
-            // Calculate average ratings for book
-            if (book.Reviews != null && book.Reviews.Count > 0)
+            if (book.Reviews != null && book.Reviews.Any())
             {
-                bookViewModel.AverageRating = book.Reviews.Average(review => review.Rating);
+                var totalRatings = book.Reviews.Sum(review => review.Rating);
+                var totalReviews = book.Reviews.Count;
+                var ratingsCount = new int[5];
+
+                foreach (var review in book.Reviews)
+                {
+                    int index = review.Rating - 1;
+                    if (index >= 0 && index < ratingsCount.Length)
+                    {
+                        ratingsCount[index]++;
+                    }
+                }
+
+                decimal averageRating = totalReviews > 0 ? (decimal)totalRatings / totalReviews : 0;
+                bookViewModel.AverageRating = (double)averageRating;
+                bookViewModel.AverageRatingRounded = Math.Round(averageRating, 1);
+                bookViewModel.RoundedRating = (int)Math.Round(averageRating);
+
+                for (int i = 0; i < ratingsCount.Length; i++)
+                {
+                    bookViewModel.Percentages[i] = totalReviews > 0 ? (double)ratingsCount[i] / totalReviews * 100 : 0;
+                }
             }
             else
             {
                 bookViewModel.AverageRating = 0;
+                bookViewModel.AverageRatingRounded = 0;
+                bookViewModel.RoundedRating = 0;
             }
 
+            // Now that we've finished setting up our model, we can return it to the view
             return View(bookViewModel);
-        }
+        
+
+    }
 
         [HttpGet]
         public IActionResult Books(int page = 1)
@@ -437,6 +464,8 @@ namespace HastyBLCAdmin.Controllers
             }
             return RedirectToAction("Books", "Books");
         }
+       
+
 
     }
 }

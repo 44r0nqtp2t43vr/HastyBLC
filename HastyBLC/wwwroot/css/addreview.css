@@ -86,7 +86,7 @@
 
 
     .btn-custom:hover {
-        background-color: #506482; /* Darker shade for hover */
+        background-color: #506482; 
         color: #EEDEAA;
     }
 
@@ -95,7 +95,7 @@
     font-size: 16px;
     margin: 15px 0;
 }
-/* This CSS goes in your stylesheets */
+
 .rating {
     color: #ddd; /* Default color for empty stars */
     cursor: pointer;
@@ -119,28 +119,21 @@
     display: none;
 }
 
-/* Style the labels */
-.star-rating-star {
-    cursor: pointer;
-    color: #ccc; /* Default star color */
-}
 
-    /* Change color when radio button is checked */
-    .star-rating-input:checked ~ .star-rating-star i,
-    .star-rating-star:hover ~ .star-rating-star i,
-    .star-rating-star:hover i,
-    .star-rating-input:checked ~ .star-rating-star ~ .star-rating-star i {
-        color: #ffc107; /* Active star color */
-    }
 
 .custom-close-btn {
     background-color: #4CAF50; /* Green background */
     color: white; /* White text */
-    /* Other styles here... */
+    
 }
 
 .custom-comment-btn {
     background-color: #f44336; /* Red background */
     color: white; /* White text */
-    /* Other styles here... */
+  
+}
+
+
+.form-group {
+    margin: 20px
 }

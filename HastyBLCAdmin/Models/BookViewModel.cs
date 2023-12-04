@@ -29,6 +29,10 @@ namespace HastyBLCAdmin.Models
         public IFormFile? ImageFile { get; set; }
         public List<ReviewViewModel>? Reviews { get; set; }
         public double AverageRating { get; set; }
+        public decimal AverageRatingRounded { get; set; }
+        public int RoundedRating { get; set; }
+        public int TotalReviews { get; set; }
+        public double[] Percentages { get; set; }
     }
 
 

@@ -26,12 +26,13 @@
                     <span asp-validation-for="UserEmail" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label>Stars:</label><br />
+                    <label class="form-label">Stars:</label><br />
                     @for (int i = 1; i <= 5; i++)
                     {
-                        <input type="radio" id="addReviewRating@i" name="Rating" value="@i" required class="star-rating-input" />
-                        <label for="addReviewRating@i" class="star-rating-star"><i class="far fa-star"></i></label>
+                        <input type="radio" id="editReviewRating@i" name="Rating" value="@i" required />
+                        <label for="editReviewRating@i" class="fa fa-star"></label>
                     }
+
                 </div>
 
 
@@ -55,3 +56,63 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="~/js/book.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var stars = document.querySelectorAll('.form-group .fa-star');
+        var ratingInput = document.querySelector('input[name="Rating"]');
+
+        stars.forEach(function (star, index) {
+            star.addEventListener('click', function () {
+                var newRating = index + 1; // Calculate new rating based on the star index
+
+                // Update the stars display in the modal
+                stars.forEach(function (s, idx) {
+                    if (idx < newRating) {
+                        s.classList.add('checked');
+                    } else {
+                        s.classList.remove('checked');
+                    }
+                });
+
+                // Set the value of the hidden rating input in the modal
+                ratingInput.value = newRating;
+
+                // Trigger a change event on the rating input to update the model value
+                var event = new Event('change');
+                ratingInput.dispatchEvent(event);
+
+                // Update the stars display in the ViewBook page
+                updateStarsInViewBook(newRating);
+            });
+        });
+
+        function updateStarsInViewBook(rating) {
+            // Update the stars display in the ViewBook page
+            var viewBookStars = document.querySelectorAll('.avg-rating .fa-star');
+
+            viewBookStars.forEach(function (star, index) {
+                if (index < rating) {
+                    star.classList.add('checked');
+                } else {
+                    star.classList.remove('checked');
+                }
+            });
+        }
+
+        // Handle the edit button click event
+        var editButtons = document.querySelectorAll('.editReviewBtn');
+        editButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                var rating = this.getAttribute('data-review-rating');
+                var reviewId = this.getAttribute('data-review-id');
+
+                document.getElementById('editReviewId').value = reviewId;
+
+                if (rating) {
+                    updateStarRating(parseInt(rating));
+                    updateStarsInViewBook(parseInt(rating));
+                }
+            });
+        });
+    });
+</script>

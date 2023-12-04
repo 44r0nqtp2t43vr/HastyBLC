@@ -61,13 +61,21 @@
         object-fit: cover;
     }
 .file-icon {
+    width: 50px;
+    height: 35px;
     position: absolute;
-    top: 0rem;
+    top: 1rem;
     left: 13rem;
     color: white;
     font-size: 24px;
     border-radius: 10px;
+    background-color: #EEDEAA;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .title-author-container {
     display: flex;
     flex-direction: column;
