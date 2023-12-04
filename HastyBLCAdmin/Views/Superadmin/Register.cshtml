@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="~/css/registeruser.css" />
 }
 
-<div class="user-master-create">
-    <div class="div">
+<html>
+<body>
+<div class="user-master-register">
+    <div>
         <header class="header">
             <div class="text-wrapper">Hasty Book Lovers’ Club</div>
             <div class="text-wrapper-2">
@@ -27,41 +29,42 @@
             </form> *@
             <img class="logo" alt="Logo" src="~/img/logo.png" />
         </header>
-        <div class="create-role-section">
-            <div class="overlap">
+        <div class="register-user-section">
+            <div class="register-user">
                 <form method="post" action="/Superadmin/Register">
-                    <div class="role-name-input-box">
+                    <div>
                         <label class="text-wrapper-6" for="email">Email</label>
-                        <input class="role-name-input-box-2" type="text" id="email" class="form-control"
-                               asp-for="Email" placeholder="Enter email" />
+                        <input class="user-name-input-box-2" type="text" id="email" class="form-control"
+                                asp-for="Email" placeholder="  Enter email" />
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
                     <div>
                         <label class="text-wrapper-7" for="username">Name</label>
-                        <input class="role-name-input-box-3" type="text" id="username" class="form-control"
-                               asp-for="Username" placeholder="Enter name" />
+                            <input class="user-name-input-box-3" type="text" id="username" class="form-control"
+                                asp-for="Username" placeholder="  Enter name" />
                         <span asp-validation-for="Username" class="text-danger"></span>
                     </div>
                     <div>
                         <label class="text-wrapper-8" for="password">Password</label>
-                        <input class="role-name-input-box-4" type="password" id="password" class="form-control"
-                               asp-for="Password" placeholder="Enter password" />
+                            <input class="user-name-input-box-4" type="password" id="password" class="form-control"
+                                asp-for="Password" placeholder="  Enter password" />
                         <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
                     <div>
                         <label class="text-wrapper-4" for="confirmpassword">Confirm Password</label>
-                        <input class="role-name-input-box" type="password" id="confirmpassword" class="form-control"
-                               asp-for="ConfirmPassword" placeholder="Confirm Password" />
+                            <input class="user-name-input-box" type="password" id="confirmpassword" class="form-control"
+                                asp-for="ConfirmPassword" placeholder="  Confirm Password" />
                         <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                     </div>
                     <div class="register-user-button">
-                        <div class="overlap-group">
+                        <div class="register-user-box">
                             <input type="submit" value="Register User" class="text-wrapper-5" />
                         </div>
                     </div>
                 </form>
+                    <div class="text-wrapper-10">CREATE/REGISTER USER</div>
                 <div>
-                    <a class="text-wrapper-7" asp-action="Index">
+                    <a class="text-wrapper-9" asp-action="Index">
                         <img class="icon-return" alt="Icon return" src="~/img/back.png" />
                         Back to List
                     </a>
@@ -70,6 +73,8 @@
         </div>
     </div>
 </div>
+</body>
+</html>
 
 @section scripts {
     <script>

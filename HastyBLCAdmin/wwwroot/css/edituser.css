@@ -30,6 +30,10 @@
     color: #ffe082;
 }
 
+.form-name {
+    color: #EEDEAA;
+}
+
 .form-control {
     background-color: #EEDEAA;
     border: 1px solid #AF924A;
@@ -44,7 +48,7 @@
 .modal-footer {
     border-top: none;
     padding: 20px;
-    justify-content: end; /* This separates the buttons */
+    justify-content: end; 
 }
 
 .btn-close {
