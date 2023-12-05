@@ -496,6 +496,10 @@ footer {
 
 .list-text {
     color: #eedeaa;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 100%;
 }
 
 .list > .row.mb-3 > div {
