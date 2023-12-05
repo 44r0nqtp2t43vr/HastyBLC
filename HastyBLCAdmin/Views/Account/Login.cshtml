@@ -12,14 +12,12 @@
 </div>
 <div class="row d-flex justify-content-center align-items-center w-100" style="min-height: 100vh">
     <div class="col-xl-10">
-        <div class="card rounded-3 text-black" style="background-color: #EEDEAA">
+        <div class="card rounded-3 text-black" style="background-color: #EEDEAA; border: none;">
             <div class="row g-0 w-1080px">
                 <div class="col-lg-6 d-flex align-items-center">
-                    <!-- Image on the left -->
                     <img style="width:108%; height:100%" src="~/img/HastyBLCLoginBackground.jpg" />
                 </div>
                 <div class="col-lg-6">
-                    <!-- Content on the right -->
                     <div class="card-body p-md-5 mx-md-4">
                         <div class="text-center">
                             <img src="~/img/logo.png"
@@ -41,7 +39,7 @@
                                 <input type="password" id="form2Example22" class="form-control custom-input" asp-for="Password" placeholder="Enter password" />
                                 <span asp-validation-for="Password" class="text-danger"></span>
                                 <div style="display: flex; justify-content: space-between; align-items: center;">
-                                    <div></div> <!-- This creates space on the left -->
+                                    <div></div>
                                     <a asp-controller="Account" asp-action="ForgotPassword" class="text-muted text-decoration-none" style="font-size: 12px; color: #665A38">Forgot Password? @ForgotPass</a>
                                 </div>
                             </div>
@@ -61,7 +59,6 @@
 
 @section scripts {
     <script>
-        // Check for error message and display Toastr notification
         var errorMessage = '@TempData["ErrorMessage"]';
         if (errorMessage) {
             toastr.error(errorMessage);
