@@ -106,9 +106,6 @@
                                             {
                                                 <li>
                                                     <span class="list-text">@userRole.Name</span>
-                                                    <button class="btn btn-outline-danger addUserRoleBtn" data-user-id="@user.Id">
-                                                        <img src="~/img/addrole2.png" alt="AddRole" style="width: 30px; height: 30px;" />
-                                                    </button>
                                                     <form method="post" action="/Superadmin/DeleteUserRole" class="d-inline-block">
                                                         <input type="hidden" name="userId" value="@user.Id" />
                                                         <input type="hidden" name="roleName" value="@userRole.Name" />
@@ -124,6 +121,9 @@
                                         <strong class="list-text">User Option:</strong>
                                         <ul class="user-list">
                                             <li>
+                                                <button class="btn btn-outline-danger addUserRoleBtn" data-user-id="@user.Id">
+                                                    <img src="~/img/addrole2.png" alt="AddRole" style="width: 30px; height: 30px;" />
+                                                </button>
                                                 <button class="btn btn-outline-danger editUserBtn" data-user-id="@user.Id" data-user-email="@user.Email" data-user-name="@user.UserName">
                                                     <img src="~/img/edit2.png" alt="Edit" style="width: 30px; height: 30px;" />
                                                 </button>
