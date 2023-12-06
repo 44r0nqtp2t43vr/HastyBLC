@@ -153,6 +153,15 @@ namespace Services.Services
             return _repository.GetBooks().Include(book => book.Author).Include(book => book.BookGenres)!.ThenInclude(bookGenre => bookGenre.Genre);
         }
 
+        public IEnumerable<Book> GetTopBooks()
+        {
+            return _repository.GetBooks().Include(book => book.Reviews).OrderByDescending(b => b.Reviews!.Any() ? b.Reviews!.Average(r => r.Rating) : -1).ThenBy(b => b.Title);
+        }
+        public IEnumerable<Book> GetNewBooks()
+        {
+            return _repository.GetBooks().Include(book => book.Reviews).Where(b => b.CreatedTime >= DateTime.Now.AddDays(-14)).OrderByDescending(b => b.CreatedTime).ThenByDescending(book => book.BookId);
+        }
+
         public void EditBook(BookViewModel model, string? imagePath)
         {
             var modeldup = model;

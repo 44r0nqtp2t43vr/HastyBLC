@@ -51,22 +51,19 @@ namespace HastyBLCAdmin.Controllers
         [HttpGet]
         public IActionResult Dashboard()
         {
-            var books = _bookService.GetBooksWithReviews();
-            return View(books);
+            var viewModel = new DashboardViewModel
+            {
+                topBooks = _bookService.GetTopBooks().Take(5).ToList(),
+                newBooks = _bookService.GetNewBooks().Take(5).ToList()
+            };
+            return View(viewModel);
         }
 
         [HttpGet]
         public IActionResult NewBooks(int page = 1)
         {
             int pageSize = 10;
-            var books = _bookService.GetBooks();
-
-            var fourteenDaysAgo = DateTime.Now.AddDays(-14);
-            var orderedBooks = books?
-                .Where(book => book.CreatedTime >= fourteenDaysAgo)
-                .OrderByDescending(book => book.CreatedTime)
-                .ThenByDescending(book => book.BookId)
-                .ToList();
+            var orderedBooks = _bookService.GetNewBooks();
 
             int totalItems = orderedBooks?.Count() ?? 0;
             int totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
@@ -76,7 +73,7 @@ namespace HastyBLCAdmin.Controllers
 
             page = Math.Max(1, Math.Min(page, totalPages));
 
-            var currentPageBooks = orderedBooks
+            var currentPageBooks = orderedBooks!
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
@@ -91,22 +88,7 @@ namespace HastyBLCAdmin.Controllers
         public IActionResult TopBooks(int page = 1)
         {
             var pageSize = 10;
-
-            var books = _bookService.GetBooksWithReviews();
-
-            // Calculate average ratings for each book
-            foreach (var book in books)
-            {
-                if (book.Reviews != null && book.Reviews.Count > 0)
-                {
-                    book.AverageRating = book.Reviews.Average(review => review.Rating);
-                }
-                else
-                {
-                    book.AverageRating = 0;
-                }
-            }
-            var orderedBooks = books.OrderByDescending(book => book.AverageRating).ThenBy(b => b.Title).ToList();
+            var orderedBooks = _bookService.GetTopBooks();
 
             int totalItems = orderedBooks.Count();
             int totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
