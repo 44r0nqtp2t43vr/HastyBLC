@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Book>
+﻿@model DashboardViewModel
 @section styles {
     <link rel="stylesheet" href="~/css/HastyBLC.css" />
 }
@@ -24,17 +24,26 @@
         <div>
             <h2 class="title">Top Books</h2>
             <div class="book-row">
-                @foreach (var book in Model.OrderByDescending(b => b.Reviews!.Any() ? b.Reviews!.Average(r => r.Rating) : -1).ThenBy(b => b.Title).Take(5))
+                @if (Model.topBooks == null || Model.topBooks.Count < 1)
                 {
-                    <div class="book-item">
-                        <div class="book-image-container">
-                            <ul>
-                                <a asp-controller="Books" asp-action="ViewBook" asp-route-id="@book.BookId">
-                                    <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
-                                </a>
-                            </ul>
-                        </div>
+                    <div class="book-row" style="justify-content: center; align-items: center;">
+                        <span style="display: inline-block; text-align: center; font-family: 'Josefin Sans', sans-serif;">No Top Books Available</span>
                     </div>
+                }
+                else
+                {
+                    @foreach (var book in Model.topBooks!)
+                    {
+                        <div class="book-item">
+                            <div class="book-image-container">
+                                <ul>
+                                    <a asp-controller="Books" asp-action="ViewBook" asp-route-id="@book.BookId">
+                                        <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
+                                    </a>
+                                </ul>
+                            </div>
+                        </div>
+                    }
                 }
                 <div class="book-row" style="justify-content: center; align-items: center;">
                     <a asp-controller="Dashboard" asp-action="TopBooks" style="text-align: center; display:inline-block">
@@ -46,19 +55,7 @@
         <div>
             <h2 class="title">New Books</h2>
             <div class="book-row">
-                @foreach (var book in Model.Where(b => b.CreatedTime >= DateTime.Now.AddDays(-14)).OrderByDescending(b => b.CreatedTime).ThenByDescending(book => book.BookId).Take(5))
-                {
-                    <div class="book-item">
-                        <div class="book-image-container">
-                            <ul>
-                                <a asp-controller="Books" asp-action="ViewBook" asp-route-id="@book.BookId">
-                                    <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
-                                </a>
-                            </ul>
-                        </div>
-                    </div>
-                }
-                @if (!Model.Any(b => b.CreatedTime >= DateTime.Now.AddDays(-14)))
+                @if (Model.newBooks == null || Model.newBooks.Count < 1)
                 {
                     <div class="book-row" style="justify-content: center; align-items: center;">
                         <span style="display: inline-block; text-align: center; font-family: 'Josefin Sans', sans-serif;">No New Books Available</span>
@@ -66,6 +63,18 @@
                 }
                 else
                 {
+                    @foreach (var book in Model.newBooks)
+                    {
+                        <div class="book-item">
+                            <div class="book-image-container">
+                                <ul>
+                                    <a asp-controller="Books" asp-action="ViewBook" asp-route-id="@book.BookId">
+                                        <img src="~/@Html.Raw(book.Image)" alt="@book.Title" class="book-image" />
+                                    </a>
+                                </ul>
+                            </div>
+                        </div>
+                    }
                     <div class="book-row" style="justify-content: center; align-items: center;">
                         <a asp-controller="Dashboard" asp-action="NewBooks" style="text-align:center; display:block">
                             <span style="display: inline-block; text-align: center; font-family: 'Josefin Sans', sans-serif;">&#8594</span><br>New Books

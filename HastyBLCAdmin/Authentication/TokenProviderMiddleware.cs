@@ -24,7 +24,7 @@ namespace HastyBLCAdmin.Authentication
     {
         private readonly RequestDelegate _next;
         private readonly TokenProviderOptions _options;
-        private ClaimsProvider _claimsProvider;
+        private ClaimsProvider? _claimsProvider;
 
         /// <summary>
         ///     Constructor for RequestDelegate and IOptions
@@ -67,12 +67,12 @@ namespace HastyBLCAdmin.Authentication
             string json = new StreamReader(stream).ReadToEnd();
             var user = JObject.Parse(json);
 
-            var username = user[Constants.Token.Username].ToString();
-            var password = user[Constants.Token.Password].ToString();
+            var username = user[Constants.Token.Username]!.ToString();
+            var password = user[Constants.Token.Password]!.ToString();
 
             var db = context.RequestServices.GetService<HastyDBContext>();
 
-            var identity = await _claimsProvider.GetClaimsIdentityAsync(username, password, db);
+            var identity = await _claimsProvider!.GetClaimsIdentityAsync(username, password, db!);
             if (identity == null)
             {
                 context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
@@ -85,7 +85,7 @@ namespace HastyBLCAdmin.Authentication
             var id = identity.Claims.Where(c => c.Type == Constants.Token.UserID)
                    .Select(c => c.Value).SingleOrDefault();
 
-            var userRole = db.UserRoles
+            var userRole = db!.UserRoles
                 .SingleOrDefault(i => i.UserId == id);
 
             if (userRole == null)
@@ -95,9 +95,9 @@ namespace HastyBLCAdmin.Authentication
                 return;
             }
 
-            var userDb = await userManager.FindByNameAsync(username);
+            var userDb = await userManager!.FindByNameAsync(username);
 
-            var response = GetAuthResponse.Execute(identity, db, userDb);
+            var response = GetAuthResponse.Execute(identity, db, userDb!);
             context.Response.ContentType = Constants.Common.JSONContentType;
             await context.Response.WriteAsync(JsonConvert.SerializeObject(response, new JsonSerializerSettings { Formatting = Formatting.Indented }));
         }

@@ -178,7 +178,7 @@ namespace HastyBLCAdmin.Controllers
                     // Check if the directory exists, if not, create it
                     if (!Directory.Exists(Path.GetDirectoryName(fullPath)))
                     {
-                        Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
+                        Directory.CreateDirectory(Path.GetDirectoryName(fullPath)!);
                     }
 
                     // Save the file to the specified path
