@@ -29,7 +29,7 @@ namespace HastyBLC.Models
         public decimal AverageRatingRounded { get; set; }
         public int RoundedRating { get; set; }
         public int TotalReviews { get; set; }
-        public double[] Percentages { get; set; }
+        public double[]? Percentages { get; set; }
     
 }
 }
