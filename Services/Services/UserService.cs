@@ -16,15 +16,13 @@ namespace Services.Services
 {
     public class UserService : IUserService
     {
-        private readonly HastyDBContext _dbContext;
         private readonly IUserRepository _repository;
         private readonly IMapper _mapper;
 
-        public UserService(IUserRepository repository, IMapper mapper, HastyDBContext dbContext)
+        public UserService(IUserRepository repository, IMapper mapper)
         {
             _mapper = mapper;
             _repository = repository;
-            _dbContext = dbContext;
         }
 
         public LoginResult AuthenticateUser(string userId, string password, ref User user)

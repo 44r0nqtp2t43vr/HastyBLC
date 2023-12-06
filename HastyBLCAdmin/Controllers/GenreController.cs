@@ -20,7 +20,6 @@ namespace HastyBLCAdmin.Controllers
     /// </summary>
     public class GenresController : ControllerBase<GenresController>
     {
-        private readonly HastyDBContext _context;
         private readonly IGenreService _genreService;
         protected new ILogger _logger;
         /// <summary>
@@ -31,14 +30,12 @@ namespace HastyBLCAdmin.Controllers
         /// <param name="configuration"></param>
         /// <param name="localizer"></param>
         /// <param name="mapper"></param>
-        public GenresController(HastyDBContext context,
-                              IHttpContextAccessor httpContextAccessor,
+        public GenresController(IHttpContextAccessor httpContextAccessor,
                               ILoggerFactory loggerFactory,
                               IConfiguration configuration,
                               IGenreService genreService,
                               IMapper? mapper = null) : base(httpContextAccessor, loggerFactory, configuration, mapper)
         {
-            _context = context;
             this._genreService = genreService;
             this._logger = loggerFactory.CreateLogger<GenresController>();
         }
@@ -51,8 +48,8 @@ namespace HastyBLCAdmin.Controllers
         [HttpGet]
         public IActionResult Genres(int page = 1)
         {
-            const int pageSize = 12; // Or any other page size you prefer
-            var genresQuery = _context.Genres.AsQueryable(); // Assuming _context is your database context
+            const int pageSize = 12;
+            var genresQuery = _genreService.GetGenres();
 
             var totalGenres = genresQuery.Count();
             var totalPages = (int)Math.Ceiling(totalGenres / (double)pageSize);
@@ -61,7 +58,7 @@ namespace HastyBLCAdmin.Controllers
             if (page > totalPages) page = totalPages;
 
             var currentPageGenres = genresQuery
-                .OrderBy(genre => genre.Name) // Or order by any other property
+                .OrderBy(genre => genre.Name)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();

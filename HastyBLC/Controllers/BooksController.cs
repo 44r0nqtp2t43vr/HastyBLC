@@ -22,21 +22,16 @@ namespace HastyBLC.Controllers
 {
     public class BooksController : ControllerBase<BooksController>
     {
-        private readonly HastyDBContext _context;
         private readonly IBookService _bookService;
-        private readonly IGenreService _genreService;
         protected new ILogger _logger;
-        public BooksController(HastyDBContext context,
-                              IHttpContextAccessor httpContextAccessor,
+        public BooksController(IHttpContextAccessor httpContextAccessor,
                               ILoggerFactory loggerFactory,
                               IConfiguration configuration,
                               IBookService bookService,
                               IGenreService genreService,
                               IMapper? mapper = null) : base(httpContextAccessor, loggerFactory, configuration, mapper)
         {
-            _context = context;
             this._bookService = bookService;
-            this._genreService = genreService;
             this._logger = loggerFactory.CreateLogger<BooksController>();
         }
 
@@ -117,13 +112,7 @@ namespace HastyBLC.Controllers
         [AllowAnonymous]
         public IActionResult ViewBook(int id)
         {
-            var book = _context.Books
-                .Include(b => b.Author)
-                .Include(b => b.BookGenres)!
-                .ThenInclude(bg => bg.Genre)
-                .Include(b => b.Reviews)! // Include the reviews for the book
-                .ThenInclude(r => r.Comments) // Include comments for each review
-                .FirstOrDefault(b => b.BookId == id);
+            var book = _bookService.GetBooksWithDetails().FirstOrDefault(b => b.BookId == id);
 
             if (book == null)
             {

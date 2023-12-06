@@ -15,6 +15,8 @@ namespace Services.Interfaces
         IEnumerable<Book> GetBooks();
         IEnumerable<Genre> GetGenres();
         IEnumerable<Book> GetBooksWithReviews();
+        IEnumerable<Book> GetBooksWithDetails();
+        IEnumerable<Book> GetBooksWithAuthorsAndGenres();
         void EditBook(BookViewModel model, string? imagePath);
         void AddReview(ReviewViewModel model);
         void AddComment(CommentViewModel model);

@@ -19,7 +19,6 @@ namespace HastyBLC.Controllers
     /// </summary>
     public class DashboardController : ControllerBase<DashboardController>
     {
-        private readonly HastyDBContext _context;
         private readonly IBookService _bookService;
         protected new ILogger _logger;
         /// <summary>
@@ -30,14 +29,12 @@ namespace HastyBLC.Controllers
         /// <param name="configuration"></param>
         /// <param name="localizer"></param>
         /// <param name="mapper"></param>
-        public DashboardController(HastyDBContext context,
-                              IHttpContextAccessor httpContextAccessor,
+        public DashboardController(IHttpContextAccessor httpContextAccessor,
                               ILoggerFactory loggerFactory,
                               IConfiguration configuration,
                               IBookService bookService,
                               IMapper? mapper = null) : base(httpContextAccessor, loggerFactory, configuration, mapper)
         {
-            _context = context;
             this._bookService = bookService;
             this._logger = loggerFactory.CreateLogger<DashboardController>();
         }
@@ -51,12 +48,7 @@ namespace HastyBLC.Controllers
         [AllowAnonymous]
         public IActionResult Dashboard()
         {
-            var books = _context.Books?
-                .Include(book => book.Author!)
-                .Include(book => book.BookGenres!)
-                    .ThenInclude(bookGenre => bookGenre.Genre)
-                .Include(book => book.Reviews);
-
+            var books = _bookService.GetBooksWithReviews();
             return View(books);
         }
 
@@ -65,11 +57,7 @@ namespace HastyBLC.Controllers
         public IActionResult NewBooks(int page = 1)
         {
             int pageSize = 10;
-            var books = _context.Books?
-                .Include(book => book.Author!)
-                .Include(book => book.BookGenres!)
-                    .ThenInclude(bookGenre => bookGenre.Genre)
-                .Include(book => book.Reviews);
+            var books = _bookService.GetBooks();
 
             var fourteenDaysAgo = DateTime.Now.AddDays(-14);
             var orderedBooks = books?
@@ -105,30 +93,21 @@ namespace HastyBLC.Controllers
         {
             var pageSize = 10;
 
-            var books = _context.Books?
-                .Include(book => book.Author!)
-                .Include(book => book.BookGenres!)
-                    .ThenInclude(bookGenre => bookGenre.Genre)
-                .Include(book => book.Reviews);
+            var books = _bookService.GetBooksWithReviews();
 
-
-            var allBooks = books!.ToList();
-
-
-            var booksWithReviews = allBooks
-                .Where(book => book.Reviews != null && book.Reviews.Any())
-                .ToList();
-
-            var booksWithoutReviews = allBooks
-            .Where(book => book.Reviews == null || !book.Reviews.Any())
-            .OrderBy(book => book.Title)
-            .ToList();
-
-
-            var orderedBooks = booksWithReviews
-                .OrderByDescending(book => book.Reviews!.Average(review => review.Rating))
-                .Concat(booksWithoutReviews)
-                .ToList();
+            // Calculate average ratings for each book
+            foreach (var book in books)
+            {
+                if (book.Reviews != null && book.Reviews.Count > 0)
+                {
+                    book.AverageRating = book.Reviews.Average(review => review.Rating);
+                }
+                else
+                {
+                    book.AverageRating = 0;
+                }
+            }
+            var orderedBooks = books.OrderByDescending(book => book.AverageRating).ThenBy(b => b.Title).ToList();
 
             int totalItems = orderedBooks.Count();
             int totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);

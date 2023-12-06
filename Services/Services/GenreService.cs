@@ -16,20 +16,18 @@ namespace Services.Services
 {
     public class GenreService : IGenreService
     {
-        private readonly HastyDBContext _dbContext;
         private readonly IGenreRepository _repository;
         public GenreService(IGenreRepository repository, HastyDBContext dbContext)
         {
             _repository = repository;
-            _dbContext = dbContext;
         }
         public IEnumerable<Genre> GetGenres()
         {
-            return _dbContext.Genres.ToList();
+            return _repository.GetGenres().ToList();
         }
         public Genre GetGenre(int genreId)
         {
-            var genreWithBooks = _dbContext.Genres
+            var genreWithBooks = _repository.GetGenres().AsQueryable()
                 .Where(genre => genre.GenreId == genreId)
                 .Include(genre => genre.BookGenres!)
                     .ThenInclude(bookGenre => bookGenre.Book)

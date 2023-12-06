@@ -20,17 +20,14 @@ namespace Services.Services
 {
     public class BookService : IBookService
     {
-        private readonly HastyDBContext _dbContext;
         private readonly IBookRepository _repository;
         private readonly IMapper _mapper;
         
 
-        public BookService(IBookRepository repository, IMapper mapper, HastyDBContext dbContext)
+        public BookService(IBookRepository repository, IMapper mapper)
         {
             _mapper = mapper;
             _repository = repository;
-            _dbContext = dbContext;
-            
         }
 
         public void AddBook(BookViewModel model, string imagePath)
@@ -46,7 +43,7 @@ namespace Services.Services
                 book.Language = model.Language;
                 book.Format = model.Format;
 
-                var author = _dbContext.Authors.FirstOrDefault(x => x.Name == model.AuthorName);
+                var author = _repository.GetAuthors().FirstOrDefault(x => x.Name == model.AuthorName);
                 if (author == null)
                 {
                     book.Author = new Author()
@@ -66,7 +63,7 @@ namespace Services.Services
 
                 foreach (var genreString in genreStrings)
                 {
-                    var genre = _dbContext.Genres.FirstOrDefault(x => x.Name!.ToLower() == genreString.Trim().ToLower());
+                    var genre = _repository.GetGenres().FirstOrDefault(x => x.Name!.ToLower() == genreString.Trim().ToLower());
                     if (genre == null)
                     {
                         genre = new Genre()
@@ -138,12 +135,22 @@ namespace Services.Services
 
         public IEnumerable<Genre> GetGenres()
         {
-            return _dbContext.Genres.ToList();
+            return _repository.GetGenres().ToList();
         }
 
         public IEnumerable<Book> GetBooksWithReviews()
         {
             return _repository.GetBooks().Include(book => book.Reviews).ToList();
+        }
+
+        public IEnumerable<Book> GetBooksWithDetails()
+        {
+            return _repository.GetBooks().Include(b => b.Author).Include(b => b.BookGenres)!.ThenInclude(bg => bg.Genre).Include(b => b.Reviews)!.ThenInclude(r => r.Comments);
+        }
+
+        public IEnumerable<Book> GetBooksWithAuthorsAndGenres()
+        {
+            return _repository.GetBooks().Include(book => book.Author).Include(book => book.BookGenres)!.ThenInclude(bookGenre => bookGenre.Genre);
         }
 
         public void EditBook(BookViewModel model, string? imagePath)
@@ -169,13 +176,13 @@ namespace Services.Services
                     existingBook.Image = imagePath;
                 }
 
-                existingBook.Author = _dbContext.Authors?.FirstOrDefault(x => x.Name == model.AuthorName);
+                existingBook.Author = _repository.GetAuthors().FirstOrDefault(x => x.Name == model.AuthorName);
 
-                var author = _dbContext.Authors?.FirstOrDefault(x => x.Name == model.AuthorName!.Trim());
+                var author = _repository.GetAuthors().FirstOrDefault(x => x.Name == model.AuthorName!.Trim());
                 if (author == null)
                 {
                     author = new Author { Name = model.AuthorName!.Trim() };
-                    _dbContext.Authors?.Add(author);
+                    _repository.AddAuthor(author);
                 }
                 existingBook.Author = author;
 
@@ -205,7 +212,7 @@ namespace Services.Services
 
                 _repository.EditBook(existingBook);
 
-                var oldBookGenres = _dbContext.BookGenres.Include(bg => bg.Genre).Where(bg => bg.BookId == existingBook.BookId).ToList();
+                var oldBookGenres = _repository.GetBookGenres().Include(bg => bg.Genre).Where(bg => bg.BookId == existingBook.BookId).ToList();
                 foreach (var oldBookGenre in oldBookGenres)
                 {
                     _repository.DeleteBookGenre(oldBookGenre);
@@ -218,7 +225,7 @@ namespace Services.Services
 
                 foreach (var genreString in genreStrings)
                 {
-                    var genre = _dbContext.Genres.FirstOrDefault(x => x.Name!.ToLower() == genreString.Trim().ToLower());
+                    var genre = _repository.GetGenres().FirstOrDefault(x => x.Name!.ToLower() == genreString.Trim().ToLower());
                     if (genre == null)
                     {
                         genre = new Genre()

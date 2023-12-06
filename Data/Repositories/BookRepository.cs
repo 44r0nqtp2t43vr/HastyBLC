@@ -23,6 +23,21 @@ namespace Data.Repositories
             return this.GetDbSet<Book>();
         }
 
+        public IQueryable<Genre> GetGenres()
+        {
+            return this.GetDbSet<Genre>();
+        }
+
+        public IQueryable<Author> GetAuthors()
+        {
+            return this.GetDbSet<Author>();
+        }
+
+        public IQueryable<BookGenre> GetBookGenres()
+        {
+            return this.GetDbSet<BookGenre>();
+        }
+
         public bool BookExists(string isbn)
         {
             return this.GetDbSet<Book>().Any(x => x.Isbn == isbn);
@@ -37,6 +52,12 @@ namespace Data.Repositories
         public void AddGenre(Genre genre)
         {
             this.GetDbSet<Genre>().Add(genre);
+            UnitOfWork.SaveChanges();
+        }
+
+        public void AddAuthor(Author author)
+        {
+            this.GetDbSet<Author>().Add(author);
             UnitOfWork.SaveChanges();
         }
 

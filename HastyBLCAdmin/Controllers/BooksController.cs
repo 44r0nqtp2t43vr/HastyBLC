@@ -24,7 +24,6 @@ namespace HastyBLCAdmin.Controllers
     /// </summary>
     public class BooksController : ControllerBase<BooksController>
     {
-        private readonly HastyDBContext _context;
         private readonly IBookService _bookService;
         protected new ILogger _logger;
 
@@ -36,14 +35,12 @@ namespace HastyBLCAdmin.Controllers
         /// <param name="configuration"></param>
         /// <param name="localizer"></param>
         /// <param name="mapper"></param>
-        public BooksController(HastyDBContext context,
-                              IHttpContextAccessor httpContextAccessor,
+        public BooksController(IHttpContextAccessor httpContextAccessor,
                               ILoggerFactory loggerFactory,
                               IConfiguration configuration,
                               IBookService bookService,
                               IMapper? mapper = null) : base(httpContextAccessor, loggerFactory, configuration, mapper)
         {
-            _context = context;
             this._bookService = bookService;
             this._logger = loggerFactory.CreateLogger<BooksController>();
         }
@@ -131,9 +128,7 @@ namespace HastyBLCAdmin.Controllers
         [HttpGet]
         public IActionResult EditBook(int bookId)
         {
-            var existingBook = _context.Books.Include(book => book.Author).Include(book => book.BookGenres)!
-                    .ThenInclude(bookGenre => bookGenre.Genre)
-                .FirstOrDefault(book => book.BookId == bookId);
+            var existingBook = _bookService.GetBooksWithAuthorsAndGenres().FirstOrDefault(book => book.BookId == bookId);
 
             if (existingBook == null)
             {
@@ -215,13 +210,7 @@ namespace HastyBLCAdmin.Controllers
 
         public IActionResult ViewBook(int id)
         {
-            var book = _context.Books
-                .Include(b => b.Author)
-                .Include(b => b.BookGenres)!
-                .ThenInclude(bg => bg.Genre)
-                .Include(b => b.Reviews)! // Include the reviews for the book
-                .ThenInclude(r => r.Comments) // Include comments for each review
-                .FirstOrDefault(b => b.BookId == id);
+            var book = _bookService.GetBooksWithDetails().FirstOrDefault(b => b.BookId == id);
 
             if (book == null)
             {
@@ -314,7 +303,7 @@ namespace HastyBLCAdmin.Controllers
         public IActionResult Books(int page = 1)
         {
             const int pageSize = 10;
-            var booksQuery = _context.Books.AsQueryable();
+            var booksQuery = _bookService.GetBooks();
 
             var totalBooks = booksQuery.Count();
             var totalPages = (int)Math.Ceiling(totalBooks / (double)pageSize);
@@ -324,6 +313,7 @@ namespace HastyBLCAdmin.Controllers
 
             var currentPageBooks = booksQuery
                 .OrderByDescending(book => book.CreatedTime)
+                .ThenByDescending(book => book.BookId)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();

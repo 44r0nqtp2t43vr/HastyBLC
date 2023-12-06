@@ -10,9 +10,13 @@ namespace Data.Interfaces
     public interface IBookRepository
     {
         IQueryable<Book> GetBooks();
+        IQueryable<Genre> GetGenres();
+        IQueryable<Author> GetAuthors();
+        IQueryable<BookGenre> GetBookGenres();
         bool BookExists(string isbn);
         void AddBook(Book book);
         void AddGenre(Genre genre);
+        void AddAuthor(Author author);
         void AddBookGenre(BookGenre bookGenre);
         void DeleteBookGenre(BookGenre bookGenre);
         void EditBook(Book updatedBook);
