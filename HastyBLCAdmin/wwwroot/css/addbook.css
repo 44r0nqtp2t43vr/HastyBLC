@@ -95,13 +95,19 @@ input[type=file] {
         object-fit: cover;
     }
 .file-icon {
+    width: 50px;
+    height: 35px;
     position: absolute;
-    top: 8rem;
-    left: 23rem;
+    top: 9rem;
+    left: 26rem;
     color: white;
     font-size: 24px;
     border-radius: 10px;
-    
+    background-color: #AF924A;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 textarea {
     width: 100%;

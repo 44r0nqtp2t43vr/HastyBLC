@@ -81,7 +81,7 @@
     grid-column: 1;
     position: relative;
     grid-area: description;
-    margin-top:10rem;
+    margin-top:15rem;
 }
 
     .description-section strong {
@@ -439,4 +439,10 @@
 .percentage-text {
     padding-left: 10px; /* Space between the bar and the text */
     white-space: nowrap; /* Ensures the text does not wrap */
+}
+.no-reviews-message {
+    color: grey;
+    text-align: center;
+    font-style: italic;
+    font-size:15px;
 }
