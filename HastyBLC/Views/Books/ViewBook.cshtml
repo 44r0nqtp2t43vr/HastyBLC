@@ -111,50 +111,60 @@
             <h3 class="book-reviews-title">Book Reviews</h3>
             <button class="btn btn-outline-danger addReviewBtn" data-book-id="@Model.BookId">Review this Book</button>
 
-            @foreach (var review in Model.Reviews!)
+            @if (Model.Reviews != null && Model.Reviews.Any())
             {
-                <div class="review">
-                    <div class="review-header">
-                        <h4 class="review-author">@review.Name</h4>
-                        <span class="review-email">@review.UserEmail</span>
-                        <div class="review-rating-container">
-                            <div class="rating">
-                                @for (int i = 1; i <= 5; i++)
-                                {
-                                    <span class="fa fa-star @(i <= review.Rating ? "checked" : "")"></span>
-                                }
+                @foreach (var review in Model.Reviews!)
+                {
+                    <div class="review">
+                        <div class="review-header">
+                            <h4 class="review-author">@review.Name</h4>
+                            <span class="review-email">@review.UserEmail</span>
+                            <div class="review-rating-container">
+                                <div class="rating">
+                                    @for (int i = 1; i <= 5; i++)
+                                    {
+                                        <span class="fa fa-star @(i <= review.Rating ? "checked" : "")"></span>
+                                    }
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <p class="review-description">@review.Description</p>
+                        <p class="review-description">@review.Description</p>
 
-                    <!-- Show Comments Button -->
-                    <button class="btn show-comments-btn">
-                        <span class="button-text"> Show Comments</span>
-                        <i class="fas fa-chevron-down icon-expand"></i>
-                        <i class="fas fa-chevron-up icon-collapse" style="display:none;"></i>
-                    </button>
-
-                    <!-- Comments Section for this Review -->
-                    <div class="comments-section" style="display: none;">
-                        @foreach (var comment in review.Comments!)
-                        {
-                            <div class="comment">
-                                <div class="comment-header">
-                                    <h6 class="comment-author">@comment.Name</h6>
-                                    <span class="comment-email">@comment.UserEmail</span>
-                                </div>
-                                <p class="comment-description">@comment.Description</p>
-                            </div>
-                        }
-
-                        <!-- Add Comment Button -->
-                        <button class="btn btn-outline-danger addCommentBtn" data-review-id="@review.ReviewId">
-                            Add Comment
+                        <!-- Show Comments Button -->
+                        <button class="btn show-comments-btn">
+                            <span class="button-text"> Show Comments</span>
+                            <i class="fas fa-chevron-down icon-expand"></i>
+                            <i class="fas fa-chevron-up icon-collapse" style="display:none;"></i>
                         </button>
+
+                        <!-- Comments Section for this Review -->
+                        <div class="comments-section" style="display: none;">
+                            @foreach (var comment in review.Comments!)
+                            {
+                                <div class="comment">
+                                    <div class="comment-header">
+                                        <h6 class="comment-author">@comment.Name</h6>
+                                        <span class="comment-email">@comment.UserEmail</span>
+                                    </div>
+                                    <p class="comment-description">@comment.Description</p>
+                                </div>
+                            }
+
+                            <!-- Add Comment Button -->
+                            <button class="btn btn-outline-danger addCommentBtn" data-review-id="@review.ReviewId">
+                                Add Comment
+                            </button>
+                        </div>
                     </div>
-                </div>
+                }
             }
+            else
+            {
+                <p class="no-reviews-message">No reviews.</p>
+            }
+        </div>
+
+        </div>
 
     
     <script>
