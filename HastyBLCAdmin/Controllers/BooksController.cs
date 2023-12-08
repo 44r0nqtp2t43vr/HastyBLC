@@ -98,13 +98,14 @@ namespace HastyBLCAdmin.Controllers
             }
             catch (InvalidDataException ex)
             {
-                TempData["ErrorMessage"] = ex.Message;
+                TempData["ErrorMessage"] = "An error occurred while adding the book.";
+                return View(model);
             }
             catch (Exception)
             {
-                TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError;
+                TempData["ErrorMessage"] = "An error occurred while adding the book.";
+                return View(model);
             }
-            return View();
         }
 
         [HttpPost]

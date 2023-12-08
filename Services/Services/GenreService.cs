@@ -37,9 +37,9 @@ namespace Services.Services
         public void AddGenre(GenreViewModel model)
         {
             var genre = new Genre();
-            if (!_repository.GenreExists(model.Name!))
+            if (!_repository.GenreExists(model.Name!.Trim()))
             {
-                genre.Name = model.Name;
+                genre.Name = model.Name.Trim();
                 genre.CreatedTime = DateTime.Now;
                 genre.UpdatedTime = DateTime.Now;
                 genre.CreatedBy = System.Environment.UserName;
@@ -58,11 +58,11 @@ namespace Services.Services
         }
         public void EditGenre(GenreViewModel model)
         {
-            if (!_repository.GenreExists(model.Name!))
+            if (!_repository.GenreExists(model.Name!.Trim()))
             {
                 var genre = new Genre();
                 genre.GenreId = model.GenreId;
-                genre.Name = model.Name;
+                genre.Name = model.Name.Trim();
                 genre.UpdatedTime = DateTime.Now;
                 genre.UpdatedBy = System.Environment.UserName;
                 _repository.EditGenre(genre);
