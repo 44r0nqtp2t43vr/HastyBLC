@@ -180,6 +180,10 @@ namespace HastyBLCAdmin.Controllers
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var user = _userService.FindUserByEmail(Input!.Email!);
+                if (user == null)
+                {
+                    return RedirectToPage(returnUrl);
+                }
                 var result = await _signInManager.PasswordSignInAsync(user.UserName!, Input.Password!, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
@@ -214,25 +218,6 @@ namespace HastyBLCAdmin.Controllers
             _logger.LogError("Model is invalid");
             // If we got this far, something failed, redisplay form
             return RedirectToPage(returnUrl);
-
-            /*this._session.SetString("HasSession", "Exist");
-
-            User user = null;
-            var loginResult = _userService.AuthenticateUser(model.UserId, model.Password, ref user);
-            if (loginResult == LoginResult.Success)
-            {
-                // 認証OK
-               // await this._signInManager.SignInAsync(user);
-                this._session.SetString("UserName", user.Name);
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                // 認証NG
-                TempData["ErrorMessage"] = "Incorrect UserId or Password";
-                return View();
-            }
-            return View();*/
         }
 
         /// <summary>

@@ -1,3 +1,19 @@
-﻿@page
+﻿@section styles {
+    <link rel="stylesheet" href="~/css/forgorpassword.css" />
+}
+@{
+    ViewData["Title"] = "Access Denied";
+}
 
-<h2>Access Denied!</h2>
+<div class="center-content">
+    <div class="image">
+        <img src="~/img/logo.png" class="imagehw">
+    </div>
+    <h2>Access Denied</h2>
+
+    <p>This user does not have permission to enter the HastyBLC Admin app</p>
+
+    <p>If a role you once had was removed, please contact the superadmin.</p>
+
+    <a asp-controller="Account" asp-action="Login" class="text-muted text-decoration-none" style="font-size: 24px; color: #665A38; font-weight:bolder">Return to Login</a>
+</div>
