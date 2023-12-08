@@ -58,7 +58,7 @@ namespace Services.Services
 
                 string genreNames = model.GenreNames!;
                 char[] delimiter = { ',' };
-                string[] genreStrings = genreNames.Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
+                string[] genreStrings = genreNames.Split(delimiter, StringSplitOptions.RemoveEmptyEntries).Where(s => !string.IsNullOrWhiteSpace(s)).ToArray();
                 List<Genre> genreList = new List<Genre>();
 
                 foreach (var genreString in genreStrings)
@@ -229,7 +229,7 @@ namespace Services.Services
 
                 string genreNames = model.GenreNames!;
                 char[] delimiter = { ',' };
-                string[] genreStrings = genreNames.Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
+                string[] genreStrings = genreNames.Split(delimiter, StringSplitOptions.RemoveEmptyEntries).Where(s => !string.IsNullOrWhiteSpace(s)).ToArray();
                 List<BookGenre> bookGenreList = new List<BookGenre>();
 
                 foreach (var genreString in genreStrings)
