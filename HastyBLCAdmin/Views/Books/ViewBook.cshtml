@@ -129,83 +129,91 @@
         <div class="book-reviews-section">
             <hr class="section-divider">
     <h3 class="book-reviews-title">Book Reviews</h3>
-
-            @foreach (var review in Model.Reviews!)
+            @if (Model.Reviews != null && Model.Reviews.Any())
             {
-                <div class="review">
-                    <div class="review-header">
-                        <div class="review-header-top">
-                            <h4 class="review-author">@review.Name</h4>
-                            <div class="review-actions">
-                                <button class="btn btn-outline-danger editReviewBtn"
-                                        data-review-id="@review.ReviewId"
-                                        data-review-name="@review.Name"
-                                        data-review-user-email="@review.UserEmail"
-                                        data-review-rating="@review.Rating"
-                                        data-review-description="@review.Description">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-
-                                <button class="btn btn-outline-danger deleteReviewBtn" data-review-id="@review.ReviewId">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <span class="review-email">@review.UserEmail</span>
-                        <div class="review-rating-container">
-
-                            <div class="rating">
-                                @for (int i = 1; i <= 5; i++)
-                                {
-                                    <span class="fa fa-star @(i <= review.Rating ? "checked" : "")"></span>
-                                }
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
-                    <p class="review-description">@review.Description</p>
-                    <hr class="section-divider">
-
-                    <!-- Show Comments Button -->
-                    <button class="btn show-comments-btn">
-                        <span class="button-text"> Show Comments</span>
-                        <i class="fas fa-chevron-down icon-expand"></i>
-                        <i class="fas fa-chevron-up icon-collapse" style="display:none;"></i>
-                    </button>
-
-                    <!-- Comments Section for this Review -->
-                    <div class="comments-section" style="display: none;">
-                        @foreach (var comment in review.Comments!)
-                        {
-                            <div class="comment">
-                                <div class="comment-header">
-                                    <h6 class="comment-author">@comment.Name</h6>
-                                    <span class="comment-email">@comment.UserEmail</span>
-                                </div>
-                                <p class="comment-description">@comment.Description</p>
-
-                                <!-- Comment Actions (Edit and Delete) -->
-                                <div class="comment-actions">
-                                    <button class="btn btn-outline-danger editCommentBtn"
-                                            data-comment-id="@comment.CommentId"
-                                            data-comment-name="@comment.Name"
-                                            data-comment-user-email="@comment.UserEmail"
-                                            data-comment-description="@comment.Description">
+                foreach (var review in Model.Reviews)
+                {
+                    <div class="review">
+                        <div class="review-header">
+                            <div class="review-header-top">
+                                <h4 class="review-author">@review.Name</h4>
+                                <div class="review-actions">
+                                    <button class="btn btn-outline-danger editReviewBtn"
+                                            data-review-id="@review.ReviewId"
+                                            data-review-name="@review.Name"
+                                            data-review-user-email="@review.UserEmail"
+                                            data-review-rating="@review.Rating"
+                                            data-review-description="@review.Description">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <button class="btn btn-outline-danger deleteCommentBtn" data-comment-id="@comment.CommentId">
-                                        <i class="fas fa-trash"></i> 
+
+                                    <button class="btn btn-outline-danger deleteReviewBtn" data-review-id="@review.ReviewId">
+                                        <i class="fas fa-trash"></i>
                                     </button>
                                 </div>
                             </div>
-                            <hr class="section-divider">
-                        }
+                            <span class="review-email">@review.UserEmail</span>
+                            <div class="review-rating-container">
+
+                                <div class="rating">
+                                    @for (int i = 1; i <= 5; i++)
+                                    {
+                                        <span class="fa fa-star @(i <= review.Rating ? "checked" : "")"></span>
+                                    }
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                        <p class="review-description">@review.Description</p>
+                        <hr class="section-divider">
+
+                        <!-- Show Comments Button -->
+                        <button class="btn show-comments-btn">
+                            <span class="button-text"> Show Comments</span>
+                            <i class="fas fa-chevron-down icon-expand"></i>
+                            <i class="fas fa-chevron-up icon-collapse" style="display:none;"></i>
+                        </button>
+
+                        <!-- Comments Section for this Review -->
+                        <div class="comments-section" style="display: none;">
+                            @foreach (var comment in review.Comments!)
+                            {
+                                <div class="comment">
+                                    <div class="comment-header">
+                                        <h6 class="comment-author">@comment.Name</h6>
+                                        <span class="comment-email">@comment.UserEmail</span>
+                                    </div>
+                                    <p class="comment-description">@comment.Description</p>
+
+                                    <!-- Comment Actions (Edit and Delete) -->
+                                    <div class="comment-actions">
+                                        <button class="btn btn-outline-danger editCommentBtn"
+                                                data-comment-id="@comment.CommentId"
+                                                data-comment-name="@comment.Name"
+                                                data-comment-user-email="@comment.UserEmail"
+                                                data-comment-description="@comment.Description">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-outline-danger deleteCommentBtn" data-comment-id="@comment.CommentId">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <hr class="section-divider">
+                            }
+                        </div>
                     </div>
-                </div>
+                }
+           
             }
+            else
+            {
+                <p class="no-reviews-message">No reviews.</p>
+            }
+        </div>
 
 
     

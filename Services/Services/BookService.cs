@@ -86,7 +86,7 @@ namespace Services.Services
                 }
                 else
                 {
-                    book.PublishDate = DateTime.MinValue;
+                    throw new InvalidDataException("Invalid Data");
                 }
 
                 int number;
@@ -96,7 +96,7 @@ namespace Services.Services
                 }
                 else
                 {
-                    book.Pages = 0;
+                    throw new InvalidDataException("Invalid Data");
                 }
 
                 book.CreatedTime = DateTime.Now;
@@ -203,7 +203,7 @@ namespace Services.Services
                 }
                 else
                 {
-                    existingBook.PublishDate = DateTime.MinValue;
+                    throw new InvalidDataException("Invalid Data");
                 }
 
                 int pages;
@@ -213,7 +213,7 @@ namespace Services.Services
                 }
                 else
                 {
-                    existingBook.Pages = 0;
+                    throw new InvalidDataException("Invalid Data");
                 }
 
                 existingBook.UpdatedTime = DateTime.Now;
