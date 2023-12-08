@@ -26,7 +26,12 @@
     </div>
     <div class="user">
         <div class="user-info-container">
-            <span class="username username-truncate">@User.Identity!.Name</span>
+            <span class="username username-truncate">
+                @if (@User.Identity != null)
+                {
+                    @User.Identity.Name
+                }
+            </span>
             <div class="profile-image-container"></div>
         </div>
     </div>
