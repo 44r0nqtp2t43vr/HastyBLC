@@ -36,8 +36,12 @@ namespace Services.Services
         }
         public void AddGenre(GenreViewModel model)
         {
+            if (string.IsNullOrEmpty(model.Name) || string.IsNullOrWhiteSpace(model.Name))
+            {
+                throw new InvalidDataException();
+            }
             var genre = new Genre();
-            if (!_repository.GenreExists(model.Name!.Trim()))
+            if (!_repository.GenreExists(model.Name.Trim()))
             {
                 genre.Name = model.Name.Trim();
                 genre.CreatedTime = DateTime.Now;
@@ -49,7 +53,7 @@ namespace Services.Services
             }
             else
             {
-                throw new InvalidDataException(Resources.Messages.Errors.GenreExists);
+                throw new InvalidDataException();
             }
         }
         public void DeleteGenre(int genreId)
@@ -58,7 +62,11 @@ namespace Services.Services
         }
         public void EditGenre(GenreViewModel model)
         {
-            if (!_repository.GenreExists(model.Name!.Trim()))
+            if (string.IsNullOrEmpty(model.Name) || string.IsNullOrWhiteSpace(model.Name))
+            {
+                throw new InvalidDataException();
+            }
+            if (!_repository.GenreExists(model.Name.Trim()))
             {
                 var genre = new Genre();
                 genre.GenreId = model.GenreId;

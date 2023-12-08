@@ -12,6 +12,10 @@ footer {
     display: none;
 }
 
+.hidden {
+    display: none;
+}
+
 .user-master-register {
     background-color: transparent;
     display: flex;

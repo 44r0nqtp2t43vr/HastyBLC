@@ -220,7 +220,7 @@ namespace HastyBLCAdmin.Controllers
                 } 
                 catch
                 {
-                    TempData["ErrorMessage"] = "An error while signing in";
+                    TempData["ErrorMessage"] = "An error occured while signing in";
                     return View(model);
                 }
                 
@@ -291,6 +291,7 @@ namespace HastyBLCAdmin.Controllers
                     return View("ResetPasswordConfirmation");
                 }
             }
+            TempData["ErrorMessage"] = "A password must have at least 8 characters, an uppercase letter, a number, and a symbol";
             return View(model);
         }
 
