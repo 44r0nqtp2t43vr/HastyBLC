@@ -1,13 +1,13 @@
 ﻿.book-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px; 
+    grid-gap: 0px; 
     width: 100%; 
    
 }
 .book-item {
     box-sizing: border-box; 
-    margin: 5px; 
+    margin: 2px; 
 }
 
 .book-image {
