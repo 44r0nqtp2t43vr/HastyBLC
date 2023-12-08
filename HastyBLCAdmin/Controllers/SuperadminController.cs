@@ -158,14 +158,22 @@ namespace HastyBLCAdmin.Controllers
         public async Task<IActionResult> CreateRole(CreateRoleViewModel createRoleViewModel)
         {
 
-            IdentityResult result = await _userService.CreateRole(createRoleViewModel.RoleName!);
-
-            if (result.Succeeded)
+            try
             {
-                return RedirectToAction("Index", "Superadmin");
-            }
+                IdentityResult result = await _userService.CreateRole(createRoleViewModel.RoleName!);
 
-            return View();
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Superadmin");
+                }
+            }
+            catch
+            {
+                TempData["ErrorMessage"] = "This role is invalid, please try again";
+                return View(createRoleViewModel);
+            }
+            TempData["ErrorMessage"] = "An error occured while creating the role";
+            return View(createRoleViewModel);
         }
 
         [HttpPost]
@@ -185,6 +193,10 @@ namespace HastyBLCAdmin.Controllers
         [HttpPost]
         public async Task<IActionResult> EditRole(AspNetRoleViewModel model)
         {
+            if (string.IsNullOrEmpty(model.Name) || string.IsNullOrWhiteSpace(model.Name))
+            {
+                return RedirectToAction("Index", "Superadmin");
+            }
             // Retrieve the role by ID
             var role = await _roleManager.FindByIdAsync(model.RoleId!);
 
@@ -226,23 +238,28 @@ namespace HastyBLCAdmin.Controllers
                         await _userManager.AddToRoleAsync(identityUser, userRole.Name!);
                     }
                 }*/
-                foreach (var error in result.Errors)
+                /*foreach (var error in result.Errors)
                 {
                     Console.WriteLine($"Error: {error.Description}");
+                }*/
+                if (!result.Succeeded)
+                {
+                    TempData["ErrorMessage"] = "This user is invalid, please try again";
+                    return View(model);
                 }
-
 
                 return RedirectToAction("Index", "Superadmin");
             }
             catch (InvalidDataException ex)
             {
-                TempData["ErrorMessage"] = ex.Message;
+                TempData["ErrorMessage"] = "This user is invalid, please try again";
+                return View(model);
             }
             catch (Exception ex)
             {
-                TempData["ErrorMessage"] = Resources.Messages.Errors.ServerError + ex;
+                TempData["ErrorMessage"] = "This user is invalid, please try again";
+                return View(model);
             }
-            return View();
         }
 
         [HttpPost]
@@ -263,7 +280,7 @@ namespace HastyBLCAdmin.Controllers
                 if (result.Succeeded)
                 {
                     // If a new password is provided, update the password
-                    if (!string.IsNullOrEmpty(model.Password) && model.Password != "noedit")
+                    if (!string.IsNullOrEmpty(model.Password) && !string.IsNullOrWhiteSpace(model.Password) && model.Password != "noedit")
                     {
                         var token = await _userManager.GeneratePasswordResetTokenAsync(user);
                         var _ = await _userManager.ResetPasswordAsync(user, token, model.Password);

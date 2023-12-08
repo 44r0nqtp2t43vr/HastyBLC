@@ -33,7 +33,7 @@
                         <div>
                             <label class="text-wrapper-5" asp-for=" RoleName" class="control-label">Role Name</label>
                             <input class="role-name-input-box" asp-for=" RoleName" />
-                            <span asp-validation-for=" RoleName" class="text-danger"></span>
+                            <span asp-validation-for=" RoleName" class="text-danger hidden"></span>
                         </div>
                         <div class="create-role-button">
                             <div class="overlap-group">
@@ -56,6 +56,13 @@
 </html>
 
 @section Scripts {
+    <script>
+        // Check for error message and display Toastr notification
+        var errorMessage = '@TempData["ErrorMessage"]';
+        if (errorMessage) {
+            toastr.error(errorMessage);
+        }
+    </script>
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }

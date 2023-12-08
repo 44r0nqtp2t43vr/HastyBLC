@@ -259,6 +259,10 @@ namespace Services.Services
 
         public void AddReview(ReviewViewModel model)
         {
+            if (string.IsNullOrWhiteSpace(model.Name) || string.IsNullOrWhiteSpace(model.UserEmail) || string.IsNullOrWhiteSpace(model.Description))
+            {
+                return;
+            }
             var review = new Review();
             review.BookId = model.BookId;
             review.Rating = model.Rating;
@@ -274,6 +278,10 @@ namespace Services.Services
 
         public void AddComment(CommentViewModel model)
         {
+            if (string.IsNullOrWhiteSpace(model.Name) || string.IsNullOrWhiteSpace(model.UserEmail) || string.IsNullOrWhiteSpace(model.Description))
+            {
+                return;
+            }
             var comment = new Comment();
             comment.ReviewId = model.ReviewId;
             comment.Name = model.Name;
@@ -317,6 +325,10 @@ namespace Services.Services
             }
             else
             {
+                if (string.IsNullOrWhiteSpace(model.Name) || string.IsNullOrWhiteSpace(model.UserEmail) || string.IsNullOrWhiteSpace(model.Description))
+                {
+                    return;
+                }
                 existingReview.Name = model.Name;
                 existingReview.UserEmail = model.UserEmail;
                 existingReview.Rating = model.Rating;
@@ -339,6 +351,10 @@ namespace Services.Services
             }
             else
             {
+                if (string.IsNullOrWhiteSpace(model.Name) || string.IsNullOrWhiteSpace(model.UserEmail) || string.IsNullOrWhiteSpace(model.Description))
+                {
+                    return;
+                }
                 existingComment.Name = model.Name;
                 existingComment.UserEmail = model.UserEmail;
                 existingComment.Description = model.Description;
