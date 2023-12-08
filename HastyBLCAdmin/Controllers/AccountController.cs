@@ -182,38 +182,48 @@ namespace HastyBLCAdmin.Controllers
                 var user = _userService.FindUserByEmail(Input!.Email!);
                 if (user == null)
                 {
-                    return RedirectToPage(returnUrl);
+                    TempData["ErrorMessage"] = "This user does not exist";
+                    return View(model);
                 }
-                var result = await _signInManager.PasswordSignInAsync(user.UserName!, Input.Password!, Input.RememberMe, lockoutOnFailure: false);
-                if (result.Succeeded)
+                try
                 {
-                    _logger.LogInformation("User logged in.");
-                    // Check user's role and redirect accordingly
-                    var roles = await _userManager.GetRolesAsync(user);
-                    if (roles.Contains("Superadmin"))
+                    var result = await _signInManager.PasswordSignInAsync(user.UserName!, Input.Password!, Input.RememberMe, lockoutOnFailure: false);
+                    if (result.Succeeded)
                     {
-                        return RedirectToAction("Index", "Superadmin");
-                    }
-                    else if (roles.Contains("Admin"))
-                    {
+                        _logger.LogInformation("User logged in.");
+                        // Check user's role and redirect accordingly
+                        var roles = await _userManager.GetRolesAsync(user);
+                        if (roles.Contains("Superadmin"))
+                        {
+                            return RedirectToAction("Index", "Superadmin");
+                        }
+                        else if (roles.Contains("Admin"))
+                        {
+                            return RedirectToAction("Dashboard", "Dashboard");
+                        }
                         return RedirectToAction("Dashboard", "Dashboard");
                     }
-                    return RedirectToAction("Dashboard", "Dashboard");
-                }
-                if (result.RequiresTwoFactor)
+                    if (result.RequiresTwoFactor)
+                    {
+                        return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
+                    }
+                    if (result.IsLockedOut)
+                    {
+                        _logger.LogWarning("User account locked out.");
+                        return RedirectToPage("./Lockout");
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = "User credentials are invalid. Please try again";
+                        return View(model);
+                    }
+                } 
+                catch
                 {
-                    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
+                    TempData["ErrorMessage"] = "An error while signing in";
+                    return View(model);
                 }
-                if (result.IsLockedOut)
-                {
-                    _logger.LogWarning("User account locked out.");
-                    return RedirectToPage("./Lockout");
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                    return RedirectToPage(returnUrl);
-                }
+                
             }
             _logger.LogError("Model is invalid");
             // If we got this far, something failed, redisplay form
